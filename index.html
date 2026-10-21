@@ -26,7 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <style>
-:root{--ivory:#EBE3D8;--obsidian:#1F1F1F;--sand-mist:#D8D0C4;--concrete-grey:#6E6A64;--terracotta:#D9542B;--amber:#F2A93B;--rose:#E8A598;--sea:#1E5F8C;--deep-sea:#174C70;--teal:#2A8C82;--sage:#8FA77E;--sand:#E8D3B5;--sky:#5CACF5;--soft-sky:#85BAEE;--haze:#CED9EB;--golden-light:#F3E3C2;--sun-glow:#FEDEAF;--pad:clamp(18px,3.4vw,52px)}
+:root{--ivory:#EBE3D8;--obsidian:#1F1F1F;--sand-mist:#D8D0C4;--concrete-grey:#6E6A64;--terracotta:#D9542B;--amber:#F2A93B;--rose:#E8A598;--sea:#1E5F8C;--deep-sea:#174C70;--teal:#2A8C82;--sage:#8FA77E;--sand:#E8D3B5;--sky:#5CACF5;--soft-sky:#85BAEE;--haze:#CED9EB;--golden-light:#F3E3C2;--sun-glow:#FEDEAF;--pad:clamp(18px,3.4vw,52px);--sy1:clamp(110px,14vh,170px);--sy2:clamp(100px,12vh,150px);--sy3:clamp(90px,12vh,140px);--sy4:clamp(130px,18vh,220px);--top1:150px;--top2:130px}
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
 body{margin:0;background:#EBE3D8;color:#1F1F1F;font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}a:hover{color:inherit}
@@ -47,10 +47,13 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 @keyframes jdcWave{0%{transform:scale(.6);opacity:.55}80%{opacity:0}100%{transform:scale(2.6);opacity:0}}
 @keyframes jdcBob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 @media (max-width:1099px){[data-lg-hide]{display:none!important}}
-@media (max-width:899px){[data-secind]{display:none!important}[data-md-static]{position:static!important}}
-@media (max-width:767px){[data-fx=arch]{height:300vh!important}[data-fx=assemble]{height:220vh!important}[data-chbox]{height:300px!important}}
-@media (max-width:639px){[data-sm-hide]{display:none!important}[data-fx=hero]{height:150vh!important}[data-fx=hero] [data-sticky]{height:100svh!important;gap:16px!important;padding-bottom:20px!important}section[style*="clamp(110px,14vh,170px) var(--pad)"],section[style*="clamp(100px,12vh,150px) var(--pad)"],section[style*="clamp(130px,18vh,220px) var(--pad)"],section[style*="clamp(90px,12vh,140px) var(--pad)"],section[style*="clamp(110px,14vh,170px) 0"],section[style*="clamp(100px,12vh,150px) 0"]{padding-top:72px!important;padding-bottom:72px!important}section[style*="150px var(--pad)"],section[style*="130px var(--pad)"]{padding-top:112px!important}section[style*="var(--pad) clamp(1"]{padding-bottom:72px!important}}
+@media (max-width:899px){[data-fx=assemble] [data-sticky]{align-content:space-evenly!important}[data-asm]{order:2}[data-secind]{display:none!important}[data-md-static]{position:static!important}}
+@media (max-width:1099px){[data-fx=arch] [data-sticky]{padding:84px var(--pad) 24px!important;gap:16px!important;justify-content:space-evenly!important}[data-arch-svg]{width:min(88vw,700px,46vh * 1.84)!important}[data-chbox]{align-items:end!important}:root{--sy1:clamp(80px,9vh,112px);--sy2:clamp(72px,8vh,100px);--sy3:clamp(64px,8vh,96px);--sy4:clamp(96px,11vh,140px);--top1:128px;--top2:112px}}
+@media (max-width:767px){[data-fx=arch]{height:300vh!important}[data-fx=assemble]{height:220vh!important}[data-ch] > span + span{font-size:15px!important}}
+@media (max-width:639px){:root{--sy1:64px;--sy2:56px;--sy3:56px;--sy4:64px;--top1:108px;--top2:100px}[data-sm-hide]{display:none!important}[data-fx=hero]{height:auto!important}[data-fx=hero] [data-sticky]{position:relative!important;height:100svh!important;gap:16px!important;padding-bottom:20px!important}[data-fx=assemble] [data-sticky]{padding:84px var(--pad) 24px!important;gap:20px!important}[data-fx=assemble] [data-sticky] > div:last-child{gap:14px!important}[data-asm]{width:clamp(120px,36vw,200px)!important}[data-asm-h]{font-size:32px!important}[data-lead],[data-stag]{margin-top:0!important}[data-gal]{height:min(62vh,420px)!important}[data-ptitle]{--m:clamp(26px,8.6vw,36px)!important}[data-ptitle] > span,[data-wtxt] > span{font-size:20px!important}[data-wtxt] h1{font-size:clamp(36px,12vw,56px)!important}}
+@media (max-height:520px) and (orientation:landscape){:root{--sy1:64px;--sy2:56px;--sy3:56px;--sy4:72px;--top1:100px;--top2:96px}[data-fx=assemble] [data-sticky],[data-fx=arch] [data-sticky]{position:relative!important;height:auto!important;min-height:100vh}[data-fx=assemble],[data-fx=arch]{height:auto!important}}
 @media (min-width:640px){[data-sm-show]{display:none!important}}
+@media (max-width:1099px){[data-ksr]{transition-duration:1.1s!important;transition-delay:0s!important}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}[data-fx=hero],[data-fx=arch],[data-fx=assemble],[data-fx=win]{height:auto!important}[data-sticky]{position:relative!important;height:auto!important;min-height:100vh}}
 </style>
 </helmet>
@@ -169,7 +172,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 
 <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
 <main data-screen-label="Home">
-  <section data-fx="words" data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-label="We don't just build homes. We build legacies." style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-fx="words" data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-label="We don't just build homes. We build legacies." style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1680px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,4vh,48px)">
       <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
       <p aria-hidden="true" style="margin:0;display:flex;flex-wrap:wrap;gap:0 .22em;font-weight:600;font-size:clamp(52px,10.4vw,230px);line-height:.9;letter-spacing:-.065em">
@@ -179,7 +182,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="pos-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="pos-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:60px 7vw">
       <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -203,22 +206,22 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
 
   <section data-fx="assemble" data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="logo-h" style="position:relative;height:300vh">
-    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5vh 7vw;padding:96px var(--pad) 40px;box-sizing:border-box">
-      <div aria-hidden="true" style="position:relative;width:clamp(200px,30vw,440px);aspect-ratio:19/16.2;perspective:900px">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;align-content:center;justify-content:center;gap:5vh 7vw;padding:96px var(--pad) 40px;box-sizing:border-box">
+      <div data-asm="1" aria-hidden="true" style="position:relative;width:clamp(200px,30vw,440px);aspect-ratio:19/16.2;perspective:900px">
         <sc-for list="{{ asmBlocks }}" as="b" hint-placeholder-count="6"><span data-blk="{{ b.i }}" style="position:absolute;left:{{ b.left }};top:{{ b.top }};width:31.579%;height:50%;background:#1F1F1F;clip-path:polygon(0 0,100% 0,83.333% 100%,16.667% 100%);will-change:transform"></span></sc-for>
       </div>
       <div style="flex:0 1 500px;min-width:min(100%,280px);display:flex;flex-direction:column;gap:22px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
         <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Logo story</span>
-        <h2 id="logo-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">A logomark that encapsulates ‘built for life’</h2>
+        <h2 id="logo-h" data-asm-h="1" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">A logomark that encapsulates ‘built for life’</h2>
         <p style="margin:0;font-size:18px;line-height:1.55;max-width:460px;text-wrap:pretty">Six keystones in two courses of three, the upper course stepped by one unit, the way a mason would lay them. A mark built, not drawn.</p>
-        <p style="margin:0;font-size:16px;line-height:1.55;max-width:460px;color:rgba(31,31,31,.74)">A keystone is the wedge-shaped stone at the crown of an arch, set last, holding every other stone in place.</p>
+        <p data-sm-hide="1" style="margin:0;font-size:16px;line-height:1.55;max-width:460px;color:rgba(31,31,31,.74)">A keystone is the wedge-shaped stone at the crown of an arch, set last, holding every other stone in place.</p>
         <span style="display:flex;align-items:baseline;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span data-cnt="1" style="font-size:48px;letter-spacing:-.04em;color:#D9542B;min-width:.7em">0</span>/ 6 stones set</span>
       </div>
     </div>
   </section>
 
-  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="proj-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="proj-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1680px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,8vh,90px)">
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 40px">
         <div style="display:flex;flex-direction:column;gap:22px">
@@ -258,7 +261,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
 
   <sc-if value="{{ showStats }}" hint-placeholder-val="{{ false }}">
-  <section data-bg="#EBE3D8" data-tone="dark" aria-label="JDC in numbers" style="padding:clamp(90px,12vh,140px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" aria-label="JDC in numbers" style="padding:var(--sy3) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:40px clamp(24px,4vw,64px)">
       <sc-for list="{{ stats }}" as="st" hint-placeholder-count="0">
         <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #6E6A64;padding-top:22px"><span style="font-weight:600;font-size:clamp(56px,6vw,96px);line-height:1;letter-spacing:-.06em">{{ st.v }}</span><span style="font-size:16px;line-height:1.45">{{ st.k }}</span></div>
@@ -267,7 +270,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
   </sc-if>
 
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="build-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="build-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
       <div style="display:flex;flex-direction:column;gap:22px;max-width:900px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -285,7 +288,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="promise-h" style="padding:clamp(110px,14vh,170px) var(--pad);color:#EBE3D8">
+  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="promise-h" style="padding:var(--sy1) var(--pad);color:#EBE3D8">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,6vh,70px)">
       <div style="display:flex;flex-direction:column;gap:22px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -300,7 +303,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="val-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="val-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 60px">
         <div style="display:flex;flex-direction:column;gap:22px">
@@ -322,7 +325,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
 
   <sc-if value="{{ showTestimonials }}" hint-placeholder-val="{{ false }}">
-  <section data-bg="#EBE3D8" data-tone="dark" aria-label="Testimonials" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" aria-label="Testimonials" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column">
       <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="0">
         <figure style="margin:0;display:flex;flex-direction:column;gap:18px;padding:40px 0;border-top:1px solid #6E6A64">
@@ -334,7 +337,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
   </sc-if>
 
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="cta-h" style="padding:clamp(110px,14vh,170px) var(--pad);overflow:hidden">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="cta-h" style="padding:var(--sy1) var(--pad);overflow:hidden">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:60px 6vw">
       <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:36px">
         <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Residential · Commercial</span>
@@ -361,14 +364,14 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   <section data-fx="arch" data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-label="The structure is complete. Our story, stone by stone." style="position:relative;height:460vh">
     <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding:96px var(--pad) 40px;box-sizing:border-box">
       <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">The structure is complete.</span>
-      <svg viewBox="0 0 700 380" aria-hidden="true" style="width:min(84vw,700px,64vh * 1.84);height:auto;overflow:visible">
+      <svg data-arch-svg="1" viewBox="0 0 700 380" aria-hidden="true" style="width:min(84vw,700px,64vh * 1.84);height:auto;overflow:visible">
         <line x1="20" y1="372" x2="680" y2="372" stroke="#6E6A64" stroke-width="1"></line>
         <path d="M80 372 A270 270 0 0 1 620 372" fill="none" stroke="#6E6A64" stroke-width="1" stroke-dasharray="3 7"></path>
         <sc-for list="{{ stones }}" as="s" hint-placeholder-count="0"><polygon data-stone="{{ s.order }}" points="{{ s.pts }}" fill="{{ s.fill }}" style="opacity:0;transform-box:fill-box;transform-origin:center;transform:translateY(70px)"></polygon></sc-for>
       </svg>
-      <div data-chbox="1" style="position:relative;width:min(760px,100%);height:220px;text-align:center">
+      <div data-chbox="1" style="display:grid;align-items:center;width:min(760px,100%);text-align:center">
         <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="0">
-          <div data-ch="{{ $index }}" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .8s cubic-bezier(.2,.8,.1,1)">
+          <div data-ch="{{ $index }}" style="grid-area:1/1;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .8s cubic-bezier(.2,.8,.1,1)">
             <span style="font-weight:600;font-size:clamp(28px,2.8vw,40px);letter-spacing:-.035em;line-height:1.06;text-wrap:balance">{{ c.t }}</span>
             <span style="font-size:17px;line-height:1.55;max-width:600px;text-wrap:pretty">{{ c.d }}</span>
           </div>
@@ -377,7 +380,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="mv-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="mv-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
       <div style="display:flex;flex-direction:column;gap:22px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -398,7 +401,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-fx="values" data-vis="1" data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="av-h" style="position:relative;padding:clamp(110px,14vh,170px) 0;overflow:hidden;color:#EBE3D8">
+  <section data-fx="values" data-vis="1" data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="av-h" style="position:relative;padding:var(--sy1) 0;overflow:hidden;color:#EBE3D8">
     <div style="padding:0 var(--pad) 48px;display:flex;flex-direction:column;gap:22px">
       <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
       <span id="av-h" style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">What we stand on</span>
@@ -415,7 +418,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </ul>
   </section>
 
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-label="Personality" style="padding:clamp(130px,18vh,220px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-label="Personality" style="padding:var(--sy4) var(--pad)">
     <div style="max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:30px">
       <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
       <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Personality</span>
@@ -426,7 +429,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="ks-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="ks-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(60px,9vh,110px)">
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:40px 5vw">
         <figure style="flex:0 1 360px;min-width:min(100%,240px);margin:0">
@@ -452,7 +455,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="scmr-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="scmr-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
       <div style="display:flex;flex-direction:column;gap:22px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -460,7 +463,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
       </div>
       <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(20px,2.4vw,36px)">
         <sc-for list="{{ simple }}" as="sp" hint-placeholder-count="4">
-          <li style="display:flex;flex-direction:column;gap:16px;margin-top:{{ sp.mt }}">
+          <li data-stag="1" style="display:flex;flex-direction:column;gap:16px;margin-top:{{ sp.mt }}">
             <div style="aspect-ratio:3/4;overflow:hidden;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);background:#D8D0C4;position:relative">
               <sc-if value="{{ sp.hasImg }}" hint-placeholder-val="{{ true }}"><img src="{{ sp.img }}" alt="{{ sp.alt }}" width="1200" height="1600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></sc-if>
               <sc-if value="{{ sp.noImg }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#D8D0C4 0 10px,#CFC6B9 10px 20px);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font-family:ui-monospace,Menlo,monospace;font-size:13px">[Photograph to be supplied]</div></sc-if>
@@ -472,7 +475,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="lead-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="lead-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:60px 6vw;align-items:flex-start">
       <div data-md-static="1" style="flex:1 1 300px;display:flex;flex-direction:column;gap:22px;position:sticky;top:120px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -480,7 +483,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
         <h2 id="lead-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">[Leadership section heading]</h2>
       </div>
       <sc-for list="{{ leaders }}" as="l" hint-placeholder-count="2">
-        <figure style="flex:0 1 340px;min-width:min(100%,240px);margin:{{ l.mt }} 0 0;display:flex;flex-direction:column;gap:16px">
+        <figure data-lead="1" style="flex:0 1 340px;min-width:min(100%,240px);margin:{{ l.mt }} 0 0;display:flex;flex-direction:column;gap:16px">
           <div style="position:relative;aspect-ratio:3/4;overflow:hidden;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%)">
             <sc-if value="{{ l.hasPhoto }}" hint-placeholder-val="{{ false }}"><img src="{{ l.photo }}" alt="{{ l.name }}" width="900" height="1200" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></sc-if>
             <sc-if value="{{ l.noPhoto }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#EBE3D8 0 10px,#E2D9CD 10px 20px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-size:13px">[Leader photo]</div></sc-if>
@@ -495,7 +498,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 
 <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
 <main data-screen-label="Projects">
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:150px var(--pad) 40px">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:var(--top1) var(--pad) 40px">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px">
         <div style="display:flex;flex-direction:column;gap:22px">
@@ -518,7 +521,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
 
   <sc-if value="{{ isMap }}" hint-placeholder-val="{{ true }}">
-  <section data-bg="#EBE3D8" data-tone="dark" style="padding:0 var(--pad) clamp(100px,12vh,150px)">
+  <section data-bg="#EBE3D8" data-tone="dark" style="padding:0 var(--pad) var(--sy2)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:stretch">
       <div style="flex:1 1 600px;min-width:0;display:flex;flex-direction:column;gap:12px">
         <div style="position:relative;aspect-ratio:4/3;background:#D8D0C4;overflow:hidden">
@@ -562,7 +565,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </sc-if>
 
   <sc-if value="{{ isList }}" hint-placeholder-val="{{ false }}">
-  <section data-bg="#EBE3D8" data-tone="dark" onMouseLeave="{{ listLeave }}" style="padding:0 var(--pad) clamp(100px,12vh,150px)">
+  <section data-bg="#EBE3D8" data-tone="dark" onMouseLeave="{{ listLeave }}" style="padding:0 var(--pad) var(--sy2)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column">
       <sc-for list="{{ plist }}" as="p" hint-placeholder-count="4">
         <a href="{{ p.href }}" onMouseEnter="{{ p.listHover }}" onFocus="{{ p.listHover }}" data-cur="View" aria-hidden="{{ p.hidden }}" tabindex="{{ p.tabi }}" style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:20px;border-bottom:1px solid #6E6A64;overflow:hidden;max-height:{{ p.rowH }};opacity:{{ p.pinOp }};transition:max-height .7s cubic-bezier(.7,0,.2,1), opacity .5s ease, padding .5s;padding:{{ p.rowPad }}">
@@ -612,7 +615,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
       </div>
     </div>
   </section>
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="ri-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="ri-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
       <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -624,7 +627,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
   </sc-if>
 
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="kd-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="kd-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:60px 6vw;align-items:flex-start">
       <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:24px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:{{ pj.marker }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -656,7 +659,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
 
   <sc-if value="{{ pj.showPlans }}" hint-placeholder-val="{{ true }}">
-  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="fp-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="fp-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px 6vw;align-items:flex-end">
       <div style="flex:0 1 380px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:20px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -680,7 +683,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </sc-if>
 
   <sc-if value="{{ pj.showSpecs }}" hint-placeholder-val="{{ true }}">
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:70px 7vw;align-items:flex-start">
       <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:20px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -715,7 +718,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </sc-if>
 
   <sc-if value="{{ pj.showAmen }}" hint-placeholder-val="{{ true }}">
-  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="am-h" style="padding:clamp(100px,12vh,150px) 0">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="am-h" style="padding:var(--sy2) 0">
     <div style="max-width:1680px;margin:0 auto;padding:0 var(--pad);display:flex;flex-direction:column;gap:40px">
       <div style="display:flex;flex-direction:column;gap:20px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -737,7 +740,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </sc-if>
 
   <sc-if value="{{ pj.hasGallery }}" hint-placeholder-val="{{ true }}">
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="gal-h" style="padding:clamp(100px,12vh,150px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="gal-h" style="padding:var(--sy2) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:30px">
       <div style="display:flex;flex-direction:column;gap:20px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -745,7 +748,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
       </div>
       <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(12px,2vw,28px)">
         <sc-for list="{{ pj.gallery }}" as="gi" hint-placeholder-count="0">
-          <button onClick="{{ gi.open }}" data-cur="View" aria-label="Open image: {{ gi.alt }}" style="flex:1 1 {{ gi.w }};min-width:min(100%,320px);height:clamp(320px,62vh,720px);border:none;border-radius:0;padding:0;background:#D8D0C4;overflow:hidden;position:relative">
+          <button onClick="{{ gi.open }}" data-gal="1" data-cur="View" aria-label="Open image: {{ gi.alt }}" style="flex:1 1 {{ gi.w }};min-width:min(100%,320px);height:clamp(320px,62vh,720px);border:none;border-radius:0;padding:0;background:#D8D0C4;overflow:hidden;position:relative">
             <img src="{{ gi.src }}" alt="{{ gi.alt }}" width="2000" height="1333" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:scale 1s cubic-bezier(.2,.8,.1,1)" style-hover="scale:1.04">
             <span style="position:absolute;left:12px;bottom:12px;background:#1F1F1F;color:#EBE3D8;padding:6px 10px;font-size:13px">Artist's impression</span>
           </button>
@@ -755,7 +758,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
   </sc-if>
 
-  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="penq-h" style="padding:clamp(110px,14vh,170px) var(--pad);color:#EBE3D8">
+  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="penq-h" style="padding:var(--sy1) var(--pad);color:#EBE3D8">
     <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
       <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -766,7 +769,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:clamp(90px,12vh,140px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:var(--sy3) var(--pad)">
     <a href="{{ pj.nextHref }}" data-cur="Next" style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:18px">
       <span style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span aria-hidden="true" style="display:block;width:34px;height:24px;background:{{ pj.nextAccent }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>Next project · {{ pj.nextBrand }}</span>
       <span style="display:flex;align-items:center;gap:.25em;font-weight:600;font-size:clamp(56px,8vw,150px);line-height:.92;letter-spacing:-.06em;text-wrap:balance">{{ pj.nextName }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:.6em;height:.6em;flex:0 0 auto"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
@@ -777,7 +780,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 
 <sc-if value="{{ isSelect }}" hint-placeholder-val="{{ false }}">
 <main data-screen-label="JDC Select">
-  <section data-bg="#174C70" data-tone="light" data-sec="1" aria-labelledby="sel-h1" style="position:relative;min-height:100vh;padding:130px var(--pad) 60px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-end;gap:48px 6vw;color:#EBE3D8">
+  <section data-hero="1" data-bg="#174C70" data-tone="light" data-sec="1" aria-labelledby="sel-h1" style="position:relative;min-height:100vh;padding:var(--top2) var(--pad) 60px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-end;gap:48px 6vw;color:#EBE3D8">
     <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:30px">
       <span style="display:flex;align-items:center;gap:10px"><svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:40px;width:auto"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg><span style="font-weight:600;font-size:34px;letter-spacing:-.02em;line-height:1">JDC Select</span></span>
       <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Luxury residential</span>
@@ -793,7 +796,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </figure>
   </section>
 
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="sel-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="sel-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(60px,9vh,110px)">
       <div style="display:flex;flex-direction:column;gap:22px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -816,7 +819,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="nmw-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="nmw-h" style="padding:var(--sy1) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 6vw;align-items:center">
       <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:22px">
         <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#174C70">JDC Select · Navi Mumbai</span>
@@ -832,7 +835,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </div>
   </section>
 
-  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="sel-enq" style="padding:clamp(110px,14vh,170px) var(--pad);color:#EBE3D8">
+  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="sel-enq" style="padding:var(--sy1) var(--pad);color:#EBE3D8">
     <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
       <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -847,7 +850,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 
 <sc-if value="{{ isPlace }}" hint-placeholder-val="{{ false }}">
 <main data-screen-label="JDC Place">
-  <section data-bg="#F2A93B" data-tone="dark" data-sec="1" aria-labelledby="pl-h1" style="position:relative;min-height:100vh;padding:130px var(--pad) 60px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-end;gap:48px 6vw">
+  <section data-hero="1" data-bg="#F2A93B" data-tone="dark" data-sec="1" aria-labelledby="pl-h1" style="position:relative;min-height:100vh;padding:var(--top2) var(--pad) 60px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-end;gap:48px 6vw">
     <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:30px">
       <span style="display:flex;align-items:center;gap:10px"><svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:40px;width:auto"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg><span style="font-weight:600;font-size:34px;letter-spacing:-.02em;line-height:1">JDC Place</span></span>
       <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Commercial</span>
@@ -862,7 +865,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </figure>
   </section>
 
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:clamp(110px,14vh,170px) var(--pad)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:var(--sy1) var(--pad)">
     <a href="#/projects/bkc" data-cur="View" style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-end;gap:40px 6vw">
       <figure style="flex:0 1 480px;min-width:min(100%,260px);margin:0;position:relative">
         <div style="aspect-ratio:2/3;max-height:80vh;overflow:hidden;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%)"><img data-par="-0.05" src="assets/facade-bkc.jpg" alt="BKC ONE facade signage on a dark glass building" width="1333" height="2000" loading="lazy" decoding="async" style="width:100%;height:112%;margin-top:-6%;object-fit:cover"></div>
@@ -881,7 +884,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </a>
   </section>
 
-  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="pl-enq" style="padding:clamp(110px,14vh,170px) var(--pad);color:#EBE3D8">
+  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="pl-enq" style="padding:var(--sy1) var(--pad);color:#EBE3D8">
     <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
       <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -896,7 +899,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 
 <sc-if value="{{ isProgress }}" hint-placeholder-val="{{ false }}">
 <main data-screen-label="Live from site">
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:150px var(--pad) clamp(110px,14vh,170px)">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:var(--top1) var(--pad) var(--sy1)">
     <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
       <div style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:24px">
         <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
@@ -917,7 +920,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 
 <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
 <main data-screen-label="Let's build">
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="display:flex;flex-wrap:wrap;gap:40px 5vw;min-height:100vh;padding:130px var(--pad) 70px;box-sizing:border-box">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="display:flex;flex-wrap:wrap;gap:40px 5vw;min-height:100vh;padding:var(--top2) var(--pad) 70px;box-sizing:border-box">
     <div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:28px">
       <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
       <h1 style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em">{{ contactTitle }}</h1>
@@ -930,7 +933,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     </figure>
   </section>
 
-  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="off-h" style="padding:clamp(100px,12vh,150px) var(--pad)">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="off-h" style="padding:var(--sy2) var(--pad)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 6vw;align-items:stretch">
       <div style="flex:0 1 460px;min-width:0;display:flex;flex-direction:column;gap:30px">
         <h2 id="off-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Office</h2>
@@ -950,7 +953,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 
 <sc-if value="{{ isInfo }}" hint-placeholder-val="{{ false }}">
 <main data-screen-label="Info">
-  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="min-height:80vh;padding:150px var(--pad) clamp(100px,12vh,150px);box-sizing:border-box">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:var(--top1) var(--pad) var(--sy2);box-sizing:border-box">
     <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
       <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
       <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">John Dennis Constructions</span>
@@ -1327,8 +1330,10 @@ class Component extends DCLogic {
   measure() {
     const root = this.root(); if (!root) return; const y = scrollY;
     const abs = el => { const r = el.getBoundingClientRect(); return { el, top: r.top + y, h: r.height }; };
-    this.secs = [...root.querySelectorAll('[data-bg]')].map(el => ({ ...abs(el), bg: el.getAttribute('data-bg'), tone: el.getAttribute('data-tone') }));
+    this.secs = [...root.querySelectorAll('[data-bg]')].map(el => { const bg = el.getAttribute('data-bg'); if (el.tagName === 'SECTION' && el.getAttribute('data-bgset') !== bg && /^#[0-9a-f]{6}$/i.test(bg)) { el.style.backgroundColor = bg; el.setAttribute('data-bgset', bg); } return { ...abs(el), bg, tone: el.getAttribute('data-tone') }; });
     const main = document.getElementById('main'); const first = main && main.querySelector('[data-bg]'); this.firstEnd = first ? abs(first).top + abs(first).h : 0;
+    // Only photo heroes sit under a clear header; on other pages the header turns solid as soon as content scrolls under it.
+    if (first && !first.hasAttribute('data-fx') && !first.hasAttribute('data-hero')) this.firstEnd = Math.min(this.firstEnd, 116);
     this.fxs = [...root.querySelectorAll('[data-fx]')].map(el => ({ ...abs(el), fx: el.getAttribute('data-fx') }));
     this.pars = [...root.querySelectorAll('[data-par]')].map(el => ({ el, k: +el.getAttribute('data-par'), p: el.parentElement }));
     this.marks = [...root.querySelectorAll('[data-sec]')].map(abs);
@@ -1350,7 +1355,7 @@ class Component extends DCLogic {
     this.pending = tmap; this.showFn = el => { el.setAttribute('data-done', '1'); show(el); };
     if (this.reduce || !('IntersectionObserver' in window)) { tmap.forEach(l => l.forEach(this.showFn)); tmap.clear(); }
     else {
-      this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && tmap.has(e.target)) { tmap.get(e.target).forEach(this.showFn); tmap.delete(e.target); this.io.unobserve(e.target); } }), { threshold: 0.01 });
+      this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && tmap.has(e.target)) { tmap.get(e.target).forEach(this.showFn); tmap.delete(e.target); this.io.unobserve(e.target); } }), { threshold: 0.01, rootMargin: '0px 0px 12% 0px' });
       tmap.forEach((_, t) => this.io.observe(t));
       this.vio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) this.vis.add(e.target); else this.vis.delete(e.target); }), { rootMargin: '100px' });
       root.querySelectorAll('[data-vis]').forEach(el => this.vio.observe(el));
@@ -1372,15 +1377,17 @@ class Component extends DCLogic {
     if (!this.secs) return;
     const H = innerHeight, W = innerWidth, y = scrollY; this.ly = y;
     this.checkPending();
-    let bg = null, tone = null, ctone = null;
-    for (const s of this.secs) { const top = s.top - y; if (!bg && top <= H * 0.5 && top + s.h > H * 0.5) bg = s.bg; if (!tone && top <= 38 && top + s.h > 38) tone = s.tone; if (!ctone && top <= this.my && top + s.h > this.my) ctone = s.tone; }
+    let bg = null, tone = null, ctone = null, fbg = null;
+    // The footer paints its own background, so it never drives the page colour; short pages keep the last section's colour.
+    for (const s of this.secs) { const top = s.top - y; const ft = s.el.tagName === 'FOOTER'; if (!ft && !bg && top <= H * 0.5 && top + s.h > H * 0.5) bg = s.bg; if (!ft && top <= H * 0.5) fbg = s.bg; if (!tone && top <= 38 && top + s.h > 38) tone = s.tone; if (!ctone && top <= this.my && top + s.h > this.my) ctone = s.tone; }
+    bg = bg || fbg;
     if (bg && bg !== this.bg) { root.style.backgroundColor = bg; this.bg = bg; }
     const solid = y > this.firstEnd - 76; const dark = solid ? true : tone !== 'light';
     if (dark !== this.state.navDark || solid !== this.state.hdrSolid) this.setState({ navDark: dark, hdrSolid: solid });
 
     for (const f of this.fxs) {
       const top = f.top - y; if (top + f.h < -100 || top > H + 100) continue;
-      const p = this.reduce ? 1 : clamp(-top / Math.max(1, f.h - H)); const fn = this['fx_' + f.fx];
+      const run = f.h - H; const p = this.reduce ? 1 : run > 40 ? clamp(-top / run) : f.fx === 'hero' ? clamp(-top / (H * 0.6)) : clamp((H * 0.85 - top) / (H * 0.85)); const fn = this['fx_' + f.fx];
       if (fn) fn.call(this, f.el, p, { top, height: f.h }, H, W);
     }
     if (!this.reduce) for (const pr of this.pars) { const r = pr.p.getBoundingClientRect(); if (r.bottom < -200 || r.top > H + 200) continue; pr.el.style.transform = `translate3d(0,${((r.top + r.height / 2) - H / 2) * -pr.k}px,0)`; }
