@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>JDC · John Dennis Constructions · Built for Life</title>
+<meta name="description" content="John Dennis Constructions builds homes and workplaces in Mumbai. Built for Life.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="John Dennis Constructions">
+<meta property="og:title" content="JDC · Built for Life">
+<meta property="og:description" content="We don't just build homes. We build legacies.">
+<meta property="og:image" content="assets/hero-mumbai.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 19 16.2'%3E%3Cpath fill='%231F1F1F' d='M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z'/%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/hero-mumbai.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<style>
+:root{--ivory:#EBE3D8;--obsidian:#1F1F1F;--sand-mist:#D8D0C4;--concrete-grey:#6E6A64;--terracotta:#D9542B;--amber:#F2A93B;--rose:#E8A598;--sea:#1E5F8C;--deep-sea:#174C70;--teal:#2A8C82;--sage:#8FA77E;--sand:#E8D3B5;--sky:#5CACF5;--soft-sky:#85BAEE;--haze:#CED9EB;--golden-light:#F3E3C2;--sun-glow:#FEDEAF;--pad:clamp(18px,3.4vw,52px)}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:#EBE3D8;color:#1F1F1F;font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}a:hover{color:inherit}
+button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid #1F1F1F;outline-offset:4px}
+[data-tone=light] :focus-visible,footer :focus-visible,[data-menu] :focus-visible,[data-lightbox] :focus-visible{outline-color:#F2A93B}
+::selection{background:#1F1F1F;color:#EBE3D8}
+html[data-cur-on] body,html[data-cur-on] a,html[data-cur-on] button,html[data-cur-on] label{cursor:none}
+html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
+[data-btn] [data-bks]{width:0!important;margin-right:-12px;transition:width .35s cubic-bezier(.2,.8,.1,1),margin .35s cubic-bezier(.2,.8,.1,1)}
+[data-btn]:hover [data-bks],[data-btn]:focus-visible [data-bks]{width:14px!important;margin-right:0}
+[data-card] [data-img1]{transition:transform 1.2s cubic-bezier(.2,.8,.1,1)}[data-card]:hover [data-img1]{transform:scale(1.04)}
+[data-card] [data-img2]{opacity:0;transition:opacity .6s ease}[data-card]:hover [data-img2]{opacity:1}
+[data-hide-sb]::-webkit-scrollbar{display:none}
+[data-wa-t]{opacity:0;transition:opacity .25s ease}[data-wa]:hover [data-wa-t],[data-wa]:focus-visible [data-wa-t]{opacity:1;transition:opacity .35s ease .15s}
+[data-menu-btn][aria-expanded=false]:hover [data-bar-b]{left:0!important}
+[data-nav]:hover [data-nav-ul],[data-nav]:focus-visible [data-nav-ul]{transform:scaleX(1)!important}
+@keyframes jdcWave{0%{transform:scale(.6);opacity:.55}80%{opacity:0}100%{transform:scale(2.6);opacity:0}}
+@keyframes jdcBob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+@media (max-width:1099px){[data-lg-hide]{display:none!important}}
+@media (max-width:899px){[data-secind]{display:none!important}[data-md-static]{position:static!important}}
+@media (max-width:767px){[data-fx=arch]{height:300vh!important}[data-fx=assemble]{height:220vh!important}[data-chbox]{height:300px!important}}
+@media (max-width:639px){[data-sm-hide]{display:none!important}[data-frame]{flex:0 0 auto!important;aspect-ratio:4/5}[data-fx=hero]{height:150vh!important}}
+@media (min-width:640px){[data-sm-show]{display:none!important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}[data-fx=hero],[data-fx=arch],[data-fx=assemble],[data-fx=win]{height:auto!important}[data-sticky]{position:relative!important;height:auto!important;min-height:100vh}}
+</style>
+</helmet>
+<div data-jdc-root="1" style="position:relative;min-height:100vh;background-color:#EBE3D8;transition:background-color 1s ease;overflow-x:clip">
+
+<a href="#main" onClick="{{ skipToMain }}" style="position:fixed;left:16px;top:-80px;z-index:500;background:#1F1F1F;color:#EBE3D8;padding:14px 20px;font-size:15px;font-weight:600;transition:top .2s" style-focus="top:16px">Skip to content</a>
+
+<sc-if value="{{ showLoader }}" hint-placeholder-val="{{ false }}">
+<div aria-hidden="true" style="position:fixed;inset:0;z-index:300;pointer-events:none">
+  <div style="position:absolute;top:0;bottom:0;left:0;width:50.5%;background:#1F1F1F;transform:{{ doorL }};transition:transform .7s cubic-bezier(.8,0,.2,1)"></div>
+  <div style="position:absolute;top:0;bottom:0;right:0;width:50.5%;background:#1F1F1F;transform:{{ doorR }};transition:transform .7s cubic-bezier(.8,0,.2,1)"></div>
+  <svg viewBox="-2 -4 23 22" style="position:absolute;left:50%;top:50%;width:140px;height:auto;transform:translate(-50%,-50%);opacity:{{ preOp }};transition:opacity .3s ease;overflow:visible">
+    <sc-for list="{{ preStones }}" as="b" hint-placeholder-count="6"><polygon points="{{ b.pts }}" fill="#EBE3D8" style="transform:{{ b.tf }};opacity:{{ b.op }};transition:transform .55s cubic-bezier(.2,.9,.2,1) {{ b.delay }}, opacity .3s ease {{ b.delay }}"></polygon></sc-for>
+  </svg>
+</div>
+</sc-if>
+
+<div aria-hidden="true" style="position:fixed;inset:0;z-index:250;pointer-events:none;display:flex">
+  <span data-tp="0" style="flex:1;margin-right:-1px;transform:translateY(-101%);clip-path:polygon(0 0,100% 0,100% 100%,6% 100%)"></span>
+  <span data-tp="1" style="flex:1;margin-right:-1px;transform:translateY(-101%)"></span>
+  <span data-tp="2" style="flex:1;margin-right:-1px;transform:translateY(-101%)"></span>
+  <span data-tp="3" style="flex:1;margin-right:-1px;transform:translateY(-101%)"></span>
+  <span data-tp="4" style="flex:1;transform:translateY(-101%);clip-path:polygon(0 0,100% 0,94% 100%,0 100%)"></span>
+  <svg data-tpmark="1" viewBox="0 0 19 16.2" style="position:absolute;left:50%;top:50%;width:88px;height:auto;transform:translate(-50%,-50%);opacity:0;transition:opacity .2s ease"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg>
+</div>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:120;height:76px;padding:0 var(--pad);box-sizing:border-box;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;color:{{ navInk }};background-color:{{ hdrBg }};border-bottom:1px solid {{ hdrBorder }};transition:color .45s ease, background-color .45s ease, border-color .45s ease">
+  <a href="#/" aria-label="JDC, John Dennis Constructions, home" style="justify-self:start;display:flex;align-items:center;gap:7px;padding:8px 0">
+    <svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:30px;width:auto;display:block"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg>
+    <span style="font-weight:600;font-size:27px;line-height:1;letter-spacing:-.02em">JDC</span>
+  </a>
+  <nav aria-label="Primary" data-lg-hide="1" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:15px;font-weight:500">
+    <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="4">
+      <a href="{{ n.href }}" data-nav="1" aria-current="{{ n.cur }}" style="padding:8px 0;display:flex;flex-direction:column;gap:4px">{{ n.t }}<span data-nav-ul="1" style="height:2px;background:#D9542B;transform-origin:left;transform:{{ n.ul }};transition:transform .5s cubic-bezier(.2,.8,.1,1)"></span></a>
+    </sc-for>
+  </nav>
+  <div style="grid-column:3;justify-self:end;display:flex;align-items:center;gap:clamp(12px,1.6vw,24px)">
+    <button onClick="{{ openVisit }}" data-btn="1" data-sm-hide="1" aria-haspopup="dialog" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 20px;white-space:nowrap;border:none;border-radius:0;background:{{ hdrBtnBg }};color:{{ hdrBtnFg }};font-size:15px;font-weight:600;transition:background-color .45s, color .45s"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"></rect><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4M9.7 14.6l1.7 1.7 3.1-3.1"></path></svg>Book a site visit</button>
+    <button data-menu-btn="1" data-nav="1" onClick="{{ toggleMenu }}" aria-label="{{ menuAria }}" aria-expanded="{{ menuExpanded }}" aria-controls="jdc-menu" style="background:none;border:none;height:44px;padding:0 0 0 6px;display:flex;align-items:center;gap:14px;font-size:15px;font-weight:500;color:inherit">
+      <span style="display:flex;flex-direction:column;gap:4px;padding-top:6px">{{ menuLabel }}<span data-nav-ul="1" style="height:2px;background:#D9542B;transform-origin:left;transform:scaleX(0);transition:transform .5s cubic-bezier(.2,.8,.1,1)"></span></span>
+      <span aria-hidden="true" style="position:relative;width:26px;height:14px;display:block">
+        <span data-bar-a="1" style="position:absolute;left:0;right:0;top:{{ burgerTop }};height:2px;background:currentColor;transform:{{ burgerA }};transition:transform .5s cubic-bezier(.7,0,.2,1), top .4s"></span>
+        <span data-bar-b="1" style="position:absolute;left:{{ burgerBL }};right:0;bottom:{{ burgerTop }};height:2px;background:currentColor;transform:{{ burgerB }};transition:transform .5s cubic-bezier(.7,0,.2,1), bottom .4s, left .4s"></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<div id="jdc-menu" data-menu="1" role="dialog" aria-modal="true" aria-label="Site menu" style="position:fixed;inset:0;z-index:110;background:#1F1F1F;color:#EBE3D8;clip-path:{{ menuClip }};visibility:{{ menuVis }};transition:clip-path .85s cubic-bezier(.7,0,.2,1), visibility 0s linear {{ menuVisDelay }};display:flex">
+  <div data-sm-hide="1" style="position:relative;flex:0 0 38%;display:flex;flex-direction:column;justify-content:center;gap:18px;padding:110px clamp(24px,3vw,48px) 40px;box-sizing:border-box">
+    <div style="position:relative;width:100%;aspect-ratio:4/5;max-height:62vh;overflow:hidden;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);background:#6E6A64">
+      <sc-if value="{{ menuLoaded }}" hint-placeholder-val="{{ false }}">
+        <sc-for list="{{ menuItems }}" as="m" hint-placeholder-count="0"><div style="position:absolute;inset:0;background-image:url({{ m.img }});background-size:cover;background-position:center;opacity:{{ m.imgOp }};transform:{{ m.imgTf }};transition:opacity .6s ease, transform 1.4s cubic-bezier(.2,.8,.1,1)"></div></sc-for>
+      </sc-if>
+    </div>
+    <span style="display:flex;align-items:center;gap:12px;font-size:14px;line-height:1.45"><span aria-hidden="true" style="display:block;flex:0 0 auto;width:14px;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>{{ menuCaption }}</span>
+  </div>
+  <div data-hide-sb="1" data-lenis-prevent="" style="flex:1 1 auto;min-width:0;overflow:auto;scrollbar-width:none;display:flex;flex-direction:column;justify-content:space-between;gap:44px;padding:110px var(--pad) 34px clamp(18px,3vw,48px);box-sizing:border-box">
+    <nav aria-label="Site" style="display:flex;flex-direction:column">
+      <sc-for list="{{ menuItems }}" as="m" hint-placeholder-count="6">
+        <a href="{{ m.href }}" onMouseEnter="{{ m.hover }}" onFocus="{{ m.hover }}" aria-current="{{ m.cur }}" style="display:flex;align-items:center;gap:18px;padding:12px 0;border-top:1px solid rgba(235,227,216,.18);opacity:{{ m.op }};transform:{{ m.tf }};transition:transform .6s cubic-bezier(.2,.8,.1,1), opacity .4s ease">
+          <span aria-hidden="true" style="display:block;flex:0 0 auto;height:.42em;width:{{ m.ksW }};font-size:clamp(40px,5.4vw,84px);background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);transition:width .5s cubic-bezier(.2,.8,.1,1)"></span>
+          <span style="min-width:0;font-weight:600;font-size:clamp(40px,5.4vw,84px);line-height:1;letter-spacing:-.05em">{{ m.label }}</span>
+        </a>
+      </sc-for>
+    </nav>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 30px;border-top:1px solid rgba(235,227,216,.18);padding-top:24px">
+      <button onClick="{{ openEnq }}" data-btn="1" style="display:flex;align-items:center;gap:12px;height:56px;padding:0 26px;background:#F2A93B;color:#1F1F1F;border:none;border-radius:0;font-size:16px;font-weight:600"><span data-bks="1" aria-hidden="true" style="display:block;width:14px;height:10px;background:#1F1F1F;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>Enquire now</button>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 28px;font-size:16px">
+        <a href="{{ telHref }}" style="display:flex;align-items:center;gap:10px"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg>{{ C.phone }}</a>
+        <a href="{{ mailHref }}" style="display:flex;align-items:center;gap:10px"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14"></rect><path d="M3 6l9 7 9-7"></path></svg>{{ C.email }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div data-secind="1" aria-hidden="true" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:90;display:flex;gap:6px;pointer-events:none"></div>
+
+<div id="main" tabindex="-1" style="outline:none">
+
+<sc-if value="{{ hasPoster }}" hint-placeholder-val="{{ true }}">
+<section data-fx="hero" data-bg="#EBE3D8" data-tone="light" data-sec="1" aria-label="{{ poster.aria }}" style="position:relative;height:190vh">
+  <div data-sticky="1" style="position:sticky;top:0;height:100vh;padding:0;box-sizing:border-box;background:#EBE3D8;display:flex;flex-direction:column;gap:22px">
+    <div data-frame="1" data-slot="hero-photo" style="position:relative;flex:1 1 auto;min-height:0;overflow:hidden;container-type:size;background:linear-gradient(180deg,#5CACF5 0%,#85BAEE 34%,#CED9EB 60%,#F3E3C2 82%,#FEDEAF 100%)">
+      <div data-pimg="1" role="img" aria-label="{{ poster.alt }}" style="position:absolute;inset:-3% 0 -3% 0;will-change:transform;background-image:url({{ poster.img }});background-size:cover;background-position:{{ poster.pos }}"></div>
+      <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,#5CACF5 0%,#85BAEE 34%,#CED9EB 60%,#F3E3C2 82%,#FEDEAF 100%);mix-blend-mode:soft-light;opacity:.7"></div>
+      <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,31,31,.42) 0%,rgba(31,31,31,.12) 38%,rgba(31,31,31,0) 60%,rgba(31,31,31,.42) 100%)"></div>
+      <div data-veilwrap="1" aria-hidden="true" style="position:absolute;left:50%;top:36cqh;width:min(72cqw,74cqh);transform:translateX(-50%);transform-origin:50% 40%;will-change:transform">
+        <svg viewBox="0 0 19 16.2" style="display:block;width:100%;height:auto;overflow:visible">
+          <g data-veil="1" style="opacity:1">
+            <path d="M-60 -60H79V80H-60ZM1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="#EBE3D8" fill-opacity=".5" fill-rule="evenodd" style="opacity:{{ heroInOp }};transition:opacity 1.2s ease .9s"></path>
+            <sc-for list="{{ veilStones }}" as="v" hint-placeholder-count="6"><polygon points="{{ v.pts }}" fill="none" style="opacity:{{ v.op }};transform:{{ v.tf }};transition:transform 1s cubic-bezier(.2,.9,.2,1) {{ v.delay }}, opacity .6s ease {{ v.delay }}"></polygon></sc-for>
+          </g>
+        </svg>
+      </div>
+      <div data-htxt="1" style="position:absolute;left:6cqw;right:6cqw;top:14cqh;display:flex;justify-content:center;will-change:transform">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:22px;opacity:{{ heroInOp }};transform:{{ heroInTf }};transition:opacity 1.2s ease 1.15s, transform 1.4s cubic-bezier(.2,.8,.1,1) 1.15s">
+          <h1 style="margin:0;font-weight:300;font-size:clamp(24px,min(4.4cqw,5.2cqh),56px);line-height:1.25;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:#EBE3D8;text-wrap:balance">
+            <span style="display:block">{{ poster.l1 }}</span>
+            <span style="display:block">{{ poster.l2 }}<strong style="font-weight:700">{{ poster.b }}</strong>{{ poster.l3 }}</span>
+          </h1>
+        </div>
+      </div>
+      <div data-sm-hide="1" style="position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(20px,4cqh,40px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:#EBE3D8">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">John Dennis Constructions · Mumbai</span>
+        <span style="display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500"><span aria-hidden="true" style="display:block;width:14px;height:10px;background:#EBE3D8;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);animation:jdcBob 1.8s ease-in-out infinite"></span></span>
+      </div>
+    </div>
+    <div data-sm-show="1" style="display:flex;flex-direction:column;gap:16px;padding:0 8px">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">John Dennis Constructions · Mumbai</span>
+      <span style="display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500"><span aria-hidden="true" style="display:block;width:14px;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);animation:jdcBob 1.8s ease-in-out infinite"></span></span>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<main data-screen-label="Home">
+  <section data-fx="words" data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-label="We don't just build homes. We build legacies." style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1680px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,4vh,48px)">
+      <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+      <p aria-hidden="true" style="margin:0;display:flex;flex-wrap:wrap;gap:0 .22em;font-weight:600;font-size:clamp(52px,10.4vw,230px);line-height:.9;letter-spacing:-.065em">
+        <sc-for list="{{ stmtWords }}" as="w" hint-placeholder-count="0"><span data-w="1" style="opacity:.14;color:{{ w.color }};transition:opacity .35s ease;padding-bottom:.06em">{{ w.t }}</span></sc-for>
+      </p>
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Built for Life</span>
+    </div>
+  </section>
+
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="pos-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:60px 7vw">
+      <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:26px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Where we sit. Why it matters.</span>
+        <h2 id="pos-h" data-g="110" style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em;text-wrap:balance">
+          <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">The right space doesn't just fit your life.</span></span>
+          <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">It shapes it.</span></span>
+        </h2>
+        <div data-fade="1" style="display:flex;flex-direction:column;gap:18px;max-width:560px;opacity:0;transform:translateY(24px);transition:opacity 1s ease .2s, transform 1s cubic-bezier(.2,.8,.1,1) .2s">
+          <p style="margin:0;font-size:18px;line-height:1.55">JDC doesn't compete on price, prestige, or location. It competes on consequence, the long-term impact of a space on the life lived inside it.</p>
+          <p style="margin:0;font-size:18px;line-height:1.55;font-weight:600">Most builders talk about what they build. JDC talks about what happens after.</p>
+        </div>
+      </div>
+      <figure style="flex:0 1 440px;min-width:min(100%,260px);margin:0;display:flex;flex-direction:column;gap:12px">
+        <div data-ksr="ks" style="aspect-ratio:4/5;overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1);background:#6E6A64">
+          <img data-par="-0.05" src="assets/tower-sunset-tall.jpg" alt="Glass tower with JDC signage at sunset" width="1086" height="1448" loading="lazy" decoding="async" style="width:100%;height:112%;margin-top:-6%;object-fit:cover">
+        </div>
+        <figcaption style="font-size:13px;line-height:1.45;color:rgba(31,31,31,.74)">Artist's impression</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section data-fx="assemble" data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="logo-h" style="position:relative;height:300vh">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:5vh 7vw;padding:96px var(--pad) 40px;box-sizing:border-box">
+      <div aria-hidden="true" style="position:relative;width:clamp(200px,30vw,440px);aspect-ratio:19/16.2;perspective:900px">
+        <sc-for list="{{ asmBlocks }}" as="b" hint-placeholder-count="6"><span data-blk="{{ b.i }}" style="position:absolute;left:{{ b.left }};top:{{ b.top }};width:31.579%;height:50%;background:#1F1F1F;clip-path:polygon(0 0,100% 0,83.333% 100%,16.667% 100%);will-change:transform"></span></sc-for>
+      </div>
+      <div style="flex:0 1 500px;min-width:min(100%,280px);display:flex;flex-direction:column;gap:22px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Logo story</span>
+        <h2 id="logo-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">A logomark that encapsulates ‘built for life’</h2>
+        <p style="margin:0;font-size:18px;line-height:1.55;max-width:460px;text-wrap:pretty">Six keystones in two courses of three, the upper course stepped by one unit, the way a mason would lay them. A mark built, not drawn.</p>
+        <p style="margin:0;font-size:16px;line-height:1.55;max-width:460px;color:rgba(31,31,31,.74)">A keystone is the wedge-shaped stone at the crown of an arch, set last, holding every other stone in place.</p>
+        <span style="display:flex;align-items:baseline;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span data-cnt="1" style="font-size:48px;letter-spacing:-.04em;color:#D9542B;min-width:.7em">0</span>/ 6 stones set</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="proj-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1680px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,8vh,90px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 40px">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+          <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Projects</span>
+          <h2 id="proj-h" style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em">One branded house</h2>
+        </div>
+        <p style="margin:0;font-size:18px;line-height:1.55;max-width:420px">Every sub-brand carries the mark. JDC Select is luxury residential. JDC Place is commercial.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(20px,2.4vw,36px)">
+        <sc-for list="{{ homeProjects }}" as="hp" hint-placeholder-count="4">
+          <a href="{{ hp.href }}" data-card="1" data-cur="View" aria-label="{{ hp.aria }}" style="display:flex;flex-direction:column;background:#EBE3D8">
+            <div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:{{ hp.accent }}">
+              <sc-if value="{{ hp.notWindow }}" hint-placeholder-val="{{ true }}">
+                <img data-img1="1" src="{{ hp.img }}" alt="{{ hp.alt }}" width="1600" height="1200" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ hp.pos }}">
+                <sc-if value="{{ hp.hasImg2 }}" hint-placeholder-val="{{ false }}"><img data-img2="1" src="{{ hp.img2 }}" alt="" width="1600" height="1200" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></sc-if>
+                <span style="position:absolute;left:12px;bottom:12px;background:#1F1F1F;color:#EBE3D8;padding:6px 10px;font-size:13px;line-height:1.2">Artist's impression</span>
+              </sc-if>
+              <sc-if value="{{ hp.isWindow }}" hint-placeholder-val="{{ false }}">
+                <img data-img1="1" src="assets/hero-mumbai.jpg" alt="Mumbai skyline seen through the JDC mark" width="1080" height="1350" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%">
+                <svg viewBox="0 0 40 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%"><path d="{{ hp.winPath }}" fill="#E8A598" fill-rule="evenodd"></path></svg>
+                <span style="position:absolute;left:12px;bottom:12px;background:#1F1F1F;color:#EBE3D8;padding:6px 10px;font-size:13px;line-height:1.2">Coming soon</span>
+              </sc-if>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:14px;padding:clamp(22px,2.4vw,34px)">
+              <span style="display:flex;align-items:center;gap:12px"><span aria-hidden="true" style="display:block;width:34px;height:24px;background:{{ hp.accent }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span><span style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase"><svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:14px;width:auto"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg>{{ hp.brand }}</span></span>
+              <h3 style="margin:0;font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em">{{ hp.name }}</h3>
+              <span style="font-size:17px;line-height:1.5;max-width:420px">{{ hp.line }}</span>
+              <span style="font-size:14px;line-height:1.45;color:rgba(31,31,31,.74)">{{ hp.loc }} · {{ hp.type }}</span>
+              <span style="align-self:flex-start;display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;border-bottom:1px solid transparent;padding-bottom:5px;transition:border-color .25s ease;margin-top:6px" style-hover="border-bottom-color:currentColor">View project<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+      <a href="#/projects" data-cur="Explore" style="align-self:flex-start;display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600;border-bottom:1px solid transparent;padding-bottom:6px;transition:border-color .25s ease" style-hover="border-bottom-color:currentColor">All projects on the map<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+  </section>
+
+  <sc-if value="{{ showStats }}" hint-placeholder-val="{{ false }}">
+  <section data-bg="#EBE3D8" data-tone="dark" aria-label="JDC in numbers" style="padding:clamp(90px,12vh,140px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:40px clamp(24px,4vw,64px)">
+      <sc-for list="{{ stats }}" as="st" hint-placeholder-count="0">
+        <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #6E6A64;padding-top:22px"><span style="font-weight:600;font-size:clamp(56px,6vw,96px);line-height:1;letter-spacing:-.06em">{{ st.v }}</span><span style="font-size:16px;line-height:1.45">{{ st.k }}</span></div>
+      </sc-for>
+    </div>
+  </section>
+  </sc-if>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="build-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
+      <div style="display:flex;flex-direction:column;gap:22px;max-width:900px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">What we build</span>
+        <h2 id="build-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">All messaging flows from one truth: the space shapes the life.</h2>
+      </div>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:0 clamp(24px,3vw,48px)">
+        <sc-for list="{{ build }}" as="b" hint-placeholder-count="4">
+          <li data-fade="1" style="display:flex;flex-direction:column;gap:18px;padding:28px 0 36px;border-top:1px solid #6E6A64;opacity:0;transform:translateY(24px);transition:opacity 1s ease {{ b.delay }}, transform 1s cubic-bezier(.2,.8,.1,1) {{ b.delay }}">
+            <span style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span aria-hidden="true" style="display:block;width:14px;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>{{ b.k }}</span>
+            <span style="font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em;text-wrap:balance">{{ b.t }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="promise-h" style="padding:clamp(110px,14vh,170px) var(--pad);color:#EBE3D8">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,6vh,70px)">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span id="promise-h" style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Brand promise</span>
+        <p data-fade="1" style="margin:0;max-width:900px;font-weight:500;font-size:clamp(28px,2.6vw,36px);line-height:1.2;letter-spacing:-.03em;text-wrap:pretty;opacity:0;transform:translateY(24px);transition:opacity 1s ease, transform 1s cubic-bezier(.2,.8,.1,1)">What you receive from JDC is not just a finished space. It is a space finished to the same standard whether you were watching or not.</p>
+      </div>
+      <p data-g="160" style="margin:0;font-weight:600;font-size:clamp(56px,7.6vw,150px);line-height:.92;letter-spacing:-.06em">
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">Built right.</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">Built once.</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1);color:#F2A93B">Built for the life waiting inside it.</span></span>
+      </p>
+    </div>
+  </section>
+
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="val-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 60px">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+          <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">What we stand on</span>
+          <h2 id="val-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">These are not aspirations.</h2>
+        </div>
+        <p style="margin:0;max-width:420px;font-size:18px;line-height:1.55">They are the decisions we make every day, most of which no one will ever see.</p>
+      </div>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:0 clamp(24px,3vw,48px)">
+        <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
+          <li style="display:flex;flex-direction:column;gap:14px;padding:30px 0 40px;border-top:1px solid #6E6A64">
+            <span style="display:flex;align-items:center;gap:14px"><span aria-hidden="true" style="display:block;width:14px;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span><span style="font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em">{{ v.t }}</span></span>
+            <span style="font-size:18px;line-height:1.55;padding-left:28px">{{ v.d }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <sc-if value="{{ showTestimonials }}" hint-placeholder-val="{{ false }}">
+  <section data-bg="#EBE3D8" data-tone="dark" aria-label="Testimonials" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column">
+      <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="0">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:18px;padding:40px 0;border-top:1px solid #6E6A64">
+          <blockquote style="margin:0;font-weight:500;font-size:clamp(28px,2.6vw,36px);line-height:1.2;letter-spacing:-.03em">“{{ t.q }}”</blockquote>
+          <figcaption style="font-size:15px"><strong>{{ t.who }}</strong> · {{ t.where }}</figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+  </sc-if>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="cta-h" style="padding:clamp(110px,14vh,170px) var(--pad);overflow:hidden">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:60px 6vw">
+      <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:36px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Residential · Commercial</span>
+        <h2 id="cta-h" data-g="120" style="margin:0;font-weight:600;font-size:clamp(72px,12vw,230px);line-height:.84;letter-spacing:-.065em">
+          <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">Find your</span></span>
+          <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">home</span></span>
+        </h2>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px">
+          <button onClick="{{ openVisit }}" data-btn="1" data-cur="Book" aria-haspopup="dialog" style="display:flex;align-items:center;gap:12px;height:56px;padding:0 26px;background:#1F1F1F;color:#EBE3D8;border:none;border-radius:0;font-size:16px;font-weight:600"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"></rect><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4M9.7 14.6l1.7 1.7 3.1-3.1"></path></svg>Book a site visit</button>
+          <a href="{{ waHref }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;font-size:16px;font-weight:600;border-bottom:1px solid transparent;padding-bottom:5px;transition:border-color .25s ease" style-hover="border-bottom-color:currentColor"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" style="flex:0 0 auto"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.870.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 0 1-1.45-5.02c0-5.2 4.240-9.44 9.45-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.04.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.3l5.7-1.5a11.33 11.33 0 0 0 5.76 1.47h.01c6.26 0 11.36-5.1 11.36-11.36 0-3.03-1.18-5.89-3.32-8.03z"></path></svg>WhatsApp<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        </div>
+      </div>
+      <figure style="flex:0 1 380px;min-width:min(100%,240px);margin:0;display:flex;flex-direction:column;gap:12px">
+        <div data-ksr="ks" style="aspect-ratio:3/4;overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1);background:#6E6A64"><img data-par="0.06" src="assets/tower-sunset.jpg" alt="Tower with JDC crown signage against a golden sunset" width="1254" height="1254" loading="lazy" decoding="async" style="width:100%;height:112%;margin-top:-6%;object-fit:cover"></div>
+        <figcaption style="font-size:13px;color:rgba(31,31,31,.74)">Artist's impression</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Our legacy">
+  <section data-fx="arch" data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-label="The structure is complete. Our story, stone by stone." style="position:relative;height:460vh">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding:96px var(--pad) 40px;box-sizing:border-box">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">The structure is complete.</span>
+      <svg viewBox="0 0 700 380" aria-hidden="true" style="width:min(84vw,700px,64vh * 1.84);height:auto;overflow:visible">
+        <line x1="20" y1="372" x2="680" y2="372" stroke="#6E6A64" stroke-width="1"></line>
+        <path d="M80 372 A270 270 0 0 1 620 372" fill="none" stroke="#6E6A64" stroke-width="1" stroke-dasharray="3 7"></path>
+        <sc-for list="{{ stones }}" as="s" hint-placeholder-count="0"><polygon data-stone="{{ s.order }}" points="{{ s.pts }}" fill="{{ s.fill }}" style="opacity:0;transform-box:fill-box;transform-origin:center;transform:translateY(70px)"></polygon></sc-for>
+      </svg>
+      <div data-chbox="1" style="position:relative;width:min(760px,100%);height:220px;text-align:center">
+        <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="0">
+          <div data-ch="{{ $index }}" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;gap:14px;opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .8s cubic-bezier(.2,.8,.1,1)">
+            <span style="font-weight:600;font-size:clamp(28px,2.8vw,40px);letter-spacing:-.035em;line-height:1.06;text-wrap:balance">{{ c.t }}</span>
+            <span style="font-size:17px;line-height:1.55;max-width:600px;text-wrap:pretty">{{ c.d }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="mv-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span id="mv-h" style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Where we're going. Why we go.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:60px clamp(32px,5vw,90px)">
+        <div data-fade="1" style="display:flex;flex-direction:column;gap:20px;border-top:1px solid #6E6A64;padding-top:28px;opacity:0;transform:translateY(24px);transition:opacity 1s ease, transform 1s cubic-bezier(.2,.8,.1,1)">
+          <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Mission</span>
+          <h2 style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">To build spaces that are worthy of the life lived inside them.</h2>
+          <p style="margin:0;font-size:18px;line-height:1.55;max-width:560px">The mission is simple because it has to be. It needs to survive a boardroom and a construction site. “Worthy of the lives inside”: that's the question every JDC project is held against, from foundation to finish.</p>
+        </div>
+        <div data-fade="1" style="display:flex;flex-direction:column;gap:20px;border-top:1px solid #6E6A64;padding-top:28px;opacity:0;transform:translateY(24px);transition:opacity 1s ease .15s, transform 1s cubic-bezier(.2,.8,.1,1) .15s">
+          <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Vision</span>
+          <h2 style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">To be the builder that people point to, not when they move in, but a decade later.</h2>
+          <p style="margin:0;font-size:18px;line-height:1.55;max-width:560px">When the building has become a part of their story. The vision is long. JDC is not building for the market cycle. It's building for the generation that will inherit what we make, and will judge us not on what we said, but on what we left behind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-fx="values" data-vis="1" data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="av-h" style="position:relative;padding:clamp(110px,14vh,170px) 0;overflow:hidden;color:#EBE3D8">
+    <div style="padding:0 var(--pad) 48px;display:flex;flex-direction:column;gap:22px">
+      <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+      <span id="av-h" style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">What we stand on</span>
+    </div>
+    <sc-for list="{{ valueRows }}" as="r" hint-placeholder-count="2">
+      <div data-row="{{ r.dir }}" aria-hidden="true" style="display:flex;align-items:center;gap:.3em;white-space:nowrap;font-weight:600;font-size:clamp(64px,10vw,190px);line-height:1.04;letter-spacing:-.06em;will-change:transform">
+        <sc-for list="{{ r.words }}" as="w" hint-placeholder-count="0"><span style="color:{{ w.c }}">{{ w.t }}</span><span style="display:block;flex:0 0 auto;width:.4em;height:.28em;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span></sc-for>
+      </div>
+    </sc-for>
+    <ul style="list-style:none;margin:clamp(56px,8vh,90px) auto 0;padding:0 var(--pad);max-width:1560px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0 clamp(24px,3vw,48px)">
+      <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
+        <li style="display:flex;flex-direction:column;gap:8px;padding:22px 0 26px;border-top:1px solid rgba(235,227,216,.3)"><span style="font-weight:600;font-size:clamp(20px,1.8vw,24px);letter-spacing:-.02em">{{ v.t }}</span><span style="font-size:16px;line-height:1.55">{{ v.d }}</span></li>
+      </sc-for>
+    </ul>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-label="Personality" style="padding:clamp(130px,18vh,220px) var(--pad)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:30px">
+      <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Personality</span>
+      <p data-g="130" style="margin:0;font-weight:600;font-size:clamp(48px,6vw,96px);line-height:.98;letter-spacing:-.05em;text-wrap:balance">
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">Not a salesman. Not a visionary.</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">Simply, the person you trust with something important.</span></span>
+      </p>
+    </div>
+  </section>
+
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="ks-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(60px,9vh,110px)">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:40px 5vw">
+        <figure style="flex:0 1 360px;min-width:min(100%,240px);margin:0">
+          <div data-ksr="ks" style="aspect-ratio:4/5;overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)"><img src="assets/arch-1.jpg" alt="Stone arch with a carved keystone at its crown, black and white" width="1472" height="1636" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+        </figure>
+        <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:22px;padding-bottom:2vw">
+          <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+          <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">The keystone</span>
+          <h2 id="ks-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">Set last, holding every other stone in place.</h2>
+          <p style="margin:0;font-size:18px;line-height:1.55;max-width:500px">A keystone is the wedge-shaped stone at the crown of an arch. Six of them, in two courses of three, make the JDC mark.</p>
+        </div>
+        <figure data-sm-hide="1" style="flex:0 1 260px;min-width:200px;margin:0 0 0 auto">
+          <div data-ksr="ks" style="aspect-ratio:4/5;overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1) .2s"><img src="assets/arch-2.jpg" alt="Arched niche in a brick wall with a keystone above, black and white" width="819" height="1024" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+        </figure>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px">
+        <h3 style="margin:0;font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em">Two stones carry the brand</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,40px)">
+          <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:4/3;overflow:hidden;background:#EBE3D8;display:flex;align-items:center;justify-content:center"><img src="assets/mark-limestone.jpg" alt="The JDC mark carved in limestone" width="1578" height="1389" loading="lazy" decoding="async" style="width:72%;height:auto;mix-blend-mode:multiply"></div><figcaption style="font-size:16px;font-weight:600">Limestone</figcaption></figure>
+          <figure style="margin:0;display:flex;flex-direction:column;gap:14px"><div style="aspect-ratio:4/3;overflow:hidden;background:#EBE3D8;display:flex;align-items:center;justify-content:center"><img src="assets/mark-charcoal.jpg" alt="The JDC mark cast in charcoal concrete" width="1341" height="1174" loading="lazy" decoding="async" style="width:72%;height:auto;mix-blend-mode:multiply"></div><figcaption style="font-size:16px;font-weight:600">Charcoal concrete</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="scmr-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <h2 id="scmr-h" style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em">Simple. Clean. Modern. Real.</h2>
+      </div>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(20px,2.4vw,36px)">
+        <sc-for list="{{ simple }}" as="sp" hint-placeholder-count="4">
+          <li style="display:flex;flex-direction:column;gap:16px;margin-top:{{ sp.mt }}">
+            <div style="aspect-ratio:3/4;overflow:hidden;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);background:#D8D0C4;position:relative">
+              <sc-if value="{{ sp.hasImg }}" hint-placeholder-val="{{ true }}"><img src="{{ sp.img }}" alt="{{ sp.alt }}" width="1200" height="1600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></sc-if>
+              <sc-if value="{{ sp.noImg }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#D8D0C4 0 10px,#CFC6B9 10px 20px);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font-family:ui-monospace,Menlo,monospace;font-size:13px">[Photograph to be supplied]</div></sc-if>
+            </div>
+            <span style="display:flex;align-items:center;gap:12px;font-weight:600;font-size:clamp(20px,1.8vw,24px);letter-spacing:-.02em"><span aria-hidden="true" style="display:block;width:14px;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>{{ sp.t }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="lead-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:60px 6vw;align-items:flex-start">
+      <div data-md-static="1" style="flex:1 1 300px;display:flex;flex-direction:column;gap:22px;position:sticky;top:120px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Leadership</span>
+        <h2 id="lead-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">[Leadership section heading]</h2>
+      </div>
+      <sc-for list="{{ leaders }}" as="l" hint-placeholder-count="2">
+        <figure style="flex:0 1 340px;min-width:min(100%,240px);margin:{{ l.mt }} 0 0;display:flex;flex-direction:column;gap:16px">
+          <div style="position:relative;aspect-ratio:3/4;overflow:hidden;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%)">
+            <sc-if value="{{ l.hasPhoto }}" hint-placeholder-val="{{ false }}"><img src="{{ l.photo }}" alt="{{ l.name }}" width="900" height="1200" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></sc-if>
+            <sc-if value="{{ l.noPhoto }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#EBE3D8 0 10px,#E2D9CD 10px 20px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-size:13px">[Leader photo]</div></sc-if>
+          </div>
+          <figcaption style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:600;font-size:22px;letter-spacing:-.02em">{{ l.name }}</span><span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ l.role }}</span></figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Projects">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:150px var(--pad) 40px">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+          <h1 data-g="110" style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em"><span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">Projects</span></span></h1>
+        </div>
+        <div role="group" aria-label="View" style="display:flex;gap:6px">
+          <button onClick="{{ viewMap }}" aria-pressed="{{ mapPressed }}" style="display:flex;align-items:center;gap:10px;height:48px;background:{{ mapBtnBg }};color:{{ mapBtnInk }};border:1px solid #1F1F1F;border-radius:0;padding:0 18px;font-size:15px;font-weight:600;transition:background .3s,color .3s"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z M9 4v14 M15 6v14"></path></svg>Map</button>
+          <button onClick="{{ viewList }}" aria-pressed="{{ listPressed }}" style="display:flex;align-items:center;gap:10px;height:48px;background:{{ listBtnBg }};color:{{ listBtnInk }};border:1px solid #1F1F1F;border-radius:0;padding:0 18px;font-size:15px;font-weight:600;transition:background .3s,color .3s"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>List</button>
+        </div>
+      </div>
+      <div role="group" aria-label="Filter projects" style="display:flex;flex-wrap:wrap;gap:8px 30px;border-top:1px solid #6E6A64;padding-top:18px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
+          <button onClick="{{ f.pick }}" aria-pressed="{{ f.pressed }}" style="background:none;border:none;height:44px;padding:0;display:flex;align-items:center;gap:10px;font-size:16px;font-weight:{{ f.fw }}">
+            <span aria-hidden="true" style="display:block;width:14px;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);transform:{{ f.ks }};transition:transform .4s cubic-bezier(.3,1.5,.5,1)"></span>{{ f.label }}
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ isMap }}" hint-placeholder-val="{{ true }}">
+  <section data-bg="#EBE3D8" data-tone="dark" style="padding:0 var(--pad) clamp(100px,12vh,150px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:stretch">
+      <div style="flex:1 1 600px;min-width:0;display:flex;flex-direction:column;gap:12px">
+        <div style="position:relative;aspect-ratio:4/3;background:#D8D0C4;overflow:hidden">
+          <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stylised map of Mumbai and Navi Mumbai, not to scale" style="position:absolute;inset:0;width:100%;height:100%">
+            <g stroke="rgba(110,106,100,.28)" stroke-width="1"><path d="M0 100H800M0 200H800M0 300H800M0 400H800M0 500H800M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600M600 0V600M700 0V600"></path></g>
+            <polygon points="120,0 330,0 336,70 352,130 360,190 344,236 330,262 318,300 304,350 290,400 276,450 262,500 248,545 236,585 222,578 226,530 214,480 206,430 194,380 182,330 170,280 160,220 150,160 136,90" fill="#EBE3D8" stroke="#6E6A64" stroke-width="1"></polygon>
+            <polygon points="352,190 410,196 448,232 452,282 428,322 380,330 340,312 330,262 344,236" fill="#EBE3D8" stroke="#6E6A64" stroke-width="1"></polygon>
+            <polygon points="500,0 800,0 800,600 580,600 566,540 548,470 530,410 520,350 512,290 516,220 506,150 498,80" fill="#EBE3D8" stroke="#6E6A64" stroke-width="1"></polygon>
+            <g fill="#1F1F1F" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" letter-spacing="3"><text x="190" y="80">MUMBAI</text><text x="610" y="250">NAVI MUMBAI</text></g>
+          </svg>
+          <sc-for list="{{ plist }}" as="p" hint-placeholder-count="0">
+            <sc-if value="{{ p.onMap }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ p.href }}" onMouseEnter="{{ p.hover }}" onFocus="{{ p.hover }}" data-cur="Open" aria-label="{{ p.name }}, {{ p.loc }}" aria-hidden="{{ p.hidden }}" tabindex="{{ p.tabi }}" style="position:absolute;left:{{ p.mx }};top:{{ p.my }};width:44px;height:44px;display:flex;align-items:flex-end;justify-content:center;transform:translate(-50%,-100%) scale({{ p.pinScale }});transform-origin:50% 100%;opacity:{{ p.pinOp }};pointer-events:{{ p.pe }};transition:transform .6s cubic-bezier(.3,1.5,.5,1), opacity .5s ease">
+              <span style="display:block;width:30px;height:22px;background:{{ p.accent }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+              <span style="position:absolute;left:{{ p.labL }};right:{{ p.labR }};bottom:{{ p.labB }};top:{{ p.labT }};transform:{{ p.labTf }};background:#1F1F1F;color:#EBE3D8;padding:6px 10px;font-size:13px;font-weight:600;white-space:nowrap;opacity:{{ p.labOp }};transition:opacity .3s">{{ p.name }}</span>
+            </a>
+            </sc-if>
+          </sc-for>
+          <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+            <div role="status" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#EBE3D8;text-align:center;padding:20px">
+              <span style="font-weight:600;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em">No projects in this category yet.</span>
+              <button onClick="{{ showAll }}" style="background:#1F1F1F;color:#EBE3D8;border:none;border-radius:0;height:52px;padding:0 22px;font-size:15px;font-weight:600">Show all projects</button>
+            </div>
+          </sc-if>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-size:14px;line-height:1.45">
+          <span>Stylised map · not to scale</span>
+          <span>{{ offMapNote }}</span>
+        </div>
+      </div>
+      <div style="flex:0 1 380px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:18px;justify-content:flex-end">
+        <div style="position:relative;aspect-ratio:4/5;overflow:hidden;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);background:{{ hp.accent }}">
+          <sc-for list="{{ plist }}" as="p" hint-placeholder-count="0"><img src="{{ p.img }}" alt="" width="800" height="1000" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:{{ p.pos }};opacity:{{ p.panelOp }};transform:{{ p.panelTf }};transition:opacity .6s ease, transform 1.2s cubic-bezier(.2,.8,.1,1)"></sc-for>
+        </div>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ hp.brand }} · {{ hp.loc }}</span>
+        <span style="font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em">{{ hp.name }}</span>
+        <a href="{{ hp.href }}" style="align-self:flex-start;display:flex;align-items:center;gap:10px;font-weight:600;border-bottom:1px solid transparent;padding-bottom:5px;transition:border-color .25s ease" style-hover="border-bottom-color:#1F1F1F">Open project<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ isList }}" hint-placeholder-val="{{ false }}">
+  <section data-bg="#EBE3D8" data-tone="dark" onMouseLeave="{{ listLeave }}" style="padding:0 var(--pad) clamp(100px,12vh,150px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column">
+      <sc-for list="{{ plist }}" as="p" hint-placeholder-count="4">
+        <a href="{{ p.href }}" onMouseEnter="{{ p.listHover }}" onFocus="{{ p.listHover }}" data-cur="View" aria-hidden="{{ p.hidden }}" tabindex="{{ p.tabi }}" style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:20px;border-bottom:1px solid #6E6A64;overflow:hidden;max-height:{{ p.rowH }};opacity:{{ p.pinOp }};transition:max-height .7s cubic-bezier(.7,0,.2,1), opacity .5s ease, padding .5s;padding:{{ p.rowPad }}">
+          <span aria-hidden="true" style="display:block;width:34px;height:24px;background:{{ p.accent }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+          <span style="font-weight:600;font-size:clamp(40px,6.4vw,110px);line-height:.96;letter-spacing:-.055em;transform:{{ p.rowTf }};transition:transform .6s cubic-bezier(.2,.8,.1,1);text-wrap:balance">{{ p.name }}</span>
+          <span data-sm-hide="1" style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-align:right;padding-right:72px"><span>{{ p.brand }}</span><span>{{ p.type }}</span></span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+  </sc-if>
+</main>
+</sc-if>
+
+<sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Project detail">
+  <sc-if value="{{ pj.notSoon }}" hint-placeholder-val="{{ true }}">
+  <section data-fx="phero" data-bg="{{ pj.accent }}" data-tone="{{ pj.tone }}" data-sec="1" aria-label="{{ pj.name }}" style="position:relative;height:220vh">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;background:{{ pj.accent }}">
+      <div data-clip="1" style="position:absolute;inset:0;clip-path:polygon(36% 22%,64% 22%,60% 74%,40% 74%);will-change:clip-path">
+        <div role="img" aria-label="{{ pj.alt }}" style="position:absolute;inset:0;background-image:url({{ pj.img }});background-size:cover;background-position:{{ pj.pos }}"></div>
+        <div data-scrim="1" style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(31,31,31,.7),rgba(31,31,31,0) 60%);opacity:0"></div>
+        <span style="position:absolute;right:var(--pad);top:96px;background:#1F1F1F;color:#EBE3D8;padding:6px 10px;font-size:13px">Artist's impression</span>
+      </div>
+      <div data-ptitle="1" data-fg="{{ pj.fg }}" style="--m:clamp(36px,4.6vw,84px);position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(28px,6vh,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 24px;color:{{ pj.fg }};transition:color .5s ease">
+        <div style="display:flex;flex-direction:column;gap:calc(var(--m) * .37);min-width:0">
+          <span style="display:flex;align-items:center;gap:calc(var(--m) * .25);font-weight:500;font-size:max(24px,calc(var(--m) * .5));letter-spacing:.08em;text-transform:uppercase;line-height:1"><svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:calc(var(--m) * .62);width:auto"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg>{{ pj.brand }}</span>
+          <h1 style="margin:0;font-weight:500;font-size:calc(var(--m) * 1.39);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;max-width:14ch;text-wrap:balance">{{ pj.name }}</h1>
+        </div>
+        <span style="font-weight:500;font-size:clamp(24px,2vw,30px);line-height:1.2;letter-spacing:-.02em;max-width:420px;padding-right:72px">{{ pj.line }}</span>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ pj.isSoon }}" hint-placeholder-val="{{ false }}">
+  <section data-fx="win" data-bg="{{ pj.accent }}" data-tone="dark" data-sec="1" aria-label="{{ pj.name }}, coming soon" style="position:relative;height:200vh">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden">
+      <img data-wimg="1" src="assets/hero-mumbai.jpg" alt="Mumbai skyline at golden hour, seen through the JDC mark" width="1080" height="1350" fetchpriority="high" style="position:absolute;inset:-4% 0;width:100%;height:108%;object-fit:cover;object-position:50% 60%">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%"><path data-wpath="1" d="{{ winHole }}" fill="#E8A598" fill-rule="evenodd"></path></svg>
+      <div data-wtxt="1" style="position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(28px,6vh,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 24px;color:#1F1F1F">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:18px;width:auto"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg>JDC · Coming soon</span>
+          <h1 style="margin:0;font-weight:500;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.02em;text-transform:uppercase">{{ pj.name }}</h1>
+        </div>
+        <span style="font-weight:600;font-size:clamp(24px,2vw,30px);letter-spacing:-.02em;padding-right:72px">{{ pj.line }}</span>
+      </div>
+    </div>
+  </section>
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="ri-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Register interest</span>
+        <h2 id="ri-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Be the first to hear about {{ pj.name }}</h2>
+      </div>
+      <div style="flex:1 1 460px;min-width:0"><dc-import name="LeadForm" variant="full" theme="light" project="{{ pj.name }}" submit-label="Register interest" success-title="You're on the list." submit="{{ submitLead }}" hint-size="100%,380px"></dc-import></div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="kd-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:60px 6vw;align-items:flex-start">
+      <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:{{ pj.marker }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:{{ pj.ink }}">{{ pj.brand }} · {{ pj.type }}</span>
+        <h2 data-fade="1" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance;opacity:0;transform:translateY(30px);transition:opacity 1s ease, transform 1.1s cubic-bezier(.2,.8,.1,1)">{{ pj.line }}</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px">
+          <button onClick="{{ openBrochure }}" data-btn="1" aria-haspopup="dialog" style="display:flex;align-items:center;gap:12px;height:56px;padding:0 24px;background:#1F1F1F;color:#EBE3D8;border:none;border-radius:0;font-size:16px;font-weight:600"><span data-bks="1" aria-hidden="true" style="display:block;width:14px;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg>Download brochure</button>
+          <button onClick="{{ openVisitProject }}" aria-haspopup="dialog" style="display:flex;align-items:center;gap:12px;height:56px;padding:0 22px;border:1px solid #1F1F1F;border-radius:0;background:none;color:#1F1F1F;font-size:16px;font-weight:600;transition:background .3s,color .3s" style-hover="background:#1F1F1F;color:#EBE3D8"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"></rect><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4M9.7 14.6l1.7 1.7 3.1-3.1"></path></svg>Book a site visit</button>
+          <a href="{{ pj.waProject }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;height:56px;padding:0 22px;box-sizing:border-box;border:1px solid #1F1F1F;font-size:16px;font-weight:600;transition:background .3s,color .3s" style-hover="background:#1F1F1F;color:#EBE3D8"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" style="flex:0 0 auto"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.870.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 0 1-1.45-5.02c0-5.2 4.240-9.44 9.45-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.04.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.3l5.7-1.5a11.33 11.33 0 0 0 5.76 1.47h.01c6.26 0 11.36-5.1 11.36-11.36 0-3.03-1.18-5.89-3.32-8.03z"></path></svg>WhatsApp</a>
+        </div>
+      </div>
+      <div style="flex:0 1 540px;min-width:min(100%,280px);display:flex;flex-direction:column">
+        <h3 id="kd-h" style="margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Key details</h3>
+        <dl style="margin:0;display:flex;flex-direction:column">
+          <sc-for list="{{ pj.details }}" as="f" hint-placeholder-count="5">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px;padding:18px 0;border-top:1px solid #6E6A64">
+              <dt style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">{{ f.k }}</dt>
+              <dd style="margin:0 0 0 auto;font-weight:{{ f.fw }};font-size:{{ f.fs }};line-height:1.1;letter-spacing:-.03em;text-align:right">{{ f.v }}</dd>
+            </div>
+          </sc-for>
+        </dl>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 20px;margin-top:18px;padding:20px;border:1px solid #1F1F1F">
+          <span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">MahaRERA registration</span><span style="font-weight:600;font-size:18px">{{ pj.reraNo }}</span><a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener" style="font-size:14px;border-bottom:1px solid currentColor;align-self:flex-start">Verify on maharera.maharashtra.gov.in</a></span>
+          <sc-if value="{{ pj.hasQr }}" hint-placeholder-val="{{ false }}"><img src="{{ pj.qr }}" alt="MahaRERA QR code for {{ pj.name }}" width="72" height="72" loading="lazy" style="width:72px;height:72px;display:block"></sc-if>
+          <sc-if value="{{ pj.noQr }}" hint-placeholder-val="{{ true }}"><span style="width:72px;height:72px;border:1px dashed #6E6A64;display:flex;align-items:center;justify-content:center;font-size:12px;text-align:center;line-height:1.2">[QR code]</span></sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ pj.showPlans }}" hint-placeholder-val="{{ true }}">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="fp-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px 6vw;align-items:flex-end">
+      <div style="flex:0 1 380px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:20px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <h2 id="fp-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Floor plans</h2>
+        <p style="margin:0;font-size:16px;line-height:1.55">Drag to move, use the buttons to zoom. Plans are indicative and subject to change.</p>
+        <div style="display:flex;gap:10px">
+          <button onClick="{{ zoomIn }}" aria-label="Zoom in" style="width:52px;height:52px;border:1px solid #1F1F1F;border-radius:0;background:none;display:flex;align-items:center;justify-content:center;padding:0"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
+          <button onClick="{{ zoomOut }}" aria-label="Zoom out" style="width:52px;height:52px;border:1px solid #1F1F1F;border-radius:0;background:none;display:flex;align-items:center;justify-content:center;padding:0"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg></button>
+          <button onClick="{{ zoomReset }}" style="height:52px;padding:0 18px;border:1px solid #1F1F1F;border-radius:0;background:none;font-size:15px;font-weight:600">Reset</button>
+        </div>
+      </div>
+      <div onPointerDown="{{ planDown }}" data-cur="Drag" role="img" aria-label="{{ pj.name }} floor plan" style="flex:1 1 560px;min-width:0;aspect-ratio:16/10;background:#EBE3D8;overflow:hidden;position:relative;touch-action:pan-y">
+        <div style="position:absolute;inset:7%;transform:translate({{ planX }}px,{{ planY }}px) scale({{ planZ }});transition:{{ planTr }};border:1px solid #6E6A64;background-image:linear-gradient(rgba(110,106,100,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(110,106,100,.22) 1px,transparent 1px);background-size:24px 24px;display:flex;align-items:center;justify-content:center">
+          <sc-if value="{{ pj.hasPlan }}" hint-placeholder-val="{{ false }}"><img src="{{ pj.planImg }}" alt="" draggable="false" style="width:100%;height:100%;object-fit:contain;pointer-events:none"></sc-if>
+          <sc-if value="{{ pj.noPlan }}" hint-placeholder-val="{{ true }}"><span style="background:#EBE3D8;padding:10px 14px;font-family:ui-monospace,Menlo,monospace;font-size:13px">[Floor plans to be supplied]</span></sc-if>
+        </div>
+        <span style="position:absolute;right:14px;bottom:12px;font-size:13px;font-weight:600">{{ planPct }}</span>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ pj.showSpecs }}" hint-placeholder-val="{{ true }}">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:70px 7vw;align-items:flex-start">
+      <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <h2 style="margin:0 0 8px;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Specifications</h2>
+        <div style="display:flex;flex-direction:column;border-bottom:1px solid #6E6A64">
+          <sc-for list="{{ pj.specs }}" as="sp" hint-placeholder-count="1">
+            <div style="border-top:1px solid #6E6A64">
+              <button onClick="{{ sp.toggle }}" aria-expanded="{{ sp.expanded }}" aria-controls="{{ sp.id }}" style="width:100%;background:none;border:none;padding:20px 0;display:flex;align-items:center;gap:18px;text-align:left;font-size:clamp(20px,1.8vw,24px);font-weight:600;letter-spacing:-.02em">
+                <span style="flex:1">{{ sp.t }}</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" style="flex:0 0 auto;transform:{{ sp.rot }};transition:transform .4s cubic-bezier(.2,.8,.1,1)"><path d="M12 5v14M5 12h14"></path></svg>
+              </button>
+              <div id="{{ sp.id }}" role="region" style="max-height:{{ sp.maxH }};overflow:hidden;transition:max-height .5s cubic-bezier(.2,.8,.1,1)"><p style="margin:0;padding:0 0 22px;font-size:16px;line-height:1.55;max-width:560px">{{ sp.d }}</p></div>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0;font-size:14px;line-height:1.45">Specifications are indicative and subject to change.</p>
+      </div>
+      <div style="flex:0 1 460px;min-width:min(100%,280px);display:flex;flex-direction:column;gap:20px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <h2 style="margin:0 0 8px;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Connectivity</h2>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-bottom:1px solid #6E6A64">
+          <sc-for list="{{ pj.conn }}" as="cn" hint-placeholder-count="1">
+            <li style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-top:1px solid #6E6A64">
+              <span style="display:flex;align-items:center;gap:12px;font-size:17px"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>{{ cn.n }}</span>
+              <span style="font-weight:600;font-size:clamp(20px,1.8vw,24px);letter-spacing:-.02em;white-space:nowrap">{{ cn.d }}</span>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ pj.showAmen }}" hint-placeholder-val="{{ true }}">
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="am-h" style="padding:clamp(100px,12vh,150px) 0">
+    <div style="max-width:1680px;margin:0 auto;padding:0 var(--pad);display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <h2 id="am-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Amenities</h2>
+      </div>
+      <ul data-hide-sb="1" data-drag="1" style="list-style:none;margin:0;padding:0 0 10px;display:flex;gap:clamp(16px,2vw,28px);overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory">
+        <sc-for list="{{ pj.amenities }}" as="a" hint-placeholder-count="3">
+          <li style="flex:0 0 min(78vw,420px);display:flex;flex-direction:column;gap:14px;scroll-snap-align:start">
+            <div style="position:relative;aspect-ratio:4/5;overflow:hidden;background:repeating-linear-gradient(135deg,#EBE3D8 0 10px,#E2D9CD 10px 20px)">
+              <sc-if value="{{ a.hasImg }}" hint-placeholder-val="{{ false }}"><img src="{{ a.img }}" alt="{{ a.t }}" width="1200" height="1500" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></sc-if>
+              <sc-if value="{{ a.noImg }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-size:13px">[Amenity photograph]</span></sc-if>
+            </div>
+            <span style="font-size:clamp(20px,1.8vw,24px);font-weight:600;letter-spacing:-.02em">{{ a.t }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ pj.hasGallery }}" hint-placeholder-val="{{ true }}">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="gal-h" style="padding:clamp(100px,12vh,150px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:30px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <h2 id="gal-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Gallery</h2>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(12px,2vw,28px)">
+        <sc-for list="{{ pj.gallery }}" as="gi" hint-placeholder-count="0">
+          <button onClick="{{ gi.open }}" data-cur="View" aria-label="Open image: {{ gi.alt }}" style="flex:1 1 {{ gi.w }};min-width:min(100%,320px);height:clamp(320px,62vh,720px);border:none;border-radius:0;padding:0;background:#D8D0C4;overflow:hidden;position:relative">
+            <img src="{{ gi.src }}" alt="{{ gi.alt }}" width="2000" height="1333" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:scale 1s cubic-bezier(.2,.8,.1,1)" style-hover="scale:1.04">
+            <span style="position:absolute;left:12px;bottom:12px;background:#1F1F1F;color:#EBE3D8;padding:6px 10px;font-size:13px">Artist's impression</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="penq-h" style="padding:clamp(110px,14vh,170px) var(--pad);color:#EBE3D8">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Enquire</span>
+        <h2 id="penq-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">Enquire about {{ pj.name }}</h2>
+      </div>
+      <div style="flex:1 1 460px;min-width:0"><dc-import name="LeadForm" variant="full" theme="dark" project="{{ pj.name }}" submit-label="Request a callback" submit="{{ submitLead }}" hint-size="100%,380px"></dc-import></div>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:clamp(90px,12vh,140px) var(--pad)">
+    <a href="{{ pj.nextHref }}" data-cur="Next" style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:18px">
+      <span style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span aria-hidden="true" style="display:block;width:34px;height:24px;background:{{ pj.nextAccent }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>Next project · {{ pj.nextBrand }}</span>
+      <span style="display:flex;align-items:center;gap:.25em;font-weight:600;font-size:clamp(56px,8vw,150px);line-height:.92;letter-spacing:-.06em;text-wrap:balance">{{ pj.nextName }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:.6em;height:.6em;flex:0 0 auto"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+    </a>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isSelect }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="JDC Select">
+  <section data-bg="#174C70" data-tone="light" data-sec="1" aria-labelledby="sel-h1" style="position:relative;min-height:100vh;padding:130px var(--pad) 60px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-end;gap:48px 6vw;color:#EBE3D8">
+    <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:30px">
+      <span style="display:flex;align-items:center;gap:10px"><svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:40px;width:auto"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg><span style="font-weight:600;font-size:34px;letter-spacing:-.02em;line-height:1">JDC Select</span></span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Luxury residential</span>
+      <h1 id="sel-h1" data-g="120" style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em;max-width:15ch">
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">A home built by JDC</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">is built for every</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">version of you.</span></span>
+      </h1>
+    </div>
+    <figure style="flex:0 1 460px;min-width:min(100%,260px);margin:0;display:flex;flex-direction:column;gap:12px">
+      <div data-ksr="ks" style="height:min(66vh,640px);overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)"><img src="assets/select-wall.jpg" alt="JDC Select lettering mounted on a pale ribbed wall" width="1980" height="1482" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:40% 50%"></div>
+      <figcaption style="font-size:13px">Artist's impression</figcaption>
+    </figure>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="sel-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(60px,9vh,110px)">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <h2 id="sel-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;color:#174C70">The Select collection</h2>
+      </div>
+      <sc-for list="{{ selectList }}" as="sp" hint-placeholder-count="2">
+        <a href="{{ sp.href }}" data-cur="View" style="display:flex;flex-wrap:wrap;flex-direction:{{ sp.dir }};align-items:flex-end;gap:30px 5vw">
+          <figure style="flex:1 1 520px;min-width:0;margin:0;position:relative">
+            <div data-ksr="1" style="height:62vh;min-height:320px;overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 2s cubic-bezier(.7,0,.2,1)"><img src="{{ sp.img }}" alt="{{ sp.alt }}" width="2000" height="1333" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;object-position:{{ sp.pos }}"></div>
+            <span style="position:absolute;left:12px;bottom:12px;background:#1F1F1F;color:#EBE3D8;padding:6px 10px;font-size:13px">Artist's impression</span>
+          </figure>
+          <div style="flex:0 1 420px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:16px;padding-bottom:1vw">
+            <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#174C70">JDC Select · {{ sp.loc }}</span>
+            <span style="font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">{{ sp.name }}</span>
+            <span style="font-size:18px;line-height:1.55;max-width:380px">{{ sp.line }}</span>
+            <span style="align-self:flex-start;display:flex;align-items:center;gap:10px;font-weight:600;border-bottom:1px solid transparent;padding-bottom:5px;transition:border-color .25s ease;margin-top:6px" style-hover="border-bottom-color:currentColor">View residence<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="nmw-h" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 6vw;align-items:center">
+      <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#174C70">JDC Select · Navi Mumbai</span>
+        <h2 id="nmw-h" style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em">Navi Mumbai Waterfront</h2>
+        <p style="margin:0;font-size:20px;line-height:1.5">Premium waterfront residence in Navi Mumbai.</p>
+        <a href="#/projects/water" style="align-self:flex-start;display:flex;align-items:center;gap:10px;font-weight:600;border-bottom:1px solid transparent;padding-bottom:5px;transition:border-color .25s ease" style-hover="border-bottom-color:currentColor">View the project<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+      <dl style="flex:1 1 440px;min-width:0;margin:0;display:flex;flex-direction:column">
+        <sc-for list="{{ selectFacts }}" as="f" hint-placeholder-count="3">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-top:1px solid #6E6A64;padding:22px 0"><dt style="font-size:16px">{{ f.k }}</dt><dd style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);letter-spacing:-.045em;line-height:1;color:#174C70">{{ f.v }}</dd></div>
+        </sc-for>
+      </dl>
+    </div>
+  </section>
+
+  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="sel-enq" style="padding:clamp(110px,14vh,170px) var(--pad);color:#EBE3D8">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Private viewing</span>
+        <h2 id="sel-enq" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Arrange a private viewing</h2>
+      </div>
+      <div style="flex:1 1 460px;min-width:0"><dc-import name="LeadForm" variant="full" theme="dark" project="JDC Select" submit-label="Request a viewing" submit="{{ submitLead }}" hint-size="100%,380px"></dc-import></div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isPlace }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="JDC Place">
+  <section data-bg="#F2A93B" data-tone="dark" data-sec="1" aria-labelledby="pl-h1" style="position:relative;min-height:100vh;padding:130px var(--pad) 60px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-end;gap:48px 6vw">
+    <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:30px">
+      <span style="display:flex;align-items:center;gap:10px"><svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:40px;width:auto"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg><span style="font-weight:600;font-size:34px;letter-spacing:-.02em;line-height:1">JDC Place</span></span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Commercial</span>
+      <h1 id="pl-h1" data-g="120" style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em;max-width:14ch">
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">The office your</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">best work deserves.</span></span>
+      </h1>
+    </div>
+    <figure style="flex:0 1 520px;min-width:min(100%,260px);margin:0;display:flex;flex-direction:column;gap:12px">
+      <div data-ksr="ks" style="height:min(62vh,600px);overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)"><img src="assets/billboard-bkc.jpg" alt="BKC ONE rooftop billboard above a building" width="2000" height="1400" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:35% 40%"></div>
+      <figcaption style="font-size:13px">Artist's impression</figcaption>
+    </figure>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:clamp(110px,14vh,170px) var(--pad)">
+    <a href="#/projects/bkc" data-cur="View" style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-end;gap:40px 6vw">
+      <figure style="flex:0 1 480px;min-width:min(100%,260px);margin:0;position:relative">
+        <div style="aspect-ratio:2/3;max-height:80vh;overflow:hidden;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%)"><img data-par="-0.05" src="assets/facade-bkc.jpg" alt="BKC ONE facade signage on a dark glass building" width="1333" height="2000" loading="lazy" decoding="async" style="width:100%;height:112%;margin-top:-6%;object-fit:cover"></div>
+        <figcaption style="font-size:13px;margin-top:12px;color:rgba(31,31,31,.74)">Artist's impression</figcaption>
+      </figure>
+      <div style="--m:clamp(34px,3.4vw,56px);flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px;padding-bottom:2vw">
+        <span style="display:flex;flex-direction:column;gap:calc(var(--m) * .37)">
+          <span style="display:flex;align-items:center;gap:calc(var(--m) * .25);font-weight:500;font-size:max(16px,calc(var(--m) * .42));letter-spacing:.1em;text-transform:uppercase;line-height:1"><svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:calc(var(--m) * .55);width:auto"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg>JDC Place</span>
+          <span style="font-weight:500;font-size:calc(var(--m) * 1.39);line-height:.9;letter-spacing:-.01em;text-transform:uppercase">BKC ONE</span>
+        </span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Bandra Kurla Complex</span>
+        <span style="font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">Designed for productivity. Built for scale.</span>
+        <span style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><span style="font-size:17px">Offices starting from</span><span style="font-weight:600;font-size:clamp(38px,4vw,56px);letter-spacing:-.045em;line-height:1">₹5Cr</span></span>
+        <span style="align-self:flex-start;display:flex;align-items:center;gap:10px;font-weight:600;border-bottom:1px solid transparent;padding-bottom:5px;transition:border-color .25s ease" style-hover="border-bottom-color:currentColor">View BKC ONE<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+      </div>
+    </a>
+  </section>
+
+  <section data-bg="#1F1F1F" data-tone="light" data-sec="1" aria-labelledby="pl-enq" style="padding:clamp(110px,14vh,170px) var(--pad);color:#EBE3D8">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Leasing and sales</span>
+        <h2 id="pl-enq" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Leasing and sales enquiries</h2>
+      </div>
+      <div style="flex:1 1 460px;min-width:0"><dc-import name="LeadForm" variant="full" theme="dark" project="BKC ONE" submit-label="Talk to our team" submit="{{ submitLead }}" hint-size="100%,380px"></dc-import></div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isProgress }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Live from site">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="padding:150px var(--pad) clamp(110px,14vh,170px)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-start">
+      <div style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        <h1 style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em">Live from site</h1>
+        <div role="group" aria-label="Choose project" style="display:flex;flex-wrap:wrap;gap:8px 28px;border-top:1px solid #6E6A64;padding-top:16px">
+          <sc-for list="{{ progTabs }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.pick }}" aria-pressed="{{ t.pressed }}" style="background:none;border:none;height:44px;padding:0;font-size:16px;font-weight:{{ t.fw }};border-bottom:2px solid {{ t.ul }}">{{ t.name }}</button></sc-for>
+        </div>
+        <div style="aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#D8D0C4 0 10px,#CFC6B9 10px 20px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-size:13px;text-align:center;padding:20px">{{ progNote }}</div>
+      </div>
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <h2 style="margin:0;font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em">Get site updates by email</h2>
+        <dc-import name="LeadForm" variant="short" theme="light" project="Construction updates" submit-label="Notify me" success-title="We'll send you the next update." submit="{{ submitLead }}" hint-size="100%,380px"></dc-import>
+      </div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Let's build">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="display:flex;flex-wrap:wrap;gap:40px 5vw;min-height:100vh;padding:130px var(--pad) 70px;box-sizing:border-box">
+    <div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:28px">
+      <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+      <h1 style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em">{{ contactTitle }}</h1>
+      <div data-contact-form="1" style="max-width:600px">
+        <dc-import name="LeadForm" variant="full" theme="light" project="{{ preProject }}" visit="{{ visitFocus }}" auto-focus="{{ visitFocus }}" focus-key="{{ visitKey }}" submit="{{ submitLead }}" on-done="{{ contactDone }}" hint-size="100%,760px"></dc-import>
+      </div>
+    </div>
+    <figure style="flex:1 1 400px;min-width:min(100%,260px);min-height:420px;margin:0;position:relative;background:#1F1F1F;overflow:hidden">
+      <img src="assets/plaque.jpg" alt="JDC mark plaque on a dark textured concrete block" width="2000" height="1333" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 50%">
+    </figure>
+  </section>
+
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="off-h" style="padding:clamp(100px,12vh,150px) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 6vw;align-items:stretch">
+      <div style="flex:0 1 460px;min-width:0;display:flex;flex-direction:column;gap:30px">
+        <h2 id="off-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Office</h2>
+        <address style="font-style:normal;display:flex;flex-direction:column;gap:16px;font-size:18px;line-height:1.5">
+          <span style="display:flex;align-items:flex-start;gap:14px"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>{{ C.address }}</span>
+          <span style="display:flex;align-items:center;gap:14px"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>{{ C.hours }}</span>
+          <a href="{{ telHref }}" style="display:flex;align-items:center;gap:14px"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg>{{ C.phone }}</a>
+          <a href="{{ mailHref }}" style="display:flex;align-items:center;gap:14px"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><rect x="3" y="5" width="18" height="14"></rect><path d="M3 6l9 7 9-7"></path></svg>{{ C.email }}</a>
+          <a href="{{ waHref }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:14px"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" style="flex:0 0 auto"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.870.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 0 1-1.45-5.02c0-5.2 4.240-9.44 9.45-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.04.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.3l5.7-1.5a11.33 11.33 0 0 0 5.76 1.47h.01c6.26 0 11.36-5.1 11.36-11.36 0-3.03-1.18-5.89-3.32-8.03z"></path></svg>WhatsApp {{ C.whatsappLabel }}</a>
+        </address>
+      </div>
+      <div style="flex:1 1 520px;min-width:0;min-height:360px;background:repeating-linear-gradient(135deg,#EBE3D8 0 10px,#E2D9CD 10px 20px);display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-size:13px">[Office location map]</div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isInfo }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Info">
+  <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" style="min-height:80vh;padding:150px var(--pad) clamp(100px,12vh,150px);box-sizing:border-box">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">John Dennis Constructions</span>
+      <h1 style="margin:0;font-weight:600;font-size:clamp(56px,6vw,84px);line-height:.96;letter-spacing:-.05em">{{ info.t }}</h1>
+      <p style="margin:0;max-width:680px;font-size:18px;line-height:1.55">{{ info.d }}</p>
+      <sc-if value="{{ infoIsSitemap }}" hint-placeholder-val="{{ false }}">
+        <ul style="list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:0 40px">
+          <sc-for list="{{ sitemap }}" as="sm" hint-placeholder-count="0"><li style="border-top:1px solid #6E6A64"><a href="{{ sm.href }}" style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;font-size:18px;font-weight:500">{{ sm.t }}<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></li></sc-for>
+        </ul>
+      </sc-if>
+    </div>
+  </section>
+</main>
+</sc-if>
+</div>
+
+<footer data-bg="#1F1F1F" data-tone="light" style="position:relative;background:#1F1F1F;color:#EBE3D8">
+  <div style="padding:clamp(80px,10vh,120px) var(--pad) 40px">
+    <div style="max-width:1560px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:48px clamp(28px,4vw,64px)">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <a href="#/" aria-label="John Dennis Constructions, home" style="display:flex;align-items:center;gap:12px;align-self:flex-start;padding:6px 0">
+          <svg viewBox="0 0 19 16.2" aria-hidden="true" style="height:66px;width:auto;display:block"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="currentColor"></path></svg>
+          <span style="display:flex;flex-direction:column;font-weight:600;font-size:20px;line-height:22px;letter-spacing:-.02em"><span>John</span><span>Dennis</span><span>Constructions</span></span>
+        </a>
+        <span style="font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em">Built for Life</span>
+        <p style="margin:0;font-size:16px;line-height:1.55;max-width:300px">We don't just build homes. We build legacies.</p>
+      </div>
+      <nav aria-label="Projects" style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Projects</span>
+        <sc-for list="{{ footProjects }}" as="fp" hint-placeholder-count="4"><a href="{{ fp.href }}" style="display:flex;align-items:center;gap:10px;font-size:16px;padding:2px 0"><span aria-hidden="true" style="display:block;width:14px;height:10px;background:{{ fp.accent }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>{{ fp.name }}</a></sc-for>
+      </nav>
+      <nav aria-label="Company" style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Company</span>
+        <sc-for list="{{ footCompany }}" as="fl" hint-placeholder-count="7"><a href="{{ fl.href }}" style="font-size:16px;padding:2px 0;align-self:flex-start">{{ fl.t }}</a></sc-for>
+      </nav>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Contact</span>
+        <address style="font-style:normal;display:flex;flex-direction:column;gap:10px;font-size:16px;line-height:1.5">
+          <span>{{ C.address }}</span>
+          <a href="{{ telHref }}">{{ C.phone }}</a>
+          <a href="{{ mailHref }}">{{ C.email }}</a>
+          <span>{{ C.hours }}</span>
+          <span>{{ C.socialsLabel }}</span>
+        </address>
+        <form onSubmit="{{ newsSubmit }}" style="display:flex;flex-direction:column;gap:8px;margin-top:14px">
+          <label for="jdc-news" style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Newsletter</label>
+          <sc-if value="{{ newsForm }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;border-bottom:1px solid rgba(235,227,216,.5)">
+            <input id="jdc-news" name="email" type="email" autoComplete="email" placeholder="Email address" value="{{ news }}" onChange="{{ newsChange }}" aria-invalid="{{ newsInvalid }}" aria-describedby="jdc-news-err" style="flex:1;min-width:0;background:transparent;border:none;border-radius:0;color:#EBE3D8;padding:12px 0;font-size:16px">
+            <button type="submit" style="background:none;border:none;color:#F2A93B;padding:12px 0 12px 12px;font-size:15px;font-weight:600">{{ newsBtn }}</button>
+          </div>
+          </sc-if>
+          <sc-if value="{{ hasNewsErr }}" hint-placeholder-val="{{ false }}"><span id="jdc-news-err" role="alert" style="font-size:14px;color:#FF6B6B">{{ newsErr }}</span></sc-if>
+          <sc-if value="{{ newsOk }}" hint-placeholder-val="{{ false }}"><span role="status" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600"><span aria-hidden="true" style="display:block;width:14px;height:10px;background:#2A8C82;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>Subscribed. Thank you.</span></sc-if>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 var(--pad) 40px">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:18px;border-top:1px solid rgba(235,227,216,.18);padding-top:30px">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">MahaRERA registration</span>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px 40px">
+        <sc-for list="{{ reraList }}" as="r" hint-placeholder-count="4">
+          <li style="display:flex;align-items:center;gap:16px">
+            <span style="flex:0 0 auto;width:56px;height:56px;border:1px dashed rgba(235,227,216,.5);display:flex;align-items:center;justify-content:center;font-size:11px;text-align:center;line-height:1.2">[QR]</span>
+            <span style="display:flex;flex-direction:column;gap:3px;font-size:14px;line-height:1.45"><span style="font-weight:600">{{ r.name }}</span><span>{{ r.no }}</span></span>
+          </li>
+        </sc-for>
+      </ul>
+      <p style="margin:8px 0 0;font-size:14px;line-height:1.55;max-width:820px">Images are artist's impressions. Plans, specifications and amenities are indicative and subject to change. This is not an offer or contract. Verify registrations at <a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener" style="border-bottom:1px solid currentColor">maharera.maharashtra.gov.in</a>.</p>
+    </div>
+  </div>
+  <div style="padding:22px var(--pad) 26px;border-top:1px solid rgba(235,227,216,.18)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;font-size:14px;padding-right:72px">
+      <span>© {{ year }} John Dennis Constructions · www.jdcindia.com</span>
+      <nav aria-label="Legal" style="display:flex;flex-wrap:wrap;gap:8px 22px">
+        <a href="#/info/privacy" style="padding:4px 0">Privacy</a>
+        <a href="#/info/terms" style="padding:4px 0">Terms</a>
+        <a href="#/info/disclaimer" style="padding:4px 0">Disclaimer</a>
+        <a href="#/info/sitemap" style="padding:4px 0">Sitemap</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div data-fabs="1" style="position:fixed;right:clamp(16px,2vw,24px);bottom:24px;z-index:95;display:flex;flex-direction:column;align-items:flex-end;gap:10px;will-change:transform">
+  <button data-gotop="1" onClick="{{ toTop }}" aria-label="Back to top" tabindex="-1" style="width:52px;height:52px;border:1px solid #1F1F1F;border-radius:0;background:#EBE3D8;color:#1F1F1F;padding:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(16px);transition:opacity .4s, transform .4s, background .25s, color .25s;cursor:pointer" style-hover="background:#1F1F1F;color:#EBE3D8"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M12 20V5"></path><path d="M5.5 11.5L12 5l6.5 6.5"></path></svg></button>
+  <div style="position:relative;height:58px;display:flex;justify-content:flex-end">
+    <svg viewBox="0 0 19 16.2" aria-hidden="true" style="position:absolute;right:6px;top:50%;width:46px;height:auto;margin-top:-19.6px;opacity:0;pointer-events:none;animation:jdcWave 3s cubic-bezier(.2,.6,.3,1) 0s infinite"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="#25D366"></path></svg><svg viewBox="0 0 19 16.2" aria-hidden="true" style="position:absolute;right:6px;top:50%;width:46px;height:auto;margin-top:-19.6px;opacity:0;pointer-events:none;animation:jdcWave 3s cubic-bezier(.2,.6,.3,1) 1s infinite"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="#25D366"></path></svg><svg viewBox="0 0 19 16.2" aria-hidden="true" style="position:absolute;right:6px;top:50%;width:46px;height:auto;margin-top:-19.6px;opacity:0;pointer-events:none;animation:jdcWave 3s cubic-bezier(.2,.6,.3,1) 2s infinite"><path d="M1,0H7L6,8.1H2ZM7,0H13L12,8.1H8ZM13,0H19L18,8.1H14ZM0,8.1H6L5,16.2H1ZM6,8.1H12L11,16.2H7ZM12,8.1H18L17,16.2H13Z" fill="#25D366"></path></svg>
+    <a href="{{ waHref }}" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" data-cur="Chat" data-cur-k="wa" data-wa="1" style="position:relative;width:58px;height:58px;border-radius:29px;background:#25D366;color:#FFFFFF;display:flex;flex-direction:row-reverse;align-items:center;overflow:hidden;transition:width .5s cubic-bezier(.2,.8,.1,1)" style-hover="width:212px" style-focus="width:212px"><span style="flex:0 0 auto;width:58px;height:58px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.42 9.42 0 0 1-1.45-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.04.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.3l5.7-1.5a11.33 11.33 0 0 0 5.76 1.47h.01c6.26 0 11.36-5.1 11.36-11.36 0-3.03-1.18-5.89-3.32-8.03z"></path></svg></span><span data-wa-t="1" style="flex:1 1 auto;min-width:0;white-space:nowrap;padding-left:26px;font-size:16px;font-weight:600;color:#1F1F1F">Chat with us</span></a>
+  </div>
+</div>
+
+<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Image gallery" data-lightbox="1" style="position:fixed;inset:0;z-index:200;background:#1F1F1F;display:flex;align-items:center;justify-content:center;padding:76px clamp(12px,5vw,90px);box-sizing:border-box;color:#EBE3D8">
+  <img src="{{ lbSrc }}" alt="{{ lbAlt }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block">
+  <button onClick="{{ lbClose }}" aria-label="Close gallery" style="position:absolute;top:16px;right:16px;width:52px;height:52px;border:1px solid rgba(235,227,216,.5);border-radius:0;background:none;color:#EBE3D8;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  <button onClick="{{ lbPrev }}" aria-label="Previous image" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:52px;height:52px;border:1px solid rgba(235,227,216,.5);border-radius:0;background:#1F1F1F;color:#EBE3D8;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+  <button onClick="{{ lbNext }}" aria-label="Next image" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:52px;height:52px;border:1px solid rgba(235,227,216,.5);border-radius:0;background:#1F1F1F;color:#EBE3D8;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+  <span style="position:absolute;left:0;right:0;bottom:24px;text-align:center;font-size:14px">{{ lbCount }} · Artist's impression</span>
+</div>
+</sc-if>
+
+<sc-if value="{{ enqOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-labelledby="enq-h" data-enq="1" onClick="{{ enqBackdrop }}" style="position:fixed;inset:0;z-index:205;background:rgba(31,31,31,.7);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box">
+  <div data-lenis-prevent="" style="position:relative;width:min(680px,100%);max-height:100%;overflow:auto;background:#EBE3D8;color:#1F1F1F;padding:clamp(28px,4vw,52px);box-sizing:border-box;display:flex;flex-direction:column;gap:16px">
+    <button onClick="{{ closeEnq }}" aria-label="Close enquiry form" style="position:absolute;top:12px;right:12px;width:48px;height:48px;border:none;border-radius:0;background:none;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+    <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ enqEyebrow }}</span>
+    <h2 id="enq-h" style="margin:0 0 8px;font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em">{{ enqTitle }}</h2>
+    <dc-import name="LeadForm" variant="full" theme="light" project="{{ enqProject }}" visit="{{ enqVisit }}" auto-focus="{{ true }}" submit="{{ submitLead }}" on-close="{{ closeEnq }}" hint-size="100%,640px"></dc-import>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ brOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-labelledby="br-h" data-brochure="1" style="position:fixed;inset:0;z-index:200;background:rgba(31,31,31,.7);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box">
+  <div data-lenis-prevent="" style="position:relative;width:min(540px,100%);max-height:100%;overflow:auto;background:#EBE3D8;color:#1F1F1F;padding:clamp(28px,4vw,48px);box-sizing:border-box;display:flex;flex-direction:column;gap:16px">
+    <button onClick="{{ brClose }}" aria-label="Close" style="position:absolute;top:12px;right:12px;width:48px;height:48px;border:none;border-radius:0;background:none;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ pj.name }}</span>
+    <h2 id="br-h" style="margin:0 0 8px;font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em">Download the brochure</h2>
+    <dc-import name="LeadForm" variant="brochure" theme="light" project="{{ pj.name }}" submit-label="Get the brochure" success-title="Thank you." brochure-url="{{ pj.brochure }}" auto-focus="{{ true }}" submit="{{ submitLead }}" on-close="{{ brClose }}" hint-size="100%,320px"></dc-import>
+  </div>
+</div>
+</sc-if>
+
+<div data-follow="1" aria-hidden="true" style="position:fixed;left:0;top:0;z-index:60;width:280px;height:340px;margin:-170px 0 0 -140px;pointer-events:none;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);opacity:{{ followOp }};transition:opacity .35s ease;overflow:hidden;background:#D8D0C4">
+  <img src="{{ followImg }}" alt="" width="280" height="340" decoding="async" style="width:100%;height:100%;object-fit:cover">
+</div>
+
+<div data-cursor="1" aria-hidden="true" style="position:fixed;left:0;top:0;z-index:400;pointer-events:none;width:0;height:0;opacity:0;transition:opacity .3s">
+  <div data-cdot="1" style="position:absolute;left:-9px;top:-6px;width:18px;height:13px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);transition:opacity .3s"></div>
+  <div data-cring="1" style="position:absolute;left:-52px;top:-36px;width:104px;height:72px;background:#1F1F1F;color:#EBE3D8;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%);display:flex;align-items:center;justify-content:center;padding-bottom:6px;box-sizing:border-box;font-size:14px;font-weight:600;transform:scale(0);transition:transform .45s cubic-bezier(.3,1.4,.5,1)"><span data-clabel="1">View</span></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// ───────────── CONFIG & CONTENT (edit here) ─────────────
+// Facts come only from the JDC Brand Book. Anything in [brackets] is a placeholder the client must supply.
+const LEAD_ENDPOINT = '';        // POST URL for enquiries. Empty = demo mode (simulated success).
+const NEWSLETTER_ENDPOINT = '';  // POST URL for newsletter sign-ups. Empty = demo mode.
+const DISCLAIMER = "Images are artist's impressions. Plans, specifications and amenities are indicative and subject to change. This is not an offer or contract.";
+const CONTENT = {
+  company: 'John Dennis Constructions', tagline: 'Built for Life', brandLine: "We don't just build homes. We build legacies.",
+  site: 'www.jdcindia.com', siteUrl: 'https://www.jdcindia.com',
+  contact: { address: '[Office address]', phone: '[Phone number]', phoneHref: '', email: '[Email address]', emailHref: '', hours: '[Office hours]', whatsapp: '' /* digits with country code, e.g. 9198xxxxxxxx */ },
+  socials: { instagram: '', linkedin: '', youtube: '' },
+  leaders: [{ name: '[Leader name]', role: '[Role]', photo: '' }, { name: '[Leader name]', role: '[Role]', photo: '' }],
+  stats: [{ v: '[00]', k: '[Years building]' }, { v: '[00]', k: '[Sq ft delivered]' }, { v: '[00]', k: '[Homes delivered]' }],
+  testimonials: [{ q: '[Client testimonial]', who: '[Client name]', where: '[Project]' }],
+  projects: {
+    water: { status: '[Status]', rera: '[MahaRERA no.]', qr: '', price: '[Starting price]', carpet: '[Carpet area]', floors: '[Floor count]', possession: '[Possession date]', specs: [], connectivity: [], amenities: [], plan: '', brochure: '' },
+    bkc: { status: '[Status]', rera: '[MahaRERA no.]', qr: '', carpet: '[Carpet area]', floors: '[Floor count]', possession: '[Possession date]', specs: [], connectivity: [], amenities: [], plan: '', brochure: '' },
+    arise: { status: '[Status]', rera: '[MahaRERA no.]', qr: '', loc: '[ARISE location]', line: '[ARISE project line]', price: '[Starting price]', config: '[Configurations]', carpet: '[Carpet area]', floors: '[Floor count]', possession: '[Possession date]', specs: [], connectivity: [], amenities: [], plan: '', brochure: '' },
+    chembur: { status: '[Status]', rera: '[MahaRERA no.]', qr: '', type: '[Project type]', price: '[Starting price]', config: '[Configurations]', floors: '[Floor count]', possession: '[Possession date]', brochure: '' }
+  },
+  progress: {},          // e.g. { bkc: { updated: '…', images: [...] } } — fills the "Live from site" page and adds it to the menu
+  info: {
+    privacy: { t: 'Privacy policy', d: '[Privacy policy text to be supplied by the client]' },
+    terms: { t: 'Terms of use', d: '[Terms of use text to be supplied by the client]' },
+    disclaimer: { t: 'Disclaimer', d: DISCLAIMER },
+    careers: { t: 'Careers', d: '[Careers page text to be supplied by the client]' },
+    partners: { t: 'Channel partners', d: '[Channel partner page text to be supplied by the client]' },
+    nri: { t: 'NRI enquiries', d: '[NRI page text to be supplied by the client]' },
+    sitemap: { t: 'Sitemap', d: 'Every page on www.jdcindia.com.' }
+  },
+  flags: { showStats: false, showTestimonials: false, showPlans: true, showSpecs: true, showAmenities: true }
+};
+async function submitLead(data) {
+  const body = { ...data, source: location.href, submittedAt: new Date().toISOString() };
+  if (!LEAD_ENDPOINT) { await new Promise(r => setTimeout(r, 700)); console.info('[JDC demo lead]', body); return { ok: true, demo: true }; }
+  const res = await fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!res.ok) throw new Error('Lead submit failed: ' + res.status);
+  return { ok: true };
+}
+// ────────────────────────────────────────────────────────
+
+const IV = '#EBE3D8', OB = '#1F1F1F', SM = '#D8D0C4', CG = '#6E6A64', TC = '#D9542B', AM = '#F2A93B', RO = '#E8A598', SEA = '#1E5F8C', DS = '#174C70';
+const isPh = v => typeof v === 'string' && v.trim().startsWith('[');
+const MARK = [[1, 0, 7, 0, 6, 8.1, 2, 8.1], [7, 0, 13, 0, 12, 8.1, 8, 8.1], [13, 0, 19, 0, 18, 8.1, 14, 8.1], [0, 8.1, 6, 8.1, 5, 16.2, 1, 16.2], [6, 8.1, 12, 8.1, 11, 16.2, 7, 16.2], [12, 8.1, 18, 8.1, 17, 16.2, 13, 16.2]];
+const pts = m => [0, 2, 4, 6].map(i => m[i] + ',' + m[i + 1]).join(' ');
+const markPath = (cx, cy, w) => { const s = w / 19, ox = cx - w / 2, oy = cy - 8.1 * s; return MARK.map(m => 'M' + [0, 2, 4, 6].map(i => (ox + m[i] * s).toFixed(3) + ' ' + (oy + m[i + 1] * s).toFixed(3)).join('L') + 'Z').join(''); };
+const winPath = (W, H, cx, cy, w) => `M-50 -50H${W + 50}V${H + 50}H-50Z` + markPath(cx, cy, w);
+const LOWER_FIRST = [0.5, 0.64, 0.78, 0, 0.14, 0.28];
+const ORDER = ['water', 'bkc', 'arise', 'chembur'];
+const PC = CONTENT.projects;
+const P = {
+  water: { name: 'Navi Mumbai Waterfront', brand: 'JDC Select', type: 'Residential', loc: 'Navi Mumbai', accent: SEA, fg: IV, ink: SEA, line: 'Premium waterfront residence in Navi Mumbai.',
+    img: 'assets/hoarding-select.jpg', pos: '78% 50%', img2: 'assets/select-wall.jpg', alt: 'JDC Select hoarding for the Navi Mumbai Waterfront project', mx: '68.5%', my: '63%', lab: 'top',
+    gallery: [['assets/hoarding-select.jpg', 'JDC Select hoarding for the Navi Mumbai Waterfront project'], ['assets/select-wall.jpg', 'JDC Select lettering on a ribbed wall']],
+    details: [['Configurations', '1–3 BED residences'], ['Payment plan', '50/50'], ['On booking', '10%'], ['Starting price', PC.water.price], ['Carpet area', PC.water.carpet], ['Floors', PC.water.floors], ['Possession', PC.water.possession], ['Status', PC.water.status]] },
+  bkc: { name: 'BKC ONE', brand: 'JDC Place', type: 'Commercial', loc: 'Bandra Kurla Complex', accent: AM, fg: OB, ink: OB, line: 'Designed for productivity. Built for scale.',
+    img: 'assets/billboard-bkc.jpg', pos: '35% 40%', img2: 'assets/facade-bkc.jpg', alt: 'BKC ONE rooftop billboard', mx: '37.5%', my: '40%', lab: 'left',
+    gallery: [['assets/billboard-bkc.jpg', 'BKC ONE rooftop billboard'], ['assets/facade-bkc.jpg', 'BKC ONE facade signage']],
+    details: [['Offices starting from', '₹5Cr'], ['Location', 'Bandra Kurla Complex'], ['Carpet area', PC.bkc.carpet], ['Floors', PC.bkc.floors], ['Possession', PC.bkc.possession], ['Status', PC.bkc.status]] },
+  arise: { name: 'ARISE', brand: 'JDC Select', type: 'Residential', loc: PC.arise.loc, accent: TC, fg: IV, ink: OB, line: PC.arise.line,
+    img: 'assets/facade-arise.jpg', pos: '60% 40%', img2: '', alt: 'ARISE facade signage on a perforated metal building', mx: '', my: '', lab: 'top',
+    gallery: [['assets/facade-arise.jpg', 'ARISE facade signage']],
+    details: [['Location', PC.arise.loc], ['Configurations', PC.arise.config], ['Starting price', PC.arise.price], ['Carpet area', PC.arise.carpet], ['Floors', PC.arise.floors], ['Possession', PC.arise.possession], ['Status', PC.arise.status]] },
+  chembur: { name: 'Chembur Tower', brand: 'JDC', type: PC.chembur.type, loc: 'Chembur', accent: RO, fg: OB, ink: OB, line: "Chembur's tallest tower.", soon: true,
+    img: 'assets/hero-mumbai.jpg', pos: '50% 62%', img2: '', alt: 'Mumbai skyline seen through the JDC mark', mx: '50.5%', my: '43%', lab: 'right', gallery: [],
+    details: [['Location', 'Chembur'], ['Type', PC.chembur.type], ['Configurations', PC.chembur.config], ['Starting price', PC.chembur.price], ['Floors', PC.chembur.floors], ['Possession', PC.chembur.possession], ['Status', PC.chembur.status]] }
+};
+const HAS_PROGRESS = Object.keys(CONTENT.progress).length > 0;
+const PAGES = [
+  { k: 'home', href: '#/', label: 'Home', tp: OB, img: 'assets/hero-mumbai.jpg', cap: 'Mumbai at golden hour' },
+  { k: 'about', href: '#/about', label: 'Our legacy', tp: SM, img: 'assets/arch-1.jpg', cap: 'The keystone, set last' },
+  { k: 'projects', href: '#/projects', label: 'Projects', tp: IV, img: 'assets/billboard-bkc.jpg', cap: 'Four projects, one branded house' },
+  { k: 'select', href: '#/select', label: 'JDC Select', tp: DS, img: 'assets/select-wall.jpg', cap: 'Luxury residential' },
+  { k: 'place', href: '#/place', label: 'JDC Place', tp: AM, img: 'assets/facade-bkc.jpg', cap: 'Commercial' },
+  { k: 'progress', href: '#/progress', label: 'Live from site', tp: IV, img: 'assets/sign-jdc.jpg', cap: 'Construction updates', hidden: !HAS_PROGRESS },
+  { k: 'contact', href: '#/contact', label: "Let's build", tp: OB, img: 'assets/plaque.jpg', cap: 'Enquire or book a site visit' }
+].filter(p => !p.hidden);
+const META = {
+  home: ['JDC · John Dennis Constructions · Built for Life', "We don't just build homes. We build legacies. Residential and commercial projects by John Dennis Constructions, Mumbai."],
+  about: ['Our legacy · JDC', 'The structure is complete. The story isn\'t. The story, mission, vision and values of John Dennis Constructions.'],
+  projects: ['Projects · JDC', 'Navi Mumbai Waterfront, BKC ONE, ARISE and Chembur Tower by John Dennis Constructions.'],
+  select: ['JDC Select · Luxury residential · JDC', 'A home built by JDC is built for every version of you. JDC Select, luxury residential by John Dennis Constructions.'],
+  place: ['JDC Place · Commercial · JDC', 'The office your best work deserves. JDC Place, home of BKC ONE.'],
+  progress: ['Live from site · JDC', 'Construction updates from JDC projects.'],
+  contact: ["Let's build · Contact JDC", 'Enquire about a JDC home or office, book a site visit, or chat on WhatsApp.'],
+  info: ['JDC', 'John Dennis Constructions.']
+};
+const SCAT = [[-260, -200, -38], [10, -340, 24], [290, -170, 46], [-320, 210, 28], [30, 330, -34], [310, 230, -52]];
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const backOut = t => { const c = 1.4; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+const wa = msg => 'https://wa.me/' + (CONTENT.contact.whatsapp || '') + '?text=' + encodeURIComponent(msg);
+
+function parseHash() {
+  const h = (location.hash || '#/').replace(/^#/, ''); const [path, qs] = h.split('?'); const q = new URLSearchParams(qs || '');
+  const seg = path.split('/').filter(Boolean);
+  if (!seg.length) return { page: 'home', q };
+  if (seg[0] === 'projects' && seg[1] && P[seg[1]]) return { page: 'project', pid: seg[1], q };
+  if (seg[0] === 'info' && seg[1] && CONTENT.info[seg[1]]) return { page: 'info', info: seg[1], q };
+  if (['about', 'projects', 'select', 'place', 'progress', 'contact'].includes(seg[0])) return { page: seg[0], q };
+  return { page: 'home', q };
+}
+
+class Component extends DCLogic {
+  bgAt(x, y) {
+    let els; try { els = document.elementsFromPoint(x, y); } catch (e) { return null; }
+    for (const el of els) {
+      if (el.closest && el.closest('[data-cursor]')) continue;
+      if (el.tagName === 'IMG' || el.tagName === 'VIDEO') return null;
+      const cs = getComputedStyle(el);
+      if (cs.backgroundImage && cs.backgroundImage !== 'none' && /url\(/.test(cs.backgroundImage)) return null;
+      const m = cs.backgroundColor.match(/rgba?\(([^)]+)\)/); if (!m) continue;
+      const p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
+      if (p.length > 3 && p[3] < 0.5) continue;
+      return p.slice(0, 3);
+    }
+    return null;
+  }
+  constructor(p) {
+    super(p);
+    const r = parseHash();
+    let seen = false; try { seen = sessionStorage.getItem('jdc-site-seen') === '1'; } catch (e) {}
+    this.state = { page: r.page, pid: r.pid || 'water', info: r.info || 'sitemap', visit: r.q.get('visit') === '1', visitKey: 0, preProject: r.q.get('project') || '',
+      menu: false, menuLoaded: false, mh: 0, load: seen ? 3 : 0, heroIn: false, filter: 'All', view: 'map', hp: 'bkc', lh: null, sent: false,
+      planZ: 1, planX: 0, planY: 0, planDrag: false, navDark: false, hdrSolid: false, spec: 0, lb: null, brochure: false, enq: false, enqProject: '', enqVisit: false,
+      news: '', newsErr: '', newsStatus: 'idle', prog: 'water' };
+  }
+
+  componentDidMount() {
+    document.documentElement.lang = 'en';
+    try { history.scrollRestoration = 'manual'; } catch (e) {}
+    this.reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.fine = window.matchMedia && matchMedia('(pointer:fine)').matches;
+    this.mx = innerWidth / 2; this.my = innerHeight / 2; this.cx = this.mx; this.cy = this.my; this.fx_ = this.mx; this.fy_ = this.my; this.ly = scrollY; this.vis = new Set();
+    const R = this.reduce;
+    if (this.state.load < 3) {
+      try { sessionStorage.setItem('jdc-site-seen', '1'); } catch (e) {}
+      setTimeout(() => this.setState({ load: 1 }), R ? 0 : 80);
+      setTimeout(() => this.setState({ load: 2, heroIn: true }), R ? 20 : 1500);
+      setTimeout(() => this.setState({ load: 3 }), R ? 40 : 2300);
+    } else setTimeout(() => this.setState({ heroIn: true }), R ? 0 : 150);
+    if (window.Lenis && !R) this.lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
+    if (this.fine) document.documentElement.setAttribute('data-cur-on', '');
+    else { const c = document.querySelector('[data-cursor]'); if (c) c.style.display = 'none'; }
+    this.onHash = () => this.route(parseHash());
+    this.onMove = e => { this.mx = e.clientX; this.my = e.clientY; if (!this.moved && this.fine) { this.moved = true; this.cx = this.mx; this.cy = this.my; const c = document.querySelector('[data-cursor]'); if (c) c.style.opacity = 1; } };
+    this.onOver = e => { const t = e.target.closest ? e.target.closest('[data-cur],a[href],button') : null; this.curLabel = t ? (t.getAttribute('data-cur') || '') : null; this.curKind = t ? t.getAttribute('data-cur-k') : null; const tag = e.target.tagName; this.curHide = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT'; };
+    this.onDown = e => { const d = e.target.closest && e.target.closest('[data-drag]'); if (d && e.pointerType === 'mouse') { this.dragEl = d; this.dragX = e.clientX; this.dragS = d.scrollLeft; } };
+    this.onPMove = e => { if (this.dragEl) this.dragEl.scrollLeft = this.dragS - (e.clientX - this.dragX); if (this.planD) { const d = this.planD; this.setState({ planX: d.x + e.clientX - d.px, planY: d.y + e.clientY - d.py }); } };
+    this.onUp = () => { this.dragEl = null; if (this.planD) { this.planD = null; this.setState({ planDrag: false }); } };
+    this.onKey = e => this.key(e);
+    this.onResize = () => this.measure();
+    this.onScroll = () => this.checkPending();
+    this.evs = [['hashchange', this.onHash], ['mousemove', this.onMove], ['mouseover', this.onOver], ['pointerdown', this.onDown], ['pointermove', this.onPMove], ['pointerup', this.onUp], ['keydown', this.onKey], ['resize', this.onResize], ['scroll', this.onScroll]];
+    this.evs.forEach(([n, f]) => addEventListener(n, f, { passive: n !== 'keydown' }));
+    this.measureT = setInterval(() => this.measure(), 900);
+    this.applyMeta(); this.applyMenuInert();
+    this.snap = this.snapOf(this.state);
+    setTimeout(() => this.bind(), 80);
+    const loop = t => { this.raf = requestAnimationFrame(loop); try { if (this.lenis) this.lenis.raf(t); this.tick(t); } catch (e) { if (!this.tickErr) { this.tickErr = 1; console.warn('JDC tick error: ' + (e && e.stack || e)); } } };
+    this.raf = requestAnimationFrame(loop);
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf); clearInterval(this.measureT);
+    (this.evs || []).forEach(([n, f]) => removeEventListener(n, f));
+    if (this.io) this.io.disconnect(); if (this.vio) this.vio.disconnect(); if (this.lenis) this.lenis.destroy();
+  }
+  snapOf(s) { return { page: s.page, pid: s.pid, info: s.info, view: s.view, sent: s.sent, load: s.load, menu: s.menu }; }
+  root() { return document.querySelector('[data-jdc-root]'); }
+
+  route(r) {
+    const s = this.state; const extra = { visit: r.q.get('visit') === '1', preProject: r.q.get('project') || '', visitKey: s.visitKey + 1 };
+    const same = r.page === s.page && (r.page !== 'project' || r.pid === s.pid) && (r.page !== 'info' || r.info === s.info);
+    if (same) { this.setState({ menu: false, ...extra }); if (!extra.visit) this.toTop(); else this.scrollToForm(); return; }
+    this.transition(r, extra);
+  }
+  transition(r, extra) {
+    const color = r.page === 'project' ? P[r.pid].accent : r.page === 'info' ? IV : (PAGES.find(x => x.k === r.page) || PAGES[0]).tp;
+    const darkPanel = [OB, DS, SEA, TC].includes(color);
+    const ps = document.querySelectorAll('[data-tp]'); const mk = document.querySelector('[data-tpmark]'); const D = this.reduce ? 0 : 1;
+    ps.forEach((el, i) => { el.style.background = color; el.style.transition = `transform ${0.34 * D}s cubic-bezier(.7,0,.2,1) ${i * 0.035 * D}s`; el.style.transform = 'translateY(0)'; });
+    clearTimeout(this.trT1); clearTimeout(this.trT2);
+    this.trT1 = setTimeout(() => {
+      if (mk) { mk.style.opacity = 1; mk.style.color = darkPanel ? IV : OB; }
+      this.setState({ page: r.page, pid: r.pid || this.state.pid, info: r.info || this.state.info, menu: false, lh: null, sent: false, planZ: 1, planX: 0, planY: 0, spec: 0, heroIn: false, ...extra });
+      if (this.lenis) this.lenis.scrollTo(0, { immediate: true }); window.scrollTo(0, 0);
+      setTimeout(() => this.bind(), 100);
+      this.trT2 = setTimeout(() => {
+        if (mk) mk.style.opacity = 0;
+        ps.forEach((el, i) => { el.style.transition = `transform ${0.4 * D}s cubic-bezier(.7,0,.2,1) ${(4 - i) * 0.035 * D}s`; el.style.transform = 'translateY(-101%)'; });
+        setTimeout(() => this.setState({ heroIn: true }), 120 * D);
+        if (extra.visit) this.scrollToForm();
+        const m = document.getElementById('main'); if (m && !extra.visit) m.focus({ preventScroll: true });
+      }, 160 * D);
+    }, 440 * D);
+  }
+  scrollToForm() { setTimeout(() => { const f = document.querySelector('[data-contact-form]'); if (!f) return; const y = f.getBoundingClientRect().top + scrollY - 110; if (this.lenis) this.lenis.scrollTo(y); else window.scrollTo({ top: y, behavior: 'smooth' }); }, 300); }
+
+  applyMeta() {
+    const s = this.state; let [t, d] = META[s.page] || META.home; let img = 'assets/hero-mumbai.jpg';
+    if (s.page === 'project') { const p = P[s.pid]; t = `${p.name} · ${p.brand} · JDC`; d = isPh(p.line) ? `${p.name} by John Dennis Constructions.` : `${p.line} ${p.name} by John Dennis Constructions.`; img = p.img; }
+    if (s.page === 'info') { t = CONTENT.info[s.info].t + ' · JDC'; d = CONTENT.info[s.info].d; }
+    document.title = t;
+    const set = (attr, key, val) => { let m = document.head.querySelector(`meta[${attr}="${key}"]`); if (!m) { m = document.createElement('meta'); m.setAttribute(attr, key); document.head.appendChild(m); } m.setAttribute('content', val); };
+    set('name', 'description', d); set('property', 'og:title', t); set('property', 'og:description', d); set('property', 'og:image', img); set('property', 'og:url', location.href);
+    set('name', 'twitter:card', 'summary_large_image');
+    const C = CONTENT.contact;
+    const org = { '@type': ['Organization', 'RealEstateAgent'], '@id': CONTENT.siteUrl + '/#org', name: CONTENT.company, alternateName: 'JDC', slogan: CONTENT.tagline, url: CONTENT.siteUrl, image: 'assets/hero-mumbai.jpg',
+      address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressRegion: 'Maharashtra', addressCountry: 'IN' } };
+    if (!isPh(C.phone)) org.telephone = C.phoneHref || C.phone; if (!isPh(C.email)) org.email = C.email;
+    const sameAs = Object.values(CONTENT.socials).filter(Boolean); if (sameAs.length) org.sameAs = sameAs;
+    const projs = ORDER.map(id => { const p = P[id]; const o = { '@type': 'Place', name: p.name, url: CONTENT.siteUrl + '/#/projects/' + id, image: p.img }; if (!isPh(p.line)) o.description = p.line; if (!isPh(p.loc)) o.address = { '@type': 'PostalAddress', addressLocality: p.loc, addressRegion: 'Maharashtra', addressCountry: 'IN' }; return o; });
+    let ld = document.getElementById('jdc-ld'); if (!ld) { ld = document.createElement('script'); ld.type = 'application/ld+json'; ld.id = 'jdc-ld'; document.head.appendChild(ld); }
+    ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': [org].concat(s.page === 'project' ? [projs[ORDER.indexOf(s.pid)]] : projs) });
+  }
+  applyMenuInert() { const m = document.querySelector('[data-menu]'); if (!m) return; m.inert = !this.state.menu; if (this.state.menu) setTimeout(() => { const a = m.querySelector('a'); a && a.focus(); }, 380); }
+  key(e) {
+    const s = this.state;
+    if (e.key === 'Escape') {
+      if (s.lb !== null) return this.setState({ lb: null });
+      if (s.enq) return this.closeEnq();
+      if (s.brochure) return this.setState({ brochure: false });
+      if (s.menu) { this.setState({ menu: false }); const b = document.querySelector('[data-menu-btn]'); b && b.focus(); return; }
+    }
+    const gal = P[s.pid].gallery;
+    if (s.lb !== null && gal.length && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) this.setState({ lb: (s.lb + (e.key === 'ArrowRight' ? 1 : -1) + gal.length) % gal.length });
+    if (e.key === 'Tab') {
+      const box = s.enq ? document.querySelector('[data-enq]') : s.brochure ? document.querySelector('[data-brochure]') : s.lb !== null ? document.querySelector('[data-lightbox]') : s.menu ? document.querySelector('[data-menu]') : null;
+      if (!box) return;
+      const extra = s.menu && !s.enq ? [document.querySelector('[data-menu-btn]')] : [];
+      const f = [...extra, ...box.querySelectorAll('a[href],button:not([disabled]),input:not([type=hidden]),select,textarea,[tabindex="0"]')].filter(Boolean);
+      if (!f.length) return; const first = f[0], last = f[f.length - 1];
+      if (!f.includes(document.activeElement)) { e.preventDefault(); first.focus(); }
+      else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+
+  measure() {
+    const root = this.root(); if (!root) return; const y = scrollY;
+    const abs = el => { const r = el.getBoundingClientRect(); return { el, top: r.top + y, h: r.height }; };
+    this.secs = [...root.querySelectorAll('[data-bg]')].map(el => ({ ...abs(el), bg: el.getAttribute('data-bg'), tone: el.getAttribute('data-tone') }));
+    const main = document.getElementById('main'); const first = main && main.querySelector('[data-bg]'); this.firstEnd = first ? abs(first).top + abs(first).h : 0;
+    this.fxs = [...root.querySelectorAll('[data-fx]')].map(el => ({ ...abs(el), fx: el.getAttribute('data-fx') }));
+    this.pars = [...root.querySelectorAll('[data-par]')].map(el => ({ el, k: +el.getAttribute('data-par'), p: el.parentElement }));
+    this.marks = [...root.querySelectorAll('[data-sec]')].map(abs);
+    const ind = root.querySelector('[data-secind]');
+    if (ind && ind.childElementCount !== this.marks.length) { ind.innerHTML = this.marks.map(() => '<span style="display:block;width:14px;height:10px;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);background:#6E6A64;transition:background .3s"></span>').join(''); this.secCur = -1; }
+    const ft = root.querySelector('footer'); this.footTop = ft ? ft.getBoundingClientRect().top + y : 1e9;
+  }
+  bind() {
+    const root = this.root(); if (!root) return;
+    this.measure();
+    if (this.io) this.io.disconnect(); if (this.vio) this.vio.disconnect();
+    const show = el => {
+      if (el.hasAttribute('data-ln')) { const g = el.closest('[data-g]'); const step = g ? +g.getAttribute('data-g') : 80; const idx = g ? Array.prototype.indexOf.call(g.querySelectorAll('[data-ln]'), el) : 0; el.style.transitionDelay = (idx * step) + 'ms'; el.style.transform = 'translateY(0)'; }
+      if (el.hasAttribute('data-fade')) { el.style.opacity = 1; el.style.transform = 'none'; }
+      if (el.hasAttribute('data-ksr')) el.style.clipPath = el.getAttribute('data-ksr') === 'ks' ? 'polygon(0% 0%,100% 0%,86% 100%,14% 100%)' : 'polygon(0% 0%,100% 0%,100% 100%,0% 100%)';
+    };
+    const tmap = new Map();
+    root.querySelectorAll('[data-ln],[data-fade],[data-ksr]').forEach(el => { if (el.getAttribute('data-done')) return; const tgt = el.hasAttribute('data-ln') ? (el.parentElement || el) : el; if (!tmap.has(tgt)) tmap.set(tgt, []); tmap.get(tgt).push(el); });
+    this.pending = tmap; this.showFn = el => { el.setAttribute('data-done', '1'); show(el); };
+    if (this.reduce || !('IntersectionObserver' in window)) { tmap.forEach(l => l.forEach(this.showFn)); tmap.clear(); }
+    else {
+      this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && tmap.has(e.target)) { tmap.get(e.target).forEach(this.showFn); tmap.delete(e.target); this.io.unobserve(e.target); } }), { threshold: 0.01 });
+      tmap.forEach((_, t) => this.io.observe(t));
+      this.vio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) this.vis.add(e.target); else this.vis.delete(e.target); }), { rootMargin: '100px' });
+      root.querySelectorAll('[data-vis]').forEach(el => this.vio.observe(el));
+    }
+    this.checkPending();
+  }
+  checkPending() {
+    const m = this.pending; if (!m || !m.size || this.state.load < 2) return; const H = innerHeight;
+    m.forEach((list, tgt) => { if (!tgt.isConnected) { m.delete(tgt); return; } const r = tgt.getBoundingClientRect(); if (r.top < H * 0.92 && r.bottom > 0 && (r.width || r.height)) { list.forEach(this.showFn); m.delete(tgt); if (this.io) this.io.unobserve(tgt); } });
+  }
+
+  tick(t) {
+    const root = this.root(); if (!root) return;
+    { const s = this.state, ps = this.snap || {};
+      if (ps.page !== s.page || ps.pid !== s.pid || ps.info !== s.info) { this.applyMeta(); setTimeout(() => this.bind(), 60); }
+      else if (ps.view !== s.view || ps.sent !== s.sent || ps.load !== s.load) setTimeout(() => this.bind(), 60);
+      if (ps.menu !== s.menu) this.applyMenuInert();
+      this.snap = this.snapOf(s); }
+    if (!this.secs) return;
+    const H = innerHeight, W = innerWidth, y = scrollY; this.ly = y;
+    this.checkPending();
+    let bg = null, tone = null, ctone = null;
+    for (const s of this.secs) { const top = s.top - y; if (!bg && top <= H * 0.5 && top + s.h > H * 0.5) bg = s.bg; if (!tone && top <= 38 && top + s.h > 38) tone = s.tone; if (!ctone && top <= this.my && top + s.h > this.my) ctone = s.tone; }
+    if (bg && bg !== this.bg) { root.style.backgroundColor = bg; this.bg = bg; }
+    const solid = y > this.firstEnd - 76; const dark = solid ? true : tone !== 'light';
+    if (dark !== this.state.navDark || solid !== this.state.hdrSolid) this.setState({ navDark: dark, hdrSolid: solid });
+
+    for (const f of this.fxs) {
+      const top = f.top - y; if (top + f.h < -100 || top > H + 100) continue;
+      const p = this.reduce ? 1 : clamp(-top / Math.max(1, f.h - H)); const fn = this['fx_' + f.fx];
+      if (fn) fn.call(this, f.el, p, { top, height: f.h }, H, W);
+    }
+    if (!this.reduce) for (const pr of this.pars) { const r = pr.p.getBoundingClientRect(); if (r.bottom < -200 || r.top > H + 200) continue; pr.el.style.transform = `translate3d(0,${((r.top + r.height / 2) - H / 2) * -pr.k}px,0)`; }
+
+    if (this.marks && this.marks.length) { let cur = 0; this.marks.forEach((m, i) => { if (m.top - y <= H * 0.5) cur = i; }); if (cur !== this.secCur) { this.secCur = cur; const ind = root.querySelector('[data-secind]'); if (ind) [...ind.children].forEach((c, i) => c.style.background = i === cur ? TC : CG); } }
+
+    const docH = document.documentElement.scrollHeight - H, sp = docH > 0 ? y / docH : 0;
+    const fabs = root.querySelector('[data-fabs]'); if (fabs) { const over = H - (this.footTop - y) + 12; fabs.style.transform = over > 0 ? `translate3d(0,${-over}px,0)` : 'none'; }
+    const gt = root.querySelector('[data-gotop]'); if (gt) { const on = sp > 0.3; if (on !== this.gtOn) { this.gtOn = on; gt.style.opacity = on ? 1 : 0; gt.style.pointerEvents = on ? 'auto' : 'none'; gt.style.transform = on ? 'none' : 'translateY(16px)'; gt.tabIndex = on ? 0 : -1; } }
+
+    if (this.fine) {
+      this.cx += (this.mx - this.cx) * 0.24; this.cy += (this.my - this.cy) * 0.24;
+      const cur = root.querySelector('[data-cursor]');
+      if (cur) { cur.style.transform = `translate3d(${this.cx}px,${this.cy}px,0)`; cur.style.visibility = this.curHide ? 'hidden' : 'visible';
+        const ring = cur.querySelector('[data-cring]'), dot = cur.querySelector('[data-cdot]'), lab = cur.querySelector('[data-clabel]'); const on = !!this.curLabel;
+        const lightZone = this.state.menu || ctone === 'light' || !!this.state.lb;
+        const isWa = this.curKind === 'wa';
+        if (!this.bgTick || ++this.bgTick > 5) { this.bgTick = 1; this.curBg = this.bgAt(this.cx, this.cy); }
+        const BL = '#1E5F8C', near = (hex) => { const b = this.curBg; if (!b) return false; const n = parseInt(hex.slice(1), 16); return Math.abs(b[0] - (n >> 16)) + Math.abs(b[1] - (n >> 8 & 255)) + Math.abs(b[2] - (n & 255)) < 90; };
+        const ringBg = isWa ? '#25D366' : (lightZone ? AM : OB); const ringSame = !isWa && near(ringBg);
+        ring.style.background = ringSame ? BL : ringBg; ring.style.color = ringSame ? IV : (isWa ? OB : (lightZone ? OB : IV));
+        dot.style.background = near('#D9542B') ? BL : '#D9542B';
+        ring.style.transform = on ? (isWa ? 'scale(.62)' : 'scale(1)') : 'scale(0)'; dot.style.opacity = on ? 0 : 1; if (on && lab.textContent !== this.curLabel) lab.textContent = this.curLabel; }
+      if (this.state.page === 'projects' && this.state.view === 'list') { const fol = root.querySelector('[data-follow]'); const px = this.fx_; this.fx_ += (this.mx - this.fx_) * 0.14; this.fy_ += (this.my - this.fy_) * 0.14; fol.style.transform = `translate3d(${this.fx_}px,${this.fy_}px,0) rotate(${clamp((this.fx_ - px) * 0.5, -10, 10)}deg)`; }
+    }
+  }
+
+  fx_hero(el, p, r, H) {
+    if (this.reduce) return;
+    const vw = el.querySelector('[data-veilwrap]'); if (vw) vw.style.transform = `translateX(-50%) scale(${(1 + Math.pow(p, 1.7) * 2.6).toFixed(4)})`;
+    const v = el.querySelector('[data-veil]'); if (v) v.style.opacity = (1 - p * 0.92).toFixed(3);
+    const im = el.querySelector('[data-pimg]'); if (im) im.style.transform = `translate3d(0,${(p * 3).toFixed(2)}%,0) scale(${(1 + p * 0.06).toFixed(4)})`;
+    const tx = el.querySelector('[data-htxt]'); if (tx) { tx.style.opacity = clamp(1 - p * 2.4); tx.style.transform = `translateY(${-p * 140}px)`; }
+  }
+  fx_words(el, p, r, H) { const q = clamp((H * 0.85 - r.top) / (r.height * 0.85)); const ws = el.querySelectorAll('[data-w]'); const n = ws.length; ws.forEach((w, i) => { w.style.opacity = (i + 0.5) / n < q ? 1 : 0.14; }); }
+  fx_assemble(el, p) {
+    let set = 0; const order = [3, 4, 5, 0, 1, 2];
+    el.querySelectorAll('[data-blk]').forEach(b => { const i = +b.getAttribute('data-blk'); const k = order.indexOf(i); const pi = clamp((p * 1.3 - k * 0.11) / 0.42); const e = backOut(pi); const s = SCAT[i];
+      b.style.transform = `translate3d(${(1 - e) * s[0]}px,${(1 - e) * s[1]}px,0) rotate(${(1 - e) * s[2]}deg) rotateX(${(1 - e) * 60}deg)`; b.style.opacity = 0.12 + 0.88 * clamp(pi * 1.4); if (pi >= 1) set++; });
+    const c = el.querySelector('[data-cnt]'); if (c && c.textContent !== String(set)) c.textContent = set;
+  }
+  fx_arch(el, p) {
+    el.querySelectorAll('[data-stone]').forEach(s => { const o = +s.getAttribute('data-stone');
+      if (o === 4) { const k = clamp((p - 0.74) / 0.14); s.style.opacity = k > 0 ? 1 : 0; s.style.transform = `translateY(${-(1 - backOut(k)) * 240}px)`; }
+      else { const k = clamp(p * 5.2 - o * 1.05); s.style.opacity = k; s.style.transform = `translateY(${(1 - backOut(k)) * 70}px)`; } });
+    const a = Math.min(4, Math.floor(p * 4.4 + (p > 0.82 ? 1 : 0)));
+    el.querySelectorAll('[data-ch]').forEach(c => { const on = +c.getAttribute('data-ch') === a; c.style.opacity = on ? 1 : 0; c.style.transform = on ? 'none' : 'translateY(20px)'; c.setAttribute('aria-hidden', on ? 'false' : 'true'); });
+  }
+  fx_values(el, p, r, H) { if (this.reduce || !this.vis.has(el)) return; el.querySelectorAll('[data-row]').forEach(row => { const d = +row.getAttribute('data-row'); row.style.transform = `translate3d(${d * (r.top - H * 0.3) * 0.45 - (d > 0 ? 300 : 0)}px,0,0)`; }); }
+  fx_phero(el, p) {
+    const c = el.querySelector('[data-clip]'); const e = clamp(p * 1.25); const L = (a, b) => (a + (b - a) * e).toFixed(2) + '%';
+    c.style.clipPath = `polygon(${L(36, 0)} ${L(22, 0)},${L(64, 100)} ${L(22, 0)},${L(60, 100)} ${L(74, 100)},${L(40, 0)} ${L(74, 100)})`;
+    el.querySelector('[data-scrim]').style.opacity = clamp((e - 0.5) * 2); const tt = el.querySelector('[data-ptitle]'); tt.style.color = e > 0.6 ? IV : tt.getAttribute('data-fg');
+  }
+  fx_win(el, p) {
+    const w = 34 * (1 + Math.pow(p, 2) * 9); const path = el.querySelector('[data-wpath]'); if (path) path.setAttribute('d', winPath(100, 100, 50, 47, w));
+    const tx = el.querySelector('[data-wtxt]'); if (tx) tx.style.opacity = clamp(1 - p * 2.2);
+    const im = el.querySelector('[data-wimg]'); if (im && !this.reduce) im.style.transform = `translate3d(0,${p * 3}%,0)`;
+  }
+
+  toTop() { if (this.lenis) this.lenis.scrollTo(0, { duration: 1.4 }); else window.scrollTo({ top: 0, behavior: this.reduce ? 'auto' : 'smooth' }); }
+  openEnq(project, visit) { this.enqReturn = document.activeElement; if (this.lenis) this.lenis.stop(); this.setState({ enq: true, menu: false, enqProject: project || '', enqVisit: !!visit }); }
+  closeEnq() { if (this.lenis) this.lenis.start(); this.setState({ enq: false }); const r = this.enqReturn; if (r && r.focus) setTimeout(() => r.focus(), 50); }
+  async subscribe(e) {
+    e.preventDefault(); const v = this.state.news.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return this.setState({ newsErr: 'Enter a valid email address.' });
+    this.setState({ newsErr: '', newsStatus: 'sending' });
+    try {
+      if (NEWSLETTER_ENDPOINT) { const r = await fetch(NEWSLETTER_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: v }) }); if (!r.ok) throw new Error(); }
+      else await new Promise(r => setTimeout(r, 600));
+      this.setState({ newsStatus: 'ok' });
+    } catch (er) { this.setState({ newsStatus: 'idle', newsErr: 'Something went wrong. Please try again.' }); }
+  }
+
+  renderVals() {
+    const s = this.state, pg = s.page; const C = CONTENT.contact;
+    const statusKnown = ORDER.filter(id => !isPh(PC[id].status)).map(id => PC[id].status);
+    const match = id => { const p = P[id]; return s.filter === 'All' || p.type === s.filter || PC[id].status === s.filter; };
+    const pr = P[s.pid] || P.water; const pc = PC[s.pid] || {}; const ni = ORDER[(ORDER.indexOf(s.pid) + 1) % 4]; const nx = P[ni];
+    const F = CONTENT.flags;
+    const specs = (pc.specs && pc.specs.length ? pc.specs : [{ t: '[Specifications]', d: '[Specifications to be supplied by the client]' }]);
+    const pj = { ...pr, id: s.pid, tone: pr.fg === IV ? 'light' : 'dark', isSoon: !!pr.soon, notSoon: !pr.soon, marker: pr.accent,
+      details: pr.details.map(([k, v]) => ({ k, v, fw: isPh(v) ? 400 : 600, fs: isPh(v) ? '17px' : 'clamp(22px,2vw,28px)' })),
+      reraNo: pc.rera, qr: pc.qr, hasQr: !!pc.qr, noQr: !pc.qr, brochure: pc.brochure || '',
+      showPlans: F.showPlans && !pr.soon, hasPlan: !!pc.plan, noPlan: !pc.plan, planImg: pc.plan || '',
+      showSpecs: F.showSpecs && !pr.soon, showAmen: F.showAmenities && !pr.soon, hasGallery: pr.gallery.length > 0,
+      specs: specs.map((x, i) => ({ ...x, expanded: s.spec === i ? 'true' : 'false', id: 'spec-' + i, maxH: s.spec === i ? '240px' : '0px', rot: s.spec === i ? 'rotate(45deg)' : 'none', toggle: () => this.setState({ spec: s.spec === i ? -1 : i }) })),
+      conn: (pc.connectivity && pc.connectivity.length ? pc.connectivity : [{ n: '[Connectivity and distances]', d: '[00 km]' }]),
+      amenities: (pc.amenities && pc.amenities.length ? pc.amenities : [0, 1, 2].map(() => ({ t: '[Amenity name]', img: '' }))).map(a => ({ ...a, hasImg: !!a.img, noImg: !a.img })),
+      gallery: pr.gallery.map(([src, alt], i) => ({ src, alt, w: ['58%', '36%', '40%'][i % 3], open: () => this.setState({ lb: i }) })),
+      waProject: wa(`Hello JDC, I'd like to know more about ${pr.name}.`),
+      nextName: nx.name, nextBrand: nx.brand, nextHref: '#/projects/' + ni, nextAccent: nx.accent };
+
+    const nOn = ORDER.filter(match).filter(id => P[id].mx).length;
+    const hpId = match(s.hp) && P[s.hp].mx ? s.hp : (ORDER.find(id => match(id) && P[id].mx) || 'bkc');
+    const plist = ORDER.map(id => { const p = P[id], on = match(id), hov = hpId === id, lab = p.lab;
+      return { ...p, id, href: '#/projects/' + id, onMap: !!p.mx, hover: () => this.setState({ hp: id }), listHover: () => this.setState({ lh: id }),
+        pinScale: on ? (hov ? 1.25 : 1) : 0.4, pinOp: on ? 1 : 0.15, pe: on ? 'auto' : 'none', tabi: on ? 0 : -1, labOp: hov ? 1 : 0.92, hidden: on ? 'false' : 'true',
+        labL: lab === 'right' ? 'calc(100% - 2px)' : lab === 'top' ? '50%' : 'auto', labR: lab === 'left' ? 'calc(100% - 2px)' : 'auto', labB: lab === 'top' ? 'calc(100% - 4px)' : 'auto', labT: lab === 'top' ? 'auto' : '10px', labTf: lab === 'top' ? 'translateX(-50%)' : 'none',
+        panelOp: hov ? 1 : 0, panelTf: hov ? 'scale(1)' : 'scale(1.08)', rowH: on ? '260px' : '0px', rowPad: on ? '24px 0' : '0px 0', rowTf: s.lh === id ? 'translateX(2vw)' : 'none' }; });
+
+    const stones = []; const N = 9, cx = 350, cy = 372, r1 = 190, r2 = 290;
+    for (let i = 0; i < N; i++) { const g = 0.012, a0 = Math.PI - (i / N) * Math.PI - g, a1 = Math.PI - ((i + 1) / N) * Math.PI + g; const key = i === 4; const ro = key ? r2 + 18 : r2, ri = key ? r1 - 6 : r1;
+      const pt = (a, rr) => (cx + Math.cos(a) * rr).toFixed(1) + ',' + (cy - Math.sin(a) * rr).toFixed(1);
+      stones.push({ order: Math.min(i, N - 1 - i), pts: [pt(a0, ro), pt(a1, ro), pt(a1 + (key ? -0.03 : 0), ri), pt(a0 + (key ? 0.03 : 0), ri)].join(' '), fill: key ? TC : (i % 2 ? CG : OB) }); }
+
+    const mh = PAGES[Math.min(s.mh, PAGES.length - 1)];
+    const navIsDark = s.menu ? false : s.navDark;
+    const posters = {
+      home: { aria: 'A legacy built on trust', img: 'assets/hero-mumbai.jpg', imgSm: 'assets/hero-mumbai.jpg', pos: '50% 36%', alt: 'Mumbai skyline at golden hour', l1: 'A legacy', l2: 'built on ', b: 'trust.', l3: '' },
+      about: { aria: 'A legacy of turning vision into reality', img: 'assets/hero-mumbai.jpg', imgSm: 'assets/hero-mumbai.jpg', pos: '50% 18%', alt: 'Mumbai skyline under evening cloud', l1: 'A legacy of turning', l2: '', b: 'vision', l3: ' into reality' }
+    };
+    const poster = posters[pg] || posters.home;
+    const info = CONTENT.info[s.info] || CONTENT.info.sitemap;
+    const telHref = C.phoneHref ? 'tel:' + C.phoneHref : '#/contact', mailHref = C.emailHref ? 'mailto:' + C.emailHref : '#/contact';
+    const valuesList = [['Permanence', 'We build for decades.'], ['Consequence', 'We care about what happens after.'], ['Precision', 'In every element, seen or unseen.'], ['Restraint', "We don't overclaim."], ['Integrity', 'In the quality of what we make.'], ['Craft', 'Craft is not the same as finish.']].map(([t, d]) => ({ t, d }));
+    const socialsSet = Object.entries(CONTENT.socials).filter(([, v]) => v);
+    return {
+      submitLead, skipToMain: e => { e.preventDefault(); const m = document.getElementById('main'); m && m.focus(); },
+      isHome: pg === 'home', isAbout: pg === 'about', isProjects: pg === 'projects', isProject: pg === 'project', isSelect: pg === 'select', isPlace: pg === 'place', isProgress: pg === 'progress', isContact: pg === 'contact', isInfo: pg === 'info',
+      showLoader: s.load < 3, doorL: s.load >= 2 ? 'translateX(-101%)' : 'none', doorR: s.load >= 2 ? 'translateX(101%)' : 'none', preOp: s.load >= 2 ? 0 : 1,
+      preStones: MARK.map((m, i) => ({ pts: pts(m), tf: s.load >= 1 ? 'none' : 'translateY(-4px)', op: s.load >= 1 ? 1 : 0, delay: LOWER_FIRST[i] + 's' })),
+      hasPoster: pg === 'home' || pg === 'about', poster,
+      veilStones: MARK.map((m, i) => ({ pts: pts(m), op: s.heroIn ? 1 : 0, tf: s.heroIn ? 'none' : 'translateY(-2.5px)', delay: LOWER_FIRST[i] + 's' })),
+      heroInOp: s.heroIn ? 1 : 0, heroInTf: s.heroIn ? 'none' : 'translateY(28px)',
+      navInk: navIsDark ? OB : IV, hdrBg: !s.menu && s.hdrSolid ? IV : 'transparent', hdrBorder: !s.menu && s.hdrSolid ? SM : 'transparent',
+      hdrBtnBg: navIsDark ? OB : AM, hdrBtnFg: navIsDark ? IV : OB,
+      navLinks: [['Our legacy', '#/about', 'about'], ['Projects', '#/projects', 'projects'], ['JDC Select', '#/select', 'select'], ['JDC Place', '#/place', 'place']].map(([t, href, k]) => { const on = pg === k || (k === 'projects' && pg === 'project'); return { t, href, ul: on ? 'scaleX(1)' : 'scaleX(0)', cur: on ? 'page' : 'false' }; }),
+      menuLabel: s.menu ? 'Close' : 'Menu', menuAria: s.menu ? 'Close menu' : 'Open menu', menuExpanded: s.menu ? 'true' : 'false', burgerTop: s.menu ? '6px' : '0px', burgerA: s.menu ? 'rotate(45deg)' : 'none', burgerB: s.menu ? 'rotate(-45deg)' : 'none', burgerBL: s.menu ? '0px' : '8px',
+      toggleMenu: () => this.setState({ menu: !s.menu, menuLoaded: true, mh: Math.max(0, PAGES.findIndex(x => x.k === pg || (x.k === 'projects' && pg === 'project'))) }),
+      menuClip: s.menu ? 'polygon(-40% -10%,140% -10%,118% 112%,-18% 112%)' : 'polygon(90% 3%,97% 3%,96% 7%,91% 7%)', menuVis: s.menu ? 'visible' : 'hidden', menuVisDelay: s.menu ? '0s' : '.85s', menuLoaded: s.menuLoaded, menuCaption: mh.cap,
+      menuItems: PAGES.map((m, i) => { const act = s.mh === i; return { ...m, cur: (m.k === pg) ? 'page' : 'false', hover: () => this.setState({ mh: i }), tf: s.menu ? 'none' : 'translateY(40px)', op: s.menu ? (act ? 1 : 0.62) : 0, ksW: act ? '.6em' : '0em', imgOp: act ? 1 : 0, imgTf: act ? 'scale(1)' : 'scale(1.1)' }; }),
+      stmtWords: "We don't just build homes. We build legacies.".split(' ').map(t => ({ t, color: t === 'legacies.' ? TC : OB })),
+      asmBlocks: MARK.map((m, i) => ({ i, left: (m[0] === 1 || m[0] === 0 ? m[0] : m[0]) / 19 * 100 + '%', top: (m[1] / 16.2 * 100) + '%' })).map((b, i) => ({ ...b, left: (Math.min(MARK[i][0], MARK[i][6]) / 19 * 100).toFixed(3) + '%' })),
+      homeProjects: ORDER.map(id => { const p = P[id]; return { ...p, href: '#/projects/' + id, hasImg2: !!p.img2, isWindow: !!p.soon, notWindow: !p.soon, winPath: winPath(40, 30, 20, 15.5, 22), aria: `${p.name}, ${p.brand}, ${p.loc}` }; }),
+      showStats: !!F.showStats, stats: CONTENT.stats, showTestimonials: !!F.showTestimonials, testimonials: CONTENT.testimonials,
+      build: [['Residential', 'A home built by JDC is built for every version of you.'], ['Commercial', 'The office your best work deserves.'], ['Retail', 'The space your brand was always meant to inhabit.'], ['Hospitality', 'Where every stay becomes the standard.']].map(([k, t], i) => ({ k, t, delay: (i * 0.12) + 's' })),
+      values: valuesList,
+      stones, chapters: [
+        { t: 'A building is finished the moment the last worker leaves.', d: 'What happens next (the life that moves in, the business that grows, the memory that gets made), that part was never ours to write. That\'s the whole point.' },
+        { t: 'Every space will become the backdrop of someone\'s most important moments.', d: 'JDC builds with that understanding. The home where a child takes their first steps. The office where the best idea in a decade happens at 11pm.' },
+        { t: 'This is what Built for Life means.', d: 'Not how long the building stands, but how ready it is for everything life puts inside it. Built for first days and last days. For ordinary Tuesdays and extraordinary ones. For the life you planned, and the one [ending to be confirmed by the client].' },
+        { t: "We don't know which story yours will be.", d: 'We just make sure the building is ready for it.' },
+        { t: 'The structure is complete.', d: "The story isn't." }],
+      valueRows: [
+        { dir: 1, words: [{ t: 'Permanence', c: IV }, { t: 'Consequence', c: AM }, { t: 'Precision', c: IV }, { t: 'Permanence', c: AM }, { t: 'Consequence', c: IV }] },
+        { dir: -1, words: [{ t: 'Restraint', c: AM }, { t: 'Integrity', c: IV }, { t: 'Craft', c: AM }, { t: 'Restraint', c: IV }, { t: 'Integrity', c: AM }, { t: 'Craft', c: IV }] }],
+      leaders: CONTENT.leaders.map((l, i) => ({ ...l, hasPhoto: !!l.photo, noPhoto: !l.photo, mt: i % 2 ? '10vh' : '0px' })),
+      simple: [['Good architecture', 'assets/sign-jdc.jpg', 'John Dennis Constructions signage on a building with a crane behind'], ['Clean spaces', 'assets/select-wall.jpg', 'Lettering on a pale ribbed wall'], ['Natural living', '', ''], ['Thoughtful construction', 'assets/arch-2.jpg', 'Arched niche with a keystone, black and white']].map(([t, img, alt], i) => ({ t, img, alt, hasImg: !!img, noImg: !img, mt: ['0px', '6vh', '2vh', '8vh'][i] })),
+      filters: ['All', 'Residential', 'Commercial'].concat([...new Set(statusKnown)]).map(f => ({ label: f, pressed: s.filter === f ? 'true' : 'false', fw: s.filter === f ? 600 : 400, ks: s.filter === f ? 'scale(1)' : 'scale(0)', pick: () => this.setState({ filter: f }) })),
+      isMap: s.view === 'map', isList: s.view === 'list', viewMap: () => this.setState({ view: 'map' }), viewList: () => this.setState({ view: 'list' }),
+      mapPressed: s.view === 'map' ? 'true' : 'false', listPressed: s.view === 'list' ? 'true' : 'false',
+      mapBtnBg: s.view === 'map' ? OB : 'transparent', mapBtnInk: s.view === 'map' ? IV : OB, listBtnBg: s.view === 'list' ? OB : 'transparent', listBtnInk: s.view === 'list' ? IV : OB,
+      plist, hp: { ...P[hpId], href: '#/projects/' + hpId }, noResults: nOn === 0, showAll: () => this.setState({ filter: 'All' }),
+      offMapNote: 'ARISE · ' + P.arise.loc,
+      listLeave: () => this.setState({ lh: null }), followOp: this.fine && pg === 'projects' && s.view === 'list' && s.lh && match(s.lh) ? 1 : 0, followImg: s.lh ? P[s.lh].img : P.bkc.img,
+      pj, winHole: winPath(100, 100, 50, 47, 34),
+      planX: s.planX, planY: s.planY, planZ: s.planZ, planTr: s.planDrag ? 'none' : 'transform .5s cubic-bezier(.2,.8,.1,1)', planPct: Math.round(s.planZ * 100) + '%',
+      zoomIn: () => this.setState({ planZ: Math.min(3, s.planZ + 0.4) }), zoomOut: () => this.setState({ planZ: Math.max(0.6, s.planZ - 0.4) }), zoomReset: () => this.setState({ planZ: 1, planX: 0, planY: 0 }),
+      planDown: e => { if (e.pointerType !== 'mouse' && s.planZ <= 1) return; this.planD = { px: e.clientX, py: e.clientY, x: s.planX, y: s.planY }; this.setState({ planDrag: true }); },
+      openBrochure: () => this.setState({ brochure: true }), brOpen: s.brochure, brClose: () => this.setState({ brochure: false }),
+      lbOpen: s.lb !== null && pr.gallery.length > 0, lbSrc: s.lb !== null && pr.gallery[s.lb] ? pr.gallery[s.lb][0] : '', lbAlt: s.lb !== null && pr.gallery[s.lb] ? pr.gallery[s.lb][1] : '', lbCount: s.lb !== null ? `${s.lb + 1} / ${pr.gallery.length}` : '',
+      lbClose: () => this.setState({ lb: null }), lbPrev: () => this.setState({ lb: (s.lb - 1 + pr.gallery.length) % pr.gallery.length }), lbNext: () => this.setState({ lb: (s.lb + 1) % pr.gallery.length }),
+      selectList: ['arise', 'water'].map((id, i) => ({ ...P[id], href: '#/projects/' + id, dir: i ? 'row-reverse' : 'row' })),
+      selectFacts: [{ k: 'Residences', v: '1–3 BED' }, { k: 'Payment plan', v: '50/50' }, { k: 'On booking', v: '10%' }],
+      progTabs: ORDER.map(id => ({ name: P[id].name, pressed: s.prog === id ? 'true' : 'false', fw: s.prog === id ? 600 : 400, ul: s.prog === id ? TC : 'transparent', pick: () => this.setState({ prog: id }) })),
+      progNote: CONTENT.progress[s.prog] ? 'Updated ' + CONTENT.progress[s.prog].updated : '[Construction progress for ' + P[s.prog].name + ' to be supplied]',
+      contactDone: () => this.setState({ sent: true }), visitFocus: s.visit, visitKey: s.visitKey, preProject: s.preProject, contactTitle: s.sent ? 'Thank you.' : "Let's build",
+      waHref: pg === 'project' ? pj.waProject : wa("Hello JDC, I'd like to know more about your projects."),
+      C: { ...C, whatsappLabel: C.whatsapp ? '+' + C.whatsapp : '[WhatsApp number]', socialsLabel: socialsSet.length ? socialsSet.map(([k]) => k).join(' · ') : '[Social links]' }, telHref, mailHref,
+      footProjects: ORDER.map(id => ({ name: P[id].name, href: '#/projects/' + id, accent: P[id].accent })),
+      footCompany: [['Our legacy', '#/about'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ["Let's build", '#/contact'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri']].concat(HAS_PROGRESS ? [['Live from site', '#/progress']] : []).map(([t, href]) => ({ t, href })),
+      reraList: ORDER.map(id => ({ name: P[id].name, no: PC[id].rera })), year: String(new Date().getFullYear()),
+      news: s.news, newsChange: e => this.setState({ news: e.target.value, newsErr: '' }), newsSubmit: e => this.subscribe(e), newsErr: s.newsErr, hasNewsErr: !!s.newsErr, newsInvalid: s.newsErr ? 'true' : 'false', newsOk: s.newsStatus === 'ok', newsForm: s.newsStatus !== 'ok', newsBtn: s.newsStatus === 'sending' ? 'Sending' : 'Subscribe',
+      info, infoIsSitemap: s.info === 'sitemap',
+      sitemap: [['Home', '#/'], ['Our legacy', '#/about'], ['Projects', '#/projects'], ['Navi Mumbai Waterfront', '#/projects/water'], ['BKC ONE', '#/projects/bkc'], ['ARISE', '#/projects/arise'], ['Chembur Tower', '#/projects/chembur'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ["Let's build", '#/contact'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri'], ['Privacy', '#/info/privacy'], ['Terms', '#/info/terms'], ['Disclaimer', '#/info/disclaimer']].concat(HAS_PROGRESS ? [['Live from site', '#/progress']] : []).map(([t, href]) => ({ t, href })),
+      toTop: () => this.toTop(),
+      enqOpen: s.enq, enqProject: s.enqProject, enqVisit: s.enqVisit, enqTitle: s.enqVisit ? 'Book a site visit' : 'Tell us what you are looking for', enqEyebrow: s.enqProject || 'Enquire',
+      openEnq: () => this.openEnq('', false), openVisit: () => this.openEnq(pg === 'project' ? pr.name : '', true), openVisitProject: () => this.openEnq(pr.name, true), closeEnq: () => this.closeEnq(), enqBackdrop: e => { if (e.target === e.currentTarget) this.closeEnq(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

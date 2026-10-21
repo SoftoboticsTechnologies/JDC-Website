@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:flex;flex-direction:column;gap:22px;color:{{ ink }};font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif">
+<sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{ onSubmit }}" noValidate="" style="display:flex;flex-direction:column;gap:30px">
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 32px">
+    <label style="display:flex;flex-direction:column;gap:8px;min-width:0">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">Name *</span>
+      <input ref="{{ firstRef }}" name="name" type="text" autoComplete="name" value="{{ f.name }}" onChange="{{ setName }}" aria-invalid="{{ e.nameBad }}" aria-describedby="{{ ids.name }}" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid {{ line }};border-radius:0;padding:12px 0;font-size:17px;color:inherit;outline-offset:4px;font-family:inherit">
+      <sc-if value="{{ e.hasName }}" hint-placeholder-val="{{ false }}"><span id="{{ ids.name }}" role="alert" style="font-size:14px;line-height:1.4;color:{{ errInk }}">{{ e.name }}</span></sc-if>
+    </label>
+    <label style="display:flex;flex-direction:column;gap:8px;min-width:0">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">Phone *</span>
+      <input name="phone" type="tel" autoComplete="tel" inputMode="tel" value="{{ f.phone }}" onChange="{{ setPhone }}" aria-invalid="{{ e.phoneBad }}" aria-describedby="{{ ids.phone }}" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid {{ line }};border-radius:0;padding:12px 0;font-size:17px;color:inherit;outline-offset:4px;font-family:inherit">
+      <sc-if value="{{ e.hasPhone }}" hint-placeholder-val="{{ false }}"><span id="{{ ids.phone }}" role="alert" style="font-size:14px;line-height:1.4;color:{{ errInk }}">{{ e.phone }}</span></sc-if>
+    </label>
+    <label style="display:flex;flex-direction:column;gap:8px;min-width:0;grid-column:{{ emailCol }}">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">Email</span>
+      <input name="email" type="email" autoComplete="email" value="{{ f.email }}" onChange="{{ setEmail }}" aria-invalid="{{ e.emailBad }}" aria-describedby="{{ ids.email }}" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid {{ line }};border-radius:0;padding:12px 0;font-size:17px;color:inherit;outline-offset:4px;font-family:inherit">
+      <sc-if value="{{ e.hasEmail }}" hint-placeholder-val="{{ false }}"><span id="{{ ids.email }}" role="alert" style="font-size:14px;line-height:1.4;color:{{ errInk }}">{{ e.email }}</span></sc-if>
+    </label>
+    <sc-if value="{{ isFull }}" hint-placeholder-val="{{ false }}">
+    <label style="display:flex;flex-direction:column;gap:8px;min-width:0">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">Project</span>
+      <select name="project" value="{{ f.project }}" onChange="{{ setProject }}" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid {{ line }};border-radius:0;padding:12px 0;font-size:17px;color:inherit;outline-offset:4px;font-family:inherit;appearance:auto">
+        <sc-for list="{{ projectOpts }}" as="o" hint-placeholder-count="5"><option value="{{ o.v }}" style="color:#1F1F1F">{{ o.t }}</option></sc-for>
+      </select>
+    </label>
+    <fieldset style="border:none;margin:0;padding:0;min-width:0;display:flex;flex-direction:column;gap:14px">
+      <legend style="padding:0;margin-bottom:14px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">I am looking for</legend>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 28px">
+        <sc-for list="{{ kinds }}" as="k" hint-placeholder-count="2">
+          <label style="display:flex;align-items:center;gap:12px;font-size:16px;cursor:pointer"><input type="checkbox" checked="{{ k.on }}" onChange="{{ k.pick }}" style="flex:0 0 auto;width:20px;height:20px;margin:0;accent-color:{{ accent }};cursor:pointer">{{ k.t }}</label>
+        </sc-for>
+      </div>
+    </fieldset>
+    <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">Site visit</span>
+      <label style="display:flex;align-items:center;gap:12px;font-size:16px;cursor:pointer"><input type="checkbox" checked="{{ f.visit }}" onChange="{{ setVisit }}" style="flex:0 0 auto;width:20px;height:20px;margin:0;accent-color:{{ accent }};cursor:pointer">I'd like to book a site visit</label>
+      <sc-if value="{{ f.visit }}" hint-placeholder-val="{{ false }}">
+      <label style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">Preferred date</span>
+        <input type="date" value="{{ f.date }}" onChange="{{ setDate }}" min="{{ today }}" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid {{ line }};border-radius:0;padding:12px 0;font-size:17px;color:inherit;outline-offset:4px;font-family:inherit;color-scheme:{{ scheme }}">
+      </label>
+      </sc-if>
+    </div>
+    <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:8px">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">Message</span>
+      <textarea name="message" rows="3" value="{{ f.message }}" onChange="{{ setMessage }}" style="width:100%;box-sizing:border-box;background:transparent;border:none;border-bottom:1px solid {{ line }};border-radius:0;padding:12px 0;font-size:17px;color:inherit;outline-offset:4px;font-family:inherit;line-height:1.5;resize:vertical"></textarea>
+    </label>
+    </sc-if>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <label style="display:flex;align-items:flex-start;gap:12px;font-size:15px;line-height:1.5;cursor:pointer">
+      <input type="checkbox" checked="{{ f.consent }}" onChange="{{ setConsent }}" aria-invalid="{{ e.consentBad }}" style="flex:0 0 auto;width:20px;height:20px;margin:0;accent-color:{{ accent }};cursor:pointer;margin-top:2px">
+      <span>I agree to be contacted by John Dennis Constructions about this enquiry. *</span>
+    </label>
+    <sc-if value="{{ e.hasConsent }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:14px;line-height:1.4;color:{{ errInk }};padding-left:32px">{{ e.consent }}</span></sc-if>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px;padding-top:24px;border-top:1px solid {{ line }}">
+    <span style="font-size:14px;line-height:1.45">* Required</span>
+    <button type="submit" data-btn="1" disabled="{{ sending }}" style="position:relative;overflow:hidden;display:flex;align-items:center;gap:12px;height:56px;padding:0 26px;border:none;border-radius:0;background:{{ btnBg }};color:{{ btnFg }};font-size:16px;font-weight:600;letter-spacing:0;font-family:inherit"><span data-bks="1" aria-hidden="true" style="display:block;width:14px;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span><span>{{ btnLabel }}</span></button>
+  </div>
+  <sc-if value="{{ hasFail }}" hint-placeholder-val="{{ false }}"><span role="alert" style="font-size:15px;color:{{ errInk }}">Something went wrong. Please try again, or write to us on WhatsApp.</span></sc-if>
+</form>
+</sc-if>
+<sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display:flex;flex-direction:column;gap:16px;padding:8px 0">
+  <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#2A8C82;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+  <span style="font-weight:600;font-size:clamp(28px,2.6vw,36px);line-height:1.06;letter-spacing:-.035em">{{ doneTitle }}</span>
+  <span style="font-size:17px;line-height:1.55;max-width:460px">{{ doneText }}</span>
+  <sc-if value="{{ isBrochure }}" hint-placeholder-val="{{ false }}">
+    <sc-if value="{{ hasBrochure }}" hint-placeholder-val="{{ false }}"><a href="{{ brochureUrl }}" download="" style="align-self:flex-start;display:flex;align-items:center;gap:12px;height:56px;padding:0 26px;background:{{ btnBg }};color:{{ btnFg }};font-size:16px;font-weight:600">Download brochure</a></sc-if>
+    <sc-if value="{{ noBrochure }}" hint-placeholder-val="{{ true }}"><span style="font-size:16px">[Brochure PDF to be supplied by the client]</span></sc-if>
+  </sc-if>
+  <sc-if value="{{ hasClose }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ close }}" style="align-self:flex-start;background:none;border:none;border-bottom:1px solid currentColor;padding:4px 0;color:inherit;font-size:15px;font-weight:600">Close</button></sc-if>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:640,&quot;height&quot;:760},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;short&quot;,&quot;brochure&quot;],&quot;default&quot;:&quot;full&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;project&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;submitLabel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Send enquiry&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;successTitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;brochureUrl&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;string&quot;},&quot;autoFocus&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;focusKey&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;number&quot;},&quot;submit&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;(data:any)=&gt;Promise&lt;any&gt;&quot;},&quot;onClose&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;()=&gt;void&quot;},&quot;onDone&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;()=&gt;void&quot;}}">
+class Component extends DCLogic {
+  state = { f: { name: '', phone: '', email: '', project: '', kinds: [], visit: false, date: '', message: '', consent: false }, err: {}, status: 'idle', tried: false };
+  firstRef = React.createRef();
+  componentDidMount() { this.syncProject(); if (this.props.autoFocus) setTimeout(() => this.firstRef.current && this.firstRef.current.focus(), 120); }
+  componentDidUpdate(pp) {
+    if (pp.project !== this.props.project) this.syncProject();
+    if (this.props.autoFocus && pp.focusKey !== this.props.focusKey) setTimeout(() => this.firstRef.current && this.firstRef.current.focus({ preventScroll: true }), 300);
+  }
+  syncProject() { const p = this.props.project || ''; const f = { ...this.state.f, project: p, visit: !!this.props.visit || this.state.f.visit }; if (/BKC|Place/.test(p)) f.kinds = ['Commercial']; if (/Select|ARISE|Waterfront/.test(p)) f.kinds = ['Residential']; this.setState({ f }); }
+  set(k, v) { this.setState(s => { const f = { ...s.f, [k]: v }; return { f, err: s.tried ? this.validate(f) : {} }; }); }
+  validate(f) {
+    const e = {};
+    if (f.name.trim().length < 2) e.name = 'Enter your name.';
+    if (f.phone.replace(/\D/g, '').length < 10) e.phone = 'Enter a phone number with at least 10 digits.';
+    if (f.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) e.email = 'Enter a valid email address.';
+    if (!f.consent) e.consent = 'Please agree so we can contact you.';
+    return e;
+  }
+  async submit(ev) {
+    ev.preventDefault(); const f = this.state.f; const err = this.validate(f);
+    this.setState({ tried: true, err });
+    if (Object.keys(err).length) { const k = Object.keys(err)[0]; setTimeout(() => { const el = document.querySelector(`[aria-invalid="true"]`); el && el.focus(); }, 30); return; }
+    this.setState({ status: 'sending' });
+    try {
+      const fn = this.props.submit || (async () => ({ ok: true }));
+      await fn({ ...f, kind: f.kinds.join(', '), variant: this.props.variant || 'full' });
+      this.setState({ status: 'done' }); this.props.onDone && this.props.onDone();
+    } catch (x) { this.setState({ status: 'fail' }); }
+  }
+  renderVals() {
+    const p = this.props, s = this.state, f = s.f, e = s.err; const dark = p.theme === 'dark'; const v = p.variant || 'full';
+    const IV = '#EBE3D8', OB = '#1F1F1F', AM = '#F2A93B';
+    const names = ['ARISE', 'BKC ONE', 'Navi Mumbai Waterfront', 'Chembur Tower'];
+    return {
+      ink: dark ? IV : OB, line: dark ? 'rgba(235,227,216,.5)' : '#6E6A64', accent: dark ? AM : OB, errInk: dark ? '#FF6B6B' : '#D32F2F', emailCol: v === 'full' ? 'auto' : '1 / -1', scheme: dark ? 'dark' : 'light',
+      btnBg: dark ? AM : OB, btnFg: dark ? OB : IV,
+      f, firstRef: this.firstRef, today: new Date().toISOString().slice(0, 10),
+      ids: { name: 'lf-name-' + v, phone: 'lf-phone-' + v, email: 'lf-email-' + v },
+      e: { name: e.name, phone: e.phone, email: e.email, consent: e.consent, hasName: !!e.name, hasPhone: !!e.phone, hasEmail: !!e.email, hasConsent: !!e.consent, nameBad: e.name ? 'true' : 'false', phoneBad: e.phone ? 'true' : 'false', emailBad: e.email ? 'true' : 'false', consentBad: e.consent ? 'true' : 'false' },
+      isFull: v === 'full', isBrochure: v === 'brochure',
+      projectOpts: [{ v: '', t: 'Not sure yet' }].concat(names.map(n => ({ v: n, t: n }))).concat(p.project && !names.includes(p.project) ? [{ v: p.project, t: p.project }] : []),
+      kinds: ['Residential', 'Commercial'].map(t => ({ t, on: f.kinds.includes(t), pick: x => this.set('kinds', x.target.checked ? f.kinds.filter(y => y !== t).concat(t) : f.kinds.filter(y => y !== t)) })),
+      setName: x => this.set('name', x.target.value), setPhone: x => this.set('phone', x.target.value), setEmail: x => this.set('email', x.target.value),
+      setProject: x => this.set('project', x.target.value), setVisit: x => this.set('visit', x.target.checked), setDate: x => this.set('date', x.target.value),
+      setMessage: x => this.set('message', x.target.value), setConsent: x => this.set('consent', x.target.checked),
+      onSubmit: x => this.submit(x), sending: s.status === 'sending',
+      btnLabel: s.status === 'sending' ? 'Sending' : (p.submitLabel || 'Send enquiry'),
+      showForm: s.status !== 'done', done: s.status === 'done', hasFail: s.status === 'fail',
+      doneTitle: p.successTitle || 'Thank you. We have your details.',
+      doneText: v === 'brochure' ? 'Your download is below.' : 'Our team will call you back on the number you shared.',
+      brochureUrl: p.brochureUrl || '', hasBrochure: !!p.brochureUrl, noBrochure: !p.brochureUrl,
+      hasClose: !!p.onClose, close: () => p.onClose && p.onClose()
+    };
+  }
+}
+</script>
+</body>
+</html>

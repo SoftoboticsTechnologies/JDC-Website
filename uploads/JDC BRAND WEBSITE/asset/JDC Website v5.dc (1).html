@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>JDC · John Dennis Constructions · Built for Life</title>
+<meta name="description" content="John Dennis Constructions builds residential and commercial projects across Mumbai and Navi Mumbai.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="John Dennis Constructions">
+<meta property="og:title" content="JDC · Built for Life">
+<meta property="og:description" content="Residential and commercial projects across Mumbai and Navi Mumbai.">
+<meta property="og:image" content="assets/bombay-skyline.jpg">
+<link rel="icon" type="image/png" href="assets/logo-mark-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<style>
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:#EBE3D8;color:#1F1F1F;font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}a:hover{color:inherit}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+html[data-cur-on] body,html[data-cur-on] a,html[data-cur-on] button,html[data-cur-on] label{cursor:none}
+html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
+html[data-cur-on] select,html[data-cur-on] input[type=checkbox],html[data-cur-on] input[type=range]{cursor:pointer}
+input:-webkit-autofill{animation-name:jdcAutofill;-webkit-text-fill-color:currentColor;transition:background-color 99999s ease 0s}
+@keyframes jdcAutofill{from{opacity:1}to{opacity:1}}
+@keyframes jdcPulse{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(1.9);opacity:0}}
+@keyframes jdcDrift{0%,100%{transform:translate(0,0)}50%{transform:translate(28px,-22px)}}
+@keyframes jdcBob{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+::selection{background:#2A72B8;color:#EBE3D8}
+[data-hide-sb]::-webkit-scrollbar{display:none}
+@media (min-width:768px){[data-fcol-body]{display:flex!important}[data-fcol-toggle] svg{display:none}[data-fcol-toggle]{pointer-events:none}}
+@media (max-width:899px){[data-md-static]{position:static!important}[data-acc-wrap]{position:static!important;height:auto!important;min-height:0!important;display:flex!important;flex-direction:column;gap:28px}[data-acc-item]{position:static!important;animation:none!important}}
+@media (max-width:767px){[data-fx=hero]{height:160vh!important}[data-fx=arch]{height:260vh!important}[data-fx=assemble]{height:200vh!important}[data-map]{aspect-ratio:1/1!important}[data-amen]{width:78vw!important;scroll-snap-align:start}[data-amen-img]{height:300px!important}[data-snap]{scroll-snap-type:x mandatory;scroll-padding-left:18px}}
+@media (max-width:639px){[data-sm-hide]{display:none!important}[data-fab]{width:48px!important;height:48px!important;flex-basis:48px!important}[data-fab-clear]{padding-right:64px}[data-pinlab]{opacity:var(--labop,0)!important}}
+@media (min-width:640px){[data-sm-show]{display:none!important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}[data-fx=hero],[data-fx=arch],[data-fx=assemble],[data-fx=rise],[data-fx=phero],[data-fx=rail]{height:auto!important}[data-sticky]{position:relative!important;height:auto!important;min-height:100vh}[data-fx=rail] [data-sticky]{overflow-x:auto!important}}
+</style>
+</helmet>
+<div data-jdc-root="1" style="position:relative;min-height:100vh;background-color:#A8CDEE;transition:background-color 1.3s ease;overflow-x:clip">
+
+<a href="#main" onClick="{{ skipToMain }}" style="position:fixed;left:16px;top:-60px;z-index:500;background:#1F1F1F;color:#EBE3D8;padding:12px 18px;font-size:14px;font-weight:600;transition:top .2s" style-focus="top:16px">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="jdcRipple" x="0" y="0" width="100%" height="100%"><feTurbulence data-turb="1" type="fractalNoise" baseFrequency="0.006 0.02" numOctaves="2" seed="4" result="n"></feTurbulence><feDisplacementMap data-disp="1" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap></filter></svg>
+
+<sc-if value="{{ showLoader }}" hint-placeholder-val="{{ false }}">
+<div aria-hidden="true" style="position:fixed;inset:0;z-index:300;pointer-events:none">
+  <div style="position:absolute;top:0;bottom:0;left:0;width:50.5%;background:#2A72B8;transform:{{ doorL }};transition:transform .6s cubic-bezier(.8,0,.2,1)"></div>
+  <div style="position:absolute;top:0;bottom:0;right:0;width:50.5%;background:#2A72B8;transform:{{ doorR }};transition:transform .6s cubic-bezier(.8,0,.2,1)"></div>
+  <div style="position:absolute;left:50%;top:50%;width:150px;height:128px;margin:-64px 0 0 -75px;opacity:{{ preOp }};transition:opacity .3s ease">
+    <sc-for list="{{ preBlocks }}" as="b" hint-placeholder-count="6">
+      <span style="position:absolute;left:{{ b.left }};top:{{ b.top }};width:33.4%;height:48%;background:#EBE3D8;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);transform:{{ b.tf }};opacity:{{ b.op }};transition:transform .65s cubic-bezier(.3,1.45,.5,1) {{ b.delay }}, opacity .4s ease {{ b.delay }}"></span>
+    </sc-for>
+  </div>
+</div>
+</sc-if>
+
+<div aria-hidden="true" style="position:fixed;inset:0;z-index:250;pointer-events:none;display:flex">
+  <span data-tp="0" style="flex:1;margin-right:-1px;transform:translateY(-101%);clip-path:polygon(0 0,100% 0,100% 100%,0 96%)"></span>
+  <span data-tp="1" style="flex:1;margin-right:-1px;transform:translateY(-101%);clip-path:polygon(0 0,100% 0,100% 98%,0 100%)"></span>
+  <span data-tp="2" style="flex:1;margin-right:-1px;transform:translateY(-101%)"></span>
+  <span data-tp="3" style="flex:1;margin-right:-1px;transform:translateY(-101%);clip-path:polygon(0 0,100% 0,100% 100%,0 98%)"></span>
+  <span data-tp="4" style="flex:1;transform:translateY(-101%);clip-path:polygon(0 0,100% 0,100% 96%,0 100%)"></span>
+  <img data-tpmark="1" src="assets/logo-mark-ivory.png" alt="" width="328" height="281" style="position:absolute;left:50%;top:50%;width:84px;height:auto;transform:translate(-50%,-50%);opacity:0;transition:opacity .2s ease">
+</div>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:120;height:76px;padding:0 clamp(18px,3.4vw,52px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;color:{{ navInk }};background-color:{{ hdrBg }};border-bottom:1px solid {{ hdrBorder }};transition:color .5s ease, background-color .5s ease, border-color .5s ease">
+  <nav aria-label="Primary" data-sm-hide="1" style="display:flex;align-items:center;gap:clamp(14px,2vw,28px);font-size:13px;font-weight:500;letter-spacing:.04em">
+    <a href="#/about" data-mag="1" style="padding:6px 0;display:flex;flex-direction:column;gap:3px">About<span style="height:1px;background:currentColor;transform-origin:left;transform:{{ navUlAbout }};transition:transform .5s cubic-bezier(.2,.8,.1,1)"></span></a>
+    <a href="#/projects" data-mag="1" style="padding:6px 0;display:flex;flex-direction:column;gap:3px">Projects<span style="height:1px;background:currentColor;transform-origin:left;transform:{{ navUlProjects }};transition:transform .5s cubic-bezier(.2,.8,.1,1)"></span></a>
+  </nav>
+  <span data-sm-show="1" style="display:flex"></span>
+  <a href="#/" aria-label="JDC home" style="position:relative;display:flex;padding:8px"><img src="assets/logo-jdc-dark.png" alt="JDC" width="711" height="289" style="height:30px;width:auto;display:block;opacity:{{ navLogoDarkOp }};transition:opacity .5s ease"><img src="assets/logo-jdc-ivory.png" alt="" aria-hidden="true" width="711" height="289" style="position:absolute;left:8px;top:8px;height:30px;width:auto;display:block;opacity:{{ navLogoIvOp }};transition:opacity .5s ease"></a>
+  <div style="justify-self:end;display:flex;align-items:center;gap:clamp(10px,1.6vw,22px)">
+    <button onClick="{{ openEnq }}" data-mag="1" data-cur="Enquire" aria-haspopup="dialog" style="display:flex;align-items:center;height:40px;padding:0 18px;border-radius:20px;border:1px solid currentColor;background:transparent;color:inherit;font-size:13px;font-weight:600;letter-spacing:.04em;transition:background-color .35s, color .35s, border-color .35s" style-hover="background-color:#2A72B8;border-color:#2A72B8;color:#EBE3D8">Enquire</button>
+    <button data-menu-btn="1" onClick="{{ toggleMenu }}" data-mag="1" aria-label="{{ menuAria }}" aria-expanded="{{ menuExpanded }}" aria-controls="jdc-menu" style="background:none;border:none;padding:10px 0 10px 6px;display:flex;align-items:center;gap:14px;font-size:13px;font-weight:500;letter-spacing:.04em;color:inherit">
+      <span data-sm-hide="1">{{ menuLabel }}</span>
+      <span style="position:relative;width:28px;height:14px;display:block">
+        <span style="position:absolute;left:0;right:0;top:{{ burgerTop }};height:2px;background:currentColor;transform:{{ burgerA }};transition:transform .5s cubic-bezier(.7,0,.2,1), top .4s"></span>
+        <span style="position:absolute;left:8px;right:0;bottom:{{ burgerTop }};height:2px;background:currentColor;transform:{{ burgerB }};transition:transform .5s cubic-bezier(.7,0,.2,1), bottom .4s"></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<div id="jdc-menu" data-menu="1" role="dialog" aria-modal="true" aria-label="Site menu" style="position:fixed;inset:0;z-index:110;background:{{ menuBg }};color:{{ menuInk }};clip-path:{{ menuClip }};visibility:{{ menuVis }};transition:clip-path .8s cubic-bezier(.7,0,.2,1), background-color .6s ease, color .6s ease, visibility 0s linear {{ menuVisDelay }};display:flex">
+  <div data-sm-hide="1" style="position:relative;flex:0 0 40%;overflow:hidden;background:rgba(31,31,31,.18)">
+    <sc-if value="{{ menuLoaded }}" hint-placeholder-val="{{ false }}">
+      <sc-for list="{{ menuItems }}" as="m" hint-placeholder-count="0">
+        <img src="assets/bombay-skyline.jpg" srcset="{{ m.img }}" alt="" width="1600" height="2000" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ m.imgOp }};transform:{{ m.imgTf }};transition:opacity .7s ease, transform 1.4s cubic-bezier(.2,.8,.1,1)">
+      </sc-for>
+    </sc-if>
+    <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(31,31,31,.6),rgba(31,31,31,0) 45%)"></div>
+    <div style="position:absolute;left:clamp(18px,3vw,44px);right:clamp(18px,3vw,44px);bottom:36px;display:flex;align-items:center;gap:14px;color:#EBE3D8">
+      <span style="display:block;flex:0 0 auto;width:26px;height:18px;background:#EBE3D8;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ menuCaption }}</span>
+    </div>
+  </div>
+  <div data-hide-sb="1" data-lenis-prevent="" style="flex:1 1 auto;min-width:0;overflow:auto;scrollbar-width:none;display:flex;flex-direction:column;justify-content:space-between;gap:44px;padding:110px clamp(18px,4.4vw,80px) 34px;box-sizing:border-box">
+    <nav aria-label="Site" style="display:flex;flex-direction:column">
+      <sc-for list="{{ menuItems }}" as="m" hint-placeholder-count="7">
+        <a href="{{ m.href }}" onMouseEnter="{{ m.hover }}" onFocus="{{ m.hover }}" style="display:flex;align-items:center;gap:18px;padding:12px 0;border-top:1px solid {{ menuLine }};opacity:{{ m.op }};transform:{{ m.tf }};transition:transform .6s cubic-bezier(.2,.8,.1,1), opacity .4s ease">
+          <span aria-hidden="true" style="display:block;flex:0 0 auto;height:.42em;width:{{ m.ksW }};font-size:clamp(34px,5vw,84px);background:currentColor;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);transition:width .5s cubic-bezier(.2,.8,.1,1)"></span>
+          <span style="min-width:0;font-weight:600;font-size:clamp(34px,5vw,84px);line-height:1;letter-spacing:-.05em">{{ m.label }}</span>
+          <span data-sm-hide="1" style="margin-left:auto;font-size:13px;line-height:1.4;text-align:right;max-width:200px;opacity:{{ m.capOp }};transition:opacity .4s">{{ m.cap }}</span>
+        </a>
+      </sc-for>
+    </nav>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 30px;border-top:1px solid {{ menuLine }};padding-top:24px">
+      <button onClick="{{ openEnq }}" style="display:flex;align-items:center;gap:12px;background:{{ menuInk }};color:{{ menuBg }};border:none;padding:16px 24px;font-size:15px;font-weight:600">Enquire now<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 26px;font-size:15px">
+        <a href="{{ telHref }}" style="display:flex;align-items:center;gap:10px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg>{{ C.phone }}</a>
+        <a href="{{ mailHref }}" style="display:flex;align-items:center;gap:10px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M3 6l9 7 9-7"></path></svg>{{ C.email }}</a>
+      </div>
+      <div style="display:flex;gap:10px">
+        <sc-for list="{{ socials }}" as="so" hint-placeholder-count="3"><a href="{{ so.href }}" target="_blank" rel="noopener" aria-label="{{ so.t }}" style="width:44px;height:44px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ so.d }}"></path></svg></a></sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main" tabindex="-1" style="outline:none">
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Home">
+  <section data-fx="hero" data-bg="#A8CDEE" data-tone="dark" aria-label="Built for Life" style="position:relative;height:260vh">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;background:linear-gradient(180deg,#A8CDEE 0%,#F6CFA0 55%,#F3BE76 100%)">
+      <img data-hout="1" src="assets/bombay-skyline.jpg" alt="" width="3000" height="1688" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22;mix-blend-mode:multiply">
+      <div data-win="1" style="position:absolute;inset:0;-webkit-mask-image:url(assets/logo-mark-ivory.png);mask-image:url(assets/logo-mark-ivory.png);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:40vmin auto;mask-size:40vmin auto;-webkit-mask-position:center;mask-position:center">
+        <img src="assets/bombay-skyline.jpg" alt="Mumbai skyline at golden hour" width="3000" height="1688" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%">
+      </div>
+      <div data-htxt="1" style="position:absolute;left:clamp(18px,3.4vw,52px);right:clamp(18px,3.4vw,52px);bottom:clamp(28px,5vh,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 24px;color:#1F1F1F">
+        <h1 data-g="45" style="margin:0;font-weight:600;font-size:clamp(56px,11vw,180px);line-height:.88;letter-spacing:-.06em;display:flex;flex-wrap:wrap;gap:0 .22em">
+          <sc-for list="{{ heroWords }}" as="w" hint-placeholder-count="0"><span style="display:flex;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><sc-for list="{{ w.chars }}" as="c" hint-placeholder-count="0"><span data-ln="1" style="display:inline-block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">{{ c }}</span></sc-for></span></sc-for>
+        </h1>
+        <div data-fade="1" style="display:flex;flex-direction:column;gap:14px;max-width:300px;padding:0 64px 1.4vw 0;opacity:0;transform:translateY(24px);transition:opacity 1s ease, transform 1s cubic-bezier(.2,.8,.1,1)">
+          <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">John Dennis Constructions · Mumbai</span>
+          <span style="display:flex;align-items:center;gap:10px;font-size:14px">Scroll to step through<span style="display:block;width:10px;height:14px;background:#1F1F1F;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);animation:jdcBob 1.8s ease-in-out infinite"></span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" aria-label="JDC in numbers" style="padding:clamp(90px,12vh,140px) clamp(18px,3.4vw,52px) clamp(110px,14vh,170px)">
+    <div style="max-width:1560px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:40px clamp(24px,4vw,64px)">
+      <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(31,31,31,.3);padding-top:22px;margin-top:{{ st.mt }}">
+          <span style="display:flex;font-weight:600;font-size:clamp(56px,6.4vw,112px);line-height:1;letter-spacing:-.06em;font-variant-numeric:tabular-nums">
+            <sc-for list="{{ st.chars }}" as="c" hint-placeholder-count="0"><sc-if value="{{ c.isD }}"><span style="display:inline-block;height:1em;overflow:hidden"><span data-odo="{{ c.d }}" style="display:flex;flex-direction:column;transition:transform 1.8s cubic-bezier(.2,.8,.1,1)"><sc-for list="{{ digits }}" as="n" hint-placeholder-count="0"><span style="display:block;height:1em;line-height:1">{{ n }}</span></sc-for></span></span></sc-if><sc-if value="{{ c.notD }}"><span>{{ c.ch }}</span></sc-if></sc-for>
+          </span>
+          <span style="font-size:15px;line-height:1.45;max-width:220px">{{ st.k }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-fx="words" data-bg="#F3BE76" data-tone="dark" style="position:relative;padding:clamp(120px,16vh,200px) clamp(18px,3.4vw,52px) clamp(110px,14vh,180px)">
+    <div style="max-width:1500px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <span style="display:flex;flex-direction:column;gap:14px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span style="display:block;width:30px;height:20px;background:#1F1F1F;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>Our promise</span>
+      <p style="margin:0;display:flex;flex-wrap:wrap;gap:0 .26em;font-weight:600;font-size:clamp(44px,7.4vw,132px);line-height:.98;letter-spacing:-.05em">
+        <sc-for list="{{ stmtWords }}" as="w" hint-placeholder-count="0"><span data-w="1" style="opacity:.16;color:{{ w.color }};transition:opacity .35s ease">{{ w.t }}</span></sc-for>
+      </p>
+    </div>
+  </section>
+
+  <section data-fx="assemble" data-bg="#EBE3D8" data-tone="dark" style="position:relative;height:320vh">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4vw 7vw;padding:90px clamp(18px,3.4vw,52px) 40px;box-sizing:border-box">
+      <div aria-hidden="true" style="position:relative;width:clamp(200px,30vw,440px);aspect-ratio:328/281;perspective:900px">
+        <sc-for list="{{ asmBlocks }}" as="b" hint-placeholder-count="6"><span data-blk="{{ b.i }}" style="position:absolute;left:{{ b.left }};top:{{ b.top }};width:33.4%;height:48%;background:#1F1F1F;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);will-change:transform"></span></sc-for>
+      </div>
+      <div style="flex:0 1 480px;min-width:min(100%,280px);display:flex;flex-direction:column;gap:24px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#1F5E99">Logo story</span>
+        <h2 style="margin:0;font-weight:600;font-size:clamp(36px,4.6vw,78px);line-height:.98;letter-spacing:-.05em;text-wrap:balance">A logomark that encapsulates ‘built for life’</h2>
+        <p style="margin:0;font-size:18px;line-height:1.6;max-width:440px;text-wrap:pretty">The keystone is the wedge-shaped stone at the crown of an arch. It is set last, and it holds every other stone in place. Six keystones make the JDC mark.</p>
+        <span style="display:flex;align-items:baseline;gap:10px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span data-cnt="1" style="font-size:44px;letter-spacing:-.04em;color:#1F5E99;min-width:.7em">0</span>/ 6 stones set</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-vis="1" data-bg="#2A72B8" data-tone="light" aria-hidden="true" style="position:relative;padding:clamp(60px,9vh,110px) 0;overflow:hidden;color:#EBE3D8">
+    <div data-mq="1" data-dir="1" style="display:flex;white-space:nowrap;font-weight:700;font-size:clamp(64px,12vw,210px);line-height:1;letter-spacing:-.05em;will-change:transform">
+      <sc-for list="{{ mqItems }}" as="m" hint-placeholder-count="0"><span style="display:flex;align-items:center;gap:.25em;padding-right:.25em">WE BUILD LEGACIES<span style="display:block;width:.42em;height:.3em;background:#F3BE76;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span></span></sc-for>
+    </div>
+    <div data-mq="1" data-dir="-1" style="display:flex;white-space:nowrap;font-weight:700;font-size:clamp(64px,12vw,210px);line-height:1;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px #EBE3D8;will-change:transform">
+      <sc-for list="{{ mqItems }}" as="m" hint-placeholder-count="0"><span style="display:flex;align-items:center;gap:.25em;padding-right:.25em">BOMBAY SKYLINE<span style="display:block;width:.42em;height:.3em;background:#EBE3D8;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span></span></sc-for>
+    </div>
+  </section>
+
+  <section data-bg="#A8CDEE" data-tone="dark" aria-label="Projects" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1680px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(90px,14vh,170px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 40px">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span style="display:flex;flex-direction:column;gap:14px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span style="display:block;width:30px;height:20px;background:#1F1F1F;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>Bombay Skyline</span>
+          <h2 data-g="120" style="margin:0;font-weight:600;font-size:clamp(56px,9vw,160px);line-height:.88;letter-spacing:-.06em">
+            <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">Just got</span></span>
+            <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">prettier</span></span>
+          </h2>
+        </div>
+        <p style="margin:0 0 1vw;font-size:18px;line-height:1.55;max-width:360px">Four projects across Mumbai and Navi Mumbai.</p>
+      </div>
+      <sc-for list="{{ homeProjects }}" as="hp" hint-placeholder-count="4">
+        <a href="{{ hp.href }}" data-cur="View" aria-label="{{ hp.name }}, {{ hp.brand }}, {{ hp.status }}" style="display:flex;flex-wrap:wrap;flex-direction:{{ hp.dir }};align-items:flex-end;gap:28px 4vw">
+          <div data-ksr="ks" style="flex:1 1 680px;min-width:0;height:min(86vh,900px);min-height:380px;overflow:hidden;background:{{ hp.accent }};clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
+            <img data-par="-0.05" src="assets/bombay-skyline.jpg" srcset="{{ hp.img }}" alt="" width="1600" height="1000" loading="lazy" decoding="async" style="width:100%;height:112%;margin-top:-6%;object-fit:cover;object-position:{{ hp.pos }};transition:scale 1.4s cubic-bezier(.2,.8,.1,1)" style-hover="scale:1.05">
+          </div>
+          <div style="flex:0 1 400px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:16px;padding-bottom:1vw">
+            <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ hp.brand }} · {{ hp.status }}</span>
+            <h3 style="margin:0;font-weight:700;font-size:clamp(48px,6.4vw,112px);line-height:.88;letter-spacing:-.06em;text-wrap:balance">{{ hp.name }}</h3>
+            <span style="font-size:17px;line-height:1.5;max-width:360px">{{ hp.line }}</span>
+            <span style="display:flex;align-items:center;gap:12px;font-weight:600;margin-top:6px;transition:gap .4s" style-hover="gap:22px">View project <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      </sc-for>
+      <a href="#/projects" data-cur="Explore" style="align-self:flex-start;display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">See them on the map</span>
+        <span style="font-weight:600;font-size:clamp(48px,7vw,120px);line-height:.9;letter-spacing:-.055em;display:flex;align-items:center;gap:.2em;transition:gap .5s cubic-bezier(.2,.8,.1,1)" style-hover="gap:.45em">All projects <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" aria-label="Testimonials" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-direction:column">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#1F5E99;padding-bottom:28px">In their words</span>
+      <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+        <figure data-fade="1" style="margin:0;align-self:{{ t.align }};width:min(100%,820px);display:flex;flex-direction:column;gap:20px;padding:44px 0;border-top:1px solid rgba(31,31,31,.25);opacity:0;transform:translateY(30px);transition:opacity 1s ease, transform 1.1s cubic-bezier(.2,.8,.1,1)">
+          <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#2A72B8;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+          <blockquote style="margin:0;font-weight:500;font-size:clamp(26px,3vw,46px);line-height:1.12;letter-spacing:-.035em;text-wrap:pretty">“{{ t.q }}”</blockquote>
+          <figcaption style="display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px"><span style="font-weight:600">{{ t.who }}</span><span>{{ t.where }}</span></figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-bg="#1E5F8C" data-tone="light" style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:140px clamp(18px,3.4vw,52px);box-sizing:border-box;color:#EBE3D8;overflow:hidden">
+    <img data-par="0.12" src="assets/v4/tower-water.jpg" alt="" width="1540" height="1660" loading="lazy" decoding="async" style="position:absolute;right:-4vw;top:8%;width:min(46vw,640px);height:auto;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);opacity:.9">
+    <div style="position:relative;max-width:1500px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F3BE76">Residential · Commercial · JDC Select</span>
+      <h2 data-g="110" style="margin:0;font-weight:600;font-size:clamp(68px,13vw,230px);line-height:.84;letter-spacing:-.065em">
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">Find your</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">home</span></span>
+      </h2>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:28px">
+        <button onClick="{{ openEnq }}" data-mag="1" data-cur="Enquire" aria-haspopup="dialog" style="position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;width:180px;height:180px;border-radius:50%;border:none;background:#EBE3D8;color:#1F1F1F;font-weight:600;font-size:16px">
+          <span data-fill="1" style="position:absolute;inset:0;background:#2A72B8;clip-path:polygon(50% 50%,50% 50%,50% 50%,50% 50%);transition:clip-path .7s cubic-bezier(.2,.8,.1,1)"></span>
+          <span data-fill-t="1" style="position:relative;transition:color .4s">Start enquiry</span>
+        </button>
+        <a href="#/select" style="display:flex;align-items:center;gap:12px;font-size:16px;font-weight:500;border-bottom:1px solid rgba(235,227,216,.6);padding-bottom:6px;transition:gap .4s" style-hover="gap:22px">Explore JDC Select <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+</sc-if>
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="About">
+  <section data-bg="#F3BE76" data-tone="dark" style="position:relative;min-height:100vh;padding:140px clamp(18px,3.4vw,52px) 80px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-end;gap:48px 6vw">
+    <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:30px">
+      <span style="display:flex;flex-direction:column;gap:14px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span style="display:block;width:30px;height:20px;background:#1F1F1F;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>Our legacy</span>
+      <h1 data-g="120" style="margin:0;font-weight:600;font-size:clamp(56px,9.6vw,170px);line-height:.88;letter-spacing:-.06em">
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">Built right.</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em;padding-left:8vw"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">Built once.</span></span>
+      </h1>
+      <p data-fade="1" style="margin:0;max-width:520px;font-size:clamp(18px,1.5vw,23px);line-height:1.5;opacity:0;transform:translateY(24px);transition:opacity 1s ease .4s, transform 1s cubic-bezier(.2,.8,.1,1) .4s">A building is finished the moment the last worker leaves. What happens next, the life lived inside it, is why we build the way we do.</p>
+    </div>
+    <div data-ksr="1" style="flex:0 1 420px;min-width:min(100%,260px);height:68vh;overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
+      <img data-par="0.08" src="assets/arch.jpg" alt="Stone arch" width="1600" height="2000" style="width:100%;height:120%;margin-top:-10%;object-fit:cover;filter:sepia(.25) saturate(1.2)">
+    </div>
+  </section>
+
+  <section data-fx="arch" data-bg="#A8CDEE" data-tone="dark" aria-label="The arch, our story in five stones" style="position:relative;height:460vh">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding:90px clamp(18px,3.4vw,52px) 40px;box-sizing:border-box">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">The arch</span>
+      <svg viewBox="0 0 700 380" aria-hidden="true" style="width:min(86vw,760px);height:auto;overflow:visible">
+        <line x1="20" y1="372" x2="680" y2="372" stroke="#1F1F1F" stroke-width="1" stroke-dasharray="4 6"></line>
+        <path d="M80 372 A270 270 0 0 1 620 372" fill="none" stroke="#1F1F1F" stroke-width="1" stroke-dasharray="3 7" opacity=".5"></path>
+        <sc-for list="{{ stones }}" as="s" hint-placeholder-count="0"><polygon data-stone="{{ s.order }}" points="{{ s.pts }}" fill="{{ s.fill }}" style="opacity:0;transform-box:fill-box;transform-origin:center;transform:translateY(70px)"></polygon></sc-for>
+      </svg>
+      <div style="position:relative;width:min(760px,100%);height:170px;text-align:center">
+        <sc-for list="{{ chapters }}" as="c" hint-placeholder-count="0">
+          <div data-ch="{{ $index }}" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .8s cubic-bezier(.2,.8,.1,1)">
+            <span style="font-weight:600;font-size:clamp(28px,3.4vw,54px);letter-spacing:-.04em;line-height:1">{{ c.t }}</span>
+            <span style="font-size:17px;line-height:1.5;max-width:520px;text-wrap:balance">{{ c.d }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1500px;margin:0 auto;display:flex;flex-wrap:wrap;gap:60px 6vw;align-items:flex-start">
+      <div data-md-static="1" style="flex:1 1 300px;display:flex;flex-direction:column;gap:22px;position:sticky;top:120px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#1F5E99">Leadership</span>
+        <h2 style="margin:0;font-weight:600;font-size:clamp(38px,4.4vw,76px);line-height:.96;letter-spacing:-.05em">The people who set the keystone</h2>
+      </div>
+      <sc-for list="{{ leaders }}" as="l" hint-placeholder-count="2">
+        <figure style="flex:0 1 360px;min-width:min(100%,240px);margin:{{ l.mt }} 0 0;display:flex;flex-direction:column;gap:16px">
+          <div style="position:relative;aspect-ratio:3/4">
+            <div data-fade="1" style="position:absolute;inset:0;background:{{ l.tone }};opacity:0;transition:opacity 1.6s ease 1.1s"></div>
+            <sc-if value="{{ l.hasPhoto }}" hint-placeholder-val="{{ false }}"><img src="{{ l.photo }}" alt="{{ l.name }}" width="900" height="1200" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></sc-if>
+            <svg viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
+              <rect data-draw="1" x="1" y="1" width="298" height="398" fill="none" stroke="#1E5F8C" stroke-width="1.2" style="stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2s cubic-bezier(.6,0,.2,1)"></rect>
+              <path data-draw="1" d="M0 100 H300 M0 200 H300 M0 300 H300 M75 0 V400 M150 0 V400 M225 0 V400" fill="none" stroke="#1E5F8C" stroke-width=".6" style="stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.4s cubic-bezier(.6,0,.2,1) .3s"></path>
+              <path data-draw="1" d="M150 70 C 110 70 100 110 104 140 C 108 175 125 195 150 195 C 175 195 192 175 196 140 C 200 110 190 70 150 70 Z M60 400 C 70 300 105 250 150 248 C 195 250 230 300 240 400" fill="none" stroke="#1E5F8C" stroke-width="1.4" style="stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.6s cubic-bezier(.6,0,.2,1) .5s"></path>
+            </svg>
+          </div>
+          <figcaption style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:600;font-size:20px;letter-spacing:-.02em">{{ l.name }}</span><span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">{{ l.role }}</span></figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-fx="values" data-vis="1" data-bg="#245F9A" data-tone="light" aria-label="Brand values: Space, Warmth, Light, Human Living, Calm Luxury, Structure, Strength, Precision" style="position:relative;padding:clamp(110px,14vh,170px) 0;overflow:hidden;color:#EBE3D8;background:#245F9A">
+    <span style="display:block;padding:0 clamp(18px,3.4vw,52px) 48px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">What the brand stands on</span>
+    <sc-for list="{{ valueRows }}" as="r" hint-placeholder-count="3">
+      <div data-row="{{ r.dir }}" aria-hidden="true" style="display:flex;align-items:center;gap:.3em;white-space:nowrap;font-weight:600;font-size:clamp(64px,11vw,196px);line-height:1.04;letter-spacing:-.06em;will-change:transform">
+        <sc-for list="{{ r.words }}" as="w" hint-placeholder-count="0">
+          <span style="color:{{ w.c }};transition:letter-spacing .6s cubic-bezier(.2,.8,.1,1)" style-hover="letter-spacing:-.02em">{{ w.t }}</span>
+          <span style="display:block;flex:0 0 auto;width:.4em;height:.28em;background:#F3BE76;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+        </sc-for>
+      </div>
+    </sc-for>
+  </section>
+
+  <section data-bg="#3F7DB3" data-tone="light" style="position:relative;padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px);box-sizing:border-box;color:#EBE3D8;overflow:hidden;background:#3F7DB3">
+    <div style="max-width:1500px;margin:0 auto;display:flex;flex-direction:column;gap:24px;position:relative;z-index:1">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Accreditations</span>
+      <h2 style="margin:0;max-width:760px;font-weight:600;font-size:clamp(36px,4.8vw,82px);line-height:.98;letter-spacing:-.05em">Built to standards that outlast the brochure.</h2>
+    </div>
+    <div data-acc-wrap="1" style="position:relative;max-width:1500px;margin:40px auto 0;height:40vh;min-height:280px">
+      <sc-for list="{{ accreds }}" as="a" hint-placeholder-count="0">
+        <div data-acc-item="1" style="position:absolute;left:{{ a.x }};top:{{ a.y }};display:flex;align-items:center;gap:18px;animation:jdcDrift {{ a.dur }} ease-in-out infinite;animation-delay:{{ a.delay }}">
+          <span aria-hidden="true" style="display:block;flex:0 0 auto;width:46px;height:32px;background:#F3BE76;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+          <span style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:700;font-size:clamp(30px,4vw,64px);letter-spacing:-.04em;line-height:1">{{ a.t }}</span><span style="font-size:14px">{{ a.d }}</span></span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Projects">
+  <section data-bg="#BFD8EE" data-tone="dark" style="padding:140px clamp(18px,3.4vw,52px) 40px">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px">
+        <h1 data-g="110" style="margin:0;font-weight:600;font-size:clamp(56px,9vw,160px);line-height:.88;letter-spacing:-.06em">
+          <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">The city,</span></span>
+          <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">mapped.</span></span>
+        </h1>
+        <div role="group" aria-label="View" style="display:flex;gap:6px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase">
+          <button onClick="{{ viewMap }}" aria-pressed="{{ mapPressed }}" style="display:flex;align-items:center;gap:10px;background:{{ mapBtnBg }};color:{{ mapBtnInk }};border:1px solid #1F1F1F;padding:12px 18px;transition:background .3s,color .3s"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z M9 4v14 M15 6v14"></path></svg>Map</button>
+          <button onClick="{{ viewList }}" aria-pressed="{{ listPressed }}" style="display:flex;align-items:center;gap:10px;background:{{ listBtnBg }};color:{{ listBtnInk }};border:1px solid #1F1F1F;padding:12px 18px;transition:background .3s,color .3s"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>List</button>
+        </div>
+      </div>
+      <div role="group" aria-label="Filter projects" style="display:flex;flex-wrap:wrap;gap:8px 28px;border-top:1px solid rgba(31,31,31,.35);padding-top:20px">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
+          <button onClick="{{ f.pick }}" aria-pressed="{{ f.pressed }}" style="background:none;border:none;padding:8px 0;display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500">
+            <span aria-hidden="true" style="display:block;width:14px;height:10px;background:#1F1F1F;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);transform:{{ f.ks }};transition:transform .4s cubic-bezier(.3,1.5,.5,1)"></span>{{ f.label }}
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ isMap }}" hint-placeholder-val="{{ true }}">
+  <section data-bg="#BFD8EE" data-tone="dark" style="padding:0 clamp(18px,3.4vw,52px) clamp(100px,12vh,150px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:stretch">
+      <div data-map="1" style="position:relative;flex:1 1 600px;min-width:0;aspect-ratio:4/3;background:#1E5F8C;overflow:hidden">
+        <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stylised map of Mumbai and Navi Mumbai" style="position:absolute;inset:0;width:100%;height:100%">
+          <g stroke="rgba(235,227,216,.12)" stroke-width="1"><path d="M0 100H800M0 200H800M0 300H800M0 400H800M0 500H800M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600M600 0V600M700 0V600"></path></g>
+          <polygon points="120,0 330,0 336,70 352,130 360,190 344,236 330,262 318,300 304,350 290,400 276,450 262,500 248,545 236,585 222,578 226,530 214,480 206,430 194,380 182,330 170,280 160,220 150,160 136,90" fill="#EBE3D8"></polygon>
+          <polygon points="352,190 410,196 448,232 452,282 428,322 380,330 340,312 330,262 344,236" fill="#E3D4BE"></polygon>
+          <polygon points="500,0 800,0 800,600 580,600 566,540 548,470 530,410 520,350 512,290 516,220 506,150 498,80" fill="#E3D4BE"></polygon>
+          <circle cx="440" cy="470" r="14" fill="#E3D4BE"></circle>
+          <g fill="#EBE3D8" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="600" letter-spacing="3"><text x="30" y="430">ARABIAN SEA</text><text x="395" y="560">HARBOUR</text><text x="420" y="110">THANE CREEK</text></g>
+          <g fill="#1F1F1F" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" letter-spacing="2" opacity=".6"><text x="190" y="80">MUMBAI</text><text x="640" y="250">NAVI MUMBAI</text></g>
+        </svg>
+        <sc-for list="{{ plist }}" as="p" hint-placeholder-count="4">
+          <a href="{{ p.href }}" onMouseEnter="{{ p.hover }}" onFocus="{{ p.hover }}" data-cur="Open" aria-label="{{ p.name }}, {{ p.loc }}, {{ p.status }}" aria-hidden="{{ p.hidden }}" tabindex="{{ p.tabi }}" style="position:absolute;left:{{ p.mx }};top:{{ p.my }};width:26px;height:20px;transform:translate(-50%,-100%) scale({{ p.pinScale }});opacity:{{ p.pinOp }};pointer-events:{{ p.pe }};transition:transform .6s cubic-bezier(.3,1.5,.5,1), opacity .5s ease">
+            <span style="display:block;width:26px;height:20px;background:{{ p.accent }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);box-shadow:0 0 0 2px #EBE3D8"></span>
+            <span data-pinlab="1" style="--labop:{{ p.labOpSm }};position:absolute;left:{{ p.labL }};right:{{ p.labR }};top:{{ p.labT }};bottom:{{ p.labB }};transform:{{ p.labTf }};background:#1F1F1F;color:#EBE3D8;padding:5px 9px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;opacity:{{ p.labOp }};transition:opacity .3s">{{ p.name }}</span>
+          </a>
+        </sc-for>
+        <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(30,95,140,.82);color:#EBE3D8;text-align:center;padding:20px">
+            <span aria-hidden="true" style="display:block;width:30px;height:20px;background:#F3BE76;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>
+            <span style="font-weight:600;font-size:clamp(24px,2.4vw,36px);letter-spacing:-.03em">No projects in this category yet.</span>
+            <button onClick="{{ showAll }}" style="background:#EBE3D8;color:#1F1F1F;border:none;padding:14px 22px;font-size:14px;font-weight:600">Show all projects</button>
+          </div>
+        </sc-if>
+        <span style="position:absolute;left:16px;bottom:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#EBE3D8">Stylised · not to scale</span>
+      </div>
+      <div style="flex:0 1 380px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:18px;justify-content:flex-end">
+        <div style="position:relative;aspect-ratio:4/5;overflow:hidden;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);background:#1E5F8C">
+          <sc-for list="{{ plist }}" as="p" hint-placeholder-count="0"><img src="assets/bkc-one.jpg" srcset="{{ p.img }}" alt="" width="800" height="1000" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ p.panelOp }};transform:{{ p.panelTf }};transition:opacity .6s ease, transform 1.2s cubic-bezier(.2,.8,.1,1)"></sc-for>
+        </div>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ hp.brand }} · {{ hp.loc }} · {{ hp.status }}</span>
+        <span style="font-weight:600;font-size:clamp(36px,4vw,64px);line-height:.94;letter-spacing:-.05em">{{ hp.name }}</span>
+        <a href="{{ hp.href }}" style="align-self:flex-start;display:flex;align-items:center;gap:12px;font-weight:500;border-bottom:1px solid #1F1F1F;padding-bottom:5px;transition:gap .4s" style-hover="gap:22px">Open project <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ isList }}" hint-placeholder-val="{{ false }}">
+  <section data-bg="#BFD8EE" data-tone="dark" onMouseLeave="{{ listLeave }}" style="padding:0 clamp(18px,3.4vw,52px) clamp(100px,12vh,150px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column">
+      <sc-for list="{{ plist }}" as="p" hint-placeholder-count="4">
+        <a href="{{ p.href }}" onMouseEnter="{{ p.listHover }}" onFocus="{{ p.listHover }}" data-cur="View" aria-hidden="{{ p.hidden }}" tabindex="{{ p.tabi }}" style="display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px;border-bottom:1px solid rgba(31,31,31,.35);overflow:hidden;max-height:{{ p.rowH }};opacity:{{ p.pinOp }};transition:max-height .7s cubic-bezier(.7,0,.2,1), opacity .5s ease, padding .5s;padding:{{ p.rowPad }}">
+                    <span style="font-weight:600;font-size:clamp(40px,7.4vw,128px);line-height:.94;letter-spacing:-.06em;transform:{{ p.rowTf }};transition:transform .6s cubic-bezier(.2,.8,.1,1);text-wrap:balance">{{ p.name }}</span>
+          <span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-align:right;padding-right:64px"><span>{{ p.type }}</span><span>{{ p.status }}</span></span>
+        </a>
+      </sc-for>
+      <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding:56px 0;border-bottom:1px solid rgba(31,31,31,.35)">
+          <span aria-hidden="true" style="display:block;width:30px;height:20px;background:#1F1F1F;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>
+          <span style="font-weight:600;font-size:clamp(28px,3vw,44px);letter-spacing:-.04em">No projects in this category yet.</span>
+          <button onClick="{{ showAll }}" style="background:#1F1F1F;color:#EBE3D8;border:none;padding:14px 22px;font-size:14px;font-weight:600">Show all projects</button>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+  </sc-if>
+</main>
+</sc-if>
+<sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Project detail">
+  <section data-fx="phero" data-bg="{{ pj.accent }}" data-tone="{{ pj.tone }}" style="position:relative;height:230vh">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;background:{{ pj.accent }}">
+      <div data-clip="1" style="position:absolute;inset:0;clip-path:polygon(34% 20%,66% 20%,61% 78%,39% 78%);will-change:clip-path">
+        <img src="assets/bombay-skyline.jpg" srcset="{{ pj.img }}" alt="{{ pj.name }}" width="1600" height="1000" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <div data-scrim="1" style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(31,31,31,.65),rgba(31,31,31,0) 55%);opacity:0"></div>
+      </div>
+      <div data-ptitle="1" data-fg="{{ pj.fg }}" style="position:absolute;left:clamp(18px,3.4vw,52px);right:clamp(18px,3.4vw,52px);bottom:clamp(28px,5vh,56px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 20px;color:{{ pj.fg }};transition:color .5s ease">
+        <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+          <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ pj.brand }} · {{ pj.loc }}</span>
+          <h1 style="margin:0;font-weight:700;font-size:clamp(52px,10vw,180px);line-height:.86;letter-spacing:-.065em;max-width:12ch;text-wrap:balance">{{ pj.name }}</h1>
+        </div>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:0 72px 1vw 0">{{ pj.status }} · {{ pj.type }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" aria-labelledby="kd-h" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:60px 6vw;align-items:flex-start">
+      <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:24px">
+        <span style="display:flex;flex-direction:column;gap:14px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:{{ pj.ink }}"><span style="display:block;width:30px;height:20px;background:currentColor;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>{{ pj.brand }}</span>
+        <h2 data-fade="1" style="margin:0;font-weight:600;font-size:clamp(40px,5.4vw,96px);line-height:.96;letter-spacing:-.055em;text-wrap:balance;opacity:0;transform:translateY(30px);transition:opacity 1s ease, transform 1.1s cubic-bezier(.2,.8,.1,1)">{{ pj.line }}</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:14px">
+          <button onClick="{{ openBrochure }}" data-mag="1" style="position:relative;overflow:hidden;display:flex;align-items:center;gap:12px;background:#1F1F1F;color:#EBE3D8;border:none;padding:18px 24px;font-size:15px;font-weight:600">
+            <span data-fill="1" style="position:absolute;inset:0;background:#1F5E99;clip-path:polygon(50% 50%,50% 50%,50% 50%,50% 50%);transition:clip-path .7s cubic-bezier(.2,.8,.1,1)"></span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:relative"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg><span style="position:relative">Download brochure</span>
+          </button>
+          <button onClick="{{ openEnqProject }}" aria-haspopup="dialog" style="display:flex;align-items:center;gap:12px;border:1px solid #1F1F1F;background:none;color:#1F1F1F;padding:17px 22px;font-size:15px;font-weight:600;transition:background .3s,color .3s" style-hover="background:#1F1F1F;color:#EBE3D8"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg>Book a site visit</button>
+          <a href="{{ pj.waProject }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;border:1px solid #1F1F1F;padding:17px 22px;font-size:15px;font-weight:600;transition:background .3s,color .3s" style-hover="background:#1F1F1F;color:#EBE3D8"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"></path></svg>WhatsApp about this project</a>
+        </div>
+      </div>
+      <div style="flex:0 1 520px;min-width:min(100%,280px);display:flex;flex-direction:column">
+        <h3 id="kd-h" style="margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Key details</h3>
+        <dl style="margin:0;display:flex;flex-direction:column">
+          <sc-for list="{{ pj.details }}" as="f" hint-placeholder-count="5">
+            <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:10px 20px;padding:20px 0;border-top:1px solid rgba(31,31,31,.3)">
+              <dt style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">{{ f.k }}</dt>
+              <dd style="margin:0 0 0 auto;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:0 .26em;font-weight:600;font-size:clamp(24px,2.6vw,40px);line-height:1;letter-spacing:-.04em;text-align:right">
+                <sc-for list="{{ f.words }}" as="fw" hint-placeholder-count="0"><span style="display:flex;white-space:nowrap"><sc-for list="{{ fw.chars }}" as="c" hint-placeholder-count="0"><sc-if value="{{ c.isD }}"><span style="display:inline-block;height:1em;overflow:hidden"><span data-odo="{{ c.d }}" style="display:flex;flex-direction:column;transition:transform 1.8s cubic-bezier(.2,.8,.1,1)"><sc-for list="{{ digits }}" as="n" hint-placeholder-count="0"><span style="display:block;height:1em;line-height:1">{{ n }}</span></sc-for></span></span></sc-if><sc-if value="{{ c.notD }}"><span>{{ c.ch }}</span></sc-if></sc-for></span></sc-for>
+              </dd>
+            </div>
+          </sc-for>
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 20px;padding:20px 0;border-top:1px solid rgba(31,31,31,.3);border-bottom:1px solid rgba(31,31,31,.3)">
+            <dt style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">MahaRERA no.</dt>
+            <dd style="margin:0 0 0 auto;display:flex;align-items:center;gap:16px">
+              <span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span style="font-weight:600;font-size:18px;letter-spacing:.02em">{{ pj.reraNo }}</span><a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener" style="font-size:13px;border-bottom:1px solid currentColor">Verify on MahaRERA</a></span>
+              <sc-if value="{{ pj.hasQr }}" hint-placeholder-val="{{ false }}"><img src="{{ pj.qr }}" alt="MahaRERA QR code" width="64" height="64" loading="lazy" style="width:64px;height:64px;display:block"></sc-if>
+              <sc-if value="{{ pj.noQr }}" hint-placeholder-val="{{ true }}"><span aria-label="QR code slot" style="width:64px;height:64px;border:1px dashed rgba(31,31,31,.5);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.14em">QR</span></sc-if>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ pj.notUpcoming }}" hint-placeholder-val="{{ true }}">
+  <section data-fx="rise" data-bg="{{ pj.accent }}" data-tone="{{ pj.tone }}" style="position:relative;height:260vh;color:{{ pj.fg }}">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:30px;padding:100px clamp(18px,3.4vw,52px) 0;box-sizing:border-box">
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:10px;align-self:center">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Rising in {{ pj.loc }}</span>
+        <span style="display:flex;align-items:baseline;gap:16px"><span data-floor="1" aria-live="off" style="font-weight:700;font-size:clamp(100px,16vw,280px);line-height:.85;letter-spacing:-.07em;font-variant-numeric:tabular-nums">00</span><span style="font-size:18px;font-weight:500">/ {{ pj.floors }} floors</span></span>
+      </div>
+      <div aria-hidden="true" style="flex:0 0 auto;width:clamp(140px,20vw,300px);height:66vh;display:flex;flex-direction:column-reverse;gap:3px">
+        <sc-for list="{{ pj.floorList }}" as="fl" hint-placeholder-count="0"><span data-fl="{{ fl.i }}" style="flex:1;display:block;background:{{ pj.fg }};margin:0 {{ fl.inset }};opacity:0;transform:translateY(-60px)"></span></sc-for>
+      </div>
+      <div style="flex:1 1 260px;align-self:center;display:flex;justify-content:flex-end"><p style="margin:0;max-width:300px;font-size:17px;line-height:1.55">Each slab is cast on a fixed cycle and checked before the next one starts.</p></div>
+    </div>
+  </section>
+  </sc-if>
+  <sc-if value="{{ pj.isUpcoming }}" hint-placeholder-val="{{ false }}">
+  <section data-bg="{{ pj.accent }}" data-tone="dark" aria-labelledby="ri-h" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px);color:#1F1F1F">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-end">
+      <div style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <span style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span style="position:relative;display:block;width:10px;height:10px;border-radius:50%;background:#1F1F1F"><span style="position:absolute;inset:0;border-radius:50%;background:#1F1F1F;animation:jdcPulse 1.8s ease-out infinite"></span></span>Launching soon</span>
+        <h2 id="ri-h" style="margin:0;font-weight:600;font-size:clamp(46px,7vw,124px);line-height:.88;letter-spacing:-.06em">Get early access</h2>
+        <p style="margin:0;max-width:440px;font-size:18px;line-height:1.55">Register your interest to hear first about pricing, floor plans and the launch preview at {{ pj.name }}.</p>
+      </div>
+      <div style="flex:1 1 420px;min-width:0"><dc-import name="LeadForm" variant="short" theme="light" project="{{ pj.name }}" submit-label="Register interest" success-title="You're on the early-access list." submit="{{ submitLead }}" hint-size="100%,380px"></dc-import></div>
+    </div>
+  </section>
+  </sc-if>
+
+  <section data-fx="split" data-bg="#EBE3D8" data-tone="dark" style="padding:0 clamp(18px,3.4vw,52px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:0 6vw">
+      <div style="flex:1 1 380px;min-width:0">
+        <sc-for list="{{ splitSteps }}" as="s" hint-placeholder-count="4">
+          <div data-step="{{ $index }}" style="min-height:90vh;display:flex;flex-direction:column;justify-content:center;gap:18px;opacity:.3;transition:opacity .6s ease">
+            <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:{{ pj.ink }}">{{ s.lab }}</span>
+            <span style="font-weight:600;font-size:clamp(38px,4.8vw,84px);line-height:.96;letter-spacing:-.05em">{{ s.t }}</span>
+            <span style="font-size:18px;line-height:1.55;max-width:420px">{{ s.d }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="flex:1.3 1 520px;min-width:0;position:sticky;top:0;height:100vh;display:flex;align-items:center">
+        <div style="position:relative;width:100%;height:84vh;overflow:hidden;clip-path:polygon(0 0,100% 0,92% 100%,8% 100%)">
+          <sc-for list="{{ pj.gallery }}" as="g" hint-placeholder-count="0"><img data-simg="{{ $index }}" src="assets/bombay-skyline.jpg" srcset="{{ g }}" alt="" width="1600" height="1000" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1s ease, transform 1.6s cubic-bezier(.2,.8,.1,1)"></sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#BFD8EE" data-tone="dark" aria-labelledby="fp-h" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px 6vw;align-items:flex-end">
+      <div style="flex:0 1 380px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Floor plans</span>
+        <h2 id="fp-h" style="margin:0;font-weight:600;font-size:clamp(38px,4.4vw,76px);line-height:.96;letter-spacing:-.05em">{{ pj.planName }}</h2>
+        <sc-if value="{{ pj.showTabs }}" hint-placeholder-val="{{ false }}">
+          <div role="group" aria-label="Unit type" style="display:flex;flex-wrap:wrap;gap:6px">
+            <sc-for list="{{ pj.planTabs }}" as="t" hint-placeholder-count="0"><button onClick="{{ t.pick }}" aria-pressed="{{ t.pressed }}" style="height:44px;padding:0 18px;border:1px solid #1F1F1F;background:{{ t.bg }};color:{{ t.ink }};font-size:14px;font-weight:600;transition:background .3s,color .3s">{{ t.t }}</button></sc-for>
+          </div>
+        </sc-if>
+        <p style="margin:0;font-size:16px;line-height:1.55">Drag to move, zoom to read the details. Indicative layout; final plans as per approved drawings.</p>
+        <div style="display:flex;gap:10px">
+          <button onClick="{{ zoomIn }}" data-mag="1" aria-label="Zoom in" style="width:52px;height:52px;border:1px solid #1F1F1F;background:none;display:flex;align-items:center;justify-content:center;padding:0;transition:background .3s,color .3s" style-hover="background:#1F1F1F;color:#EBE3D8"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
+          <button onClick="{{ zoomOut }}" data-mag="1" aria-label="Zoom out" style="width:52px;height:52px;border:1px solid #1F1F1F;background:none;display:flex;align-items:center;justify-content:center;padding:0;transition:background .3s,color .3s" style-hover="background:#1F1F1F;color:#EBE3D8"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path></svg></button>
+          <button onClick="{{ zoomReset }}" style="height:52px;padding:0 18px;border:1px solid #1F1F1F;background:none;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s" style-hover="background:#1F1F1F;color:#EBE3D8">Reset</button>
+        </div>
+      </div>
+      <div onPointerDown="{{ planDown }}" data-cur="Drag" role="img" aria-label="{{ pj.planName }} floor plan, indicative" style="flex:1 1 560px;min-width:0;aspect-ratio:16/10;background:#EBE3D8;overflow:hidden;position:relative;touch-action:pan-y">
+        <div style="position:absolute;inset:8%;transform:translate({{ planX }}px,{{ planY }}px) scale({{ planZ }});transition:{{ planTr }};display:grid;grid-template-columns:{{ pj.planCols }};grid-template-rows:{{ pj.planRows }};border:3px solid #1F1F1F;background-image:linear-gradient(rgba(30,95,140,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(30,95,140,.12) 1px,transparent 1px);background-size:24px 24px">
+          <sc-for list="{{ pj.rooms }}" as="rm" hint-placeholder-count="0"><div style="grid-area:{{ rm.ga }};box-shadow:inset 0 0 0 1px #1F1F1F;padding:12px;font-size:clamp(9px,1vw,12px);font-weight:700;letter-spacing:.14em;text-transform:uppercase">{{ rm.n }}</div></sc-for>
+        </div>
+        <span style="position:absolute;right:14px;bottom:12px;font-size:11px;font-weight:600;letter-spacing:.16em">{{ planPct }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:70px 7vw;align-items:flex-start">
+      <div style="flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:{{ pj.ink }}">Specifications</span>
+        <h2 style="margin:0 0 10px;font-weight:600;font-size:clamp(36px,4vw,68px);line-height:.98;letter-spacing:-.05em">What goes into it</h2>
+        <div style="display:flex;flex-direction:column;border-bottom:1px solid rgba(31,31,31,.3)">
+          <sc-for list="{{ pj.specs }}" as="sp" hint-placeholder-count="6">
+            <div style="border-top:1px solid rgba(31,31,31,.3)">
+              <button onClick="{{ sp.toggle }}" aria-expanded="{{ sp.expanded }}" aria-controls="{{ sp.id }}" style="width:100%;background:none;border:none;padding:20px 0;display:flex;align-items:center;gap:18px;text-align:left;font-size:clamp(20px,1.8vw,26px);font-weight:600;letter-spacing:-.02em">
+                <span style="flex:1">{{ sp.t }}</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="flex:0 0 auto;transform:{{ sp.rot }};transition:transform .4s cubic-bezier(.2,.8,.1,1)"><path d="M12 5v14M5 12h14"></path></svg>
+              </button>
+              <div id="{{ sp.id }}" role="region" style="max-height:{{ sp.maxH }};overflow:hidden;transition:max-height .5s cubic-bezier(.2,.8,.1,1)"><p style="margin:0;padding:0 0 22px;font-size:16px;line-height:1.6;max-width:560px">{{ sp.d }}</p></div>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0;font-size:13px;line-height:1.5">Indicative specifications. Final specifications as per agreement for sale.</p>
+      </div>
+      <div style="flex:0 1 460px;min-width:min(100%,280px);display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:{{ pj.ink }}">Connectivity</span>
+        <h2 style="margin:0 0 10px;font-weight:600;font-size:clamp(36px,4vw,68px);line-height:.98;letter-spacing:-.05em">Getting around</h2>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+          <sc-for list="{{ pj.connList }}" as="cn" hint-placeholder-count="4">
+            <li style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 20px;align-items:baseline;padding:18px 0;border-top:1px solid rgba(31,31,31,.3)">
+              <span style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">{{ cn.k }}</span>
+              <span style="grid-row:span 2;font-weight:600;font-size:clamp(22px,2vw,30px);letter-spacing:-.03em;white-space:nowrap">{{ cn.d }}</span>
+              <span style="font-size:16px;line-height:1.4">{{ cn.n }}</span>
+            </li>
+          </sc-for>
+        </ul>
+        <p style="margin:0;font-size:13px;line-height:1.5">Approximate road distances.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#F3BE76" data-tone="dark" style="padding:clamp(100px,12vh,150px) 0">
+    <div style="max-width:1680px;margin:0 auto;padding:0 clamp(18px,3.4vw,52px);display:flex;flex-direction:column;gap:40px">
+      <h2 style="margin:0;font-weight:600;font-size:clamp(38px,4.4vw,76px);line-height:.96;letter-spacing:-.05em">Amenities</h2>
+      <ul aria-label="Amenities" style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(40px,6vh,80px) 4vw">
+        <sc-for list="{{ pj.amenities }}" as="a" hint-placeholder-count="6">
+          <li style="display:flex;flex-direction:column;gap:14px;margin-top:{{ a.mt }}">
+            <div style="height:clamp(380px,72vh,760px);overflow:hidden;clip-path:{{ a.clip }}"><img src="assets/bombay-skyline.jpg" srcset="{{ a.img }}" alt="{{ a.t }}" width="1200" height="900" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:scale 1.4s cubic-bezier(.2,.8,.1,1)" style-hover="scale:1.04"></div>
+            <span style="font-size:clamp(20px,1.8vw,26px);font-weight:600;letter-spacing:-.02em">{{ a.t }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" aria-labelledby="gal-h" style="padding:clamp(100px,12vh,150px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:30px">
+      <h2 id="gal-h" style="margin:0;font-weight:600;font-size:clamp(38px,4.4vw,76px);line-height:.96;letter-spacing:-.05em">Gallery</h2>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:2vw">
+        <sc-for list="{{ pj.galleryItems }}" as="gi" hint-placeholder-count="0">
+          <button onClick="{{ gi.open }}" data-cur="View" aria-label="Open gallery image" style="flex:1 1 {{ gi.w }};min-width:min(100%,340px);height:{{ gi.h }};max-height:820px;min-height:340px;border:none;padding:0;background:#D8CDBD;overflow:hidden;position:relative">
+            <img src="assets/bombay-skyline.jpg" srcset="{{ gi.src }}" alt="" width="1600" height="1000" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;transition:scale 1s cubic-bezier(.2,.8,.1,1)" style-hover="scale:1.05">
+          </button>
+        </sc-for>
+      </div>
+      <p style="margin:0;font-size:13px">Images are artistic impressions.</p>
+    </div>
+  </section>
+
+  <section data-bg="#1E5F8C" data-tone="light" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px);color:#EBE3D8">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:60px 6vw">
+      <div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Location · {{ pj.loc }}</span>
+        <div style="position:relative;aspect-ratio:4/3;background:#174C70;overflow:hidden">
+          <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stylised location map" style="position:absolute;inset:0;width:100%;height:100%">
+            <polygon points="120,0 330,0 336,70 352,130 360,190 344,236 330,262 318,300 304,350 290,400 276,450 262,500 248,545 236,585 222,578 226,530 214,480 206,430 194,380 182,330 170,280 160,220 150,160 136,90" fill="#EBE3D8" opacity=".9"></polygon>
+            <polygon points="352,190 410,196 448,232 452,282 428,322 380,330 340,312 330,262 344,236" fill="#D8CAB4"></polygon>
+            <polygon points="500,0 800,0 800,600 580,600 566,540 548,470 530,410 520,350 512,290 516,220 506,150 498,80" fill="#D8CAB4"></polygon>
+          </svg>
+          <span style="position:absolute;left:{{ pj.mx }};top:{{ pj.my }};transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;gap:6px">
+            <span style="background:#1F1F1F;color:#EBE3D8;padding:5px 9px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap">{{ pj.name }}</span>
+            <span style="display:block;width:28px;height:20px;background:#2A72B8;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);animation:jdcBob 1.6s ease-in-out infinite"></span>
+          </span>
+        </div>
+      </div>
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:26px">
+        <h2 style="margin:0;font-weight:600;font-size:clamp(36px,4.4vw,76px);line-height:.96;letter-spacing:-.05em;text-wrap:balance">Enquire about {{ pj.name }}</h2>
+        <dc-import name="LeadForm" variant="short" theme="dark" project="{{ pj.name }}" submit-label="Request a callback" submit="{{ submitLead }}" hint-size="100%,380px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="{{ pj.nextAccent }}" data-tone="{{ pj.nextTone }}" style="padding:clamp(90px,12vh,140px) clamp(18px,3.4vw,52px);color:{{ pj.nextFg }}">
+    <a href="{{ pj.nextHref }}" data-cur="Next" style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Next project</span>
+      <span style="display:block;font-weight:700;font-size:clamp(52px,10vw,180px);line-height:.88;letter-spacing:-.065em;text-wrap:balance;transition:opacity .4s" style-hover="opacity:.82">{{ pj.nextName }}&nbsp;→</span>
+    </a>
+  </section>
+</main>
+</sc-if>
+<sc-if value="{{ isSelect }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="JDC Select" style="color:#EBE3D8">
+  <section data-bg="#174C70" data-tone="light" onMouseMove="{{ rippleMove }}" style="position:relative;height:100vh;min-height:560px;overflow:hidden">
+    <img src="assets/jdc-select.jpg" alt="JDC Select waterfront residence" width="1600" height="1000" fetchpriority="high" style="position:absolute;inset:-2%;width:104%;height:104%;object-fit:cover;filter:url(#jdcRipple)">
+    <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(23,76,112,.88),rgba(23,76,112,0) 62%)"></div>
+    <div style="position:absolute;left:clamp(18px,3.4vw,52px);right:clamp(18px,3.4vw,52px);bottom:clamp(36px,7vh,80px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:28px;min-width:0">
+        <img data-fade="1" src="assets/logo-select-ivory.png" alt="JDC Select" width="1063" height="289" style="height:50px;width:auto;align-self:flex-start;opacity:0;transform:translateY(24px);transition:opacity 2s ease, transform 2s cubic-bezier(.2,.8,.1,1)">
+        <h1 data-fade="1" style="margin:0;max-width:14ch;font-weight:300;font-size:clamp(42px,6.4vw,112px);line-height:1.02;letter-spacing:-.045em;opacity:0;transform:translateY(24px);transition:opacity 2.2s ease .4s, transform 2.2s cubic-bezier(.2,.8,.1,1) .4s">Luxury properties, set at the water’s edge</h1>
+      </div>
+      <span data-sm-hide="1" style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding-right:72px">Move across the water</span>
+    </div>
+  </section>
+
+  <section data-bg="#174C70" data-tone="light" style="padding:clamp(130px,18vh,220px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:36px;text-align:center">
+      <span style="display:flex;flex-direction:column;align-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#E8D3B5"><span style="display:block;width:30px;height:20px;background:#E8D3B5;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>JDC Select</span>
+      <p data-fade="1" style="margin:0;font-weight:300;font-size:clamp(36px,5.4vw,92px);line-height:1.06;letter-spacing:-.045em;opacity:0;transform:translateY(30px);transition:opacity 2.4s ease, transform 2.4s cubic-bezier(.2,.8,.1,1)">Homes planned around light, water and calm.</p>
+    </div>
+  </section>
+
+  <section data-bg="#1E5F8C" data-tone="light" aria-labelledby="sel-h" style="padding:clamp(100px,12vh,150px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(60px,9vh,110px)">
+      <h2 id="sel-h" style="margin:0;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#E8D3B5">The Select collection</h2>
+      <sc-for list="{{ selectList }}" as="sp" hint-placeholder-count="2">
+        <a href="{{ sp.href }}" data-cur="View" style="display:flex;flex-wrap:wrap;flex-direction:{{ sp.dir }};align-items:flex-end;gap:30px 5vw">
+          <div data-ksr="1" style="flex:1 1 520px;min-width:0;height:62vh;min-height:320px;overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 2.2s cubic-bezier(.7,0,.2,1)"><img src="assets/jdc-select.jpg" srcset="{{ sp.img }}" alt="{{ sp.name }}" width="1600" height="1000" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:scale 1.6s cubic-bezier(.2,.8,.1,1)" style-hover="scale:1.04"></div>
+          <div style="flex:0 1 420px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:16px;padding-bottom:1vw">
+            <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#E8D3B5">{{ sp.loc }} · {{ sp.status }}</span>
+            <span style="font-weight:300;font-size:clamp(40px,4.8vw,84px);line-height:.98;letter-spacing:-.05em">{{ sp.name }}</span>
+            <span style="font-size:17px;line-height:1.5;max-width:380px">{{ sp.line }}</span>
+            <span style="display:flex;align-items:center;gap:12px;font-weight:500;margin-top:6px">View residence <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-bg="#1E5F8C" data-tone="light" style="position:relative;min-height:110vh;overflow:hidden;display:flex;align-items:center;padding:0 clamp(18px,3.4vw,52px)">
+    <img data-par="0.1" src="assets/v4/tower-water.jpg" alt="" width="1540" height="1660" loading="lazy" decoding="async" style="position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover">
+    <div style="position:relative;margin-left:auto;width:min(480px,100%);padding:clamp(28px,4vw,44px);box-sizing:border-box;background:rgba(23,76,112,.4);backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);border:1px solid rgba(235,227,216,.3);display:flex;flex-direction:column;gap:26px">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#E8D3B5">Navi Mumbai Waterfront</span>
+      <span style="font-weight:300;font-size:clamp(26px,2.4vw,36px);line-height:1.1;letter-spacing:-.03em">Premium Waterfront Residence in Navi Mumbai</span>
+      <sc-for list="{{ selectFacts }}" as="f" hint-placeholder-count="3">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-top:1px solid rgba(235,227,216,.3);padding-top:16px"><span style="font-size:14px">{{ f.k }}</span><span style="font-weight:300;font-size:clamp(30px,3.2vw,48px);letter-spacing:-.04em;line-height:1">{{ f.v }}</span></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-bg="#E8D3B5" data-tone="dark" style="position:relative;padding:clamp(120px,16vh,200px) clamp(18px,3.4vw,52px);color:#1F1F1F">
+    <div style="max-width:1500px;margin:0 auto;display:flex;flex-wrap:wrap;gap:60px 7vw;align-items:center">
+      <div data-ksr="1" style="flex:1 1 560px;min-width:0;height:66vh;min-height:300px;overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 2.4s cubic-bezier(.7,0,.2,1)"><img src="assets/hero-beach.jpg" alt="Balconies facing the sea" width="1728" height="972" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div>
+      <div style="flex:0 1 380px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:24px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#174C70">Calm luxury</span>
+        <p style="margin:0;font-weight:300;font-size:clamp(26px,2.6vw,42px);line-height:1.16;letter-spacing:-.03em">Every home opens to the view. Light changes through the day, and the rooms are planned to let it in.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#174C70" data-tone="light" aria-labelledby="sel-enq" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-end">
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#E8D3B5">Private preview</span>
+        <h2 id="sel-enq" style="margin:0;font-weight:300;font-size:clamp(42px,5.6vw,96px);line-height:1;letter-spacing:-.05em">Arrange a private viewing</h2>
+      </div>
+      <div style="flex:1 1 420px;min-width:0"><dc-import name="LeadForm" variant="short" theme="dark" project="JDC Select" submit-label="Request a viewing" submit="{{ submitLead }}" hint-size="100%,380px"></dc-import></div>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isPlace }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="JDC Place">
+  <section data-bg="#F3BE76" data-tone="dark" style="position:relative;min-height:100vh;padding:130px clamp(18px,3.4vw,52px) 60px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-end;gap:40px 6vw">
+    <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:28px">
+      <span style="display:flex;flex-direction:column;gap:14px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span style="display:block;width:30px;height:20px;background:#1F1F1F;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>JDC Place · Commercial</span>
+      <h1 data-g="120" style="margin:0;font-weight:700;font-size:clamp(52px,8.6vw,156px);line-height:.88;letter-spacing:-.06em">
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">Designed for</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">Productivity.</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1);color:#7A4600">Built for Scale.</span></span>
+      </h1>
+    </div>
+    <div data-ksr="1" style="flex:0 1 380px;min-width:min(100%,240px);height:70vh;overflow:hidden;clip-path:polygon(46% 46%,54% 46%,53% 54%,47% 54%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)">
+      <img src="assets/bkc-one.jpg" alt="BKC ONE" width="2731" height="4096" style="width:100%;height:100%;object-fit:cover;object-position:50% 25%">
+    </div>
+  </section>
+
+  <section data-fx="grid" data-bg="#1F1F1F" data-tone="light" aria-label="An office floor plate filling up" style="position:relative;height:240vh;color:#EBE3D8;background:#1F1F1F">
+    <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:30px 6vw;padding:100px clamp(18px,3.4vw,52px) 40px;box-sizing:border-box">
+      <div style="flex:0 1 380px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F3BE76">Built for scale</span>
+        <span style="display:flex;align-items:baseline;gap:14px"><span data-gcnt="1" style="font-weight:700;font-size:clamp(84px,11vw,190px);line-height:.85;letter-spacing:-.07em;font-variant-numeric:tabular-nums">0</span><span style="font-size:17px">desks</span></span>
+        <p style="margin:0;font-size:17px;line-height:1.55;max-width:340px">Wide column spans let one floor grow from a ten-person suite to a full headquarters without rebuilding the core.</p>
+      </div>
+      <svg viewBox="0 0 600 380" aria-hidden="true" style="flex:1 1 520px;min-width:0;max-height:62vh">
+        <g fill="none" stroke="#F3BE76" stroke-width="2">
+          <rect data-gl="0" x="10" y="10" width="580" height="360" style="stroke-dasharray:1000;stroke-dashoffset:1000"></rect>
+          <path data-gl="1" d="M130 10V370M470 10V370" style="stroke-dasharray:1000;stroke-dashoffset:1000"></path>
+          <path data-gl="2" d="M10 130H130M470 130H590M470 250H590M10 250H130" style="stroke-dasharray:1000;stroke-dashoffset:1000"></path>
+          <rect data-gl="3" x="250" y="150" width="100" height="80" style="stroke-dasharray:1000;stroke-dashoffset:1000"></rect>
+        </g>
+        <g fill="#EBE3D8">
+          <rect data-desk="0" x="150" y="30" width="36" height="18" style="opacity:0"></rect><rect data-desk="1" x="196" y="30" width="36" height="18" style="opacity:0"></rect><rect data-desk="2" x="368" y="30" width="36" height="18" style="opacity:0"></rect><rect data-desk="3" x="414" y="30" width="36" height="18" style="opacity:0"></rect>
+          <rect data-desk="4" x="150" y="80" width="36" height="18" style="opacity:0"></rect><rect data-desk="5" x="196" y="80" width="36" height="18" style="opacity:0"></rect><rect data-desk="6" x="368" y="80" width="36" height="18" style="opacity:0"></rect><rect data-desk="7" x="414" y="80" width="36" height="18" style="opacity:0"></rect>
+          <rect data-desk="8" x="150" y="270" width="36" height="18" style="opacity:0"></rect><rect data-desk="9" x="196" y="270" width="36" height="18" style="opacity:0"></rect><rect data-desk="10" x="368" y="270" width="36" height="18" style="opacity:0"></rect><rect data-desk="11" x="414" y="270" width="36" height="18" style="opacity:0"></rect>
+          <rect data-desk="12" x="150" y="320" width="36" height="18" style="opacity:0"></rect><rect data-desk="13" x="196" y="320" width="36" height="18" style="opacity:0"></rect><rect data-desk="14" x="368" y="320" width="36" height="18" style="opacity:0"></rect><rect data-desk="15" x="414" y="320" width="36" height="18" style="opacity:0"></rect>
+        </g>
+        <g fill="#F3BE76" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" letter-spacing="2"><text x="24" y="70">CABINS</text><text x="24" y="196">RECEPTION</text><text x="484" y="70">MEETING</text><text x="484" y="196">CORE</text><text x="264" y="196">LOBBY</text></g>
+      </svg>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <a href="#/projects/bkc" data-cur="View" style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-end;gap:30px 5vw">
+      <div style="flex:1 1 520px;min-width:0;height:62vh;min-height:320px;overflow:hidden;clip-path:polygon(0 0,100% 0,90% 100%,10% 100%)"><img src="assets/commercial.jpg" alt="Office interior" width="2400" height="1602" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;transition:scale 1.4s cubic-bezier(.2,.8,.1,1)" style-hover="scale:1.04"></div>
+      <div style="flex:0 1 420px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:16px;padding-bottom:1vw">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#7A4600">Bandra Kurla Complex · Ongoing</span>
+        <span style="font-weight:700;font-size:clamp(48px,6vw,104px);line-height:.88;letter-spacing:-.06em">BKC ONE</span>
+        <span style="display:flex;align-items:baseline;gap:12px"><span style="font-size:14px">Offices starting from</span><span style="font-weight:700;font-size:clamp(30px,3vw,46px);letter-spacing:-.04em">₹5Cr</span></span>
+        <span style="display:flex;align-items:center;gap:12px;font-weight:500;margin-top:6px">View project <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+  </section>
+
+  <section data-bg="#F3BE76" data-tone="dark" aria-labelledby="pl-enq" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-end">
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:22px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Leasing and sales</span>
+        <h2 id="pl-enq" style="margin:0;font-weight:700;font-size:clamp(42px,5.6vw,96px);line-height:.92;letter-spacing:-.055em">Plan your next office</h2>
+      </div>
+      <div style="flex:1 1 420px;min-width:0"><dc-import name="LeadForm" variant="short" theme="light" project="BKC ONE" submit-label="Talk to our team" submit="{{ submitLead }}" hint-size="100%,380px"></dc-import></div>
+    </div>
+  </section>
+</main>
+</sc-if>
+<sc-if value="{{ isProgress }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Live from site">
+  <section data-bg="#3F7DB3" data-tone="light" style="padding:140px clamp(18px,3.4vw,52px) 56px;color:#EBE3D8;background:#3F7DB3">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <span style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase"><span style="position:relative;display:block;flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:#F3BE76"><span style="position:absolute;inset:0;border-radius:50%;background:#F3BE76;animation:jdcPulse 1.8s ease-out infinite"></span></span>Live · construction progress</span>
+      <h1 data-g="110" style="margin:0;font-weight:600;font-size:clamp(56px,10vw,180px);line-height:.86;letter-spacing:-.06em">
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">Live</span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em;padding-left:10vw"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.2s cubic-bezier(.2,.8,.1,1)">from site</span></span>
+      </h1>
+      <div role="group" aria-label="Choose project" style="display:flex;flex-wrap:wrap;gap:10px 34px;border-top:1px solid rgba(235,227,216,.4);padding-top:20px">
+        <sc-for list="{{ progTabs }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.pick }}" aria-pressed="{{ t.pressed }}" style="background:none;border:none;padding:6px 0;display:flex;flex-direction:column;align-items:flex-start;gap:6px;color:#EBE3D8;opacity:{{ t.op }};transition:opacity .3s">
+            <span style="font-size:16px;font-weight:600">{{ t.name }}</span><span style="font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase">{{ t.sub }}</span>
+            <span style="align-self:stretch;height:2px;background:#F3BE76;transform-origin:left;transform:{{ t.ul }};transition:transform .5s cubic-bezier(.2,.8,.1,1)"></span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ progSoon }}" hint-placeholder-val="{{ false }}">
+  <section data-bg="#A8CDEE" data-tone="dark" style="padding:clamp(100px,12vh,150px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 7vw;align-items:flex-end">
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Chembur Tower · Launching soon</span>
+        <h2 style="margin:0;font-weight:600;font-size:clamp(42px,6vw,104px);line-height:.9;letter-spacing:-.06em">Site updates begin at launch</h2>
+        <p style="margin:0;max-width:420px;font-size:17px;line-height:1.55">Register to receive the first construction update, along with launch pricing and floor plans.</p>
+      </div>
+      <div style="flex:1 1 420px;min-width:0"><dc-import name="LeadForm" variant="short" theme="light" project="Chembur Tower" submit-label="Notify me" success-title="We'll send the first update." submit="{{ submitLead }}" hint-size="100%,380px"></dc-import></div>
+    </div>
+  </section>
+  </sc-if>
+
+  <sc-if value="{{ progLive }}" hint-placeholder-val="{{ true }}">
+  <section data-bg="#3F7DB3" data-tone="light" style="padding:0 clamp(18px,3.4vw,52px) clamp(100px,12vh,150px);color:#EBE3D8;background:#3F7DB3">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 20px;font-size:13px"><span style="font-weight:600">{{ progName }} · drag to compare</span><span>Last updated {{ progUpdated }}</span></div>
+      <div onPointerDown="{{ baDown }}" onKeyDown="{{ baKey }}" role="slider" tabindex="0" aria-label="Compare earlier and current views of {{ progName }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ baNow }}" aria-valuetext="{{ baLabel }}" data-cur="Drag" style="position:relative;aspect-ratio:16/8;min-height:300px;overflow:hidden;touch-action:pan-y;user-select:none">
+        <img src="assets/bombay-skyline.jpg" srcset="{{ baAfter }}" alt="" width="1600" height="900" draggable="false" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none">
+        <div style="position:absolute;inset:0;clip-path:inset(0 {{ baRight }} 0 0)"><img src="assets/v4/sketch.jpg" srcset="{{ baBefore }}" alt="" width="1600" height="900" draggable="false" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;filter:sepia(.4)"></div>
+        <div style="position:absolute;top:0;bottom:0;left:{{ baLeft }};width:2px;margin-left:-1px;background:#EBE3D8">
+          <span style="position:absolute;top:50%;left:50%;width:64px;height:46px;transform:translate(-50%,-50%);background:#F3BE76;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);display:flex;align-items:center;justify-content:center;padding-bottom:4px;box-sizing:border-box"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#1F1F1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"></path></svg></span>
+        </div>
+        <span style="position:absolute;left:14px;top:14px;background:#1F1F1F;padding:7px 11px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase">Earlier</span>
+        <span style="position:absolute;right:14px;top:14px;background:#1F1F1F;padding:7px 11px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase">Now</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#EBE3D8" data-tone="dark" data-seen-k="prog" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 8vw;align-items:flex-end;justify-content:space-between">
+      <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#3F7DB3">{{ progName }} · structure complete</span>
+        <span role="img" aria-label="{{ progName }} structure complete" style="display:flex;align-items:flex-start;font-weight:700;font-size:clamp(110px,19vw,320px);line-height:.85;letter-spacing:-.07em">
+          <sc-for list="{{ pctDigits }}" as="d" hint-placeholder-count="0"><span style="display:inline-block;height:.85em;overflow:hidden"><span style="display:flex;flex-direction:column;transform:{{ d.ty }};transition:transform 1.6s cubic-bezier(.2,.8,.1,1)"><sc-for list="{{ digits }}" as="n" hint-placeholder-count="0"><span style="display:block;height:.85em;line-height:.85">{{ n }}</span></sc-for></span></span></sc-for>
+          <span style="font-size:.4em;margin-top:.1em;color:#3F7DB3">%</span>
+        </span>
+        <span style="font-size:15px;max-width:380px;line-height:1.5">From the site engineer's monthly report. Last updated {{ progUpdated }}.</span>
+      </div>
+      <svg viewBox="0 0 220 440" aria-hidden="true" style="flex:0 0 auto;width:clamp(150px,18vw,260px);height:auto">
+        <defs><clipPath id="jdcTower"><path d="M70 440 V90 H90 V40 H105 V0 H115 V40 H130 V90 H150 V440 Z M20 440 V200 H70 V440 Z M150 440 V160 H200 V440 Z"></path></clipPath></defs>
+        <g clip-path="url(#jdcTower)">
+          <rect x="0" y="0" width="220" height="440" fill="#D8CDBD"></rect>
+          <rect x="0" y="{{ fillY }}" width="220" height="440" fill="#F3BE76" style="transition:y 1.8s cubic-bezier(.2,.8,.1,1)"></rect>
+          <rect x="0" y="{{ fillY2 }}" width="220" height="440" fill="#2A72B8" style="transition:y 1.8s cubic-bezier(.2,.8,.1,1) .15s"></rect>
+          <path d="M0 40H220M0 80H220M0 120H220M0 160H220M0 200H220M0 240H220M0 280H220M0 320H220M0 360H220M0 400H220" stroke="#EBE3D8" stroke-width="2"></path>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section data-bg="#1E5F8C" data-tone="light" style="padding:clamp(110px,14vh,170px) clamp(18px,3.4vw,52px);color:#EBE3D8">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 20px">
+        <h2 style="margin:0;font-weight:600;font-size:clamp(38px,4.4vw,76px);line-height:.96;letter-spacing:-.05em">Month by month</h2>
+        <span aria-live="polite" style="font-weight:600;font-size:clamp(26px,2.6vw,40px);letter-spacing:-.03em">{{ monthLabel }}</span>
+      </div>
+      <div style="position:relative;aspect-ratio:16/7;min-height:260px;overflow:hidden;background:#174C70">
+        <sc-for list="{{ monthImgs }}" as="m" hint-placeholder-count="0"><img src="assets/bombay-skyline.jpg" srcset="{{ m.src }}" alt="{{ m.alt }}" width="1600" height="700" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ m.op }};transform:{{ m.tf }};transition:opacity .7s ease, transform 1.4s cubic-bezier(.2,.8,.1,1)"></sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <input type="range" min="0" max="{{ monthMax }}" step="1" value="{{ month }}" onChange="{{ setMonth }}" aria-label="Month" aria-valuetext="{{ monthLabel }}" style="width:100%;accent-color:#F3BE76">
+        <div style="display:flex;justify-content:space-between;gap:6px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase">
+          <sc-for list="{{ months }}" as="m" hint-placeholder-count="6"><button onClick="{{ m.pick }}" aria-current="{{ m.cur }}" style="background:none;border:none;padding:8px 0;color:#EBE3D8;opacity:{{ m.op }};transition:opacity .3s">{{ m.t }}</button></sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+</main>
+</sc-if>
+
+<sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Contact">
+  <section data-bg="#EBE3D8" data-tone="dark" style="display:flex;flex-wrap:wrap;min-height:100vh">
+    <div data-kcomp="1" aria-hidden="true" style="position:relative;flex:1 1 520px;min-height:70vh;background:#2A72B8;overflow:hidden">
+      <sc-for list="{{ kcBlocks }}" as="k" hint-placeholder-count="0">
+        <span data-kc="{{ k.depth }}" style="position:absolute;left:{{ k.x }};top:{{ k.y }};width:{{ k.w }};aspect-ratio:109/135;will-change:transform"><span style="display:block;width:100%;height:100%;background:{{ k.c }};clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);transform:{{ k.tf }};opacity:{{ k.op }};transition:transform 1.2s cubic-bezier(.7,0,.2,1), opacity .8s ease"></span></span>
+      </sc-for>
+      <div style="position:absolute;left:50%;top:44%;width:clamp(140px,16vw,240px);aspect-ratio:328/281;transform:translate(-50%,-50%)">
+        <sc-for list="{{ sentBlocks }}" as="b" hint-placeholder-count="0"><span style="position:absolute;left:{{ b.left }};top:{{ b.top }};width:33.4%;height:48%;background:#EBE3D8;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);transform:{{ b.tf }};opacity:{{ b.op }};transition:transform 1.1s cubic-bezier(.3,1.45,.5,1) {{ b.delay }}, opacity .6s ease {{ b.delay }}"></span></sc-for>
+      </div>
+    </div>
+    <div style="flex:1 1 460px;min-width:0;padding:120px clamp(18px,3.4vw,52px) 60px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:28px">
+      <h1 style="margin:0;font-weight:600;font-size:clamp(52px,7vw,120px);line-height:.88;letter-spacing:-.06em">{{ contactTitle }}</h1>
+      <div data-contact-form="1" style="max-width:580px">
+        <dc-import name="LeadForm" variant="full" theme="light" project="{{ preProject }}" auto-focus="{{ visitFocus }}" focus-key="{{ visitKey }}" submit="{{ submitLead }}" on-done="{{ contactDone }}" hint-size="100%,720px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  <section data-bg="#F3BE76" data-tone="dark" style="padding:clamp(100px,12vh,150px) clamp(18px,3.4vw,52px)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:50px 6vw;align-items:flex-end;justify-content:space-between">
+      <div style="flex:0 1 440px;min-width:0;display:flex;flex-direction:column;gap:28px">
+        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Office</span>
+          <span style="display:flex;align-items:flex-start;gap:14px;font-size:19px;line-height:1.45"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1F1F1F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;margin-top:2px"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>{{ C.address }}</span>
+          <span style="display:flex;align-items:center;gap:14px;font-size:19px;line-height:1.45"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1F1F1F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>{{ C.hours }}</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Call · Write</span>
+          <a href="{{ telHref }}" style="display:flex;align-items:center;gap:14px;font-size:19px;line-height:1.45"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1F1F1F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg>{{ C.phone }}</a>
+          <a href="{{ mailHref }}" style="display:flex;align-items:center;gap:14px;font-size:19px;line-height:1.45"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1F1F1F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M3 6l9 7 9-7"></path></svg>{{ C.email }}</a>
+        </div>
+      </div>
+      <a href="{{ waGeneric }}" target="_blank" rel="noopener" data-cur="Chat" style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:14px;align-items:flex-end;text-align:right;padding-right:64px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Prefer to chat?</span>
+        <span style="font-weight:700;font-size:clamp(52px,8.4vw,150px);line-height:.88;letter-spacing:-.065em;display:flex;align-items:center;gap:.18em;transition:gap .5s" style-hover="gap:.36em">WhatsApp <span aria-hidden="true" style="display:block;width:.5em;height:.36em;background:#1F1F1F;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span></span>
+      </a>
+    </div>
+  </section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isInfo }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Info">
+  <section data-bg="#EBE3D8" data-tone="dark" style="min-height:80vh;padding:150px clamp(18px,3.4vw,52px) clamp(100px,12vh,150px);box-sizing:border-box">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+      <span style="display:flex;flex-direction:column;gap:14px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#1F5E99"><span style="display:block;width:30px;height:20px;background:currentColor;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>John Dennis Constructions</span>
+      <h1 style="margin:0;font-weight:600;font-size:clamp(52px,8vw,136px);line-height:.9;letter-spacing:-.06em">{{ info.t }}</h1>
+      <p style="margin:0;max-width:640px;font-size:clamp(18px,1.5vw,22px);line-height:1.55">{{ info.d }}</p>
+      <sc-if value="{{ infoNotSitemap }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:10px">
+          <a href="#/contact" style="display:flex;align-items:center;gap:12px;background:#1F1F1F;color:#EBE3D8;padding:18px 24px;font-size:15px;font-weight:600">Write to us <span aria-hidden="true">→</span></a>
+          <a href="{{ mailHref }}" style="display:flex;align-items:center;gap:12px;border:1px solid #1F1F1F;padding:17px 22px;font-size:15px;font-weight:600">{{ C.email }}</a>
+        </div>
+      </sc-if>
+      <sc-if value="{{ infoIsSitemap }}" hint-placeholder-val="{{ false }}">
+        <ul style="list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:0 40px">
+          <sc-for list="{{ sitemap }}" as="sm" hint-placeholder-count="0"><li style="border-top:1px solid rgba(31,31,31,.25)"><a href="{{ sm.href }}" style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;font-size:18px;font-weight:500;transition:padding .3s" style-hover="padding-left:8px">{{ sm.t }}<span aria-hidden="true">→</span></a></li></sc-for>
+        </ul>
+      </sc-if>
+    </div>
+  </section>
+</main>
+</sc-if>
+</div>
+
+<footer data-bg="#1F1F1F" data-tone="light" style="position:relative;background:#1F1F1F;color:#EBE3D8">
+  <div style="padding:clamp(70px,9vh,110px) clamp(18px,3.4vw,52px);border-bottom:1px solid rgba(235,227,216,.14)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F3BE76">Site visits every day</span>
+        <h2 style="margin:0;font-weight:600;font-size:clamp(40px,5.4vw,92px);line-height:.92;letter-spacing:-.055em">Visit a JDC site</h2>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <button onClick="{{ openEnq }}" data-mag="1" aria-haspopup="dialog" style="position:relative;overflow:hidden;display:flex;align-items:center;gap:12px;background:#2A72B8;color:#1F1F1F;border:none;padding:18px 24px;font-size:15px;font-weight:700">
+          <span data-fill="1" style="position:absolute;inset:0;background:#F3BE76;clip-path:polygon(50% 50%,50% 50%,50% 50%,50% 50%);transition:clip-path .7s cubic-bezier(.2,.8,.1,1)"></span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:relative"><rect x="3.5" y="5" width="17" height="15" rx="1"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg><span style="position:relative">Book a site visit</span>
+        </button>
+        <a href="{{ telHref }}" style="display:flex;align-items:center;gap:12px;border:1px solid rgba(235,227,216,.5);padding:17px 22px;font-size:15px;font-weight:600;transition:background .3s,color .3s" style-hover="background:#EBE3D8;color:#1F1F1F"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg>Call</a>
+        <a href="{{ waHref }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;border:1px solid rgba(235,227,216,.5);padding:17px 22px;font-size:15px;font-weight:600;transition:background .3s,color .3s" style-hover="background:#EBE3D8;color:#1F1F1F"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"></path></svg>WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:clamp(60px,8vh,90px) clamp(18px,3.4vw,52px) 40px">
+    <div style="max-width:1560px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px clamp(28px,4vw,64px)">
+      <div style="display:flex;flex-direction:column;gap:18px;padding-bottom:20px">
+        <img src="assets/logo-primary-ivory.png" alt="John Dennis Constructions" width="1063" height="289" loading="lazy" style="height:52px;width:auto;align-self:flex-start">
+        <p style="margin:0;font-size:15px;line-height:1.55;max-width:300px">{{ C.description }}</p>
+        <address style="font-style:normal;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.5">
+          <span style="display:flex;align-items:flex-start;gap:12px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F3BE76" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;margin-top:2px"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>{{ C.address }}</span>
+          <a href="{{ telHref }}" style="display:flex;align-items:center;gap:12px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F3BE76" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg>{{ C.phone }}</a>
+          <a href="{{ mailHref }}" style="display:flex;align-items:center;gap:12px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F3BE76" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M3 6l9 7 9-7"></path></svg>{{ C.email }}</a>
+          <span style="display:flex;align-items:center;gap:12px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F3BE76" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>{{ C.hours }}</span>
+        </address>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid rgba(235,227,216,.14);padding-top:6px">
+        <button data-fcol-toggle="1" onClick="{{ fc0.toggle }}" aria-expanded="{{ fc0.expanded }}" aria-controls="fcol-0" style="background:none;border:none;color:#EBE3D8;padding:14px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-align:left">Projects<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="transform:{{ fc0.rot }};transition:transform .4s"><path d="M12 5v14M5 12h14"></path></svg></button>
+        <ul id="fcol-0" data-fcol-body="1" style="list-style:none;margin:0;display:{{ fc0.disp }};flex-direction:column;gap:12px;padding:6px 0 24px">
+          <sc-for list="{{ footProjects }}" as="fp" hint-placeholder-count="4"><li><a href="{{ fp.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:16px;padding:2px 0;transition:color .3s" style-hover="color:#F3BE76"><span>{{ fp.name }}</span><span style="flex:0 0 auto;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 8px;border:1px solid #F3BE76;background:{{ fp.tagBg }};color:{{ fp.tagInk }}">{{ fp.status }}</span></a></li></sc-for>
+        </ul>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid rgba(235,227,216,.14);padding-top:6px">
+        <button data-fcol-toggle="1" onClick="{{ fc1.toggle }}" aria-expanded="{{ fc1.expanded }}" aria-controls="fcol-1" style="background:none;border:none;color:#EBE3D8;padding:14px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-align:left">Company<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="transform:{{ fc1.rot }};transition:transform .4s"><path d="M12 5v14M5 12h14"></path></svg></button>
+        <ul id="fcol-1" data-fcol-body="1" style="list-style:none;margin:0;display:{{ fc1.disp }};flex-direction:column;gap:12px;padding:6px 0 24px">
+          <sc-for list="{{ footCompany }}" as="fl" hint-placeholder-count="7"><li><a href="{{ fl.href }}" style="display:inline-flex;font-size:16px;padding:2px 0;transition:color .3s" style-hover="color:#F3BE76">{{ fl.t }}</a></li></sc-for>
+        </ul>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid rgba(235,227,216,.14);padding-top:6px">
+        <button data-fcol-toggle="1" onClick="{{ fc2.toggle }}" aria-expanded="{{ fc2.expanded }}" aria-controls="fcol-2" style="background:none;border:none;color:#EBE3D8;padding:14px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;text-align:left">Stay updated<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="transform:{{ fc2.rot }};transition:transform .4s"><path d="M12 5v14M5 12h14"></path></svg></button>
+        <div id="fcol-2" data-fcol-body="1" style="display:{{ fc2.disp }};flex-direction:column;gap:16px;padding:6px 0 24px">
+          <p style="margin:0;font-size:15px;line-height:1.55">Launches, site updates and price news. One email a month.</p>
+          <sc-if value="{{ newsForm }}" hint-placeholder-val="{{ true }}">
+            <form onSubmit="{{ newsSubmit }}" style="display:flex;flex-direction:column;gap:8px">
+              <label for="jdc-news" style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase">Email address</label>
+              <div style="display:flex;border-bottom:1px solid rgba(235,227,216,.5)">
+                <input id="jdc-news" name="email" type="text" inputMode="email" autoComplete="email" value="{{ news }}" onChange="{{ newsChange }}" aria-invalid="{{ hasNewsErr }}" aria-describedby="jdc-news-err" style="flex:1;min-width:0;background:transparent;border:none;color:#EBE3D8;padding:12px 0;font-size:16px;outline:none">
+                <button type="submit" style="background:none;border:none;color:#F3BE76;padding:12px 0 12px 12px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px">{{ newsBtn }}<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+              </div>
+              <sc-if value="{{ hasNewsErr }}" hint-placeholder-val="{{ false }}"><span id="jdc-news-err" role="alert" style="font-size:13px;color:#F3BE76">{{ newsErr }}</span></sc-if>
+            </form>
+          </sc-if>
+          <sc-if value="{{ newsOk }}" hint-placeholder-val="{{ false }}"><p role="status" style="margin:0;display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600"><span style="display:block;width:18px;height:12px;background:#F3BE76;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>Subscribed. Thank you.</p></sc-if>
+          <div style="display:flex;gap:10px;margin-top:6px">
+            <sc-for list="{{ socials }}" as="so" hint-placeholder-count="3">
+              <a href="{{ so.href }}" target="_blank" rel="noopener" aria-label="{{ so.t }}" data-mag="1" style="width:44px;height:44px;border-radius:50%;border:1px solid rgba(235,227,216,.5);display:flex;align-items:center;justify-content:center;color:#EBE3D8;transition:background .35s,color .35s,border-color .35s" style-hover="background:#F3BE76;border-color:#F3BE76;color:#1F1F1F"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{ so.d }}"></path></svg></a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 clamp(18px,3.4vw,52px) 40px">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:18px;border-top:1px solid rgba(235,227,216,.14);padding-top:32px">
+      <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F3BE76">MahaRERA registration</span>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px 40px">
+        <sc-for list="{{ reraList }}" as="r" hint-placeholder-count="4">
+          <li style="display:flex;align-items:center;gap:16px">
+            <sc-if value="{{ r.hasQr }}" hint-placeholder-val="{{ false }}"><img src="{{ r.qr }}" alt="{{ r.name }} MahaRERA QR code" width="56" height="56" loading="lazy" style="width:56px;height:56px;flex:0 0 auto;background:#EBE3D8"></sc-if>
+            <sc-if value="{{ r.noQr }}" hint-placeholder-val="{{ true }}"><span aria-label="QR code slot" style="flex:0 0 auto;width:56px;height:56px;border:1px dashed rgba(235,227,216,.45);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.14em">QR</span></sc-if>
+            <span style="display:flex;flex-direction:column;gap:3px;font-size:14px;line-height:1.4"><span style="font-weight:600">{{ r.name }}</span><span>{{ r.no }}</span><a href="{{ reraUrl }}" target="_blank" rel="noopener" style="font-size:13px;color:#F3BE76;align-self:flex-start;border-bottom:1px solid currentColor">maharera.maharashtra.gov.in</a></span>
+          </li>
+        </sc-for>
+      </ul>
+      <p style="margin:8px 0 0;font-size:13px;line-height:1.55;max-width:820px">Images are artistic impressions. Plans, specifications and amenities are indicative and subject to change. This is not an offer or contract.</p>
+    </div>
+  </div>
+
+  <div style="padding:0 clamp(18px,3.4vw,52px);overflow:hidden">
+    <div aria-hidden="true" data-g="40" style="max-width:1560px;margin:0 auto;display:flex;align-items:center;gap:.3em;font-weight:700;font-size:min(10vw,150px);line-height:.9;letter-spacing:-.06em;color:#EBE3D8;padding:20px 0 28px">
+      <span style="display:block;flex:0 0 auto;width:.5em;height:.36em;background:#2A72B8;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+      <span style="display:flex;overflow:hidden;padding-bottom:.12em;margin-bottom:-.06em;white-space:nowrap"><span data-ln="1" style="display:block;transform:translateY(110%);transition:transform 1.1s cubic-bezier(.2,.8,.1,1)">Built for Life</span></span>
+    </div>
+  </div>
+
+  <div style="padding:22px 96px 26px clamp(18px,3.4vw,52px);border-top:1px solid rgba(235,227,216,.14)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;font-size:13px">
+      <span>© {{ year }} John Dennis Constructions</span>
+      <nav aria-label="Legal" style="display:flex;flex-wrap:wrap;gap:8px 22px">
+        <a href="#/info/privacy" style="padding:4px 0;transition:color .3s" style-hover="color:#F3BE76">Privacy Policy</a>
+        <a href="#/info/terms" style="padding:4px 0;transition:color .3s" style-hover="color:#F3BE76">Terms of Use</a>
+        <a href="#/info/disclaimer" style="padding:4px 0;transition:color .3s" style-hover="color:#F3BE76">Disclaimer</a>
+        <a href="#/info/sitemap" style="padding:4px 0;transition:color .3s" style-hover="color:#F3BE76">Sitemap</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<div data-fabs="1" style="position:fixed;right:clamp(16px,2vw,24px);bottom:24px;z-index:95;display:flex;flex-direction:column;align-items:flex-end;gap:12px;will-change:transform">
+  <button data-gotop="1" data-fab="1" onClick="{{ toTop }}" aria-label="Back to top" tabindex="{{ topTab }}" style="position:relative;width:52px;height:52px;border:none;background:none;padding:0;opacity:0;pointer-events:none;transform:translateY(16px);transition:opacity .4s, transform .4s">
+    <svg viewBox="0 0 48 48" style="position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)"><circle cx="24" cy="24" r="22" fill="#EBE3D8" stroke="rgba(31,31,31,.15)" stroke-width="2"></circle><circle data-ring="1" cx="24" cy="24" r="22" fill="none" stroke="#2A72B8" stroke-width="2.5" stroke-dasharray="138.2" stroke-dashoffset="138.2"></circle></svg>
+    <span data-topks="1" style="position:absolute;left:50%;top:50%;width:16px;height:12px;margin:-7px 0 0 -8px;background:#1F1F1F;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);transition:transform .7s cubic-bezier(.3,1.4,.5,1)"></span>
+  </button>
+  <a href="{{ waHref }}" target="_blank" rel="noopener" data-fab="1" aria-label="Chat with us on WhatsApp" style="position:relative;height:56px;width:56px;border-radius:28px;background:#25D366;color:#fff;display:flex;align-items:center;transition:width .5s cubic-bezier(.2,.8,.1,1);box-shadow:0 6px 18px rgba(31,31,31,.18)" style-hover="width:178px">
+    <span style="position:absolute;inset:0;border-radius:28px;background:#25D366;animation:jdcPulse 3.2s ease-out infinite;pointer-events:none"></span>
+    <span style="position:relative;flex:0 0 auto;width:56px;height:100%;display:flex;align-items:center;justify-content:center">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"></path><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l.9-1.6-2-.9-.8.9a4.6 4.6 0 0 1-3-3l.9-.8-.9-2z" fill="#fff" stroke="none"></path></svg>
+    </span>
+    <span style="position:relative;flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;font-size:15px;font-weight:600">Chat with us</span>
+  </a>
+</div>
+
+<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Image gallery" data-lightbox="1" style="position:fixed;inset:0;z-index:200;background:rgba(20,20,20,.94);display:flex;align-items:center;justify-content:center;padding:70px clamp(12px,4vw,80px);box-sizing:border-box;color:#EBE3D8">
+  <img src="{{ lbSrc }}" alt="{{ lbAlt }}" style="max-width:100%;max-height:100%;object-fit:contain;display:block">
+  <button onClick="{{ lbClose }}" aria-label="Close gallery" style="position:absolute;top:18px;right:18px;width:48px;height:48px;border:1px solid rgba(235,227,216,.5);border-radius:50%;background:none;color:#EBE3D8;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  <button onClick="{{ lbPrev }}" aria-label="Previous image" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:52px;height:52px;border:1px solid rgba(235,227,216,.5);border-radius:50%;background:rgba(20,20,20,.4);color:#EBE3D8;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+  <button onClick="{{ lbNext }}" aria-label="Next image" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:52px;height:52px;border:1px solid rgba(235,227,216,.5);border-radius:50%;background:rgba(20,20,20,.4);color:#EBE3D8;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+  <span style="position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ lbCount }}</span>
+</div>
+</sc-if>
+
+<sc-if value="{{ enqOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-labelledby="enq-h" data-enq="1" onClick="{{ enqBackdrop }}" style="position:fixed;inset:0;z-index:205;background:rgba(20,20,20,.62);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box">
+  <div data-enq-panel="1" data-lenis-prevent="" style="position:relative;width:min(680px,100%);max-height:100%;overflow:auto;background:#EBE3D8;color:#1F1F1F;padding:clamp(28px,4vw,52px);box-sizing:border-box;display:flex;flex-direction:column;gap:16px">
+    <button onClick="{{ closeEnq }}" aria-label="Close enquiry form" style="position:absolute;top:14px;right:14px;width:44px;height:44px;border:none;background:none;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    <span style="display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#1F5E99"><span style="display:block;width:22px;height:15px;background:currentColor;clip-path:polygon(0 0,100% 0,82% 100%,18% 100%)"></span>{{ enqEyebrow }}</span>
+    <h2 id="enq-h" style="margin:0;font-weight:600;font-size:clamp(32px,3.4vw,52px);line-height:1;letter-spacing:-.045em">{{ enqTitle }}</h2>
+    <dc-import name="LeadForm" variant="full" theme="light" project="{{ enqProject }}" auto-focus="{{ true }}" submit="{{ submitLead }}" on-close="{{ closeEnq }}" hint-size="100%,640px"></dc-import>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ brOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Download brochure" data-brochure="1" style="position:fixed;inset:0;z-index:200;background:rgba(20,20,20,.6);display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box">
+  <div data-lenis-prevent="" style="position:relative;width:min(520px,100%);max-height:100%;overflow:auto;background:#EBE3D8;color:#1F1F1F;padding:clamp(28px,4vw,48px);box-sizing:border-box;display:flex;flex-direction:column;gap:18px">
+    <button onClick="{{ brClose }}" aria-label="Close" style="position:absolute;top:14px;right:14px;width:44px;height:44px;border:none;background:none;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#1F5E99">{{ pj.name }} brochure</span>
+    <h2 style="margin:0;font-weight:600;font-size:clamp(30px,3vw,44px);line-height:1;letter-spacing:-.045em">Get the brochure</h2>
+    <dc-import name="LeadForm" variant="brochure" theme="light" project="{{ pj.name }}" submit-label="Unlock download" success-title="Your brochure is ready." brochure-url="{{ pj.brochure }}" auto-focus="{{ true }}" submit="{{ submitLead }}" on-close="{{ brClose }}" hint-size="100%,320px"></dc-import>
+  </div>
+</div>
+</sc-if>
+
+<div data-follow="1" aria-hidden="true" style="position:fixed;left:0;top:0;z-index:60;width:280px;height:340px;margin:-170px 0 0 -140px;pointer-events:none;clip-path:polygon(0 0,100% 0,86% 100%,14% 100%);opacity:{{ followOp }};transition:opacity .35s ease;overflow:hidden">
+  <img src="assets/bkc-one.jpg" srcset="{{ followImg }}" alt="" width="280" height="340" decoding="async" style="width:100%;height:100%;object-fit:cover">
+</div>
+
+<div data-cursor="1" aria-hidden="true" style="position:fixed;left:0;top:0;z-index:400;pointer-events:none;width:0;height:0;opacity:0;transition:opacity .3s">
+  <div data-cdot="1" style="position:absolute;left:-9px;top:-7px;width:18px;height:14px;background:#2A72B8;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);transition:opacity .3s"></div>
+  <div data-cring="1" style="position:absolute;left:-46px;top:-46px;width:92px;height:92px;border-radius:50%;background:#1F1F1F;color:#EBE3D8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transform:scale(0);transition:transform .45s cubic-bezier(.3,1.4,.5,1)"><span data-clabel="1">View</span></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+// ───────────────────────── CONFIG & CONTENT (edit these) ─────────────────────────
+const LEAD_ENDPOINT = ''; // POST URL for enquiries. Empty = demo mode (simulated success after 0.7s).
+const NEWSLETTER_ENDPOINT = ''; // POST URL for subscriptions. Empty = demo mode.
+const WA_NUMBER = '91XXXXXXXXXX'; // WhatsApp number, country code first, digits only.
+const CONTENT = {
+  company: 'John Dennis Constructions',
+  description: 'John Dennis Constructions is a Mumbai developer building homes and workplaces across Mumbai and Navi Mumbai.',
+  address: 'Office address line 1, Area, Mumbai, Maharashtra 4000XX',
+  phone: '+91 XXXXX XXXXX', phoneHref: '+91XXXXXXXXXX',
+  email: 'info@jdcindia.com',
+  hours: 'Mon–Sat, 10am–7pm',
+  site: 'jdcindia.com', siteUrl: 'https://jdcindia.com',
+  socials: { instagram: 'https://www.instagram.com/', linkedin: 'https://www.linkedin.com/', youtube: 'https://www.youtube.com/' },
+  leaders: [{ role: 'Founder', name: 'Founder name', photo: '' }, { role: 'Managing Director', name: 'Director name', photo: '' }],
+  rera: { arise: { no: 'P518000XXXXX', qr: '' }, bkc: { no: 'P518000XXXXX', qr: '' }, water: { no: 'P520000XXXXX', qr: '' }, chembur: { no: 'Registration awaited', qr: '' } },
+  reraUrl: 'https://maharera.maharashtra.gov.in/',
+  stats: [{ v: '25+', k: 'Years building in Mumbai' }, { v: '2.5M', k: 'Sq ft delivered and under construction' }, { v: '1,200+', k: 'Homes handed over' }, { v: '04', k: 'Active projects' }],
+  testimonials: [
+    { q: 'We were shown the slab schedule on our first visit, and the building kept to it.', who: 'Homeowner', where: 'Navi Mumbai Waterfront' },
+    { q: 'The floor plate works the way our team works. No wasted corners, plenty of light.', who: 'Office tenant', where: 'BKC ONE' },
+    { q: 'Every question got a straight answer, from booking through to possession.', who: 'Homeowner', where: 'ARISE' }],
+  progress: { arise: { pct: 62, updated: '30 Sep 2026' }, bkc: { pct: 48, updated: '30 Sep 2026' }, water: { pct: 35, updated: '30 Sep 2026' } },
+  brochures: { arise: 'assets/brochures/arise.pdf', bkc: 'assets/brochures/bkc-one.pdf', water: 'assets/brochures/navi-mumbai-waterfront.pdf', chembur: 'assets/brochures/chembur-tower.pdf' },
+  info: {
+    privacy: { t: 'Privacy Policy', d: 'How JDC collects, stores and uses the details you share with us. Full policy text to be published here.' },
+    terms: { t: 'Terms of Use', d: 'The terms that apply when you use this website. Full text to be published here.' },
+    disclaimer: { t: 'Disclaimer', d: 'Images are artistic impressions. Plans, specifications and amenities are indicative and subject to change. This is not an offer or contract.' },
+    careers: { t: 'Careers', d: 'We hire site engineers, architects, planners and sales advisors. Send your CV and the role you are interested in.' },
+    partners: { t: 'Channel partners', d: 'Registered channel partners can request project kits, inventory and site-visit slots.' },
+    nri: { t: 'NRI enquiries', d: 'Dedicated support for non-resident Indian buyers: video walkthroughs, documentation and payment guidance.' },
+    sitemap: { t: 'Sitemap', d: 'Every page on jdcindia.com.' }
+  }
+};
+async function submitLead(data) {
+  const body = { ...data, source: location.href, submittedAt: new Date().toISOString() };
+  if (!LEAD_ENDPOINT) { await new Promise(r => setTimeout(r, 700)); console.info('[JDC demo lead]', body); return { ok: true, demo: true }; }
+  const res = await fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!res.ok) throw new Error('Lead submit failed: ' + res.status);
+  return { ok: true };
+}
+// ───────────────────────────────────────────────────────────────────────────────
+
+const IV = '#EBE3D8', OB = '#1F1F1F', TC = '#2A72B8', TCD = '#1F5E99', AM = '#F3BE76', SEA = '#1E5F8C', TEAL = '#3F7DB3', SAGE = '#BFD8EE', ROSE = '#A8CDEE';
+const KS = 'polygon(0 0,100% 0,86% 100%,14% 100%)';
+const ORDER = ['arise', 'bkc', 'water', 'chembur'];
+const SPEC_RES = [
+  { t: 'Structure', d: 'RCC framed structure designed to current seismic codes.' },
+  { t: 'Flooring', d: 'Large-format vitrified tiles in living areas and bedrooms; anti-skid tiles in bathrooms and balconies.' },
+  { t: 'Kitchen', d: 'Granite counter with stainless steel sink; provision for water purifier and exhaust fan.' },
+  { t: 'Bathrooms', d: 'Branded sanitaryware and CP fittings with concealed plumbing.' },
+  { t: 'Doors and windows', d: 'Laminated flush doors; aluminium sliding windows with mosquito mesh.' },
+  { t: 'Electrical', d: 'Concealed copper wiring, modular switches and provision for air-conditioning points.' }];
+const SPEC_COM = [
+  { t: 'Structure', d: 'RCC framed structure with wide column spans for flexible floor plates.' },
+  { t: 'Façade', d: 'Glazed façade with high-performance glass to reduce heat gain.' },
+  { t: 'Air-conditioning', d: 'Provision for central air-conditioning on every floor.' },
+  { t: 'Lifts', d: 'High-speed passenger lifts with a separate service lift.' },
+  { t: 'Power backup', d: 'Full backup for common areas and provision for tenant backup.' },
+  { t: 'Fire safety', d: 'Sprinklers, detection and alarm systems as per fire code.' }];
+const AM_RES = [['Residents’ lounge', 'assets/interior.jpg'], ['Arrival lobby', 'assets/corridor.jpg'], ['Sea-facing decks', 'assets/hero-beach.jpg'], ['Landscaped garden', 'assets/residential.jpg'], ['Clubhouse', 'assets/hospitality.jpg'], ['Retail promenade', 'assets/retail.jpg']];
+const AM_COM = [['Double-height lobby', 'assets/corridor.jpg'], ['Workspace floors', 'assets/commercial.jpg'], ['Business lounge', 'assets/hospitality.jpg'], ['Café and retail', 'assets/retail.jpg'], ['Meeting suites', 'assets/interior.jpg'], ['City-view terrace', 'assets/keystones.jpg']];
+const PLAN = {
+  '1 BHK': { cols: '1.6fr 1fr', rows: '1.2fr 1fr', rooms: [['Living · Dining', '1 / 1 / 3 / 2'], ['Bedroom', '1 / 2 / 2 / 3'], ['Kitchen · Bath', '2 / 2 / 3 / 3']] },
+  '2 BHK': { cols: '2fr 1.2fr 1.4fr', rows: '1.3fr 1fr', rooms: [['Living · Dining', '1 / 1 / 3 / 2'], ['Kitchen', '1 / 2 / 2 / 3'], ['Bedroom 1', '1 / 3 / 2 / 4'], ['Bath', '2 / 2 / 3 / 3'], ['Bedroom 2', '2 / 3 / 3 / 4']] },
+  '3 BHK': { cols: '1.8fr 1.2fr 1.2fr', rows: '1fr 1fr', rooms: [['Living · Dining', '1 / 1 / 3 / 2'], ['Bedroom 1', '1 / 2 / 2 / 3'], ['Bedroom 2', '1 / 3 / 2 / 4'], ['Kitchen · Bath', '2 / 2 / 3 / 3'], ['Bedroom 3', '2 / 3 / 3 / 4']] },
+  'Office floor': { cols: '1fr 2.4fr 1.2fr', rows: '1fr 1.2fr 1fr', rooms: [['Reception', '1 / 1 / 2 / 2'], ['Pantry', '2 / 1 / 3 / 2'], ['Washrooms', '3 / 1 / 4 / 2'], ['Workstations', '1 / 2 / 4 / 3'], ['Cabins', '1 / 3 / 2 / 4'], ['Meeting room', '2 / 3 / 4 / 4']] }
+};
+const P = {
+  arise: { name: 'ARISE', brand: 'JDC Select', type: 'Residential', status: 'Ongoing', loc: 'Mumbai', accent: TC, fg: IV, ink: TCD, img: 'assets/arise.jpg',
+    line: 'Residences that rise above the city, finished to the JDC Select standard.', floors: 32, mx: '31%', my: '23%', lab: 'top',
+    details: [['Starting price', 'On request'], ['Configurations', '2 & 3 BHK'], ['Carpet area', 'On request'], ['Possession', 'To be announced'], ['Floors', '32']],
+    plans: ['2 BHK', '3 BHK'], gallery: ['assets/arise.jpg', 'assets/interior.jpg', 'assets/corridor.jpg', 'assets/v4/stone-detail.jpg', 'assets/v3/sign-arise.jpg'],
+    conn: [['Railway station', 'Nearest suburban station', '~2 km'], ['Highway', 'Western Express Highway', '~3 km'], ['Schools', 'International and state-board schools', 'within 2 km'], ['Hospitals', 'Multi-specialty hospital', '~3 km']],
+    ba: ['assets/v4/sketch.jpg', 'assets/arise.jpg'], months: ['assets/v4/sketch.jpg', 'assets/v4/stone-detail.jpg', 'assets/v4/capitals.jpg', 'assets/v3/sign-arise.jpg', 'assets/interior.jpg', 'assets/arise.jpg'] },
+  bkc: { name: 'BKC ONE', brand: 'JDC Place', type: 'Commercial', status: 'Ongoing', loc: 'Bandra Kurla Complex', accent: AM, fg: OB, ink: '#7A4600', img: 'assets/bkc-one.jpg',
+    line: 'Designed for Productivity. Built for Scale.', floors: 24, mx: '37.5%', my: '38%', lab: 'left',
+    details: [['Offices from', '₹5Cr'], ['Configurations', 'Office floors and suites'], ['Carpet area', 'On request'], ['Possession', 'To be announced'], ['Floors', '24']],
+    plans: ['Office floor'], gallery: ['assets/bkc-one.jpg', 'assets/commercial.jpg', 'assets/v3/billboard-bkc.jpg', 'assets/v4/capitals.jpg', 'assets/v3/sign-bkc.jpg'],
+    conn: [['Railway station', 'Bandra station', '~3 km'], ['Highway', 'Western Express Highway', '~3 km'], ['Airport', 'Mumbai airport, Terminal 2', '~7 km'], ['Hospitals', 'Multi-specialty hospitals', 'within 4 km']],
+    ba: ['assets/v4/sketch.jpg', 'assets/bkc-one.jpg'], months: ['assets/v4/capitals.jpg', 'assets/v3/billboard-bkc.jpg', 'assets/v3/sign-bkc.jpg', 'assets/commercial.jpg', 'assets/v3/v-commercial.jpg', 'assets/bkc-one.jpg'] },
+  water: { name: 'Navi Mumbai Waterfront', brand: 'JDC Select', type: 'Residential', status: 'Ongoing', loc: 'Navi Mumbai', accent: SEA, fg: IV, ink: SEA, img: 'assets/jdc-select.jpg',
+    line: 'Premium Waterfront Residence in Navi Mumbai', floors: 30, mx: '68.5%', my: '63%', lab: 'top',
+    details: [['Configurations', '1–3 BHK'], ['Payment plan', '50/50'], ['On booking', '10%'], ['Starting price', 'On request'], ['Carpet area', 'On request'], ['Possession', 'To be announced'], ['Floors', '30']],
+    plans: ['1 BHK', '2 BHK', '3 BHK'], gallery: ['assets/jdc-select.jpg', 'assets/v4/tower-water.jpg', 'assets/hero-beach.jpg', 'assets/interior.jpg', 'assets/v3/facade-select.jpg'],
+    conn: [['Railway station', 'Nearest harbour-line station', '~3 km'], ['Highway', 'Sion–Panvel Highway', '~4 km'], ['Airport', 'Navi Mumbai International Airport', '~15 km'], ['Schools', 'CBSE and ICSE schools', 'within 3 km']],
+    ba: ['assets/v4/sketch.jpg', 'assets/v4/tower-water.jpg'], months: ['assets/v3/poster-select.jpg', 'assets/v3/facade-select.jpg', 'assets/hero-beach.jpg', 'assets/v4/tower-water.jpg', 'assets/jdc-select.jpg', 'assets/v4/tower-water.jpg'] },
+  chembur: { name: 'Chembur Tower', brand: 'JDC', type: 'Residential', status: 'Upcoming', loc: 'Chembur', accent: ROSE, fg: OB, ink: '#1A4C7E', img: 'assets/v4/bombay-tower.jpg',
+    line: "Coming Soon! Chembur's Tallest Tower", floors: 40, mx: '49.5%', my: '42.5%', lab: 'right',
+    details: [['Status', 'Coming soon'], ['Height', 'Tallest in Chembur'], ['Configurations', 'To be announced'], ['Starting price', 'To be announced'], ['Possession', 'To be announced']],
+    plans: ['2 BHK', '3 BHK'], gallery: ['assets/v4/bombay-tower.jpg', 'assets/v3/tower-0.jpg', 'assets/v3/tower-1.jpg', 'assets/v3/tower-2.jpg'],
+    conn: [['Railway station', 'Chembur station', '~1.5 km'], ['Highway', 'Eastern Express Highway', '~2 km'], ['Metro', 'Monorail and metro lines', 'within 2 km'], ['Hospitals', 'Multi-specialty hospitals', 'within 3 km']],
+    ba: [], months: [] }
+};
+const PAGES = [
+  { k: 'home', href: '#/', label: 'Home', bg: ROSE, ink: OB, img: 'assets/bombay-skyline.jpg', cap: 'Mumbai at golden hour' },
+  { k: 'about', href: '#/about', label: 'Our legacy', bg: AM, ink: OB, img: 'assets/arch.jpg', cap: 'The arch, and the stone that holds it' },
+  { k: 'projects', href: '#/projects', label: 'Projects', bg: SAGE, ink: OB, img: 'assets/keystones.jpg', cap: 'Four addresses across the city' },
+  { k: 'select', href: '#/select', label: 'JDC Select', bg: SEA, ink: IV, img: 'assets/jdc-select.jpg', cap: 'The luxury collection' },
+  { k: 'place', href: '#/place', label: 'JDC Place', bg: AM, ink: OB, img: 'assets/bkc-one.jpg', cap: 'Workplaces built for scale' },
+  { k: 'progress', href: '#/progress', label: 'Live from site', bg: TEAL, ink: IV, img: 'assets/v3/tower-1.jpg', cap: 'Construction, month by month' },
+  { k: 'contact', href: '#/contact', label: "Let's build", bg: TC, ink: IV, img: 'assets/interior.jpg', cap: 'Talk to us' }
+];
+const META = {
+  home: ['JDC · John Dennis Constructions · Built for Life', 'Residential and commercial projects across Mumbai and Navi Mumbai by John Dennis Constructions.'],
+  about: ['Our legacy · JDC', 'How John Dennis Constructions builds: structure, light, and the keystone that holds it together.'],
+  projects: ['Projects · JDC', 'ARISE, BKC ONE, Navi Mumbai Waterfront and Chembur Tower on one map.'],
+  select: ['JDC Select · Luxury residences', 'JDC Select: premium waterfront and city residences by John Dennis Constructions.'],
+  place: ['JDC Place · Commercial', 'JDC Place: workplaces designed for productivity and built for scale. Home of BKC ONE.'],
+  progress: ['Live from site · JDC', 'Monthly construction updates from every ongoing JDC project.'],
+  contact: ['Contact · JDC', 'Enquire about a JDC home or office, book a site visit, or chat on WhatsApp.'],
+  info: ['JDC', 'John Dennis Constructions.']
+};
+const SCAT = [[-260, -200, -38], [10, -340, 24], [290, -170, 46], [-320, 210, 28], [30, 330, -34], [310, 230, -52]];
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const backOut = t => { const c = 1.6; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
+const markPos = i => ({ left: (i % 3) * 33.3 + '%', top: i < 3 ? '0%' : '52%' });
+const mkChars = v => [...v].map(ch => ({ ch, isD: /\d/.test(ch), notD: !/\d/.test(ch), d: /\d/.test(ch) ? +ch : 0 }));
+const wa = msg => 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+
+function parseHash() {
+  const h = (location.hash || '#/').replace(/^#/, ''); const [path, qs] = h.split('?'); const q = new URLSearchParams(qs || '');
+  const seg = path.split('/').filter(Boolean);
+  if (!seg.length) return { page: 'home', q };
+  if (seg[0] === 'projects' && seg[1] && P[seg[1]]) return { page: 'project', pid: seg[1], q };
+  if (seg[0] === 'info' && seg[1] && CONTENT.info[seg[1]]) return { page: 'info', info: seg[1], q };
+  if (['about', 'projects', 'select', 'place', 'progress', 'contact'].includes(seg[0])) return { page: seg[0], q };
+  return { page: 'home', q };
+}
+
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    const r = parseHash();
+    let seen = false; try { seen = sessionStorage.getItem('jdc-v5-seen') === '1'; } catch (e) {}
+    this.state = { page: r.page, pid: r.pid || 'water', info: r.info || 'sitemap', visit: r.q.get('visit') === '1', visitKey: 0, preProject: r.q.get('project') || '',
+      menu: false, menuLoaded: false, mh: 0, load: seen ? 3 : 0, filter: 'All', view: 'map', hp: 'bkc', lh: null, sent: false,
+      planZ: 1, planX: 0, planY: 0, planDrag: false, planTab: 0, ba: 50, prog: 'bkc', progSeen: false, month: 5, navDark: true, hdrSolid: false, hdrBg: ROSE,
+      spec: 0, lb: null, brochure: false, enq: false, enqProject: '', news: '', newsErr: '', newsStatus: 'idle', fopen: -1 };
+  }
+
+  componentDidMount() {
+    document.documentElement.lang = 'en';
+    try { history.scrollRestoration = 'manual'; } catch (e) {}
+    this.reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.fine = window.matchMedia && matchMedia('(pointer:fine)').matches;
+    this.mx = innerWidth / 2; this.my = innerHeight / 2; this.cx = this.mx; this.cy = this.my; this.fx_ = this.mx; this.fy_ = this.my;
+    this.mq = 0; this.mqDir = 1; this.ly = scrollY; this.rip = 0; this.t0 = performance.now(); this.vis = new Set();
+    if (this.state.load < 3) {
+      try { sessionStorage.setItem('jdc-v5-seen', '1'); } catch (e) {}
+      const R = this.reduce;
+      setTimeout(() => this.setState({ load: 1 }), R ? 0 : 60);
+      setTimeout(() => this.setState({ load: 2 }), R ? 20 : 900);
+      setTimeout(() => this.setState({ load: 3 }), R ? 40 : 1500);
+    }
+    if (window.Lenis && !this.reduce) this.lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true });
+    if (this.fine) document.documentElement.setAttribute('data-cur-on', '');
+    else { const c = document.querySelector('[data-cursor]'); if (c) c.style.display = 'none'; }
+    this.onHash = () => { const r = parseHash(); this.route(r); };
+    this.onMove = e => { this.mx = e.clientX; this.my = e.clientY; this.magnet(); if (!this.moved && this.fine) { this.moved = true; this.cx = this.mx; this.cy = this.my; const c = document.querySelector('[data-cursor]'); if (c) c.style.opacity = 1; } };
+    this.onOver = e => {
+      const t = e.target.closest ? e.target.closest('[data-cur]') : null; this.curLabel = t ? t.getAttribute('data-cur') : null;
+      const tag = e.target.tagName; if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') this.curHide = true; else this.curHide = false;
+      const m = e.target.closest ? e.target.closest('[data-mag]') : null;
+      if (m !== this.magEl) { if (this.magEl) this.fillBtn(this.magEl, false); this.magEl = m; if (m) this.fillBtn(m, true); }
+    };
+    this.onDown = e => { const d = e.target.closest && e.target.closest('[data-drag]'); if (d && e.pointerType === 'mouse') { this.dragEl = d; this.dragX = e.clientX; this.dragS = d.scrollLeft; } };
+    this.onPMove = e => {
+      if (this.dragEl) this.dragEl.scrollLeft = this.dragS - (e.clientX - this.dragX);
+      if (this.planD) { const d = this.planD; this.setState({ planX: d.x + e.clientX - d.px, planY: d.y + e.clientY - d.py }); }
+      if (this.baEl) this.baSet(e.clientX);
+    };
+    this.onUp = () => { this.dragEl = null; if (this.planD) { this.planD = null; this.setState({ planDrag: false }); } this.baEl = null; };
+    this.onKey = e => this.key(e);
+    this.onResize = () => { this.measure(); };
+    this.onScroll = () => this.checkPending();
+    addEventListener('hashchange', this.onHash);
+    addEventListener('mousemove', this.onMove, { passive: true });
+    addEventListener('mouseover', this.onOver, { passive: true });
+    addEventListener('pointerdown', this.onDown);
+    addEventListener('pointermove', this.onPMove);
+    addEventListener('pointerup', this.onUp);
+    addEventListener('keydown', this.onKey);
+    addEventListener('resize', this.onResize);
+    addEventListener('scroll', this.onScroll, { passive: true });
+    this.measureT = setInterval(() => this.measure(), 900);
+    this.applyMeta(); this.applyMenuInert();
+    this.snap = { page: this.state.page, pid: this.state.pid, info: this.state.info, view: this.state.view, sent: this.state.sent, prog: this.state.prog, load: this.state.load, menu: this.state.menu };
+    setTimeout(() => this.bind(), 80);
+    const loop = t => { this.raf = requestAnimationFrame(loop); try { if (this.lenis) this.lenis.raf(t); this.tick(t); } catch (e) { if (!this.tickErr) { this.tickErr = 1; console.warn('JDC tick error: ' + (e && e.stack || e)); } } };
+    this.raf = requestAnimationFrame(loop);
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf); clearInterval(this.measureT);
+    [['hashchange', this.onHash], ['mousemove', this.onMove], ['mouseover', this.onOver], ['pointerdown', this.onDown], ['pointermove', this.onPMove], ['pointerup', this.onUp], ['keydown', this.onKey], ['resize', this.onResize], ['scroll', this.onScroll]].forEach(([n, f]) => removeEventListener(n, f));
+    if (this.io) this.io.disconnect(); if (this.vio) this.vio.disconnect(); if (this.lenis) this.lenis.destroy();
+  }
+
+
+  root() { return document.querySelector('[data-jdc-root]'); }
+
+  route(r) {
+    const s = this.state; const extra = { visit: r.q.get('visit') === '1', preProject: r.q.get('project') || '', visitKey: s.visitKey + 1 };
+    const same = r.page === s.page && (r.page !== 'project' || r.pid === s.pid) && (r.page !== 'info' || r.info === s.info);
+    if (same) { this.setState({ menu: false, ...extra }); if (!extra.visit) this.toTop(); else this.scrollToForm(); return; }
+    this.transition(r, extra);
+  }
+  transition(r, extra) {
+    const color = r.page === 'project' ? P[r.pid].accent : r.page === 'info' ? OB : (PAGES.find(x => x.k === r.page) || PAGES[0]).bg;
+    const ps = document.querySelectorAll('[data-tp]'); const mk = document.querySelector('[data-tpmark]'); const D = this.reduce ? 0 : 1;
+    ps.forEach((el, i) => { el.style.background = color; el.style.transition = `transform ${0.32 * D}s cubic-bezier(.7,0,.2,1) ${i * 0.03 * D}s`; el.style.transform = 'translateY(0)'; });
+    clearTimeout(this.trT1); clearTimeout(this.trT2);
+    this.trT1 = setTimeout(() => {
+      if (mk) { mk.style.opacity = 1; mk.src = (color === AM || color === ROSE || color === SAGE) ? 'assets/logo-mark-dark.png' : 'assets/logo-mark-ivory.png'; }
+      this.setState({ page: r.page, pid: r.pid || this.state.pid, info: r.info || this.state.info, menu: false, lh: null, sent: false, planTab: 0, planZ: 1, planX: 0, planY: 0, spec: 0, month: 5, ...extra });
+      if (this.lenis) this.lenis.scrollTo(0, { immediate: true }); window.scrollTo(0, 0);
+      setTimeout(() => this.bind(), 100);
+      this.trT2 = setTimeout(() => {
+        if (mk) mk.style.opacity = 0;
+        ps.forEach((el, i) => { el.style.transition = `transform ${0.38 * D}s cubic-bezier(.7,0,.2,1) ${(4 - i) * 0.03 * D}s`; el.style.transform = 'translateY(-101%)'; });
+        if (extra.visit) this.scrollToForm();
+        const m = document.getElementById('main'); if (m && !extra.visit) m.focus({ preventScroll: true });
+      }, 120 * D);
+    }, 400 * D);
+  }
+  scrollToForm() { setTimeout(() => { const f = document.querySelector('[data-contact-form]'); if (!f) return; const y = f.getBoundingClientRect().top + scrollY - 100; if (this.lenis) this.lenis.scrollTo(y); else window.scrollTo({ top: y, behavior: 'smooth' }); }, 300); }
+
+  applyMeta() {
+    const s = this.state; let [t, d] = META[s.page] || META.home; let img = 'assets/bombay-skyline.jpg';
+    if (s.page === 'project') { const p = P[s.pid]; t = `${p.name} · ${p.brand} · ${p.loc} · JDC`; d = `${p.line} ${p.type} project by John Dennis Constructions in ${p.loc}.`; img = p.img; }
+    if (s.page === 'info') { t = CONTENT.info[s.info].t + ' · JDC'; d = CONTENT.info[s.info].d; }
+    document.title = t;
+    const set = (attr, key, val) => { let m = document.head.querySelector(`meta[${attr}="${key}"]`); if (!m) { m = document.createElement('meta'); m.setAttribute(attr, key); document.head.appendChild(m); } m.setAttribute('content', val); };
+    set('name', 'description', d); set('property', 'og:title', t); set('property', 'og:description', d); set('property', 'og:image', img); set('property', 'og:url', location.href);
+    let ic = document.head.querySelector('link[rel="icon"]'); if (!ic) { ic = document.createElement('link'); ic.rel = 'icon'; document.head.appendChild(ic); } ic.href = 'assets/logo-mark-dark.png';
+    const org = { '@type': 'RealEstateAgent', '@id': CONTENT.siteUrl + '/#org', name: CONTENT.company, url: CONTENT.siteUrl, logo: 'assets/logo-primary-dark.png', telephone: CONTENT.phoneHref, email: CONTENT.email, address: { '@type': 'PostalAddress', streetAddress: CONTENT.address, addressLocality: 'Mumbai', addressRegion: 'Maharashtra', addressCountry: 'IN' }, sameAs: Object.values(CONTENT.socials) };
+    const projs = ORDER.map(id => { const p = P[id]; return { '@type': p.type === 'Residential' ? 'Residence' : 'Place', name: p.name, description: p.line, image: p.img, address: { '@type': 'PostalAddress', addressLocality: p.loc, addressRegion: 'Maharashtra', addressCountry: 'IN' }, url: CONTENT.siteUrl + '/#/projects/' + id }; });
+    let ld = document.getElementById('jdc-ld'); if (!ld) { ld = document.createElement('script'); ld.type = 'application/ld+json'; ld.id = 'jdc-ld'; document.head.appendChild(ld); }
+    ld.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': [org].concat(s.page === 'project' ? [projs[ORDER.indexOf(s.pid)]] : projs) });
+  }
+  applyMenuInert() {
+    const m = document.querySelector('[data-menu]'); if (!m) return; m.inert = !this.state.menu;
+    if (this.state.menu) setTimeout(() => { const a = m.querySelector('a'); a && a.focus(); }, 350);
+  }
+  key(e) {
+    const s = this.state;
+    if (e.key === 'Escape') {
+      if (s.lb !== null) return this.setState({ lb: null });
+      if (s.enq) return this.closeEnq();
+      if (s.brochure) return this.setState({ brochure: false });
+      if (s.menu) { this.setState({ menu: false }); const b = document.querySelector('[data-menu-btn]'); b && b.focus(); return; }
+    }
+    if (s.lb !== null && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) { const n = P[s.pid].gallery.length; this.setState({ lb: (s.lb + (e.key === 'ArrowRight' ? 1 : -1) + n) % n }); }
+    if (e.key === 'Tab') {
+      const box = s.enq ? document.querySelector('[data-enq]') : s.menu ? document.querySelector('[data-menu]') : s.brochure ? document.querySelector('[data-brochure]') : s.lb !== null ? document.querySelector('[data-lightbox]') : null;
+      if (!box) return;
+      const extra = s.menu ? [document.querySelector('[data-menu-btn]')] : [];
+      const f = [...extra, ...box.querySelectorAll('a[href],button:not([disabled]),input:not([type=hidden]),select,textarea,[tabindex="0"]')].filter(Boolean);
+      if (!f.length) return; const first = f[0], last = f[f.length - 1];
+      if (!f.includes(document.activeElement)) { e.preventDefault(); first.focus(); }
+      else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+
+  measure() {
+    const root = this.root(); if (!root) return; const y = scrollY;
+    const abs = el => { const r = el.getBoundingClientRect(); return { el, top: r.top + y, h: r.height }; };
+    this.secs = [...root.querySelectorAll('[data-bg]')].map(el => ({ ...abs(el), bg: el.getAttribute('data-bg'), tone: el.getAttribute('data-tone') }));
+    this.fxs = [...root.querySelectorAll('[data-fx]')].map(el => {
+      if (el.getAttribute('data-fx') === 'rail' && !this.reduce) { const tr = el.querySelector('[data-track]'); const dist = Math.max(0, tr.scrollWidth - innerWidth); const want = dist + innerHeight; if (Math.abs(el.offsetHeight - want) > 4) el.style.height = want + 'px'; }
+      return { ...abs(el), fx: el.getAttribute('data-fx') };
+    });
+    this.pars = [...root.querySelectorAll('[data-par]')].map(el => ({ el, k: +el.getAttribute('data-par'), p: el.parentElement }));
+    this.mqs = [...root.querySelectorAll('[data-mq]')];
+    const ft = root.querySelector('footer'); this.footTop = ft ? ft.getBoundingClientRect().top + y : 1e9;
+  }
+  bind() {
+    const root = this.root(); if (!root) return;
+    this.measure();
+    if (this.io) this.io.disconnect(); if (this.vio) this.vio.disconnect();
+    const show = el => {
+      if (el.hasAttribute('data-ln')) { const g = el.closest('[data-g]'); const step = g ? +g.getAttribute('data-g') : 80; const idx = g ? Array.prototype.indexOf.call(g.querySelectorAll('[data-ln]'), el) : 0; el.style.transitionDelay = (idx * step) + 'ms'; el.style.transform = 'translateY(0)'; }
+      if (el.hasAttribute('data-fade')) { el.style.opacity = 1; el.style.transform = 'none'; }
+      if (el.hasAttribute('data-ksr')) el.style.clipPath = el.getAttribute('data-ksr') === 'ks' ? 'polygon(0% 0%,100% 0%,93% 100%,7% 100%)' : 'polygon(0% 0%,100% 0%,100% 100%,0% 100%)';
+      if (el.hasAttribute('data-odo')) el.style.transform = 'translateY(-' + el.getAttribute('data-odo') + 'em)';
+      if (el.hasAttribute('data-draw')) el.style.strokeDashoffset = 0;
+      if (el.hasAttribute('data-seen-k')) this.setState({ progSeen: true });
+    };
+    const tmap = new Map();
+    root.querySelectorAll('[data-ln],[data-fade],[data-ksr],[data-odo],[data-draw],[data-seen-k]').forEach(el => {
+      if (el.getAttribute('data-done')) return;
+      const tgt = (el.hasAttribute('data-ln') || el.hasAttribute('data-odo')) ? (el.parentElement || el) : el;
+      if (!tmap.has(tgt)) tmap.set(tgt, []); tmap.get(tgt).push(el);
+    });
+    this.pending = tmap; this.showFn = el => { el.setAttribute('data-done', '1'); show(el); };
+    if (this.reduce || !('IntersectionObserver' in window)) { tmap.forEach(l => l.forEach(this.showFn)); tmap.clear(); }
+    else {
+      this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && tmap.has(e.target)) { tmap.get(e.target).forEach(this.showFn); tmap.delete(e.target); this.io.unobserve(e.target); } }), { threshold: 0.01 });
+      tmap.forEach((_, t) => this.io.observe(t));
+      this.vio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) this.vis.add(e.target); else this.vis.delete(e.target); }), { rootMargin: '100px' });
+      root.querySelectorAll('[data-vis]').forEach(el => this.vio.observe(el));
+    }
+    this.checkPending();
+  }
+  checkPending() {
+    const m = this.pending; if (!m || !m.size || this.state.load < 2) return; const H = innerHeight;
+    m.forEach((list, tgt) => { if (!tgt.isConnected) { m.delete(tgt); return; } const r = tgt.getBoundingClientRect(); if (r.top < H * 0.92 && r.bottom > 0 && (r.width || r.height)) { list.forEach(this.showFn); m.delete(tgt); if (this.io) this.io.unobserve(tgt); } });
+  }
+  fillBtn(el, on) {
+    const f = el.querySelector('[data-fill]'); if (f) f.style.clipPath = on ? 'polygon(-40% -10%,140% -10%,110% 110%,-10% 110%)' : 'polygon(50% 50%,50% 50%,50% 50%,50% 50%)';
+    const t = el.querySelector('[data-fill-t]'); if (t) t.style.color = on ? IV : '';
+    if (!on) el.style.transform = '';
+  }
+  magnet() {
+    const m = this.magEl; if (!m || this.reduce || !this.fine) return;
+    const r = m.getBoundingClientRect(); const dx = this.mx - (r.left + r.width / 2), dy = this.my - (r.top + r.height / 2);
+    m.style.transition = 'transform .25s ease-out'; m.style.transform = `translate(${dx * 0.22}px,${dy * 0.3}px)`;
+  }
+
+  tick(t) {
+    const root = this.root(); if (!root) return;
+    { const s = this.state, ps = this.snap || {};
+      if (ps.page !== s.page || ps.pid !== s.pid || ps.info !== s.info) { this.applyMeta(); setTimeout(() => this.bind(), 60); }
+      else if (ps.view !== s.view || ps.sent !== s.sent || ps.prog !== s.prog || ps.load !== s.load) setTimeout(() => this.bind(), 60);
+      if (ps.menu !== s.menu) this.applyMenuInert();
+      this.snap = { page: s.page, pid: s.pid, info: s.info, view: s.view, sent: s.sent, prog: s.prog, load: s.load, menu: s.menu }; }
+    if (!this.secs) return;
+    const H = innerHeight, W = innerWidth, y = scrollY, vel = y - this.ly; this.ly = y;
+    this.checkPending();
+    let bg = null, tone = null, tbg = null;
+    for (const s of this.secs) { const top = s.top - y; if (!bg && top <= H * 0.5 && top + s.h > H * 0.5) bg = s.bg; if (!tone && top <= 40 && top + s.h > 40) { tone = s.tone; tbg = s.bg; } }
+    if (bg && bg !== this.bg) { root.style.backgroundColor = bg; this.bg = bg; }
+    const dark = tone !== 'light', solid = y > 40;
+    if (dark !== this.state.navDark || solid !== this.state.hdrSolid || (tbg && tbg !== this.state.hdrBg)) this.setState({ navDark: dark, hdrSolid: solid, hdrBg: tbg || this.state.hdrBg });
+
+    for (const f of this.fxs) {
+      const top = f.top - y; if (top + f.h < -100 || top > H + 100) continue;
+      const p = this.reduce ? 1 : clamp(-top / Math.max(1, f.h - H)); const fn = this['fx_' + f.fx];
+      if (fn) fn.call(this, f.el, p, { top, height: f.h }, H, W);
+    }
+    if (!this.reduce) for (const pr of this.pars) { const r = pr.p.getBoundingClientRect(); if (r.bottom < -200 || r.top > H + 200) continue; pr.el.style.transform = `translate3d(0,${((r.top + r.height / 2) - H / 2) * -pr.k}px,0)`; }
+
+    if (!this.reduce) {
+      if (Math.abs(vel) > 0.5) this.mqDir = vel > 0 ? 1 : -1;
+      this.mq += (1.1 + Math.min(Math.abs(vel), 60) * 0.35) * this.mqDir;
+      for (const el of this.mqs) { if (!this.vis.has(el.parentElement)) continue; const w = el.scrollWidth / 2 || 1; const d = +el.getAttribute('data-dir'); const o = ((this.mq * d) % w + w) % w; el.style.transform = `translate3d(${-o}px,0,0)`; }
+    }
+
+    const docH = document.documentElement.scrollHeight - H, sp = docH > 0 ? y / docH : 0;
+    const fabs = root.querySelector('[data-fabs]');
+    if (fabs) { const over = H - (this.footTop - y) + 12; fabs.style.transform = over > 0 ? `translate3d(0,${-over}px,0)` : 'none'; }
+    const gt = root.querySelector('[data-gotop]');
+    if (gt) { const on = sp > 0.3; if (on !== this.gtOn) { this.gtOn = on; gt.style.opacity = on ? 1 : 0; gt.style.pointerEvents = on ? 'auto' : 'none'; gt.style.transform = on ? 'none' : 'translateY(16px)'; gt.tabIndex = on ? 0 : -1; } const ring = gt.querySelector('[data-ring]'); ring && ring.setAttribute('stroke-dashoffset', (138.2 * (1 - sp)).toFixed(1)); }
+
+    if (this.fine) {
+      this.cx += (this.mx - this.cx) * 0.22; this.cy += (this.my - this.cy) * 0.22;
+      const cur = root.querySelector('[data-cursor]');
+      if (cur) { cur.style.transform = `translate3d(${this.cx}px,${this.cy}px,0)`; cur.style.visibility = this.curHide ? 'hidden' : 'visible';
+        const ring = cur.querySelector('[data-cring]'), dot = cur.querySelector('[data-cdot]'), lab = cur.querySelector('[data-clabel]'); const on = !!this.curLabel;
+        ring.style.transform = on ? 'scale(1)' : 'scale(0)'; dot.style.opacity = on ? 0 : 1; if (on && lab.textContent !== this.curLabel) lab.textContent = this.curLabel; }
+      if (this.state.page === 'projects' && this.state.view === 'list') { const fol = root.querySelector('[data-follow]'); const px = this.fx_; this.fx_ += (this.mx - this.fx_) * 0.14; this.fy_ += (this.my - this.fy_) * 0.14; fol.style.transform = `translate3d(${this.fx_}px,${this.fy_}px,0) rotate(${clamp((this.fx_ - px) * 0.6, -12, 12)}deg)`; }
+      const kc = root.querySelector('[data-kcomp]');
+      if (kc && !this.state.sent && !this.reduce) { const r = kc.getBoundingClientRect(); if (r.bottom > 0) { const dx = (this.mx - r.left - r.width / 2) / r.width, dy = (this.my - r.top - r.height / 2) / r.height; kc.querySelectorAll('[data-kc]').forEach(b => { const d = +b.getAttribute('data-kc'); b.style.transform = `translate3d(${dx * d * 90}px,${dy * d * 90}px,0)`; }); } }
+    }
+    if (this.state.page === 'select' && !this.reduce) { const disp = document.querySelector('[data-disp]'); if (disp) { this.rip *= 0.95; const s = (t - this.t0) / 1000; disp.setAttribute('scale', this.rip.toFixed(2)); const tb = document.querySelector('[data-turb]'); tb && tb.setAttribute('baseFrequency', `${(0.006 + Math.sin(s * 0.7) * 0.001).toFixed(4)} ${(0.02 + Math.cos(s * 0.9) * 0.004).toFixed(4)}`); } }
+  }
+
+  fx_hero(el, p, r, H, W) {
+    const win = el.querySelector('[data-win]');
+    if (this.reduce) { win.style.webkitMaskImage = win.style.maskImage = 'none'; return; }
+    const vmin = Math.min(W, H); const w = vmin * 0.44 * (1 + Math.pow(p, 2.3) * 70), h = w * 281 / 328, fy = 0.5 - 0.26 * clamp(p * 1.8);
+    win.style.webkitMaskSize = win.style.maskSize = `${w}px ${h}px`; win.style.webkitMaskPosition = win.style.maskPosition = `${W / 2 - w / 2}px ${H / 2 - fy * h}px`;
+    const tx = el.querySelector('[data-htxt]'); tx.style.opacity = clamp(1 - p * 3.2); tx.style.transform = `translateY(${-p * 120}px)`;
+    el.querySelector('[data-hout]').style.transform = `scale(${1 + p * 0.25})`;
+  }
+  fx_words(el, p, r, H) { const q = this.reduce ? 1 : clamp((H * 0.8 - r.top) / (r.height * 0.9)); const ws = el.querySelectorAll('[data-w]'); const n = ws.length; ws.forEach((w, i) => { w.style.opacity = (i + 0.5) / n < q ? 1 : 0.16; }); }
+  fx_assemble(el, p) {
+    let set = 0;
+    el.querySelectorAll('[data-blk]').forEach(b => { const i = +b.getAttribute('data-blk'); const pi = clamp((p * 1.3 - i * 0.11) / 0.42); const e = backOut(pi); const s = SCAT[i];
+      b.style.transform = `translate3d(${(1 - e) * s[0]}px,${(1 - e) * s[1]}px,0) rotate(${(1 - e) * s[2]}deg) rotateX(${(1 - e) * 60}deg)`; b.style.opacity = 0.12 + 0.88 * clamp(pi * 1.4); if (pi >= 1) set++; });
+    const c = el.querySelector('[data-cnt]'); if (c && c.textContent !== String(set)) c.textContent = set;
+  }
+  fx_rail(el, p, r, H, W) { if (this.reduce) return; const tr = el.querySelector('[data-track]'); const dist = Math.max(0, tr.scrollWidth - W); tr.style.transform = `translate3d(${-p * dist}px,0,0)`; const bar = el.querySelector('[data-railbar]'); if (bar) bar.style.width = (p * 100) + '%'; }
+  fx_arch(el, p) {
+    el.querySelectorAll('[data-stone]').forEach(s => { const o = +s.getAttribute('data-stone');
+      if (o === 4) { const k = clamp((p - 0.74) / 0.14); s.style.opacity = k > 0 ? 1 : 0; s.style.transform = `translateY(${-(1 - backOut(k)) * 240}px)`; }
+      else { const k = clamp(p * 5.2 - o * 1.05); s.style.opacity = k; s.style.transform = `translateY(${(1 - backOut(k)) * 70}px)`; } });
+    const a = Math.min(4, Math.floor(p * 4.4 + (p > 0.82 ? 1 : 0)));
+    el.querySelectorAll('[data-ch]').forEach(c => { const on = +c.getAttribute('data-ch') === a; c.style.opacity = on ? 1 : 0; c.style.transform = on ? 'none' : 'translateY(20px)'; c.setAttribute('aria-hidden', on ? 'false' : 'true'); });
+    const n = el.querySelector('[data-archn]'); if (n) n.textContent = '0' + (a + 1);
+  }
+  fx_values(el, p, r, H) { if (this.reduce || !this.vis.has(el)) return; el.querySelectorAll('[data-row]').forEach(row => { const d = +row.getAttribute('data-row'); row.style.transform = `translate3d(${d * (r.top - H * 0.3) * 0.45}px,0,0)`; }); }
+  fx_phero(el, p) {
+    const c = el.querySelector('[data-clip]'); const e = clamp(p * 1.25); const L = (a, b) => (a + (b - a) * e).toFixed(2) + '%';
+    c.style.clipPath = `polygon(${L(34, 0)} ${L(20, 0)},${L(66, 100)} ${L(20, 0)},${L(61, 100)} ${L(78, 100)},${L(39, 0)} ${L(78, 100)})`;
+    el.querySelector('[data-scrim]').style.opacity = clamp((e - 0.5) * 2); { const tt = el.querySelector('[data-ptitle]'); tt.style.color = e > 0.6 ? IV : tt.getAttribute('data-fg'); }
+  }
+  fx_rise(el, p) {
+    const fl = el.querySelectorAll('[data-fl]'); const n = fl.length; const shown = clamp(p * 1.15) * n;
+    fl.forEach(f => { const i = +f.getAttribute('data-fl'); const k = clamp(shown - i); f.style.opacity = k; f.style.transform = `translateY(${-(1 - k) * 60}px)`; });
+    const c = el.querySelector('[data-floor]'); const v = String(Math.min(n, Math.floor(shown))).padStart(2, '0'); if (c && c.textContent !== v) c.textContent = v;
+  }
+  fx_split(el, p, r, H) {
+    let best = 0, bd = 1e9; const st = el.querySelectorAll('[data-step]');
+    st.forEach((s, i) => { const rr = s.getBoundingClientRect(); const d = Math.abs(rr.top + rr.height / 2 - H / 2); if (d < bd) { bd = d; best = i; } });
+    if (best === this.splitBest && el === this.splitEl) return; this.splitBest = best; this.splitEl = el;
+    st.forEach((s, i) => s.style.opacity = i === best ? 1 : 0.3);
+    el.querySelectorAll('[data-simg]').forEach((im, i) => { const on = i === best; im.style.opacity = on ? 1 : 0; im.style.transform = on ? 'scale(1)' : 'scale(1.08)'; });
+  }
+  fx_grid(el, p) { el.querySelectorAll('[data-gl]').forEach(g => { const i = +g.getAttribute('data-gl'); g.style.strokeDashoffset = (1 - clamp(p * 1.6 - i * 0.05)) * 1000; }); el.querySelectorAll('[data-desk]').forEach(d => { const i = +d.getAttribute('data-desk'); d.style.opacity = clamp(p * 2.2 - 0.6 - i * 0.02); }); const c = el.querySelector('[data-gcnt]'); if (c) c.textContent = String(Math.round(clamp(p * 2.2 - 0.6) * 240)); }
+
+  toTop() {
+    const k = document.querySelector('[data-topks]'); if (k) { k.style.transform = 'rotateX(360deg) translateY(-4px)'; setTimeout(() => k.style.transform = '', 800); }
+    if (this.lenis) this.lenis.scrollTo(0, { duration: 1.4 }); else window.scrollTo({ top: 0, behavior: this.reduce ? 'auto' : 'smooth' });
+  }
+  openEnq(project) { this.enqReturn = document.activeElement; if (this.lenis) this.lenis.stop(); this.setState({ enq: true, menu: false, enqProject: project || '' }); }
+  closeEnq() { if (this.lenis) this.lenis.start(); this.setState({ enq: false }); const r = this.enqReturn; if (r && r.focus) setTimeout(() => r.focus(), 50); }
+  baSet(x) { const r = this.baRect; if (!r) return; this.setState({ ba: clamp((x - r.left) / r.width, 0.02, 0.98) * 100 }); }
+  async subscribe(e) {
+    e.preventDefault(); const v = this.state.news.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return this.setState({ newsErr: 'Enter a valid email address.' });
+    this.setState({ newsErr: '', newsStatus: 'sending' });
+    try {
+      if (NEWSLETTER_ENDPOINT) { const r = await fetch(NEWSLETTER_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: v }) }); if (!r.ok) throw new Error(); }
+      else await new Promise(r => setTimeout(r, 600));
+      this.setState({ newsStatus: 'ok' });
+    } catch (er) { this.setState({ newsStatus: 'idle', newsErr: 'Something went wrong. Please try again.' }); }
+  }
+
+  renderVals() {
+    const s = this.state, pg = s.page;
+    const match = p => s.filter === 'All' || p.status === s.filter || p.type === s.filter;
+    const pr = P[s.pid] || P.water; const ni = ORDER[(ORDER.indexOf(s.pid) + 1) % 4]; const nx = P[ni];
+    const isRes = pr.type === 'Residential', up = pr.status === 'Upcoming';
+    const rera = CONTENT.rera[s.pid] || { no: '', qr: '' };
+    const planKey = pr.plans[Math.min(s.planTab, pr.plans.length - 1)]; const plan = PLAN[planKey];
+    const pj = { ...pr, id: s.pid, tone: pr.fg === IV ? 'light' : 'dark', isUpcoming: up, notUpcoming: !up,
+      details: pr.details.map(([k, v]) => ({ k, words: v.split(' ').map(w => ({ chars: mkChars(w) })) })),
+      reraNo: rera.no, hasQr: !!rera.qr, qr: rera.qr, noQr: !rera.qr, brochure: CONTENT.brochures[s.pid],
+      floorList: Array.from({ length: pr.floors }, (_, i) => ({ i, inset: i > pr.floors - 4 ? '18%' : (i > pr.floors - 9 ? '8%' : '0') })),
+      galleryItems: pr.gallery.map((g, i) => ({ src: g, n: '0' + (i + 1), w: ['58%', '36%', '40%', '54%', '100%'][i % 5], h: ['78vh', '66vh', '70vh', '74vh', '82vh'][i % 5], open: () => this.setState({ lb: i }) })),
+      specs: (isRes ? SPEC_RES : SPEC_COM).map((x, i) => ({ ...x, n: '0' + (i + 1), open: s.spec === i, expanded: s.spec === i ? 'true' : 'false', id: 'spec-' + i, maxH: s.spec === i ? '200px' : '0px', rot: s.spec === i ? 'rotate(45deg)' : 'none', toggle: () => this.setState({ spec: s.spec === i ? -1 : i }) })),
+      connList: pr.conn.map(([k, n, d]) => ({ k, n, d })),
+      amenities: (isRes ? AM_RES : AM_COM).map(([t, img], i) => ({ t, img, mt: i % 2 ? 'clamp(0px,8vh,120px)' : '0px', clip: i % 2 ? 'polygon(8% 0,92% 0,100% 100%,0 100%)' : 'polygon(0 0,100% 0,92% 100%,8% 100%)' })),
+      planTabs: pr.plans.map((t, i) => ({ t, on: i === s.planTab, pressed: i === s.planTab ? 'true' : 'false', bg: i === s.planTab ? OB : 'transparent', ink: i === s.planTab ? IV : OB, pick: () => this.setState({ planTab: i, planZ: 1, planX: 0, planY: 0 }) })),
+      showTabs: pr.plans.length > 1, planName: planKey, planCols: plan.cols, planRows: plan.rows, rooms: plan.rooms.map(([n, ga]) => ({ n, ga })),
+      waProject: wa(`Hi JDC, I'd like to know more about ${pr.name}.`), visitHref: '#/contact?visit=1&project=' + encodeURIComponent(pr.name),
+      nextName: nx.name, nextHref: '#/projects/' + ni, nextAccent: nx.accent, nextFg: nx.fg, nextTone: nx.fg === IV ? 'light' : 'dark' };
+
+    const nOn = ORDER.filter(id => match(P[id])).length;
+    const hpId = match(P[s.hp]) ? s.hp : (ORDER.find(id => match(P[id])) || s.hp);
+    const plist = ORDER.map((id, i) => { const p = P[id], on = match(p), hov = hpId === id;
+      const lab = p.lab; return { ...p, id, num: '0' + (i + 1), href: '#/projects/' + id, hover: () => this.setState({ hp: id }), listHover: () => this.setState({ lh: id }),
+        pinScale: on ? (hov ? 1.25 : 1) : 0.4, pinOp: on ? 1 : 0.12, pe: on ? 'auto' : 'none', tabi: on ? 0 : -1, labOp: hov ? 1 : 0.9, labOpSm: hov ? 1 : 0,
+        labL: lab === 'right' ? 'calc(100% + 8px)' : lab === 'top' ? '50%' : 'auto', labR: lab === 'left' ? 'calc(100% + 8px)' : 'auto', labB: lab === 'top' ? 'calc(100% + 6px)' : 'auto', labT: lab === 'top' ? 'auto' : '0px', labTf: lab === 'top' ? 'translateX(-50%)' : 'none',
+        panelOp: hov ? 1 : 0, panelTf: hov ? 'scale(1)' : 'scale(1.1)', rowH: on ? '260px' : '0px', rowPad: on ? '22px 0' : '0px 0', rowTf: s.lh === id ? 'translateX(2vw)' : 'none', hidden: on ? 'false' : 'true' }; });
+    const hpP = P[hpId];
+
+    const stones = []; const N = 9, cx = 350, cy = 372, r1 = 190, r2 = 290;
+    for (let i = 0; i < N; i++) { const g = 0.012, a0 = Math.PI - (i / N) * Math.PI - g, a1 = Math.PI - ((i + 1) / N) * Math.PI + g; const key = i === 4; const ro = key ? r2 + 18 : r2, ri = key ? r1 - 6 : r1;
+      const pt = (a, rr) => (cx + Math.cos(a) * rr).toFixed(1) + ',' + (cy - Math.sin(a) * rr).toFixed(1);
+      stones.push({ order: Math.min(i, N - 1 - i), pts: [pt(a0, ro), pt(a1, ro), pt(a1 + (key ? -0.03 : 0), ri), pt(a0 + (key ? 0.03 : 0), ri)].join(' '), fill: key ? TC : (i % 2 ? '#F6EFE6' : IV) }); }
+
+    const progIds = ['arise', 'bkc', 'water'];
+    const progId = s.prog; const progLive = progId !== 'chembur'; const pp = P[progId]; const pd = CONTENT.progress[progId] || { pct: 0, updated: '' };
+    const pct = pd.pct, pctShow = s.progSeen ? pct : 0; const fillTop = 440 - 440 * pctShow / 100;
+    const monthNames = ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+    const mIdx = Math.min(s.month, Math.max(0, pp.months.length - 1));
+
+    const kcols = [IV, AM, OB, ROSE, IV, SEA, AM, '#5C97C8', IV, OB, AM, ROSE];
+    const kcBlocks = kcols.map((c, i) => ({ c, depth: [0.3, 0.8, 0.5, 1.2, 0.6, 1, 0.4, 0.9, 1.4, 0.7, 0.35, 1.1][i], x: [8, 30, 58, 76, 14, 44, 70, 22, 52, 82, 4, 38][i] + '%', y: [10, 6, 12, 26, 38, 30, 48, 62, 58, 66, 70, 80][i] + '%', w: [9, 6, 12, 7, 5, 10, 8, 11, 6, 9, 7, 5][i] + '%', tf: s.sent ? 'scale(0) translateY(40px)' : 'none', op: s.sent ? 0 : 1 }));
+    const sentBlocks = [0, 1, 2, 3, 4, 5].map(i => ({ ...markPos(i), tf: s.sent ? 'none' : `translate(${SCAT[i][0]}px,${SCAT[i][1]}px) rotate(${SCAT[i][2]}deg)`, op: s.sent ? 1 : 0, delay: (0.3 + i * 0.09) + 's' }));
+    const mh = s.menu ? PAGES[s.mh] : null;
+    const navIsDark = mh ? mh.ink === OB : s.navDark;
+    const info = CONTENT.info[s.info] || CONTENT.info.sitemap;
+    const fcols = ['Projects', 'Company', 'Stay updated'].map((t, i) => ({ t, open: s.fopen === i, disp: s.fopen === i ? 'flex' : 'none', expanded: s.fopen === i ? 'true' : 'false', id: 'fcol-' + i, rot: s.fopen === i ? 'rotate(45deg)' : 'none', toggle: () => this.setState({ fopen: s.fopen === i ? -1 : i }) }));
+    return {
+      submitLead, skipToMain: e => { e.preventDefault(); const m = document.getElementById('main'); m && m.focus(); },
+      isHome: pg === 'home', isAbout: pg === 'about', isProjects: pg === 'projects', isProject: pg === 'project', isSelect: pg === 'select', isPlace: pg === 'place', isProgress: pg === 'progress', isContact: pg === 'contact', isInfo: pg === 'info',
+      showLoader: s.load < 3, doorL: s.load >= 2 ? 'translateX(-101%)' : 'none', doorR: s.load >= 2 ? 'translateX(101%)' : 'none', preOp: s.load >= 2 ? 0 : 1,
+      preBlocks: [0, 1, 2, 3, 4, 5].map(i => ({ ...markPos(i), tf: s.load >= 1 ? 'none' : `translate(${SCAT[i][0] * 2.2}px,${SCAT[i][1] * 2}px) rotate(${SCAT[i][2] * 2}deg)`, op: s.load >= 1 ? 1 : 0, delay: (i * 0.06) + 's' })),
+      navInk: navIsDark ? OB : IV, navLogoDarkOp: navIsDark ? 1 : 0, navLogoIvOp: navIsDark ? 0 : 1,
+      hdrBg: s.menu ? 'transparent' : (s.hdrSolid ? s.hdrBg : 'transparent'), hdrBorder: !s.menu && s.hdrSolid ? (navIsDark ? 'rgba(31,31,31,.14)' : 'rgba(235,227,216,.18)') : 'transparent',
+      navUlAbout: pg === 'about' ? 'scaleX(1)' : 'scaleX(0)', navUlProjects: pg === 'projects' || pg === 'project' ? 'scaleX(1)' : 'scaleX(0)',
+      menuLabel: s.menu ? 'Close' : 'Menu', menuAria: s.menu ? 'Close menu' : 'Open menu', menuExpanded: s.menu ? 'true' : 'false', burgerTop: s.menu ? '6px' : '0px', burgerA: s.menu ? 'rotate(45deg)' : 'none', burgerB: s.menu ? 'rotate(-45deg) translateX(4px)' : 'none',
+      toggleMenu: () => this.setState({ menu: !s.menu, menuLoaded: true, mh: Math.max(0, PAGES.findIndex(x => x.k === pg)) }),
+      menuBg: PAGES[s.mh].bg, menuInk: PAGES[s.mh].ink, menuClip: s.menu ? 'circle(150% at 100% 0%)' : 'circle(0% at 100% 0%)', menuVis: s.menu ? 'visible' : 'hidden', menuVisDelay: s.menu ? '0s' : '.8s', menuMask: s.menu ? KS : 'polygon(45% 45%,55% 45%,54% 55%,46% 55%)', menuCaption: PAGES[s.mh].cap, menuLoaded: s.menuLoaded,
+      menuItems: PAGES.map((m, i) => ({ ...m, hover: () => this.setState({ mh: i }), tf: s.menu ? 'none' : 'translateY(40px)', op: s.menu ? (s.mh === i ? 1 : 0.62) : 0, ksW: s.mh === i ? '.62em' : '0em', capOp: s.mh === i ? 1 : 0, imgOp: s.mh === i ? 1 : 0, imgTf: s.mh === i ? 'scale(1)' : 'scale(1.12)' })),
+      heroWords: ['Built', 'for', 'Life.'].map(w => ({ chars: [...w] })),
+      stats: CONTENT.stats.map((x, i) => ({ k: x.k, chars: mkChars(x.v), mt: ['0px', '6vh', '2vh', '9vh'][i % 4] })),
+      stmtWords: "We don't just build homes. We build legacies.".split(' ').map(t => ({ t, color: t === 'legacies.' ? TC : OB })),
+      asmBlocks: [0, 1, 2, 3, 4, 5].map(i => ({ i, ...markPos(i) })), mqItems: [0, 1, 2, 3, 4, 5],
+      testimonials: CONTENT.testimonials.map((x, i) => ({ ...x, align: ['flex-start', 'center', 'flex-end'][i % 3] })),
+      stones, chapters: [
+        { t: 'Ground', d: 'Every JDC project begins with the site: its light, its access and the city around it.' },
+        { t: 'Structure', d: 'Strength and precision come first. The frame is built to outlast trends.' },
+        { t: 'Light and warmth', d: 'Rooms are planned around daylight, air and calm.' },
+        { t: 'Human living', d: 'We design for the families and teams who will use the building every day.' },
+        { t: 'The keystone', d: "We don't just build homes. We build legacies." }],
+      leaders: CONTENT.leaders.map((l, i) => ({ ...l, hasPhoto: !!l.photo, tone: ['#E8D3B5', '#D7C9A8'][i % 2], mt: i % 2 ? '14vh' : '0px' })),
+      valueRows: [
+        { dir: 1, words: [{ t: 'Space', c: IV }, { t: 'Warmth', c: AM }, { t: 'Light', c: IV }, { t: 'Space', c: OB }, { t: 'Warmth', c: IV }] },
+        { dir: -1, words: [{ t: 'Human Living', c: OB }, { t: 'Calm Luxury', c: IV }, { t: 'Human Living', c: AM }, { t: 'Calm Luxury', c: OB }] },
+        { dir: 1, words: [{ t: 'Structure', c: AM }, { t: 'Strength', c: IV }, { t: 'Precision', c: OB }, { t: 'Structure', c: IV }, { t: 'Strength', c: AM }] }],
+      accreds: [{ t: 'LEED', d: 'Green building certification', x: '8%', y: '18%', dur: '11s', delay: '0s' }, { t: 'MahaRERA', d: 'Every project registered', x: '40%', y: '52%', dur: '14s', delay: '-4s' }],
+      filters: ['All', 'Ongoing', 'Completed', 'Upcoming', 'Residential', 'Commercial'].map(f => ({ label: f, pressed: s.filter === f ? 'true' : 'false', n: '0' + ORDER.filter(id => f === 'All' || P[id].status === f || P[id].type === f).length, ks: s.filter === f ? 'scale(1)' : 'scale(0)', pick: () => this.setState({ filter: f }) })),
+      isMap: s.view === 'map', isList: s.view === 'list', viewMap: () => this.setState({ view: 'map' }), viewList: () => this.setState({ view: 'list' }),
+      mapPressed: s.view === 'map' ? 'true' : 'false', listPressed: s.view === 'list' ? 'true' : 'false',
+      mapBtnBg: s.view === 'map' ? OB : 'transparent', mapBtnInk: s.view === 'map' ? IV : OB, listBtnBg: s.view === 'list' ? OB : 'transparent', listBtnInk: s.view === 'list' ? IV : OB,
+      plist, hp: { ...hpP, href: '#/projects/' + hpId }, noResults: nOn === 0, hasResults: nOn > 0, showAll: () => this.setState({ filter: 'All' }),
+      listLeave: () => this.setState({ lh: null }), followOp: this.fine && pg === 'projects' && s.view === 'list' && s.lh && match(P[s.lh]) ? 1 : 0, followImg: s.lh ? P[s.lh].img : P.bkc.img,
+      pj, digits: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      splitSteps: [
+        { n: '01', lab: 'Design', t: 'Good architecture', d: 'Proportion, structure and material, resolved before the first slab is poured.' },
+        { n: '02', lab: 'Planning', t: 'Clean spaces', d: 'Rooms planned without waste, so every square foot is usable.' },
+        { n: '03', lab: 'Living', t: 'Natural living', d: 'Daylight and cross-ventilation are designed in from the start.' },
+        { n: '04', lab: 'Craft', t: 'Thoughtful construction', d: 'Details chosen to hold up to daily life for decades.' }],
+      planX: s.planX, planY: s.planY, planZ: s.planZ, planTr: s.planDrag ? 'none' : 'transform .5s cubic-bezier(.2,.8,.1,1)', planPct: Math.round(s.planZ * 100) + '%',
+      zoomIn: () => this.setState({ planZ: Math.min(3, s.planZ + 0.4) }), zoomOut: () => this.setState({ planZ: Math.max(0.6, s.planZ - 0.4) }), zoomReset: () => this.setState({ planZ: 1, planX: 0, planY: 0 }),
+      planDown: e => { if (e.pointerType !== 'mouse' && s.planZ <= 1) return; this.planD = { px: e.clientX, py: e.clientY, x: s.planX, y: s.planY }; this.setState({ planDrag: true }); },
+      openBrochure: () => this.setState({ brochure: true }), brOpen: s.brochure, brClose: () => this.setState({ brochure: false }),
+      lbOpen: s.lb !== null, lbSrc: s.lb !== null ? pr.gallery[s.lb] : '', lbAlt: pr.name + ' image ' + ((s.lb || 0) + 1), lbCount: s.lb !== null ? `${s.lb + 1} / ${pr.gallery.length}` : '',
+      lbClose: () => this.setState({ lb: null }), lbPrev: () => this.setState({ lb: (s.lb - 1 + pr.gallery.length) % pr.gallery.length }), lbNext: () => this.setState({ lb: (s.lb + 1) % pr.gallery.length }),
+      rippleMove: () => { this.rip = Math.min(38, this.rip + 3.2); },
+      selectFacts: [{ k: 'Configuration', v: '1–3 BHK' }, { k: 'Payment plan', v: '50/50' }, { k: 'On booking', v: '10%' }],
+      selectList: ['arise', 'water'].map((id, i) => ({ ...P[id], href: '#/projects/' + id, num: '0' + (i + 1), dir: i ? 'row-reverse' : 'row' })),
+      progTabs: ORDER.map(id => ({ name: P[id].name, sub: id === 'chembur' ? 'Launching soon' : (CONTENT.progress[id].pct + '%'), op: s.prog === id ? 1 : 0.62, pressed: s.prog === id ? 'true' : 'false', ul: s.prog === id ? 'scaleX(1)' : 'scaleX(0)', pick: () => this.setState({ prog: id, month: 5, ba: 50 }) })),
+      progLive, progSoon: !progLive, progName: pp.name, progUpdated: pd.updated, pctDigits: String(pct).padStart(2, '0').split('').map(d => ({ ty: `translateY(-${s.progSeen ? +d : 0}em)` })), fillY: fillTop, fillY2: Math.min(440, fillTop + 26),
+      baBefore: pp.ba[0] || 'assets/v4/sketch.jpg', baAfter: pp.ba[1] || pp.img, baNow: s.ba, baLabel: Math.round(s.ba) + '% earlier view shown',
+      baDown: e => { this.baEl = e.currentTarget; this.baRect = e.currentTarget.getBoundingClientRect(); this.baSet(e.clientX); },
+      baKey: e => { const d = e.key === 'ArrowLeft' ? -5 : e.key === 'ArrowRight' ? 5 : e.key === 'Home' ? -100 : e.key === 'End' ? 100 : 0; if (d) { e.preventDefault(); this.setState({ ba: clamp(s.ba + d, 2, 98) }); } },
+      baLeft: s.ba + '%', baRight: (100 - s.ba) + '%',
+      month: mIdx, monthMax: Math.max(0, pp.months.length - 1), setMonth: e => this.setState({ month: +e.target.value }), monthLabel: (monthNames[mIdx] || '') + ' 2026',
+      monthImgs: pp.months.map((src, i) => ({ src, op: i === mIdx ? 1 : 0, tf: i === mIdx ? 'scale(1)' : 'scale(1.06)', alt: pp.name + ' site, ' + monthNames[i] + ' 2026' })),
+      months: pp.months.map((x, i) => ({ t: monthNames[i], op: i === mIdx ? 1 : 0.6, cur: i === mIdx ? 'true' : 'false', pick: () => this.setState({ month: i }) })),
+      contactDone: () => this.setState({ sent: true }), visitFocus: s.visit, visitKey: s.visitKey, preProject: s.preProject,
+      kcBlocks, sentBlocks, contactTitle: s.sent ? 'Thank you.' : "Let's build",
+      waHref: pg === 'project' ? pj.waProject : wa("Hi JDC, I'd like to know more about your projects"),
+      waGeneric: wa("Hi JDC, I'd like to know more about your projects"),
+      C: CONTENT, telHref: 'tel:' + CONTENT.phoneHref, mailHref: 'mailto:' + CONTENT.email,
+      socials: [{ t: 'Instagram', href: CONTENT.socials.instagram, d: 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z M12 8.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7z M17.3 6.7h.01' }, { t: 'LinkedIn', href: CONTENT.socials.linkedin, d: 'M4 9h3.5v11H4z M5.75 4.2a1.75 1.75 0 1 0 0 3.5a1.75 1.75 0 1 0 0-3.5z M10.5 9H14v1.6c.6-1 1.8-1.9 3.6-1.9C20 8.7 21 10.3 21 13v7h-3.5v-6.2c0-1.5-.5-2.4-1.8-2.4s-2.2.9-2.2 2.4V20h-3z' }, { t: 'YouTube', href: CONTENT.socials.youtube, d: 'M3 8.2c.2-1.7 1.2-2.7 2.9-2.9C8 5 10 5 12 5s4 0 6.1.3c1.7.2 2.7 1.2 2.9 2.9.2 1.3.2 2.5.2 3.8s0 2.5-.2 3.8c-.2 1.7-1.2 2.7-2.9 2.9-2.1.3-4.1.3-6.1.3s-4 0-6.1-.3c-1.7-.2-2.7-1.2-2.9-2.9C2.8 14.5 2.8 13.3 2.8 12s0-2.5.2-3.8z M10 9v6l5-3z' }],
+      footProjects: ORDER.map(id => ({ name: P[id].name, href: '#/projects/' + id, status: P[id].status, tagBg: P[id].status === 'Upcoming' ? AM : 'transparent', tagInk: P[id].status === 'Upcoming' ? OB : AM })),
+      footCompany: [['Our legacy', '#/about'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ['Live from site', '#/progress'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri']].map(([t, href]) => ({ t, href })),
+      reraList: ORDER.map(id => ({ name: P[id].name, no: CONTENT.rera[id].no, qr: CONTENT.rera[id].qr, hasQr: !!CONTENT.rera[id].qr, noQr: !CONTENT.rera[id].qr })), reraUrl: CONTENT.reraUrl,
+      fc0: fcols[0], fc1: fcols[1], fc2: fcols[2], year: String(new Date().getFullYear()),
+      news: s.news, newsChange: e => this.setState({ news: e.target.value, newsErr: '' }), newsSubmit: e => this.subscribe(e), newsErr: s.newsErr, hasNewsErr: !!s.newsErr, newsOk: s.newsStatus === 'ok', newsForm: s.newsStatus !== 'ok', newsBtn: s.newsStatus === 'sending' ? 'Sending…' : 'Subscribe',
+      info, infoIsSitemap: s.info === 'sitemap', infoNotSitemap: s.info !== 'sitemap',
+      sitemap: [['Home', '#/'], ['Our legacy', '#/about'], ['Projects', '#/projects'], ['ARISE', '#/projects/arise'], ['BKC ONE', '#/projects/bkc'], ['Navi Mumbai Waterfront', '#/projects/water'], ['Chembur Tower', '#/projects/chembur'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ['Live from site', '#/progress'], ['Contact', '#/contact'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri'], ['Privacy Policy', '#/info/privacy'], ['Terms of Use', '#/info/terms'], ['Disclaimer', '#/info/disclaimer']].map(([t, href]) => ({ t, href })),
+      toTop: () => this.toTop(), topTab: -1,
+      enqOpen: s.enq, enqProject: s.enqProject, enqTitle: s.enqProject ? 'Book a site visit' : 'Tell us what you are looking for', enqEyebrow: s.enqProject ? s.enqProject : 'Enquire',
+      openEnq: () => this.openEnq(''), openEnqProject: () => this.openEnq(pr.name), closeEnq: () => this.closeEnq(), enqBackdrop: e => { if (e.target === e.currentTarget) this.closeEnq(); },
+      menuLine: PAGES[s.mh].ink === OB ? 'rgba(31,31,31,.22)' : 'rgba(235,227,216,.25)',
+      homeProjects: ORDER.map((id, i) => ({ ...P[id], href: '#/projects/' + id, dir: i % 2 ? 'row-reverse' : 'row', pos: id === 'bkc' ? '50% 25%' : '50% 50%' }))
+    };
+  }
+}
+</script>
+</body>
+</html>
