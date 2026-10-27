@@ -25,9 +25,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 :root{--ivory:#EBE3D8;--obsidian:#1F1F1F;--sand-mist:#D8D0C4;--concrete-grey:#6E6A64;--terracotta:#D9542B;--amber:#F2A93B;--rose:#E8A598;--sea:#1E5F8C;--deep-sea:#174C70;--teal:#2A8C82;--sage:#8FA77E;--sand:#E8D3B5;--sky:#5CACF5;--soft-sky:#85BAEE;--haze:#CED9EB;--golden-light:#F3E3C2;--sun-glow:#FEDEAF;--pad:clamp(18px,3.4vw,52px);--sy1:clamp(110px,14vh,170px);--sy2:clamp(100px,12vh,150px);--sy3:clamp(90px,12vh,140px);--sy4:clamp(130px,18vh,220px);--top1:150px;--top2:130px}
 html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+[data-emi]{-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:0;background:transparent;cursor:pointer}
+[data-emi]::-webkit-slider-runnable-track{height:28px;background:transparent}
+[data-emi]::-moz-range-track{height:28px;background:transparent}
+[data-emi]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:3px;border:none;border-radius:0;background:#1F1F1F;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)}
+[data-emi]::-moz-range-thumb{width:22px;height:22px;border:none;border-radius:0;background:#1F1F1F;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)}
+[data-emi]:focus-visible{outline:2px solid #D9542B;outline-offset:4px}
 body{margin:0;background:#EBE3D8;color:#1F1F1F;font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}a:hover{color:inherit}
 button,input,textarea,select{font:inherit;color:inherit}button{cursor:pointer}
@@ -44,6 +52,13 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 [data-wa-t]{opacity:0;transition:opacity .25s ease}[data-wa]:hover [data-wa-t],[data-wa]:focus-visible [data-wa-t]{opacity:1;transition:opacity .35s ease .15s}
 [data-menu-btn][aria-expanded=false]:hover [data-bar-b]{left:0!important}
 [data-nav]:hover [data-nav-ul],[data-nav]:focus-visible [data-nav-ul]{transform:scaleX(1)!important}
+[data-dd-panel]{opacity:0;visibility:hidden;transform:translate(-50%,10px);transition:opacity .3s ease,transform .45s cubic-bezier(.2,.8,.1,1),visibility 0s linear .45s}
+[data-dd]:hover [data-dd-panel],[data-dd]:focus-within [data-dd-panel]{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .3s ease,transform .45s cubic-bezier(.2,.8,.1,1),visibility 0s}
+[data-dd]:hover [data-nav-ul],[data-dd]:focus-within [data-nav-ul]{transform:scaleX(1)!important}
+[data-dd-chev]{transition:transform .45s cubic-bezier(.2,.8,.1,1)}[data-dd]:hover [data-dd-chev],[data-dd]:focus-within [data-dd-chev]{transform:rotate(180deg)}
+[data-dd-item] [data-dd-ks]{width:0;margin-right:-14px;transition:width .45s cubic-bezier(.2,.8,.1,1),margin .45s cubic-bezier(.2,.8,.1,1)}[data-dd-item]:hover [data-dd-ks],[data-dd-item]:focus-visible [data-dd-ks],[data-dd-item][aria-current=page] [data-dd-ks]{width:14px;margin-right:0}
+[data-dd-item]:hover,[data-dd-item]:focus-visible{background:rgba(235,227,216,.06)}
+[data-dd-item] [data-dd-arr]{opacity:0;transform:translateX(-8px);transition:opacity .3s ease,transform .45s cubic-bezier(.2,.8,.1,1)}[data-dd-item]:hover [data-dd-arr],[data-dd-item]:focus-visible [data-dd-arr]{opacity:1;transform:translateX(0)}
 @keyframes jdcWave{0%{transform:scale(.6);opacity:.55}80%{opacity:0}100%{transform:scale(2.6);opacity:0}}
 @keyframes jdcBob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 @media (max-width:1099px){[data-lg-hide]{display:none!important}}
@@ -55,6 +70,20 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 @media (min-width:640px){[data-sm-show]{display:none!important}}
 @media (max-width:1099px){[data-ksr]{transition-duration:1.1s!important;transition-delay:0s!important}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}[data-fx=hero],[data-fx=arch],[data-fx=assemble],[data-fx=win]{height:auto!important}[data-sticky]{position:relative!important;height:auto!important;min-height:100vh}}
+[data-leaflet]{background:#E6F0FA;font:inherit}
+[data-leaflet] .leaflet-tile-pane{filter:url(#jdc-blue)}
+[data-map-lab]{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;color:#174C70;pointer-events:none}[data-map-lab=big]{font-size:15px;font-weight:700;letter-spacing:.32em}[data-map-lab=sm]{font-size:11px;font-weight:600;font-style:italic;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+[data-leaflet] .leaflet-bar{border:none;box-shadow:0 8px 24px rgba(23,76,112,.18);border-radius:0}
+[data-leaflet] .leaflet-bar a{width:40px;height:40px;line-height:40px;border-radius:0!important;color:#174C70;font-weight:500;border-bottom-color:#E6F0FA}
+[data-leaflet] .leaflet-control-attribution{background:rgba(255,255,255,.8);font-size:11px}
+.jdc-pin{background:none;border:none}
+[data-pin-in]{position:relative;width:44px;height:44px;display:flex;align-items:flex-end;justify-content:center;transform-origin:50% 100%;transition:transform .6s cubic-bezier(.3,1.5,.5,1),opacity .5s ease;cursor:pointer}
+[data-pin-pulse]{position:absolute;left:50%;bottom:-6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--acc);opacity:0;animation:jdcWave 2.6s cubic-bezier(.2,.6,.3,1) infinite}
+[data-pin-dot]{position:absolute;left:50%;bottom:-3px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:#174C70;box-shadow:0 0 0 2px #fff}
+[data-pin-ks]{display:block;width:30px;height:22px;margin-bottom:6px;background:var(--acc);clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)}
+[data-pin-lab]{position:absolute;display:flex;flex-direction:column;gap:2px;background:#174C70;color:#fff;padding:7px 11px 8px;border-left:3px solid var(--acc);white-space:nowrap;box-shadow:0 10px 24px rgba(23,76,112,.25);font-family:'Plus Jakarta Sans',sans-serif}
+[data-pin-lab] b{font-size:13px;font-weight:600;letter-spacing:-.01em;line-height:1.15}[data-pin-lab] small{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+[data-pin-lab=right]{left:calc(100% - 2px);top:6px}[data-pin-lab=left]{right:calc(100% - 2px);top:6px}[data-pin-lab=top]{left:50%;bottom:calc(100% - 4px);transform:translateX(-50%)}
 </style>
 </helmet>
 <div data-jdc-root="1" style="position:relative;min-height:100vh;background-color:#EBE3D8;transition:background-color 1s ease;overflow-x:clip">
@@ -86,9 +115,44 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
     <span style="font-weight:600;font-size:27px;line-height:1;letter-spacing:-.02em">JDC</span>
   </a>
   <nav aria-label="Primary" data-lg-hide="1" style="display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);font-size:15px;font-weight:500">
-    <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="4">
+    <sc-for list="{{ navA }}" as="n" hint-placeholder-count="2">
       <a href="{{ n.href }}" data-nav="1" aria-current="{{ n.cur }}" style="padding:8px 0;display:flex;flex-direction:column;gap:4px">{{ n.t }}<span data-nav-ul="1" style="height:2px;background:#D9542B;transform-origin:left;transform:{{ n.ul }};transition:transform .5s cubic-bezier(.2,.8,.1,1)"></span></a>
     </sc-for>
+    <div data-dd="1" style="position:relative">
+      <a href="#/projects" aria-current="{{ projCur }}" aria-haspopup="true" style="padding:8px 0;display:flex;flex-direction:column;gap:4px"><span style="display:flex;align-items:center;gap:7px">Projects<svg data-dd-chev="1" viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></span><span data-nav-ul="1" style="height:2px;background:#D9542B;transform-origin:left;transform:{{ projUl }};transition:transform .5s cubic-bezier(.2,.8,.1,1)"></span></a>
+      <div data-dd-panel="1" style="position:absolute;top:100%;left:50%;padding-top:22px">
+        <div role="menu" aria-label="Projects by stage" style="width:340px;background:#1F1F1F;color:#EBE3D8;padding:10px;box-sizing:border-box;clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)">
+          <sc-for list="{{ projDD }}" as="d" hint-placeholder-count="2">
+            <a href="{{ d.href }}" role="menuitem" data-dd-item="1" aria-current="{{ d.cur }}" style="display:flex;align-items:center;gap:14px;padding:16px 14px;border-bottom:1px solid rgba(235,227,216,.12);transition:background .3s ease">
+              <span data-dd-ks="1" aria-hidden="true" style="display:block;flex:0 0 auto;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+              <span style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:5px">
+                <span style="font-size:17px;font-weight:600;letter-spacing:-.02em;line-height:1.1">{{ d.t }}</span>
+                <span style="font-size:13px;font-weight:400;color:rgba(235,227,216,.62);line-height:1.3">{{ d.sub }}</span>
+              </span>
+              <svg data-dd-arr="1" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2A93B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+          </sc-for>
+          <a href="#/projects" role="menuitem" data-dd-item="1" style="display:flex;align-items:center;gap:14px;padding:14px;font-size:14px;font-weight:500;color:rgba(235,227,216,.8);transition:background .3s ease"><span data-dd-ks="1" aria-hidden="true" style="display:block;flex:0 0 auto;height:10px;background:#F2A93B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span><span style="flex:1 1 auto">View all projects</span><svg data-dd-arr="1" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2A93B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        </div>
+      </div>
+    </div>
+    <div data-dd="1" style="position:relative">
+      <button type="button" aria-haspopup="true" style="padding:8px 0;display:flex;flex-direction:column;gap:4px;background:none;border:none;font-size:inherit;font-weight:inherit"><span style="display:flex;align-items:center;gap:7px">Brands<svg data-dd-chev="1" viewBox="0 0 12 12" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg></span><span data-nav-ul="1" style="height:2px;background:#D9542B;transform-origin:left;transform:{{ brandUl }};transition:transform .5s cubic-bezier(.2,.8,.1,1)"></span></button>
+      <div data-dd-panel="1" style="position:absolute;top:100%;left:50%;padding-top:22px">
+        <div role="menu" aria-label="Brands" style="width:340px;background:#1F1F1F;color:#EBE3D8;padding:10px;box-sizing:border-box;clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)">
+          <sc-for list="{{ brandDD }}" as="d" hint-placeholder-count="2">
+            <a href="{{ d.href }}" role="menuitem" data-dd-item="1" aria-current="{{ d.cur }}" style="display:flex;align-items:center;gap:14px;padding:16px 14px;border-bottom:{{ d.bb }};transition:background .3s ease">
+              <span data-dd-ks="1" aria-hidden="true" style="display:block;flex:0 0 auto;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+              <span style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:5px">
+                <span style="font-size:17px;font-weight:600;letter-spacing:-.02em;line-height:1.1">{{ d.t }}</span>
+                <span style="font-size:13px;font-weight:400;color:rgba(235,227,216,.62);line-height:1.3">{{ d.sub }}</span>
+              </span>
+              <svg data-dd-arr="1" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#F2A93B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
   </nav>
   <div style="grid-column:3;justify-self:end;display:flex;align-items:center;gap:clamp(12px,1.6vw,24px)">
     <button onClick="{{ openVisit }}" data-btn="1" data-sm-hide="1" aria-haspopup="dialog" style="display:flex;align-items:center;gap:12px;height:44px;padding:0 20px;white-space:nowrap;border:none;border-radius:0;background:{{ hdrBtnBg }};color:{{ hdrBtnFg }};font-size:15px;font-weight:600;transition:background-color .45s, color .45s"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"></rect><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4M9.7 14.6l1.7 1.7 3.1-3.1"></path></svg>Book a site visit</button>
@@ -337,6 +401,49 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   </section>
   </sc-if>
 
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="emi-h" style="padding:var(--sy1) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 60px">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+          <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Loan calculator</span>
+          <h2 id="emi-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Plan your home loan.</h2>
+        </div>
+        <p style="margin:0;max-width:420px;font-size:18px;line-height:1.55">Move the sliders to estimate your monthly EMI. Figures are indicative; your lender's terms will apply.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px clamp(32px,5vw,90px);align-items:start">
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ emiFields }}" as="f" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:16px;padding:24px 0 30px;border-top:1px solid #6E6A64">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+                <label for="{{ f.id }}" style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ f.label }}</label>
+                <span aria-hidden="true" style="font-weight:600;font-size:clamp(22px,2vw,28px);letter-spacing:-.03em;white-space:nowrap">{{ f.shown }}</span>
+              </div>
+              <input data-emi="1" id="{{ f.id }}" type="range" min="{{ f.min }}" max="{{ f.max }}" step="{{ f.step }}" value="{{ f.value }}" onChange="{{ f.change }}" aria-valuetext="{{ f.shown }}" style="background:{{ f.track }}">
+              <div aria-hidden="true" style="display:flex;justify-content:space-between;font-size:13px;color:rgba(31,31,31,.74)"><span>{{ f.minL }}</span><span>{{ f.maxL }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#1F1F1F;color:#EBE3D8;padding:clamp(28px,3.4vw,52px);display:flex;flex-direction:column;gap:32px">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Monthly EMI</span>
+            <output for="emi-price emi-down emi-rate emi-years" aria-live="polite" style="font-weight:600;font-size:clamp(48px,5.4vw,88px);line-height:1;letter-spacing:-.06em">{{ emi.monthly }}</output>
+          </div>
+          <div aria-hidden="true" style="display:flex;height:10px;background:#F2A93B"><span style="display:block;height:100%;width:{{ emi.pPct }};background:#EBE3D8;transition:width .3s ease"></span></div>
+          <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:24px 32px">
+            <sc-for list="{{ emi.rows }}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(235,227,216,.18);padding-top:16px">
+                <dt style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4"><span aria-hidden="true" style="display:{{ r.swd }};width:10px;height:10px;background:{{ r.sw }}"></span>{{ r.k }}</dt>
+                <dd style="margin:0;font-weight:600;font-size:clamp(22px,2vw,28px);letter-spacing:-.03em">{{ r.v }}</dd>
+              </div>
+            </sc-for>
+          </dl>
+          <button onClick="{{ openEnq }}" data-btn="1" aria-haspopup="dialog" style="align-self:flex-start;display:flex;align-items:center;gap:12px;height:56px;padding:0 26px;background:#EBE3D8;color:#1F1F1F;border:none;border-radius:0;font-size:16px;font-weight:600">Talk to us about financing<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section data-bg="#EBE3D8" data-tone="dark" data-sec="1" aria-labelledby="cta-h" style="padding:var(--sy1) var(--pad);overflow:hidden">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:60px 6vw">
       <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:36px">
@@ -360,7 +467,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 </sc-if>
 
 <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
-<main data-screen-label="Our legacy">
+<main data-screen-label="About us">
   <section data-fx="arch" data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-label="The structure is complete. Our story, stone by stone." style="position:relative;height:460vh">
     <div data-sticky="1" style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3vh;padding:96px var(--pad) 40px;box-sizing:border-box">
       <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">The structure is complete.</span>
@@ -524,32 +631,21 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   <section data-bg="#EBE3D8" data-tone="dark" style="padding:0 var(--pad) var(--sy2)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:stretch">
       <div style="flex:1 1 600px;min-width:0;display:flex;flex-direction:column;gap:12px">
-        <div style="position:relative;aspect-ratio:4/3;background:#D8D0C4;overflow:hidden">
-          <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stylised map of Mumbai and Navi Mumbai, not to scale" style="position:absolute;inset:0;width:100%;height:100%">
-            <g stroke="rgba(110,106,100,.28)" stroke-width="1"><path d="M0 100H800M0 200H800M0 300H800M0 400H800M0 500H800M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600M600 0V600M700 0V600"></path></g>
-            <polygon points="120,0 330,0 336,70 352,130 360,190 344,236 330,262 318,300 304,350 290,400 276,450 262,500 248,545 236,585 222,578 226,530 214,480 206,430 194,380 182,330 170,280 160,220 150,160 136,90" fill="#EBE3D8" stroke="#6E6A64" stroke-width="1"></polygon>
-            <polygon points="352,190 410,196 448,232 452,282 428,322 380,330 340,312 330,262 344,236" fill="#EBE3D8" stroke="#6E6A64" stroke-width="1"></polygon>
-            <polygon points="500,0 800,0 800,600 580,600 566,540 548,470 530,410 520,350 512,290 516,220 506,150 498,80" fill="#EBE3D8" stroke="#6E6A64" stroke-width="1"></polygon>
-            <g fill="#1F1F1F" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" letter-spacing="3"><text x="190" y="80">MUMBAI</text><text x="610" y="250">NAVI MUMBAI</text></g>
-          </svg>
-          <sc-for list="{{ plist }}" as="p" hint-placeholder-count="0">
-            <sc-if value="{{ p.onMap }}" hint-placeholder-val="{{ false }}">
-            <a href="{{ p.href }}" onMouseEnter="{{ p.hover }}" onFocus="{{ p.hover }}" data-cur="Open" aria-label="{{ p.name }}, {{ p.loc }}" aria-hidden="{{ p.hidden }}" tabindex="{{ p.tabi }}" style="position:absolute;left:{{ p.mx }};top:{{ p.my }};width:44px;height:44px;display:flex;align-items:flex-end;justify-content:center;transform:translate(-50%,-100%) scale({{ p.pinScale }});transform-origin:50% 100%;opacity:{{ p.pinOp }};pointer-events:{{ p.pe }};transition:transform .6s cubic-bezier(.3,1.5,.5,1), opacity .5s ease">
-              <span style="display:block;width:30px;height:22px;background:{{ p.accent }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
-              <span style="position:absolute;left:{{ p.labL }};right:{{ p.labR }};bottom:{{ p.labB }};top:{{ p.labT }};transform:{{ p.labTf }};background:#1F1F1F;color:#EBE3D8;padding:6px 10px;font-size:13px;font-weight:600;white-space:nowrap;opacity:{{ p.labOp }};transition:opacity .3s">{{ p.name }}</span>
-            </a>
-            </sc-if>
-          </sc-for>
+        <div style="position:relative;z-index:0;aspect-ratio:4/3;overflow:hidden">
+          <svg aria-hidden="true" width="0" height="0" style="position:absolute"><filter id="jdc-blue" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"></feColorMatrix><feComponentTransfer><feFuncR type="linear" slope="5.667" intercept="-4.146"></feFuncR><feFuncG type="linear" slope="3.4" intercept="-2.087"></feFuncG><feFuncB type="linear" slope="1.222" intercept="-0.11"></feFuncB></feComponentTransfer></filter></svg>
+          <div data-leaflet="1" role="region" aria-label="Map of Mumbai and Navi Mumbai showing JDC project locations" style="position:absolute;inset:0"></div>
           <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
-            <div role="status" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#EBE3D8;text-align:center;padding:20px">
+            <div role="status" style="position:absolute;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#EBE3D8;text-align:center;padding:20px">
               <span style="font-weight:600;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em">No projects in this category yet.</span>
               <button onClick="{{ showAll }}" style="background:#1F1F1F;color:#EBE3D8;border:none;border-radius:0;height:52px;padding:0 22px;font-size:15px;font-weight:600">Show all projects</button>
             </div>
           </sc-if>
         </div>
         <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-size:14px;line-height:1.45">
-          <span>Stylised map · not to scale</span>
-          <span>{{ offMapNote }}</span>
+          <span>Drag to explore · use + / − to zoom</span>
+          <span style="display:flex;flex-wrap:wrap;gap:6px 20px">
+            <sc-for list="{{ plist }}" as="p" hint-placeholder-count="4"><button onMouseEnter="{{ p.hover }}" onFocus="{{ p.hover }}" onClick="{{ p.hover }}" aria-hidden="{{ p.hidden }}" tabindex="{{ p.tabi }}" style="background:none;border:none;padding:4px 0;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:{{ p.legFw }};opacity:{{ p.pinOp }};transition:opacity .4s"><span aria-hidden="true" style="display:block;width:14px;height:10px;background:{{ p.accent }};clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>{{ p.name }}</button></sc-for>
+          </span>
         </div>
       </div>
       <div style="flex:0 1 380px;min-width:min(100%,260px);display:flex;flex-direction:column;gap:18px;justify-content:flex-end">
@@ -766,6 +862,49 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
         <h2 id="penq-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em;text-wrap:balance">Enquire about {{ pj.name }}</h2>
       </div>
       <div style="flex:1 1 460px;min-width:0"><dc-import name="LeadForm" variant="full" theme="dark" project="{{ pj.name }}" submit-label="Request a callback" submit="{{ submitLead }}" hint-size="100%,380px"></dc-import></div>
+    </div>
+  </section>
+
+  <section data-bg="#D8D0C4" data-tone="dark" data-sec="1" aria-labelledby="pemi-h" style="padding:var(--sy1) var(--pad)">
+    <div style="max-width:1560px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vh,80px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 60px">
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span aria-hidden="true" style="display:block;width:34px;height:24px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%)"></span>
+          <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">Loan calculator</span>
+          <h2 id="pemi-h" style="margin:0;font-weight:600;font-size:clamp(38px,4vw,56px);line-height:1;letter-spacing:-.045em">Plan your home loan.</h2>
+        </div>
+        <p style="margin:0;max-width:420px;font-size:18px;line-height:1.55">Move the sliders to estimate your monthly EMI. Figures are indicative; your lender's terms will apply.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:56px clamp(32px,5vw,90px);align-items:start">
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ emiFields }}" as="f" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:16px;padding:24px 0 30px;border-top:1px solid #6E6A64">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
+                <label for="{{ f.id }}" style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase">{{ f.label }}</label>
+                <span aria-hidden="true" style="font-weight:600;font-size:clamp(22px,2vw,28px);letter-spacing:-.03em;white-space:nowrap">{{ f.shown }}</span>
+              </div>
+              <input data-emi="1" id="{{ f.id }}" type="range" min="{{ f.min }}" max="{{ f.max }}" step="{{ f.step }}" value="{{ f.value }}" onChange="{{ f.change }}" aria-valuetext="{{ f.shown }}" style="background:{{ f.track }}">
+              <div aria-hidden="true" style="display:flex;justify-content:space-between;font-size:13px;color:rgba(31,31,31,.74)"><span>{{ f.minL }}</span><span>{{ f.maxL }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#1F1F1F;color:#EBE3D8;padding:clamp(28px,3.4vw,52px);display:flex;flex-direction:column;gap:32px">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#F2A93B">Monthly EMI</span>
+            <output for="emi-price emi-down emi-rate emi-years" aria-live="polite" style="font-weight:600;font-size:clamp(48px,5.4vw,88px);line-height:1;letter-spacing:-.06em">{{ emi.monthly }}</output>
+          </div>
+          <div aria-hidden="true" style="display:flex;height:10px;background:#F2A93B"><span style="display:block;height:100%;width:{{ emi.pPct }};background:#EBE3D8;transition:width .3s ease"></span></div>
+          <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:24px 32px">
+            <sc-for list="{{ emi.rows }}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(235,227,216,.18);padding-top:16px">
+                <dt style="display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4"><span aria-hidden="true" style="display:{{ r.swd }};width:10px;height:10px;background:{{ r.sw }}"></span>{{ r.k }}</dt>
+                <dd style="margin:0;font-weight:600;font-size:clamp(22px,2vw,28px);letter-spacing:-.03em">{{ r.v }}</dd>
+              </div>
+            </sc-for>
+          </dl>
+          <button onClick="{{ openEnqProject }}" data-btn="1" aria-haspopup="dialog" style="align-self:flex-start;display:flex;align-items:center;gap:12px;height:56px;padding:0 26px;background:#EBE3D8;color:#1F1F1F;border:none;border-radius:0;font-size:16px;font-weight:600">Talk to us about financing<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1104,11 +1243,12 @@ const CONTENT = {
   leaders: [{ name: '[Leader name]', role: '[Role]', photo: '' }, { name: '[Leader name]', role: '[Role]', photo: '' }],
   stats: [{ v: '[00]', k: '[Years building]' }, { v: '[00]', k: '[Sq ft delivered]' }, { v: '[00]', k: '[Homes delivered]' }],
   testimonials: [{ q: '[Client testimonial]', who: '[Client name]', where: '[Project]' }],
+  // stage: 'ongoing' or 'completed' — drives the Projects dropdown and filters
   projects: {
-    water: { status: '[Status]', rera: '[MahaRERA no.]', qr: '', price: '[Starting price]', carpet: '[Carpet area]', floors: '[Floor count]', possession: '[Possession date]', specs: [], connectivity: [], amenities: [], plan: '', brochure: '' },
-    bkc: { status: '[Status]', rera: '[MahaRERA no.]', qr: '', carpet: '[Carpet area]', floors: '[Floor count]', possession: '[Possession date]', specs: [], connectivity: [], amenities: [], plan: '', brochure: '' },
-    arise: { status: '[Status]', rera: '[MahaRERA no.]', qr: '', loc: '[ARISE location]', line: '[ARISE project line]', price: '[Starting price]', config: '[Configurations]', carpet: '[Carpet area]', floors: '[Floor count]', possession: '[Possession date]', specs: [], connectivity: [], amenities: [], plan: '', brochure: '' },
-    chembur: { status: '[Status]', rera: '[MahaRERA no.]', qr: '', type: '[Project type]', price: '[Starting price]', config: '[Configurations]', floors: '[Floor count]', possession: '[Possession date]', brochure: '' }
+    water: { stage: 'completed', status: '[Status]', rera: '[MahaRERA no.]', qr: '', price: '[Starting price]', carpet: '[Carpet area]', floors: '[Floor count]', possession: '[Possession date]', specs: [], connectivity: [], amenities: [], plan: '', brochure: '' },
+    bkc: { stage: 'completed', status: '[Status]', rera: '[MahaRERA no.]', qr: '', carpet: '[Carpet area]', floors: '[Floor count]', possession: '[Possession date]', specs: [], connectivity: [], amenities: [], plan: '', brochure: '' },
+    arise: { stage: 'ongoing', status: '[Status]', rera: '[MahaRERA no.]', qr: '', loc: '[ARISE location]', line: '[ARISE project line]', price: '[Starting price]', config: '[Configurations]', carpet: '[Carpet area]', floors: '[Floor count]', possession: '[Possession date]', specs: [], connectivity: [], amenities: [], plan: '', brochure: '' },
+    chembur: { stage: 'ongoing', status: '[Status]', rera: '[MahaRERA no.]', qr: '', type: '[Project type]', price: '[Starting price]', config: '[Configurations]', floors: '[Floor count]', possession: '[Possession date]', brochure: '' }
   },
   progress: {},          // e.g. { bkc: { updated: '…', images: [...] } } — fills the "Live from site" page and adds it to the menu
   info: {
@@ -1140,27 +1280,28 @@ const winPath = (W, H, cx, cy, w) => `M-50 -50H${W + 50}V${H + 50}H-50Z` + markP
 const LOWER_FIRST = [0.5, 0.64, 0.78, 0, 0.14, 0.28];
 const ORDER = ['water', 'bkc', 'arise', 'chembur'];
 const PC = CONTENT.projects;
+// geo: [latitude, longitude] of each project's pin on the Projects map
 const P = {
   water: { name: 'Navi Mumbai Waterfront', brand: 'JDC Select', type: 'Residential', loc: 'Navi Mumbai', accent: SEA, fg: IV, ink: SEA, line: 'Premium waterfront residence in Navi Mumbai.',
-    img: 'assets/hoarding-select.jpg', pos: '78% 50%', img2: 'assets/select-wall.jpg', alt: 'JDC Select hoarding for the Navi Mumbai Waterfront project', mx: '68.5%', my: '63%', lab: 'top',
+    img: 'assets/hoarding-select.jpg', pos: '78% 50%', img2: 'assets/select-wall.jpg', alt: 'JDC Select hoarding for the Navi Mumbai Waterfront project', geo: [19.0790, 72.9980], lab: 'top',
     gallery: [['assets/hoarding-select.jpg', 'JDC Select hoarding for the Navi Mumbai Waterfront project'], ['assets/select-wall.jpg', 'JDC Select lettering on a ribbed wall']],
     details: [['Configurations', '1–3 BED residences'], ['Payment plan', '50/50'], ['On booking', '10%'], ['Starting price', PC.water.price], ['Carpet area', PC.water.carpet], ['Floors', PC.water.floors], ['Possession', PC.water.possession], ['Status', PC.water.status]] },
   bkc: { name: 'BKC ONE', brand: 'JDC Place', type: 'Commercial', loc: 'Bandra Kurla Complex', accent: AM, fg: OB, ink: OB, line: 'Designed for productivity. Built for scale.',
-    img: 'assets/billboard-bkc.jpg', pos: '35% 40%', img2: 'assets/facade-bkc.jpg', alt: 'BKC ONE rooftop billboard', mx: '37.5%', my: '40%', lab: 'left',
+    img: 'assets/billboard-bkc.jpg', pos: '35% 40%', img2: 'assets/facade-bkc.jpg', alt: 'BKC ONE rooftop billboard', geo: [19.0660, 72.8650], lab: 'left',
     gallery: [['assets/billboard-bkc.jpg', 'BKC ONE rooftop billboard'], ['assets/facade-bkc.jpg', 'BKC ONE facade signage']],
     details: [['Offices starting from', '₹5Cr'], ['Location', 'Bandra Kurla Complex'], ['Carpet area', PC.bkc.carpet], ['Floors', PC.bkc.floors], ['Possession', PC.bkc.possession], ['Status', PC.bkc.status]] },
   arise: { name: 'ARISE', brand: 'JDC Select', type: 'Residential', loc: PC.arise.loc, accent: TC, fg: IV, ink: OB, line: PC.arise.line,
-    img: 'assets/facade-arise.jpg', pos: '60% 40%', img2: '', alt: 'ARISE facade signage on a perforated metal building', mx: '', my: '', lab: 'top',
+    img: 'assets/facade-arise.jpg', pos: '60% 40%', img2: '', alt: 'ARISE facade signage on a perforated metal building', geo: [19.0330, 73.0300], lab: 'right',
     gallery: [['assets/facade-arise.jpg', 'ARISE facade signage']],
     details: [['Location', PC.arise.loc], ['Configurations', PC.arise.config], ['Starting price', PC.arise.price], ['Carpet area', PC.arise.carpet], ['Floors', PC.arise.floors], ['Possession', PC.arise.possession], ['Status', PC.arise.status]] },
   chembur: { name: 'Chembur Tower', brand: 'JDC', type: PC.chembur.type, loc: 'Chembur', accent: RO, fg: OB, ink: OB, line: "Chembur's tallest tower.", soon: true,
-    img: 'assets/hero-mumbai.jpg', pos: '50% 62%', img2: '', alt: 'Mumbai skyline seen through the JDC mark', mx: '50.5%', my: '43%', lab: 'right', gallery: [],
+    img: 'assets/hero-mumbai.jpg', pos: '50% 62%', img2: '', alt: 'Mumbai skyline seen through the JDC mark', geo: [19.0622, 72.9005], lab: 'right', gallery: [],
     details: [['Location', 'Chembur'], ['Type', PC.chembur.type], ['Configurations', PC.chembur.config], ['Starting price', PC.chembur.price], ['Floors', PC.chembur.floors], ['Possession', PC.chembur.possession], ['Status', PC.chembur.status]] }
 };
 const HAS_PROGRESS = Object.keys(CONTENT.progress).length > 0;
 const PAGES = [
   { k: 'home', href: '#/', label: 'Home', tp: OB, img: 'assets/hero-mumbai.jpg', cap: 'Mumbai at golden hour' },
-  { k: 'about', href: '#/about', label: 'Our legacy', tp: SM, img: 'assets/arch-1.jpg', cap: 'The keystone, set last' },
+  { k: 'about', href: '#/about', label: 'About us', tp: SM, img: 'assets/arch-1.jpg', cap: 'The keystone, set last' },
   { k: 'projects', href: '#/projects', label: 'Projects', tp: IV, img: 'assets/billboard-bkc.jpg', cap: 'Four projects, one branded house' },
   { k: 'select', href: '#/select', label: 'JDC Select', tp: DS, img: 'assets/select-wall.jpg', cap: 'Luxury residential' },
   { k: 'place', href: '#/place', label: 'JDC Place', tp: AM, img: 'assets/facade-bkc.jpg', cap: 'Commercial' },
@@ -1169,7 +1310,7 @@ const PAGES = [
 ].filter(p => !p.hidden);
 const META = {
   home: ['JDC · John Dennis Constructions · Built for Life', "We don't just build homes. We build legacies. Residential and commercial projects by John Dennis Constructions, Mumbai."],
-  about: ['Our legacy · JDC', 'The structure is complete. The story isn\'t. The story, mission, vision and values of John Dennis Constructions.'],
+  about: ['About us · JDC', 'The structure is complete. The story isn\'t. The story, mission, vision and values of John Dennis Constructions.'],
   projects: ['Projects · JDC', 'Navi Mumbai Waterfront, BKC ONE, ARISE and Chembur Tower by John Dennis Constructions.'],
   select: ['JDC Select · Luxury residential · JDC', 'A home built by JDC is built for every version of you. JDC Select, luxury residential by John Dennis Constructions.'],
   place: ['JDC Place · Commercial · JDC', 'The office your best work deserves. JDC Place, home of BKC ONE.'],
@@ -1182,6 +1323,17 @@ const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const backOut = t => { const c = 1.4; return 1 + (c + 1) * Math.pow(t - 1, 3) + c * Math.pow(t - 1, 2); };
 const wa = msg => 'https://wa.me/' + (CONTENT.contact.whatsapp || '') + '?text=' + encodeURIComponent(msg);
 
+const STAGES = { ongoing: 'Ongoing', completed: 'Completed' };
+const inr = n => '₹' + Math.round(n).toLocaleString('en-IN');
+const inrShort = n => n >= 1e7 ? '₹' + +(n / 1e7).toFixed(2) + ' Cr' : n >= 1e5 ? '₹' + +(n / 1e5).toFixed(2) + ' L' : inr(n);
+function emiCalc(price, downPct, rate, years) {
+  const P = price * (1 - downPct / 100), n = years * 12, r = rate / 1200;
+  const m = P <= 0 ? 0 : r ? P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1) : P / n;
+  return { principal: P, monthly: m, interest: m * n - P, total: m * n };
+}
+function matchFilter(f, id) { return f === 'All' || P[id].type === f || PC[id].status === f || STAGES[PC[id].stage] === f; }
+function mapFocus(s) { return matchFilter(s.filter, s.hp) && P[s.hp].geo ? s.hp : (ORDER.find(id => matchFilter(s.filter, id) && P[id].geo) || 'bkc'); }
+function stageFilter(q) { return STAGES[q.get('stage')] || 'All'; }
 function parseHash() {
   const h = (location.hash || '#/').replace(/^#/, ''); const [path, qs] = h.split('?'); const q = new URLSearchParams(qs || '');
   const seg = path.split('/').filter(Boolean);
@@ -1212,9 +1364,9 @@ class Component extends DCLogic {
     const r = parseHash();
     let seen = false; try { seen = sessionStorage.getItem('jdc-site-seen') === '1'; } catch (e) {}
     this.state = { page: r.page, pid: r.pid || 'water', info: r.info || 'sitemap', visit: r.q.get('visit') === '1', visitKey: 0, preProject: r.q.get('project') || '',
-      menu: false, menuLoaded: false, mh: 0, load: seen ? 3 : 0, heroIn: false, filter: 'All', view: 'map', hp: 'bkc', lh: null, sent: false,
+      menu: false, menuLoaded: false, mh: 0, load: seen ? 3 : 0, heroIn: false, filter: stageFilter(r.q), view: 'map', hp: 'bkc', lh: null, sent: false,
       planZ: 1, planX: 0, planY: 0, planDrag: false, navDark: false, hdrSolid: false, spec: 0, lb: null, brochure: false, enq: false, enqProject: '', enqVisit: false,
-      news: '', newsErr: '', newsStatus: 'idle', prog: 'water' };
+      news: '', newsErr: '', newsStatus: 'idle', prog: 'water', emiPrice: 15000000, emiDown: 20, emiRate: 8.5, emiYears: 20 };
   }
 
   componentDidMount() {
@@ -1254,13 +1406,49 @@ class Component extends DCLogic {
   componentWillUnmount() {
     cancelAnimationFrame(this.raf); clearInterval(this.measureT);
     (this.evs || []).forEach(([n, f]) => removeEventListener(n, f));
-    if (this.io) this.io.disconnect(); if (this.vio) this.vio.disconnect(); if (this.lenis) this.lenis.destroy();
+    if (this.io) this.io.disconnect(); if (this.vio) this.vio.disconnect(); if (this.lenis) this.lenis.destroy(); if (this.map) this.map.remove();
+  }
+  syncMap() {
+    const el = document.querySelector('[data-leaflet]'), L = window.L;
+    if (this.map && this.mapEl !== el) { this.map.remove(); this.map = null; this.mapEl = null; }
+    if (!el || !L) return;
+    if (!this.map) {
+      const map = L.map(el, { scrollWheelZoom: false, zoomControl: false, zoomSnap: 0.25 });
+      L.control.zoom({ position: 'topright' }).addTo(map);
+      const esri = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
+      L.tileLayer(esri + 'World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { maxZoom: 16, attribution: 'Tiles &copy; Esri, HERE, Garmin, &copy; OpenStreetMap contributors' }).addTo(map);
+      [['MUMBAI', 19.112, 72.858, 1], ['NAVI MUMBAI', 19.112, 73.050, 1], ['Thane Creek', 19.030, 72.955, 0], ['Arabian Sea', 18.965, 72.815, 0], ['Bandra', 19.052, 72.833, 0], ['Vashi', 19.071, 73.018, 0]]
+        .forEach(([t, lat, lng, big]) => L.marker([lat, lng], { interactive: false, keyboard: false, icon: L.divIcon({ className: 'jdc-pin', html: `<span data-map-lab="${big ? 'big' : 'sm'}">${t}</span>`, iconSize: [0, 0] }) }).addTo(map));
+      const ids = ORDER.filter(id => P[id].geo);
+      this.markers = ids.map((id, i) => {
+        const p = P[id];
+        const html = `<div data-pin-in="1" style="--acc:${p.accent}"><span data-pin-pulse="1" style="animation-delay:${i * 0.6}s"></span><span data-pin-dot="1"></span><span data-pin-ks="1"></span><span data-pin-lab="${p.lab}"><b>${p.name}</b><small>${p.brand}</small></span></div>`;
+        const m = L.marker(p.geo, { icon: L.divIcon({ className: 'jdc-pin', html, iconSize: [44, 44], iconAnchor: [22, 44] }), title: p.name + ', ' + p.loc, alt: p.name }).addTo(map);
+        m.on('click', () => { location.hash = '#/projects/' + id; });
+        m.on('mouseover', () => this.setState({ hp: id }));
+        const e = m.getElement(); if (e) e.addEventListener('focus', () => this.setState({ hp: id }));
+        return { id, m };
+      });
+      map.fitBounds(L.latLngBounds(ids.map(id => P[id].geo)), { paddingTopLeft: [170, 90], paddingBottomRight: [170, 60] });
+      this.map = map; this.mapEl = el; this.mapKey = '';
+    }
+    const s = this.state, key = s.filter + '|' + s.hp;
+    if (key === this.mapKey) return;
+    this.mapKey = key; const hp = mapFocus(s);
+    this.markers.forEach(({ id, m }) => {
+      const e = m.getElement(); if (!e) return;
+      const on = matchFilter(s.filter, id), inn = e.firstElementChild;
+      e.style.pointerEvents = on ? 'auto' : 'none'; e.tabIndex = on ? 0 : -1;
+      inn.style.opacity = on ? 1 : 0.15; inn.style.transform = `scale(${on ? (hp === id ? 1.2 : 1) : 0.6})`;
+      m.setZIndexOffset(hp === id ? 1000 : 0);
+    });
   }
   snapOf(s) { return { page: s.page, pid: s.pid, info: s.info, view: s.view, sent: s.sent, load: s.load, menu: s.menu }; }
   root() { return document.querySelector('[data-jdc-root]'); }
 
   route(r) {
     const s = this.state; const extra = { visit: r.q.get('visit') === '1', preProject: r.q.get('project') || '', visitKey: s.visitKey + 1 };
+    if (r.page === 'projects') extra.filter = stageFilter(r.q);
     const same = r.page === s.page && (r.page !== 'project' || r.pid === s.pid) && (r.page !== 'info' || r.info === s.info);
     if (same) { this.setState({ menu: false, ...extra }); if (!extra.visit) this.toTop(); else this.scrollToForm(); return; }
     this.transition(r, extra);
@@ -1369,6 +1557,7 @@ class Component extends DCLogic {
 
   tick(t) {
     const root = this.root(); if (!root) return;
+    this.syncMap();
     { const s = this.state, ps = this.snap || {};
       if (ps.page !== s.page || ps.pid !== s.pid || ps.info !== s.info) { this.applyMeta(); setTimeout(() => this.bind(), 60); }
       else if (ps.view !== s.view || ps.sent !== s.sent || ps.load !== s.load) setTimeout(() => this.bind(), 60);
@@ -1465,7 +1654,7 @@ class Component extends DCLogic {
   renderVals() {
     const s = this.state, pg = s.page; const C = CONTENT.contact;
     const statusKnown = ORDER.filter(id => !isPh(PC[id].status)).map(id => PC[id].status);
-    const match = id => { const p = P[id]; return s.filter === 'All' || p.type === s.filter || PC[id].status === s.filter; };
+    const match = id => matchFilter(s.filter, id);
     const pr = P[s.pid] || P.water; const pc = PC[s.pid] || {}; const ni = ORDER[(ORDER.indexOf(s.pid) + 1) % 4]; const nx = P[ni];
     const F = CONTENT.flags;
     const specs = (pc.specs && pc.specs.length ? pc.specs : [{ t: '[Specifications]', d: '[Specifications to be supplied by the client]' }]);
@@ -1481,13 +1670,13 @@ class Component extends DCLogic {
       waProject: wa(`Hello JDC, I'd like to know more about ${pr.name}.`),
       nextName: nx.name, nextBrand: nx.brand, nextHref: '#/projects/' + ni, nextAccent: nx.accent };
 
-    const nOn = ORDER.filter(match).filter(id => P[id].mx).length;
-    const hpId = match(s.hp) && P[s.hp].mx ? s.hp : (ORDER.find(id => match(id) && P[id].mx) || 'bkc');
+    const nOn = ORDER.filter(match).filter(id => P[id].geo).length;
+    const hpId = mapFocus(s);
     const plist = ORDER.map(id => { const p = P[id], on = match(id), hov = hpId === id, lab = p.lab;
-      return { ...p, id, href: '#/projects/' + id, onMap: !!p.mx, hover: () => this.setState({ hp: id }), listHover: () => this.setState({ lh: id }),
+      return { ...p, id, href: '#/projects/' + id, hover: () => this.setState({ hp: id }), listHover: () => this.setState({ lh: id }),
         pinScale: on ? (hov ? 1.25 : 1) : 0.4, pinOp: on ? 1 : 0.15, pe: on ? 'auto' : 'none', tabi: on ? 0 : -1, labOp: hov ? 1 : 0.92, hidden: on ? 'false' : 'true',
         labL: lab === 'right' ? 'calc(100% - 2px)' : lab === 'top' ? '50%' : 'auto', labR: lab === 'left' ? 'calc(100% - 2px)' : 'auto', labB: lab === 'top' ? 'calc(100% - 4px)' : 'auto', labT: lab === 'top' ? 'auto' : '10px', labTf: lab === 'top' ? 'translateX(-50%)' : 'none',
-        panelOp: hov ? 1 : 0, panelTf: hov ? 'scale(1)' : 'scale(1.08)', rowH: on ? '260px' : '0px', rowPad: on ? '24px 0' : '0px 0', rowTf: s.lh === id ? 'translateX(2vw)' : 'none' }; });
+        panelOp: hov ? 1 : 0, legFw: hov ? 600 : 400, pulseDelay: ORDER.indexOf(id) * 0.6 + 's', panelTf: hov ? 'scale(1)' : 'scale(1.08)', rowH: on ? '260px' : '0px', rowPad: on ? '24px 0' : '0px 0', rowTf: s.lh === id ? 'translateX(2vw)' : 'none' }; });
 
     const stones = []; const N = 9, cx = 350, cy = 372, r1 = 190, r2 = 290;
     for (let i = 0; i < N; i++) { const g = 0.012, a0 = Math.PI - (i / N) * Math.PI - g, a1 = Math.PI - ((i + 1) / N) * Math.PI + g; const key = i === 4; const ro = key ? r2 + 18 : r2, ri = key ? r1 - 6 : r1;
@@ -1515,7 +1704,11 @@ class Component extends DCLogic {
       heroInOp: s.heroIn ? 1 : 0, heroInTf: s.heroIn ? 'none' : 'translateY(28px)',
       navInk: navIsDark ? OB : IV, hdrBg: !s.menu && s.hdrSolid ? IV : 'transparent', hdrBorder: !s.menu && s.hdrSolid ? SM : 'transparent',
       hdrBtnBg: navIsDark ? OB : AM, hdrBtnFg: navIsDark ? IV : OB,
-      navLinks: [['Our legacy', '#/about', 'about'], ['Projects', '#/projects', 'projects'], ['JDC Select', '#/select', 'select'], ['JDC Place', '#/place', 'place']].map(([t, href, k]) => { const on = pg === k || (k === 'projects' && pg === 'project'); return { t, href, ul: on ? 'scaleX(1)' : 'scaleX(0)', cur: on ? 'page' : 'false' }; }),
+      navA: [['Home', '#/', 'home'], ['About us', '#/about', 'about']].map(([t, href, k]) => { const on = pg === k || (k === 'projects' && pg === 'project'); return { t, href, ul: on ? 'scaleX(1)' : 'scaleX(0)', cur: on ? 'page' : 'false' }; }),
+      brandDD: [['JDC Select', 'Residences crafted for living', '#/select', 'select'], ['JDC Place', "Workspaces at Mumbai's business core", '#/place', 'place']].map(([t, sub, href, k], i, a) => ({ t, sub, href, cur: pg === k ? 'page' : 'false', bb: i < a.length - 1 ? '1px solid rgba(235,227,216,.12)' : 'none' })),
+      brandUl: pg === 'select' || pg === 'place' ? 'scaleX(1)' : 'scaleX(0)',
+      projUl: pg === 'projects' || pg === 'project' ? 'scaleX(1)' : 'scaleX(0)', projCur: pg === 'projects' || pg === 'project' ? 'page' : 'false',
+      projDD: [['ongoing', 'Under construction across Mumbai'], ['completed', 'Delivered and handed over']].map(([k, sub]) => ({ t: STAGES[k] + ' projects', sub, href: '#/projects?stage=' + k, cur: pg === 'projects' && s.filter === STAGES[k] ? 'page' : 'false' })),
       menuLabel: s.menu ? 'Close' : 'Menu', menuAria: s.menu ? 'Close menu' : 'Open menu', menuExpanded: s.menu ? 'true' : 'false', burgerTop: s.menu ? '6px' : '0px', burgerA: s.menu ? 'rotate(45deg)' : 'none', burgerB: s.menu ? 'rotate(-45deg)' : 'none', burgerBL: s.menu ? '0px' : '8px',
       toggleMenu: () => this.setState({ menu: !s.menu, menuLoaded: true, mh: Math.max(0, PAGES.findIndex(x => x.k === pg || (x.k === 'projects' && pg === 'project'))) }),
       menuClip: s.menu ? 'polygon(-40% -10%,140% -10%,118% 112%,-18% 112%)' : 'polygon(90% 3%,97% 3%,96% 7%,91% 7%)', menuVis: s.menu ? 'visible' : 'hidden', menuVisDelay: s.menu ? '0s' : '.85s', menuLoaded: s.menuLoaded, menuCaption: mh.cap,
@@ -1537,12 +1730,11 @@ class Component extends DCLogic {
         { dir: -1, words: [{ t: 'Restraint', c: AM }, { t: 'Integrity', c: IV }, { t: 'Craft', c: AM }, { t: 'Restraint', c: IV }, { t: 'Integrity', c: AM }, { t: 'Craft', c: IV }] }],
       leaders: CONTENT.leaders.map((l, i) => ({ ...l, hasPhoto: !!l.photo, noPhoto: !l.photo, mt: i % 2 ? '10vh' : '0px' })),
       simple: [['Good architecture', 'assets/sign-jdc.jpg', 'John Dennis Constructions signage on a building with a crane behind'], ['Clean spaces', 'assets/select-wall.jpg', 'Lettering on a pale ribbed wall'], ['Natural living', '', ''], ['Thoughtful construction', 'assets/arch-2.jpg', 'Arched niche with a keystone, black and white']].map(([t, img, alt], i) => ({ t, img, alt, hasImg: !!img, noImg: !img, mt: ['0px', '6vh', '2vh', '8vh'][i] })),
-      filters: ['All', 'Residential', 'Commercial'].concat([...new Set(statusKnown)]).map(f => ({ label: f, pressed: s.filter === f ? 'true' : 'false', fw: s.filter === f ? 600 : 400, ks: s.filter === f ? 'scale(1)' : 'scale(0)', pick: () => this.setState({ filter: f }) })),
+      filters: [...new Set(['All', 'Residential', 'Commercial', 'Ongoing', 'Completed'].concat(statusKnown))].map(f => ({ label: f, pressed: s.filter === f ? 'true' : 'false', fw: s.filter === f ? 600 : 400, ks: s.filter === f ? 'scale(1)' : 'scale(0)', pick: () => this.setState({ filter: f }) })),
       isMap: s.view === 'map', isList: s.view === 'list', viewMap: () => this.setState({ view: 'map' }), viewList: () => this.setState({ view: 'list' }),
       mapPressed: s.view === 'map' ? 'true' : 'false', listPressed: s.view === 'list' ? 'true' : 'false',
       mapBtnBg: s.view === 'map' ? OB : 'transparent', mapBtnInk: s.view === 'map' ? IV : OB, listBtnBg: s.view === 'list' ? OB : 'transparent', listBtnInk: s.view === 'list' ? IV : OB,
       plist, hp: { ...P[hpId], href: '#/projects/' + hpId }, noResults: nOn === 0, showAll: () => this.setState({ filter: 'All' }),
-      offMapNote: 'ARISE · ' + P.arise.loc,
       listLeave: () => this.setState({ lh: null }), followOp: this.fine && pg === 'projects' && s.view === 'list' && s.lh && match(s.lh) ? 1 : 0, followImg: s.lh ? P[s.lh].img : P.bkc.img,
       pj, winHole: winPath(100, 100, 50, 47, 34),
       planX: s.planX, planY: s.planY, planZ: s.planZ, planTr: s.planDrag ? 'none' : 'transform .5s cubic-bezier(.2,.8,.1,1)', planPct: Math.round(s.planZ * 100) + '%',
@@ -1558,15 +1750,24 @@ class Component extends DCLogic {
       contactDone: () => this.setState({ sent: true }), visitFocus: s.visit, visitKey: s.visitKey, preProject: s.preProject, contactTitle: s.sent ? 'Thank you.' : "Let's build",
       waHref: pg === 'project' ? pj.waProject : wa("Hello JDC, I'd like to know more about your projects."),
       C: { ...C, whatsappLabel: C.whatsapp ? '+' + C.whatsapp : '[WhatsApp number]', socialsLabel: socialsSet.length ? socialsSet.map(([k]) => k).join(' · ') : '[Social links]' }, telHref, mailHref,
-      footProjects: ORDER.map(id => ({ name: P[id].name, href: '#/projects/' + id, accent: P[id].accent })),
-      footCompany: [['Our legacy', '#/about'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ["Let's build", '#/contact'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri']].concat(HAS_PROGRESS ? [['Live from site', '#/progress']] : []).map(([t, href]) => ({ t, href })),
+      footProjects: ['ongoing', 'completed'].flatMap(st => ORDER.filter(id => PC[id].stage === st)).map(id => ({ name: P[id].name, href: '#/projects/' + id, accent: P[id].accent })),
+      footCompany: [['About us', '#/about'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ["Let's build", '#/contact'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri']].concat(HAS_PROGRESS ? [['Live from site', '#/progress']] : []).map(([t, href]) => ({ t, href })),
       reraList: ORDER.map(id => ({ name: P[id].name, no: PC[id].rera })), year: String(new Date().getFullYear()),
       news: s.news, newsChange: e => this.setState({ news: e.target.value, newsErr: '' }), newsSubmit: e => this.subscribe(e), newsErr: s.newsErr, hasNewsErr: !!s.newsErr, newsInvalid: s.newsErr ? 'true' : 'false', newsOk: s.newsStatus === 'ok', newsForm: s.newsStatus !== 'ok', newsBtn: s.newsStatus === 'sending' ? 'Sending' : 'Subscribe',
       info, infoIsSitemap: s.info === 'sitemap',
-      sitemap: [['Home', '#/'], ['Our legacy', '#/about'], ['Projects', '#/projects'], ['Navi Mumbai Waterfront', '#/projects/water'], ['BKC ONE', '#/projects/bkc'], ['ARISE', '#/projects/arise'], ['Chembur Tower', '#/projects/chembur'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ["Let's build", '#/contact'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri'], ['Privacy', '#/info/privacy'], ['Terms', '#/info/terms'], ['Disclaimer', '#/info/disclaimer']].concat(HAS_PROGRESS ? [['Live from site', '#/progress']] : []).map(([t, href]) => ({ t, href })),
+      sitemap: [['Home', '#/'], ['About us', '#/about'], ['Projects', '#/projects'], ['Navi Mumbai Waterfront', '#/projects/water'], ['BKC ONE', '#/projects/bkc'], ['ARISE', '#/projects/arise'], ['Chembur Tower', '#/projects/chembur'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ["Let's build", '#/contact'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri'], ['Privacy', '#/info/privacy'], ['Terms', '#/info/terms'], ['Disclaimer', '#/info/disclaimer']].concat(HAS_PROGRESS ? [['Live from site', '#/progress']] : []).map(([t, href]) => ({ t, href })),
+      emiFields: [
+        ['emi-price', 'Property price', 'emiPrice', 2500000, 100000000, 500000, inrShort, '₹25 L', '₹10 Cr'],
+        ['emi-down', 'Down payment', 'emiDown', 10, 90, 1, v => v + '% · ' + inrShort(s.emiPrice * v / 100), '10%', '90%'],
+        ['emi-rate', 'Interest rate', 'emiRate', 6, 15, 0.05, v => v.toFixed(2) + '% p.a.', '6%', '15%'],
+        ['emi-years', 'Loan tenure', 'emiYears', 1, 30, 1, v => v + (v === 1 ? ' year' : ' years'), '1 yr', '30 yrs']
+      ].map(([id, label, k, min, max, step, fmt, minL, maxL]) => ({ id, label, min, max, step, minL, maxL, value: s[k], shown: fmt(s[k]),
+        track: (p => `linear-gradient(90deg,#D9542B ${p}%,#6E6A64 ${p}%) center / 100% 3px no-repeat`)((s[k] - min) / (max - min) * 100), change: e => this.setState({ [k]: Number(e.target.value) }) })),
+      emi: (() => { const e = emiCalc(s.emiPrice, s.emiDown, s.emiRate, s.emiYears); return { monthly: inr(e.monthly), pPct: (e.total ? e.principal / e.total * 100 : 100) + '%',
+        rows: [['Loan amount', inrShort(e.principal), '#EBE3D8'], ['Total interest', inrShort(e.interest), '#F2A93B'], ['Total payable', inrShort(e.total), '']].map(([k, v, sw]) => ({ k, v, sw, swd: sw ? 'block' : 'none' })) }; })(),
       toTop: () => this.toTop(),
       enqOpen: s.enq, enqProject: s.enqProject, enqVisit: s.enqVisit, enqTitle: s.enqVisit ? 'Book a site visit' : 'Tell us what you are looking for', enqEyebrow: s.enqProject || 'Enquire',
-      openEnq: () => this.openEnq('', false), openVisit: () => this.openEnq(pg === 'project' ? pr.name : '', true), openVisitProject: () => this.openEnq(pr.name, true), closeEnq: () => this.closeEnq(), enqBackdrop: e => { if (e.target === e.currentTarget) this.closeEnq(); }
+      openEnq: () => this.openEnq('', false), openEnqProject: () => this.openEnq(pr.name, false), openVisit: () => this.openEnq(pg === 'project' ? pr.name : '', true), openVisitProject: () => this.openEnq(pr.name, true), closeEnq: () => this.closeEnq(), enqBackdrop: e => { if (e.target === e.currentTarget) this.closeEnq(); }
     };
   }
 }
