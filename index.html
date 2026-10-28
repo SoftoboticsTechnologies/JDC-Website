@@ -68,6 +68,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
 @media (max-width:639px){:root{--sy1:64px;--sy2:56px;--sy3:56px;--sy4:64px;--top1:108px;--top2:100px}[data-sm-hide]{display:none!important}[data-fx=hero]{height:auto!important}[data-fx=hero] [data-sticky]{position:relative!important;height:100svh!important;gap:16px!important;padding-bottom:20px!important}[data-fx=assemble] [data-sticky]{padding:84px var(--pad) 24px!important;gap:20px!important}[data-fx=assemble] [data-sticky] > div:last-child{gap:14px!important}[data-asm]{width:clamp(120px,36vw,200px)!important}[data-asm-h]{font-size:32px!important}[data-lead],[data-stag]{margin-top:0!important}[data-gal]{height:min(62vh,420px)!important}[data-ptitle]{--m:clamp(26px,8.6vw,36px)!important}[data-ptitle] > span,[data-wtxt] > span{font-size:20px!important}[data-wtxt] h1{font-size:clamp(36px,12vw,56px)!important}}
 @media (max-height:520px) and (orientation:landscape){:root{--sy1:64px;--sy2:56px;--sy3:56px;--sy4:72px;--top1:100px;--top2:96px}[data-fx=assemble] [data-sticky],[data-fx=arch] [data-sticky]{position:relative!important;height:auto!important;min-height:100vh}[data-fx=assemble],[data-fx=arch]{height:auto!important}}
 @media (min-width:640px){[data-sm-show]{display:none!important}}
+@media (max-width:639px){[data-map-box]{aspect-ratio:4/5!important}[data-pin-lab]{display:none!important;padding:5px 8px 6px}.jdc-pin[data-hp] [data-pin-lab]{display:flex!important;left:50%!important;right:auto!important;top:auto!important;bottom:calc(100% - 2px)!important;transform:translateX(-50%)!important}[data-pin-lab] b{font-size:11px}[data-pin-lab] small{display:none}[data-map-lab=big]{font-size:12px;letter-spacing:.24em}[data-filters]{flex-wrap:nowrap!important;overflow-x:auto;gap:24px!important;margin:0 calc(var(--pad) * -1);padding-left:var(--pad)!important;padding-right:var(--pad)!important;scrollbar-width:none}[data-filters]::-webkit-scrollbar{display:none}[data-filters] button{flex:0 0 auto;white-space:nowrap}}
 @media (max-width:1099px){[data-ksr]{transition-duration:1.1s!important;transition-delay:0s!important}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}[data-fx=hero],[data-fx=arch],[data-fx=assemble],[data-fx=win]{height:auto!important}[data-sticky]{position:relative!important;height:auto!important;min-height:100vh}}
 [data-leaflet]{background:#E6F0FA;font:inherit}
@@ -178,10 +179,23 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   <div data-hide-sb="1" data-lenis-prevent="" style="flex:1 1 auto;min-width:0;overflow:auto;scrollbar-width:none;display:flex;flex-direction:column;justify-content:space-between;gap:44px;padding:110px var(--pad) 34px clamp(18px,3vw,48px);box-sizing:border-box">
     <nav aria-label="Site" style="display:flex;flex-direction:column">
       <sc-for list="{{ menuItems }}" as="m" hint-placeholder-count="6">
-        <a href="{{ m.href }}" onMouseEnter="{{ m.hover }}" onFocus="{{ m.hover }}" aria-current="{{ m.cur }}" style="display:flex;align-items:center;gap:18px;padding:12px 0;border-top:1px solid rgba(235,227,216,.18);opacity:{{ m.op }};transform:{{ m.tf }};transition:transform .6s cubic-bezier(.2,.8,.1,1), opacity .4s ease">
-          <span aria-hidden="true" style="display:block;flex:0 0 auto;height:.42em;width:{{ m.ksW }};font-size:clamp(40px,5.4vw,84px);background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);transition:width .5s cubic-bezier(.2,.8,.1,1)"></span>
-          <span style="min-width:0;font-weight:600;font-size:clamp(40px,5.4vw,84px);line-height:1;letter-spacing:-.05em">{{ m.label }}</span>
-        </a>
+        <div onMouseEnter="{{ m.hover }}" style="border-top:1px solid rgba(235,227,216,.18);opacity:{{ m.op }};transform:{{ m.tf }};transition:transform .6s cubic-bezier(.2,.8,.1,1), opacity .4s ease">
+          <a href="{{ m.href }}" onFocus="{{ m.hover }}" aria-current="{{ m.cur }}" style="display:flex;align-items:center;gap:18px;padding:12px 0">
+            <span aria-hidden="true" style="display:block;flex:0 0 auto;height:.42em;width:{{ m.ksW }};font-size:clamp(40px,5.4vw,84px);background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);transition:width .5s cubic-bezier(.2,.8,.1,1)"></span>
+            <span style="min-width:0;font-weight:600;font-size:clamp(40px,5.4vw,84px);line-height:1;letter-spacing:-.05em">{{ m.label }}</span>
+          </a>
+          <sc-if value="{{ m.hasSubs }}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;grid-template-rows:{{ m.subRows }};opacity:{{ m.subOp }};transition:grid-template-rows .5s cubic-bezier(.2,.8,.1,1), opacity .35s ease">
+            <div style="min-height:0;overflow:hidden">
+            <div style="display:flex;flex-wrap:wrap;gap:6px 28px;padding:0 0 16px calc(clamp(40px,5.4vw,84px) * .6 + 18px);font-size:clamp(15px,1.3vw,18px);font-weight:500">
+              <sc-for list="{{ m.subs }}" as="u" hint-placeholder-count="2">
+                <a href="{{ u.href }}" onFocus="{{ u.hover }}" data-nav="1" aria-current="{{ u.cur }}" style="display:flex;flex-direction:column;gap:4px;padding:4px 0;color:rgba(235,227,216,.8)">{{ u.t }}<span data-nav-ul="1" style="height:2px;background:#D9542B;transform-origin:left;transform:scaleX(0);transition:transform .5s cubic-bezier(.2,.8,.1,1)"></span></a>
+              </sc-for>
+            </div>
+            </div>
+            </div>
+          </sc-if>
+        </div>
       </sc-for>
     </nav>
     <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 30px;border-top:1px solid rgba(235,227,216,.18);padding-top:24px">
@@ -617,7 +631,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
           <button onClick="{{ viewList }}" aria-pressed="{{ listPressed }}" style="display:flex;align-items:center;gap:10px;height:48px;background:{{ listBtnBg }};color:{{ listBtnInk }};border:1px solid #1F1F1F;border-radius:0;padding:0 18px;font-size:15px;font-weight:600;transition:background .3s,color .3s"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>List</button>
         </div>
       </div>
-      <div role="group" aria-label="Filter projects" style="display:flex;flex-wrap:wrap;gap:8px 30px;border-top:1px solid #6E6A64;padding-top:18px">
+      <div role="group" aria-label="Filter projects" data-filters="1" style="display:flex;flex-wrap:wrap;gap:8px 30px;border-top:1px solid #6E6A64;padding-top:18px">
         <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
           <button onClick="{{ f.pick }}" aria-pressed="{{ f.pressed }}" style="background:none;border:none;height:44px;padding:0;display:flex;align-items:center;gap:10px;font-size:16px;font-weight:{{ f.fw }}">
             <span aria-hidden="true" style="display:block;width:14px;height:10px;background:#D9542B;clip-path:polygon(0 0,100% 0,80% 100%,20% 100%);transform:{{ f.ks }};transition:transform .4s cubic-bezier(.3,1.5,.5,1)"></span>{{ f.label }}
@@ -631,7 +645,7 @@ html[data-cur-on] input,html[data-cur-on] textarea{cursor:text}
   <section data-bg="#EBE3D8" data-tone="dark" style="padding:0 var(--pad) var(--sy2)">
     <div style="max-width:1560px;margin:0 auto;display:flex;flex-wrap:wrap;gap:40px;align-items:stretch">
       <div style="flex:1 1 600px;min-width:0;display:flex;flex-direction:column;gap:12px">
-        <div style="position:relative;z-index:0;aspect-ratio:4/3;overflow:hidden">
+        <div data-map-box="1" style="position:relative;z-index:0;aspect-ratio:4/3;overflow:hidden">
           <svg aria-hidden="true" width="0" height="0" style="position:absolute"><filter id="jdc-blue" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"></feColorMatrix><feComponentTransfer><feFuncR type="linear" slope="5.667" intercept="-4.146"></feFuncR><feFuncG type="linear" slope="3.4" intercept="-2.087"></feFuncG><feFuncB type="linear" slope="1.222" intercept="-0.11"></feFuncB></feComponentTransfer></filter></svg>
           <div data-leaflet="1" role="region" aria-label="Map of Mumbai and Navi Mumbai showing JDC project locations" style="position:absolute;inset:0"></div>
           <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
@@ -1308,6 +1322,14 @@ const PAGES = [
   { k: 'progress', href: '#/progress', label: 'Live from site', tp: IV, img: 'assets/sign-jdc.jpg', cap: 'Construction updates', hidden: !HAS_PROGRESS },
   { k: 'contact', href: '#/contact', label: "Let's build", tp: OB, img: 'assets/plaque.jpg', cap: 'Enquire or book a site visit' }
 ].filter(p => !p.hidden);
+// Overlay menu mirrors the header nav: Projects and Brands carry their dropdown links
+const MENU = [
+  PAGES.find(p => p.k === 'home'),
+  PAGES.find(p => p.k === 'about'),
+  { ...PAGES.find(p => p.k === 'projects'), on: ['projects', 'project'], subs: [['Ongoing projects', '#/projects?stage=ongoing'], ['Completed projects', '#/projects?stage=completed']] },
+  { k: 'brands', href: '#/select', label: 'Brands', img: 'assets/select-wall.jpg', cap: 'JDC Select and JDC Place', on: ['select', 'place'], subs: [['JDC Select', '#/select'], ['JDC Place', '#/place']] },
+  ...PAGES.filter(p => p.k === 'progress' || p.k === 'contact')
+];
 const META = {
   home: ['JDC · John Dennis Constructions · Built for Life', "We don't just build homes. We build legacies. Residential and commercial projects by John Dennis Constructions, Mumbai."],
   about: ['About us · JDC', 'The structure is complete. The story isn\'t. The story, mission, vision and values of John Dennis Constructions.'],
@@ -1333,6 +1355,7 @@ function emiCalc(price, downPct, rate, years) {
 }
 function matchFilter(f, id) { return f === 'All' || P[id].type === f || PC[id].status === f || STAGES[PC[id].stage] === f; }
 function mapFocus(s) { return matchFilter(s.filter, s.hp) && P[s.hp].geo ? s.hp : (ORDER.find(id => matchFilter(s.filter, id) && P[id].geo) || 'bkc'); }
+const JUMPS = { loan: '[aria-labelledby="emi-h"]' };
 function stageFilter(q) { return STAGES[q.get('stage')] || 'All'; }
 function parseHash() {
   const h = (location.hash || '#/').replace(/^#/, ''); const [path, qs] = h.split('?'); const q = new URLSearchParams(qs || '');
@@ -1397,6 +1420,7 @@ class Component extends DCLogic {
     this.evs = [['hashchange', this.onHash], ['mousemove', this.onMove], ['mouseover', this.onOver], ['pointerdown', this.onDown], ['pointermove', this.onPMove], ['pointerup', this.onUp], ['keydown', this.onKey], ['resize', this.onResize], ['scroll', this.onScroll]];
     this.evs.forEach(([n, f]) => addEventListener(n, f, { passive: n !== 'keydown' }));
     this.measureT = setInterval(() => this.measure(), 900);
+    const to0 = JUMPS[parseHash().q.get('to')]; if (to0) this.jumpTo(to0, this.state.load < 3 && !R ? 2600 : 400);
     this.applyMeta(); this.applyMenuInert();
     this.snap = this.snapOf(this.state);
     setTimeout(() => this.bind(), 80);
@@ -1406,11 +1430,11 @@ class Component extends DCLogic {
   componentWillUnmount() {
     cancelAnimationFrame(this.raf); clearInterval(this.measureT);
     (this.evs || []).forEach(([n, f]) => removeEventListener(n, f));
-    if (this.io) this.io.disconnect(); if (this.vio) this.vio.disconnect(); if (this.lenis) this.lenis.destroy(); if (this.map) this.map.remove();
+    if (this.io) this.io.disconnect(); if (this.vio) this.vio.disconnect(); if (this.lenis) this.lenis.destroy(); if (this.mapRO) this.mapRO.disconnect(); if (this.map) this.map.remove();
   }
   syncMap() {
     const el = document.querySelector('[data-leaflet]'), L = window.L;
-    if (this.map && this.mapEl !== el) { this.map.remove(); this.map = null; this.mapEl = null; }
+    if (this.map && this.mapEl !== el) { if (this.mapRO) this.mapRO.disconnect(); this.map.remove(); this.map = null; this.mapEl = null; }
     if (!el || !L) return;
     if (!this.map) {
       const map = L.map(el, { scrollWheelZoom: false, zoomControl: false, zoomSnap: 0.25 });
@@ -1429,7 +1453,12 @@ class Component extends DCLogic {
         const e = m.getElement(); if (e) e.addEventListener('focus', () => this.setState({ hp: id }));
         return { id, m };
       });
-      map.fitBounds(L.latLngBounds(ids.map(id => P[id].geo)), { paddingTopLeft: [170, 90], paddingBottomRight: [170, 60] });
+      // label padding scales with the map so a phone-width map can still fit every pin
+      const bounds = L.latLngBounds(ids.map(id => P[id].geo));
+      const fit = () => { const w = el.clientWidth, h = el.clientHeight, sx = Math.min(170, w * (w < 640 ? .22 : .24)); map.invalidateSize(false); map.fitBounds(bounds, { paddingTopLeft: [sx, Math.min(90, h * .16)], paddingBottomRight: [sx, Math.min(60, h * .1)], animate: false }); };
+      fit();
+      let fw = el.clientWidth;
+      if (window.ResizeObserver) { this.mapRO = new ResizeObserver(() => { if (el.clientWidth !== fw) { fw = el.clientWidth; fit(); } }); this.mapRO.observe(el); }
       this.map = map; this.mapEl = el; this.mapKey = '';
     }
     const s = this.state, key = s.filter + '|' + s.hp;
@@ -1440,7 +1469,7 @@ class Component extends DCLogic {
       const on = matchFilter(s.filter, id), inn = e.firstElementChild;
       e.style.pointerEvents = on ? 'auto' : 'none'; e.tabIndex = on ? 0 : -1;
       inn.style.opacity = on ? 1 : 0.15; inn.style.transform = `scale(${on ? (hp === id ? 1.2 : 1) : 0.6})`;
-      m.setZIndexOffset(hp === id ? 1000 : 0);
+      m.setZIndexOffset(hp === id ? 1000 : 0); e.toggleAttribute('data-hp', hp === id);
     });
   }
   snapOf(s) { return { page: s.page, pid: s.pid, info: s.info, view: s.view, sent: s.sent, load: s.load, menu: s.menu }; }
@@ -1450,8 +1479,18 @@ class Component extends DCLogic {
     const s = this.state; const extra = { visit: r.q.get('visit') === '1', preProject: r.q.get('project') || '', visitKey: s.visitKey + 1 };
     if (r.page === 'projects') extra.filter = stageFilter(r.q);
     const same = r.page === s.page && (r.page !== 'project' || r.pid === s.pid) && (r.page !== 'info' || r.info === s.info) && (r.page !== 'projects' || extra.filter === s.filter);
-    if (same) { this.setState({ menu: false, ...extra }); if (!extra.visit) this.toTop(); else this.scrollToForm(); return; }
+    const to = JUMPS[r.q.get('to')];
+    if (same) { this.setState({ menu: false, ...extra }); if (to) this.jumpTo(to, 300); else if (!extra.visit) this.toTop(); else this.scrollToForm(); return; }
     this.transition(r, extra);
+    if (to) this.jumpTo(to, 1100 * (this.reduce ? 0 : 1) + 300);
+  }
+  // Scroll to an in-page section, then drop the ?to= so the same link works again
+  jumpTo(sel, delay) {
+    setTimeout(() => {
+      const f = document.querySelector(sel); if (!f) return;
+      const y = f.getBoundingClientRect().top + scrollY; if (this.lenis) this.lenis.scrollTo(y); else window.scrollTo({ top: y, behavior: 'smooth' });
+      try { history.replaceState(null, '', location.hash.replace(/[?&]to=[^&]*/, '').replace(/\?$/, '')); } catch (e) {}
+    }, delay);
   }
   transition(r, extra) {
     const color = r.page === 'project' ? P[r.pid].accent : r.page === 'info' ? IV : (PAGES.find(x => x.k === r.page) || PAGES[0]).tp;
@@ -1683,7 +1722,7 @@ class Component extends DCLogic {
       const pt = (a, rr) => (cx + Math.cos(a) * rr).toFixed(1) + ',' + (cy - Math.sin(a) * rr).toFixed(1);
       stones.push({ order: Math.min(i, N - 1 - i), pts: [pt(a0, ro), pt(a1, ro), pt(a1 + (key ? -0.03 : 0), ri), pt(a0 + (key ? 0.03 : 0), ri)].join(' '), fill: key ? TC : (i % 2 ? CG : OB) }); }
 
-    const mh = PAGES[Math.min(s.mh, PAGES.length - 1)];
+    const mh = MENU[Math.min(s.mh, MENU.length - 1)];
     const navIsDark = s.menu ? false : s.navDark;
     const posters = {
       home: { aria: 'A legacy built on trust', img: 'assets/hero-mumbai.jpg', imgSm: 'assets/hero-mumbai.jpg', pos: '50% 36%', alt: 'Mumbai skyline at golden hour', l1: 'A legacy', l2: 'built on ', b: 'trust.', l3: '' },
@@ -1710,9 +1749,9 @@ class Component extends DCLogic {
       projUl: pg === 'projects' || pg === 'project' ? 'scaleX(1)' : 'scaleX(0)', projCur: pg === 'projects' || pg === 'project' ? 'page' : 'false',
       projDD: [['ongoing', 'Under construction across Mumbai'], ['completed', 'Delivered and handed over']].map(([k, sub]) => ({ t: STAGES[k] + ' projects', sub, href: '#/projects?stage=' + k, cur: pg === 'projects' && s.filter === STAGES[k] ? 'page' : 'false' })),
       menuLabel: s.menu ? 'Close' : 'Menu', menuAria: s.menu ? 'Close menu' : 'Open menu', menuExpanded: s.menu ? 'true' : 'false', burgerTop: s.menu ? '6px' : '0px', burgerA: s.menu ? 'rotate(45deg)' : 'none', burgerB: s.menu ? 'rotate(-45deg)' : 'none', burgerBL: s.menu ? '0px' : '8px',
-      toggleMenu: () => this.setState({ menu: !s.menu, menuLoaded: true, mh: Math.max(0, PAGES.findIndex(x => x.k === pg || (x.k === 'projects' && pg === 'project'))) }),
+      toggleMenu: () => this.setState({ menu: !s.menu, menuLoaded: true, mh: Math.max(0, MENU.findIndex(x => (x.on || [x.k]).includes(pg))) }),
       menuClip: s.menu ? 'polygon(-40% -10%,140% -10%,118% 112%,-18% 112%)' : 'polygon(90% 3%,97% 3%,96% 7%,91% 7%)', menuVis: s.menu ? 'visible' : 'hidden', menuVisDelay: s.menu ? '0s' : '.85s', menuLoaded: s.menuLoaded, menuCaption: mh.cap,
-      menuItems: PAGES.map((m, i) => { const act = s.mh === i; return { ...m, cur: (m.k === pg) ? 'page' : 'false', hover: () => this.setState({ mh: i }), tf: s.menu ? 'none' : 'translateY(40px)', op: s.menu ? (act ? 1 : 0.62) : 0, ksW: act ? '.6em' : '0em', imgOp: act ? 1 : 0, imgTf: act ? 'scale(1)' : 'scale(1.1)' }; }),
+      menuItems: MENU.map((m, i) => { const act = s.mh === i; return { ...m, hasSubs: !!m.subs, subs: (m.subs || []).map(([t, href]) => ({ t, href, hover: () => this.setState({ mh: i }), cur: (href === '#/' + pg || (pg === 'projects' && href.endsWith('=' + (s.filter || '').toLowerCase()))) ? 'page' : 'false' })), cur: (m.k === pg) ? 'page' : 'false', hover: () => this.setState({ mh: i }), tf: s.menu ? 'none' : 'translateY(40px)', op: s.menu ? (act ? 1 : 0.62) : 0, ksW: act ? '.6em' : '0em', subRows: act ? '1fr' : '0fr', subOp: act ? 1 : 0, imgOp: act ? 1 : 0, imgTf: act ? 'scale(1)' : 'scale(1.1)' }; }),
       stmtWords: "We don't just build homes. We build legacies.".split(' ').map(t => ({ t, color: t === 'legacies.' ? TC : OB })),
       asmBlocks: MARK.map((m, i) => ({ i, left: (m[0] === 1 || m[0] === 0 ? m[0] : m[0]) / 19 * 100 + '%', top: (m[1] / 16.2 * 100) + '%' })).map((b, i) => ({ ...b, left: (Math.min(MARK[i][0], MARK[i][6]) / 19 * 100).toFixed(3) + '%' })),
       homeProjects: ORDER.map(id => { const p = P[id]; return { ...p, href: '#/projects/' + id, hasImg2: !!p.img2, isWindow: !!p.soon, notWindow: !p.soon, winPath: winPath(40, 30, 20, 15.5, 22), aria: `${p.name}, ${p.brand}, ${p.loc}` }; }),
@@ -1751,7 +1790,7 @@ class Component extends DCLogic {
       waHref: pg === 'project' ? pj.waProject : wa("Hello JDC, I'd like to know more about your projects."),
       C: { ...C, whatsappLabel: C.whatsapp ? '+' + C.whatsapp : '[WhatsApp number]', socialsLabel: socialsSet.length ? socialsSet.map(([k]) => k).join(' · ') : '[Social links]' }, telHref, mailHref,
       footProjects: ['ongoing', 'completed'].flatMap(st => ORDER.filter(id => PC[id].stage === st)).map(id => ({ name: P[id].name, href: '#/projects/' + id, accent: P[id].accent })),
-      footCompany: [['About us', '#/about'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ["Let's build", '#/contact'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri']].concat(HAS_PROGRESS ? [['Live from site', '#/progress']] : []).map(([t, href]) => ({ t, href })),
+      footCompany: [['About us', '#/about'], ['JDC Select', '#/select'], ['JDC Place', '#/place'], ["Let's build", '#/contact'], ['Careers', '#/info/careers'], ['Channel partners', '#/info/partners'], ['NRI enquiries', '#/info/nri'], ['Loan calculator', '#/?to=loan']].concat(HAS_PROGRESS ? [['Live from site', '#/progress']] : []).map(([t, href]) => ({ t, href })),
       reraList: ORDER.map(id => ({ name: P[id].name, no: PC[id].rera })), year: String(new Date().getFullYear()),
       news: s.news, newsChange: e => this.setState({ news: e.target.value, newsErr: '' }), newsSubmit: e => this.subscribe(e), newsErr: s.newsErr, hasNewsErr: !!s.newsErr, newsInvalid: s.newsErr ? 'true' : 'false', newsOk: s.newsStatus === 'ok', newsForm: s.newsStatus !== 'ok', newsBtn: s.newsStatus === 'sending' ? 'Sending' : 'Subscribe',
       info, infoIsSitemap: s.info === 'sitemap',
