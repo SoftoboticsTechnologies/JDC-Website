@@ -10,12 +10,14 @@
 <meta property="og:title" content="JDC · Built for Life">
 <meta property="og:description" content="We don't just build homes. We build legacies.">
 <meta property="og:url" content="https://softoboticstechnologies.github.io/JDC-Website/">
-<meta property="og:image" content="https://softoboticstechnologies.github.io/JDC-Website/assets/hero-mumbai.jpg">
-<meta property="og:image:secure_url" content="https://softoboticstechnologies.github.io/JDC-Website/assets/hero-mumbai.jpg">
-<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image" content="https://softoboticstechnologies.github.io/JDC-Website/assets/favicon_io/android-chrome-512x512.png">
+<meta property="og:image:secure_url" content="https://softoboticstechnologies.github.io/JDC-Website/assets/favicon_io/android-chrome-512x512.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
 <meta property="og:image:alt" content="John Dennis Constructions · Mumbai">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://softoboticstechnologies.github.io/JDC-Website/assets/hero-mumbai.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://softoboticstechnologies.github.io/JDC-Website/assets/favicon_io/android-chrome-512x512.png">
 <link rel="icon" type="image/x-icon" href="assets/favicon_io/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
@@ -32,7 +34,7 @@
 <meta property="og:site_name" content="John Dennis Constructions">
 <meta property="og:title" content="JDC · Built for Life">
 <meta property="og:description" content="We don't just build homes. We build legacies.">
-<meta property="og:image" content="https://softoboticstechnologies.github.io/JDC-Website/assets/hero-mumbai.jpg">
+<meta property="og:image" content="https://softoboticstechnologies.github.io/JDC-Website/assets/favicon_io/android-chrome-512x512.png">
 <link rel="icon" type="image/x-icon" href="assets/favicon_io/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
@@ -1533,13 +1535,13 @@ class Component extends DCLogic {
   scrollToForm() { setTimeout(() => { const f = document.querySelector('[data-contact-form]'); if (!f) return; const y = f.getBoundingClientRect().top + scrollY - 110; if (this.lenis) this.lenis.scrollTo(y); else window.scrollTo({ top: y, behavior: 'smooth' }); }, 300); }
 
   applyMeta() {
-    const s = this.state; let [t, d] = META[s.page] || META.home; let img = 'assets/hero-mumbai.jpg';
+    const s = this.state; let [t, d] = META[s.page] || META.home; let img = 'assets/favicon_io/android-chrome-512x512.png';
     if (s.page === 'project') { const p = P[s.pid]; t = `${p.name} · ${p.brand} · JDC`; d = isPh(p.line) ? `${p.name} by John Dennis Constructions.` : `${p.line} ${p.name} by John Dennis Constructions.`; img = p.img; }
     if (s.page === 'info') { t = CONTENT.info[s.info].t + ' · JDC'; d = CONTENT.info[s.info].d; }
     document.title = t;
     const set = (attr, key, val) => { let m = document.head.querySelector(`meta[${attr}="${key}"]`); if (!m) { m = document.createElement('meta'); m.setAttribute(attr, key); document.head.appendChild(m); } m.setAttribute('content', val); };
     set('name', 'description', d); set('property', 'og:title', t); set('property', 'og:description', d); set('property', 'og:image', new URL(img, location.href).href); set('property', 'og:url', location.href);
-    set('name', 'twitter:card', 'summary_large_image');
+    set('name', 'twitter:card', 'summary');
     const C = CONTENT.contact;
     const org = { '@type': ['Organization', 'RealEstateAgent'], '@id': CONTENT.siteUrl + '/#org', name: CONTENT.company, alternateName: 'JDC', slogan: CONTENT.tagline, url: CONTENT.siteUrl, image: 'assets/hero-mumbai.jpg',
       address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressRegion: 'Maharashtra', addressCountry: 'IN' } };
